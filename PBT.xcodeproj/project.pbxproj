@@ -8,18 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		1F6016101919DCE0003D8484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
-		1F6016151919DCE0003D8484 /* PBT.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F6016141919DCE0003D8484 /* PBT.h */; };
-		1F6016171919DCE0003D8484 /* PBT.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6016161919DCE0003D8484 /* PBT.m */; };
-		1F60161E1919DCE0003D8484 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60161D1919DCE0003D8484 /* XCTest.framework */; };
-		1F60161F1919DCE0003D8484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
-		1F6016211919DCE0003D8484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6016201919DCE0003D8484 /* UIKit.framework */; };
-		1F6016241919DCE0003D8484 /* libPBT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160C1919DCE0003D8484 /* libPBT.a */; };
-		1F60162A1919DCE0003D8484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F6016281919DCE0003D8484 /* InfoPlist.strings */; };
-		1F60162C1919DCE0003D8484 /* PBTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F60162B1919DCE0003D8484 /* PBTTests.m */; };
+		1F6016471919DF90003D8484 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6016461919DF90003D8484 /* SenTestingKit.framework */; };
+		1F6016491919DF90003D8484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6016481919DF90003D8484 /* CoreGraphics.framework */; };
+		1F60164A1919DF90003D8484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6016201919DCE0003D8484 /* UIKit.framework */; };
+		1F60164B1919DF90003D8484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
+		1F6016511919DF90003D8484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F60164F1919DF90003D8484 /* InfoPlist.strings */; };
+		1F7EFA12191B4BE70074B028 /* libPBT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160C1919DCE0003D8484 /* libPBT.a */; };
+		31B7336B6EA306EE7BB5B2B3 /* PBTConcreteSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B7371E3EFE8340BA7A29EB /* PBTConcreteSequence.m */; };
+		31B7371271F4035919E0E931 /* PBTProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73399D02DC2E56346E0A0 /* PBTProperty.m */; };
+		31B73925BF4547CBBA83F14E /* PBTRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7367B3E11AD0DC06F6595 /* PBTRandom.mm */; };
+		31B73B252B97464E705E72C1 /* PBTLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73DDC59910BDB958F4226 /* PBTLazySequence.m */; };
+		31B73C3D84FDBB94D8A6FE6A /* PBTGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B730E5432718F19A902CB9 /* PBTGenerator.m */; };
+		31B73CCA0CFC274B9068281C /* PBTPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */; };
+		31B73D53EB506977E8B6D87D /* PBTConstantRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E4FFE7B868F0EA1A6D3 /* PBTConstantRandom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1F6016221919DCE0003D8484 /* PBXContainerItemProxy */ = {
+		1F7EFA0F191B4BCD0074B028 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1F6016041919DCE0003D8484 /* Project object */;
 			proxyType = 1;
@@ -35,7 +40,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				1F6016151919DCE0003D8484 /* PBT.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,14 +49,28 @@
 		1F60160C1919DCE0003D8484 /* libPBT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPBT.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F60160F1919DCE0003D8484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1F6016131919DCE0003D8484 /* PBT-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBT-Prefix.pch"; sourceTree = "<group>"; };
-		1F6016141919DCE0003D8484 /* PBT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBT.h; sourceTree = "<group>"; };
-		1F6016161919DCE0003D8484 /* PBT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBT.m; sourceTree = "<group>"; };
-		1F60161C1919DCE0003D8484 /* PBTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PBTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F60161D1919DCE0003D8484 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F6016201919DCE0003D8484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		1F6016271919DCE0003D8484 /* PBTTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PBTTests-Info.plist"; sourceTree = "<group>"; };
-		1F6016291919DCE0003D8484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1F60162B1919DCE0003D8484 /* PBTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBTTests.m; sourceTree = "<group>"; };
+		1F6016451919DF90003D8484 /* PBTSpecs.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PBTSpecs.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F6016461919DF90003D8484 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1F6016481919DF90003D8484 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		1F60164E1919DF90003D8484 /* PBTSpecs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PBTSpecs-Info.plist"; sourceTree = "<group>"; };
+		1F6016501919DF90003D8484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1F6016571919DF91003D8484 /* PBTSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBTSpecs-Prefix.pch"; sourceTree = "<group>"; };
+		31B730183A626AD19A2B366E /* PBTSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSequence.h; sourceTree = "<group>"; };
+		31B7304B35C6D552B28742C9 /* PBTConstantRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTConstantRandom.h; sourceTree = "<group>"; };
+		31B730E5432718F19A902CB9 /* PBTGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTGenerator.m; sourceTree = "<group>"; };
+		31B732625073FC394DA7CDF5 /* PBTProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTProperty.h; sourceTree = "<group>"; };
+		31B733656606413AC3D482E3 /* PBTRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTRandom.h; sourceTree = "<group>"; };
+		31B73399D02DC2E56346E0A0 /* PBTProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTProperty.m; sourceTree = "<group>"; };
+		31B7359D19C07C6410676A13 /* PBTGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTGenerator.h; sourceTree = "<group>"; };
+		31B7367B3E11AD0DC06F6595 /* PBTRandom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTRandom.mm; sourceTree = "<group>"; };
+		31B7371E3EFE8340BA7A29EB /* PBTConcreteSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTConcreteSequence.m; sourceTree = "<group>"; };
+		31B738B363C804E9D33E42B8 /* PBTConcreteSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTConcreteSequence.h; sourceTree = "<group>"; };
+		31B739B6808E7B8BAC643DC8 /* PBTLazySequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTLazySequence.h; sourceTree = "<group>"; };
+		31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTPropertySpec.mm; sourceTree = "<group>"; };
+		31B73DDC59910BDB958F4226 /* PBTLazySequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTLazySequence.m; sourceTree = "<group>"; };
+		31B73E4FFE7B868F0EA1A6D3 /* PBTConstantRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTConstantRandom.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +82,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F6016191919DCE0003D8484 /* Frameworks */ = {
+		1F6016411919DF90003D8484 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F6016241919DCE0003D8484 /* libPBT.a in Frameworks */,
-				1F60161E1919DCE0003D8484 /* XCTest.framework in Frameworks */,
-				1F6016211919DCE0003D8484 /* UIKit.framework in Frameworks */,
-				1F60161F1919DCE0003D8484 /* Foundation.framework in Frameworks */,
+				1F7EFA12191B4BE70074B028 /* libPBT.a in Frameworks */,
+				1F6016491919DF90003D8484 /* CoreGraphics.framework in Frameworks */,
+				1F60164A1919DF90003D8484 /* UIKit.framework in Frameworks */,
+				1F6016471919DF90003D8484 /* SenTestingKit.framework in Frameworks */,
+				1F60164B1919DF90003D8484 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				1F6016111919DCE0003D8484 /* PBT */,
-				1F6016251919DCE0003D8484 /* PBTTests */,
+				1F60164C1919DF90003D8484 /* PBTSpecs */,
 				1F60160E1919DCE0003D8484 /* Frameworks */,
 				1F60160D1919DCE0003D8484 /* Products */,
 			);
@@ -92,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				1F60160C1919DCE0003D8484 /* libPBT.a */,
-				1F60161C1919DCE0003D8484 /* PBTTests.xctest */,
+				1F6016451919DF90003D8484 /* PBTSpecs.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +122,8 @@
 				1F60160F1919DCE0003D8484 /* Foundation.framework */,
 				1F60161D1919DCE0003D8484 /* XCTest.framework */,
 				1F6016201919DCE0003D8484 /* UIKit.framework */,
+				1F6016461919DF90003D8484 /* SenTestingKit.framework */,
+				1F6016481919DF90003D8484 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,8 +131,7 @@
 		1F6016111919DCE0003D8484 /* PBT */ = {
 			isa = PBXGroup;
 			children = (
-				1F6016141919DCE0003D8484 /* PBT.h */,
-				1F6016161919DCE0003D8484 /* PBT.m */,
+				1F6016351919DD35003D8484 /* Public */,
 				1F6016121919DCE0003D8484 /* Supporting Files */,
 			);
 			path = PBT;
@@ -125,22 +145,83 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1F6016251919DCE0003D8484 /* PBTTests */ = {
+		1F6016351919DD35003D8484 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				1F60162B1919DCE0003D8484 /* PBTTests.m */,
-				1F6016261919DCE0003D8484 /* Supporting Files */,
+				31B7376ABDE93DF780F6384A /* Data */,
+				1F6016371919DD40003D8484 /* Generators */,
+				31B732625073FC394DA7CDF5 /* PBTProperty.h */,
+				31B73399D02DC2E56346E0A0 /* PBTProperty.m */,
+				31B736A976CDB3B7301033AB /* Random */,
 			);
-			path = PBTTests;
+			path = Public;
 			sourceTree = "<group>";
 		};
-		1F6016261919DCE0003D8484 /* Supporting Files */ = {
+		1F6016371919DD40003D8484 /* Generators */ = {
 			isa = PBXGroup;
 			children = (
-				1F6016271919DCE0003D8484 /* PBTTests-Info.plist */,
-				1F6016281919DCE0003D8484 /* InfoPlist.strings */,
+				31B7359D19C07C6410676A13 /* PBTGenerator.h */,
+				31B730E5432718F19A902CB9 /* PBTGenerator.m */,
+			);
+			path = Generators;
+			sourceTree = "<group>";
+		};
+		1F60164C1919DF90003D8484 /* PBTSpecs */ = {
+			isa = PBXGroup;
+			children = (
+				1F60165B1919E283003D8484 /* Public */,
+				1F60164D1919DF90003D8484 /* Supporting Files */,
+			);
+			path = PBTSpecs;
+			sourceTree = "<group>";
+		};
+		1F60164D1919DF90003D8484 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F60164E1919DF90003D8484 /* PBTSpecs-Info.plist */,
+				1F60164F1919DF90003D8484 /* InfoPlist.strings */,
+				1F6016571919DF91003D8484 /* PBTSpecs-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F60165B1919E283003D8484 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				1F60165C1919E28E003D8484 /* Generators */,
+				31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		1F60165C1919E28E003D8484 /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Generators;
+			sourceTree = "<group>";
+		};
+		31B736A976CDB3B7301033AB /* Random */ = {
+			isa = PBXGroup;
+			children = (
+				31B7304B35C6D552B28742C9 /* PBTConstantRandom.h */,
+				31B73E4FFE7B868F0EA1A6D3 /* PBTConstantRandom.m */,
+				31B733656606413AC3D482E3 /* PBTRandom.h */,
+				31B7367B3E11AD0DC06F6595 /* PBTRandom.mm */,
+			);
+			path = Random;
+			sourceTree = "<group>";
+		};
+		31B7376ABDE93DF780F6384A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				31B738B363C804E9D33E42B8 /* PBTConcreteSequence.h */,
+				31B7371E3EFE8340BA7A29EB /* PBTConcreteSequence.m */,
+				31B739B6808E7B8BAC643DC8 /* PBTLazySequence.h */,
+				31B73DDC59910BDB958F4226 /* PBTLazySequence.m */,
+				31B730183A626AD19A2B366E /* PBTSequence.h */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,23 +244,24 @@
 			productReference = 1F60160C1919DCE0003D8484 /* libPBT.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		1F60161B1919DCE0003D8484 /* PBTTests */ = {
+		1F6016441919DF90003D8484 /* PBTSpecs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F6016321919DCE0003D8484 /* Build configuration list for PBXNativeTarget "PBTTests" */;
+			buildConfigurationList = 1F6016581919DF91003D8484 /* Build configuration list for PBXNativeTarget "PBTSpecs" */;
 			buildPhases = (
-				1F6016181919DCE0003D8484 /* Sources */,
-				1F6016191919DCE0003D8484 /* Frameworks */,
-				1F60161A1919DCE0003D8484 /* Resources */,
+				1F6016401919DF90003D8484 /* Sources */,
+				1F6016411919DF90003D8484 /* Frameworks */,
+				1F6016421919DF90003D8484 /* Resources */,
+				1F6016431919DF90003D8484 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1F6016231919DCE0003D8484 /* PBXTargetDependency */,
+				1F7EFA10191B4BCD0074B028 /* PBXTargetDependency */,
 			);
-			name = PBTTests;
-			productName = PBTTests;
-			productReference = 1F60161C1919DCE0003D8484 /* PBTTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = PBTSpecs;
+			productName = PBTSpecs;
+			productReference = 1F6016451919DF90003D8484 /* PBTSpecs.octest */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -189,6 +271,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jeff Hui";
+				TargetAttributes = {
+					1F6016441919DF90003D8484 = {
+						TestTargetID = 1F60160B1919DCE0003D8484;
+					};
+				};
 			};
 			buildConfigurationList = 1F6016071919DCE0003D8484 /* Build configuration list for PBXProject "PBT" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -203,54 +290,75 @@
 			projectRoot = "";
 			targets = (
 				1F60160B1919DCE0003D8484 /* PBT */,
-				1F60161B1919DCE0003D8484 /* PBTTests */,
+				1F6016441919DF90003D8484 /* PBTSpecs */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1F60161A1919DCE0003D8484 /* Resources */ = {
+		1F6016421919DF90003D8484 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F60162A1919DCE0003D8484 /* InfoPlist.strings in Resources */,
+				1F6016511919DF90003D8484 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F6016431919DF90003D8484 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F6016081919DCE0003D8484 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F6016171919DCE0003D8484 /* PBT.m in Sources */,
+				31B73925BF4547CBBA83F14E /* PBTRandom.mm in Sources */,
+				31B7336B6EA306EE7BB5B2B3 /* PBTConcreteSequence.m in Sources */,
+				31B73B252B97464E705E72C1 /* PBTLazySequence.m in Sources */,
+				31B7371271F4035919E0E931 /* PBTProperty.m in Sources */,
+				31B73C3D84FDBB94D8A6FE6A /* PBTGenerator.m in Sources */,
+				31B73D53EB506977E8B6D87D /* PBTConstantRandom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F6016181919DCE0003D8484 /* Sources */ = {
+		1F6016401919DF90003D8484 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F60162C1919DCE0003D8484 /* PBTTests.m in Sources */,
+				31B73CCA0CFC274B9068281C /* PBTPropertySpec.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1F6016231919DCE0003D8484 /* PBXTargetDependency */ = {
+		1F7EFA10191B4BCD0074B028 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1F60160B1919DCE0003D8484 /* PBT */;
-			targetProxy = 1F6016221919DCE0003D8484 /* PBXContainerItemProxy */;
+			targetProxy = 1F7EFA0F191B4BCD0074B028 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1F6016281919DCE0003D8484 /* InfoPlist.strings */ = {
+		1F60164F1919DF90003D8484 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1F6016291919DCE0003D8484 /* en */,
+				1F6016501919DF90003D8484 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -283,8 +391,11 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_SHADOW = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -314,8 +425,11 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_SHADOW = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -332,6 +446,8 @@
 				DSTROOT = /tmp/PBT.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PBT/PBT-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_SHADOW = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -344,45 +460,59 @@
 				DSTROOT = /tmp/PBT.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PBT/PBT-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_SHADOW = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		1F6016331919DCE0003D8484 /* Debug */ = {
+		1F6016591919DF91003D8484 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/PBTSpecs/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PBT/PBT-Prefix.pch";
+				GCC_PREFIX_HEADER = "PBTSpecs/PBTSpecs-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "PBTTests/PBTTests-Info.plist";
+				INFOPLIST_FILE = "PBTSpecs/PBTSpecs-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lstdc++",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
+				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
-		1F6016341919DCE0003D8484 /* Release */ = {
+		1F60165A1919DF91003D8484 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/PBTSpecs/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PBT/PBT-Prefix.pch";
-				INFOPLIST_FILE = "PBTTests/PBTTests-Info.plist";
+				GCC_PREFIX_HEADER = "PBTSpecs/PBTSpecs-Prefix.pch";
+				INFOPLIST_FILE = "PBTSpecs/PBTSpecs-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lstdc++",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
+				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -405,14 +535,16 @@
 				1F6016311919DCE0003D8484 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		1F6016321919DCE0003D8484 /* Build configuration list for PBXNativeTarget "PBTTests" */ = {
+		1F6016581919DF91003D8484 /* Build configuration list for PBXNativeTarget "PBTSpecs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1F6016331919DCE0003D8484 /* Debug */,
-				1F6016341919DCE0003D8484 /* Release */,
+				1F6016591919DF91003D8484 /* Debug */,
+				1F60165A1919DF91003D8484 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
