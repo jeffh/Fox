@@ -1,8 +1,7 @@
-#import <Foundation/Foundation.h>
-#import "PBTSequence.h"
+#import "PBTAbstractSequence.h"
 
 
-@interface PBTConcreteSequence : NSObject <PBTSequence>
+@interface PBTConcreteSequence : PBTAbstractSequence
 
 - (instancetype)init;
 - (instancetype)initWithObject:(id)object;

@@ -13,4 +13,5 @@ FOUNDATION_EXPORT PBTGenerator PBTGenBind(PBTSequenceGenerator generator,
                                           PBTGenerator (^generatorFactory)(id<PBTSequence> generatedSequence));
 
 
-FOUNDATION_EXPORT PBTGenerator (^PBTReturn)(id value);
+FOUNDATION_EXPORT PBTGenerator PBTReturn(id value);
+FOUNDATION_EXPORT PBTGenerator (^PBTMap)(PBTGenerator, id(^)(id roseTree));

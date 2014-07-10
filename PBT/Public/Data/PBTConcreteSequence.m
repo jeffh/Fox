@@ -32,11 +32,6 @@
     return self;
 }
 
-- (id<PBTSequence>)sequenceWithObjectPrepended:(id)object
-{
-    return [[[self class] alloc] initWithObject:object remainingSequence:self];
-}
-
 #pragma mark - NSObject
 
 - (BOOL)isEqual:(id)other

@@ -3,9 +3,9 @@
 
 
 typedef NS_ENUM(NSUInteger, PBTPropertyResult) {
+    PBTPropertyResultSkipped,
     PBTPropertyResultFailed,
     PBTPropertyResultPassed,
-    PBTPropertyResultSkipped,
 };
 
 @interface PBTProperty : NSObject

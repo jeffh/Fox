@@ -21,6 +21,8 @@
     return self;
 }
 
+#pragma mark - PBTSequence
+
 - (id)firstObject
 {
     return [[self evaluateSequence] firstObject];

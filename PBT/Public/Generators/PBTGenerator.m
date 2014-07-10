@@ -3,6 +3,25 @@
 #import "PBTLazySequence.h"
 #import "PBTRandom.h"
 
+#pragma mark - PBTSeq Operations
+
+FOUNDATION_EXPORT NSArray *PBTSeqMap(id<NSFastEnumeration> seq, id(^fn)(id)) {
+    return nil;
+}
+
+#pragma mark - Rose Tree
+
+FOUNDATION_EXPORT id<PBTSequence> PBTRTMap(id<PBTSequence> roseTree, id(^fn)(id)) {
+    if (!roseTree) {
+        return nil;
+    }
+    return [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
+        return [[PBTConcreteSequence alloc] initWithObject:fn([roseTree firstObject])
+                                         remainingSequence:PBTRTMap([roseTree remainingSequence], fn)];
+    }];
+}
+
+#pragma mark - Generators
 
 FOUNDATION_EXPORT PBTSequenceGenerator PBTGenPure(id value) {
     return ^id<PBTSequence>(id<PBTRandom> random, NSUInteger sizeFactor) {
@@ -37,6 +56,12 @@ FOUNDATION_EXPORT PBTGenerator PBTGenBind(PBTSequenceGenerator generator,
     };
 }
 
-PBTGenerator (^PBTReturn)(id) = ^(id value){
+PBTGenerator PBTReturn(id value) {
     return PBTGenPure([[PBTConcreteSequence alloc] initWithObject:value]);
+}
+
+PBTGenerator (^PBTMap)(PBTGenerator, id(^)(id)) = ^(PBTGenerator generator, id(^fn)(id)){
+    return ^id(id<PBTRandom> random, NSUInteger sizeFactor) {
+        return PBTRTMap(generator(random, sizeFactor), fn);
+    };
 };

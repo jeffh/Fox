@@ -7,8 +7,8 @@
 + (id)forAll:(PBTGenerator)generator
         then:(PBTPropertyResult (^)(id))verifier
 {
-    return PBTGenMap(generator, ^id(id generatedValue) {
-        return @(verifier(generatedValue));
+    return PBTMap(generator, ^id(id roseTree) {
+        return @(verifier([roseTree firstObject]));
     });
 }
 

@@ -1,9 +1,10 @@
-#import <Foundation/Foundation.h>
 #import "PBTSequence.h"
+#import "PBTAbstractSequence.h"
+
 
 typedef id<PBTSequence>(^PBTLazySequenceBlock)();
 
-@interface PBTLazySequence : NSObject <PBTSequence>
+@interface PBTLazySequence : PBTAbstractSequence
 
 - (instancetype)init;
 - (instancetype)initWithLazyBlock:(PBTLazySequenceBlock)block;

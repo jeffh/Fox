@@ -4,9 +4,11 @@
 //  The contents of this file are implicitly included at the beginning of every source file.
 //
 
-#ifdef __OBJC__
+#ifdef __cplusplus
     #import <random>
-    #import <UIKit/UIKit.h>
+#endif
+
+#ifdef __OBJC__
+    #import <Cedar/Cedar.h>
     #import <Foundation/Foundation.h>
-    #import <Cedar-iOS/Cedar-iOS.h>
 #endif

@@ -1,6 +1,5 @@
 #import "PBTRandom.h"
 #import "PBTSequence.h"
-#import <random>
 
 
 @implementation PBTRandom {
@@ -15,7 +14,7 @@
     if (self) {
         _distribution = std::uniform_real_distribution<double>(std::numeric_limits<double>::min(),
                                                                std::numeric_limits<double>::max());
-        [self setSeed:time(NULL)];
+        [self setSeed:(uint32_t)time(NULL)];
     }
     return self;
 }

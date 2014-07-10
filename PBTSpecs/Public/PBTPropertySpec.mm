@@ -16,14 +16,14 @@ describe(@"PBTProperty", ^{
     beforeEach(^{
         random = [[PBTConstantRandom alloc] initWithDoubleValue:2];
         propertyGenerator = [PBTProperty forAll:PBTReturn(@1) then:^PBTPropertyResult(id value){
-            return PBTRequire([value isEqual:@1]);
+            return PBTRequire([@1 isEqual:value]);
         }];
     });
 
     it(@"should generate passing values", ^{
         id<PBTSequence> seq = propertyGenerator(random, 1);
         [seq firstObject] should equal(@(PBTPropertyResultPassed));
-        [[seq remainingSequence] firstObject] should equal(@(PBTPropertyResultPassed));
+        [seq remainingSequence] should be_nil;
     });
 });
 
