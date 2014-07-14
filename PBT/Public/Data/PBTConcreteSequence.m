@@ -32,6 +32,15 @@
     return self;
 }
 
++ (instancetype)sequenceFromArray:(NSArray *)array
+{
+    id<PBTSequence> seq = nil;
+    for (id item in [array reverseObjectEnumerator]) {
+        seq = [[PBTConcreteSequence alloc] initWithObject:item remainingSequence:seq];
+    }
+    return seq;
+}
+
 #pragma mark - NSObject
 
 - (BOOL)isEqual:(id)other

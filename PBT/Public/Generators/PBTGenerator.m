@@ -2,66 +2,90 @@
 #import "PBTConcreteSequence.h"
 #import "PBTLazySequence.h"
 #import "PBTRandom.h"
+#import "PBTRoseTree.h"
 
-#pragma mark - PBTSeq Operations
-
-FOUNDATION_EXPORT NSArray *PBTSeqMap(id<NSFastEnumeration> seq, id(^fn)(id)) {
-    return nil;
-}
-
-#pragma mark - Rose Tree
-
-FOUNDATION_EXPORT id<PBTSequence> PBTRTMap(id<PBTSequence> roseTree, id(^fn)(id)) {
-    if (!roseTree) {
-        return nil;
-    }
-    return [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
-        return [[PBTConcreteSequence alloc] initWithObject:fn([roseTree firstObject])
-                                         remainingSequence:PBTRTMap([roseTree remainingSequence], fn)];
-    }];
-}
 
 #pragma mark - Generators
 
-FOUNDATION_EXPORT PBTSequenceGenerator PBTGenPure(id value) {
-    return ^id<PBTSequence>(id<PBTRandom> random, NSUInteger sizeFactor) {
-        return [[PBTConcreteSequence alloc] initWithObject:value];
+FOUNDATION_EXPORT PBTGenerator PBTGenPure(PBTRoseTree *tree) {
+    return ^(id<PBTRandom> random, NSNumber *size) {
+        return tree;
     };
 }
 
-id<PBTSequence> PBTMapSequence(id<PBTSequence> sequence, id(^mapfn)(id)) {
-    if (sequence) {
-        return [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
-            return [[PBTConcreteSequence alloc] initWithObject:mapfn([sequence firstObject])
-                                             remainingSequence:PBTMapSequence([sequence remainingSequence],
-                                                                              mapfn)];
-        }];
-    } else {
+FOUNDATION_EXPORT PBTGenerator PBTGenMap(PBTGenerator generator,
+                                         PBTRoseTree *(^mapfn)(PBTRoseTree *generatorTree)) {
+    return ^(id<PBTRandom> random, NSNumber *size) {
+        return mapfn(generator(random, size));
+    };
+}
+
+FOUNDATION_EXPORT PBTGenerator PBTGenBind(PBTGenerator generator,
+                                          PBTGenerator (^factory)(PBTRoseTree *generatorTree)) {
+    return ^(id<PBTRandom> random, NSNumber *size) {
+        PBTRoseTree *innerTree = generator(random, size);
+        PBTGenerator resultingGenerator = factory(innerTree);
+        return resultingGenerator(random, size);
+    };
+}
+
+FOUNDATION_EXPORT PBTGenerator PBTMap(PBTGenerator generator, id (^fn)(id value)) {
+    return PBTGenMap(generator, ^PBTRoseTree *(PBTRoseTree *roseTree) {
+        return [roseTree treeByApplyingBlock:fn];
+    });
+};
+
+
+FOUNDATION_EXPORT PBTGenerator PBTReturn(id value) {
+    return PBTGenPure([[PBTRoseTree alloc] initWithValue:value]);
+}
+
+FOUNDATION_EXPORT PBTGenerator PBTSized(id (^fn)(NSNumber *size)) {
+    return ^(id<PBTRandom> random, NSNumber *size) {
+        PBTGenerator sizedGen = fn(size);
+        return sizedGen(random, size);
+    };
+}
+
+FOUNDATION_EXPORT id<PBTSequence> PBTHalf(NSNumber *number) {
+    if ([number compare:@0] == NSOrderedSame) {
         return nil;
     }
+    return [[PBTConcreteSequence alloc] initWithObject:number
+                                     remainingSequence:PBTHalf(@([number longLongValue] / 2))];
 }
 
-FOUNDATION_EXPORT PBTSequenceGenerator PBTGenMap(PBTGenerator generator, id(^mapfn)(id)) {
-    return ^id<PBTSequence>(id<PBTRandom> random, NSUInteger sizeFactor) {
-        return PBTMapSequence(generator(random, sizeFactor), mapfn);
+FOUNDATION_EXPORT id<PBTSequence> PBTShrinkInt(NSNumber *number) {
+    return [PBTHalf(number) sequenceByApplyingBlock:^id(NSNumber *value) {
+        return @([number longLongValue] - [value longLongValue]);
+    }];
+}
+
+FOUNDATION_EXPORT PBTRoseTree *PBTIntRoseTree(NSNumber *number) {
+    return [[PBTRoseTree alloc] initWithValue:number
+                                     children:[PBTShrinkInt(number) sequenceByApplyingBlock:^id(NSNumber *value) {
+        return PBTIntRoseTree(value);
+    }]];
+}
+
+FOUNDATION_EXPORT PBTGenerator PBTChoose(NSNumber *lower, NSNumber *upper) {
+    return ^(id<PBTRandom> random, NSNumber *size) {
+        NSNumber *randValue = @([random randomDoubleWithinMinimum:[lower doubleValue]
+                                                       andMaximum:[upper doubleValue]]);
+        id<PBTSequence> seqOfTrees = PBTShrinkInt(randValue);
+        seqOfTrees = [seqOfTrees sequenceByApplyingBlock:^id(id value) {
+            return PBTIntRoseTree(value);
+        }];
+        PBTRoseTree *tree = [[PBTRoseTree alloc] initWithValue:randValue children:seqOfTrees];
+        return [tree treeFilteredByBlock:^BOOL(NSNumber *value) {
+            return [value compare:lower] != NSOrderedAscending
+                && [value compare:upper] != NSOrderedDescending;
+        }];
     };
 }
 
-FOUNDATION_EXPORT PBTGenerator PBTGenBind(PBTSequenceGenerator generator,
-                                          PBTGenerator (^generatorFactory)(id<PBTSequence> generatedSequence)) {
-    return ^id(id<PBTRandom> random, NSUInteger sizeFactor) {
-        id<PBTSequence> innerSeq = generator(random, sizeFactor);
-        PBTGenerator resultingGenerator = generatorFactory(innerSeq);
-        return resultingGenerator(random, sizeFactor);
-    };
+FOUNDATION_EXPORT PBTGenerator PBTInt() {
+    return PBTSized(^id(NSNumber *sizeNumber){
+        return PBTChoose(@(-[sizeNumber integerValue]), sizeNumber);
+    });
 }
-
-PBTGenerator PBTReturn(id value) {
-    return PBTGenPure([[PBTConcreteSequence alloc] initWithObject:value]);
-}
-
-PBTGenerator (^PBTMap)(PBTGenerator, id(^)(id)) = ^(PBTGenerator generator, id(^fn)(id)){
-    return ^id(id<PBTRandom> random, NSUInteger sizeFactor) {
-        return PBTRTMap(generator(random, sizeFactor), fn);
-    };
-};

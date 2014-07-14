@@ -32,6 +32,10 @@
 		1FC3B985191B664500AA359B /* PBTLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73DDC59910BDB958F4226 /* PBTLazySequence.m */; };
 		1FC3B986191B664500AA359B /* PBTGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B730E5432718F19A902CB9 /* PBTGenerator.m */; };
 		1FC3B987191B664500AA359B /* PBTProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73399D02DC2E56346E0A0 /* PBTProperty.m */; };
+		1FF5B93619737D4600416383 /* PBTIntSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* PBTIntSpec.mm */; };
+		1FF5B93719737D4600416383 /* PBTIntSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* PBTIntSpec.mm */; };
+		1FF5B93E1973BD9000416383 /* PBTRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* PBTRoseTree.m */; };
+		1FF5B93F1973BD9000416383 /* PBTRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* PBTRoseTree.m */; };
 		31B7336B6EA306EE7BB5B2B3 /* PBTConcreteSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B7371E3EFE8340BA7A29EB /* PBTConcreteSequence.m */; };
 		31B7371271F4035919E0E931 /* PBTProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73399D02DC2E56346E0A0 /* PBTProperty.m */; };
 		31B7391D14C8AD2561D14117 /* PBTAbstractSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B733ACE038CF303D9ECC27 /* PBTAbstractSequence.m */; };
@@ -88,6 +92,9 @@
 		1F7EFA29191B63970074B028 /* PBTOSXSpecs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PBTOSXSpecs; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7EFA2E191B63970074B028 /* PBTOSXSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBTOSXSpecs-Prefix.pch"; sourceTree = "<group>"; };
 		1F7EFA31191B63980074B028 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1FF5B93519737D4600416383 /* PBTIntSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTIntSpec.mm; sourceTree = "<group>"; };
+		1FF5B93C1973BD9000416383 /* PBTRoseTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTRoseTree.h; sourceTree = "<group>"; };
+		1FF5B93D1973BD9000416383 /* PBTRoseTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTRoseTree.m; sourceTree = "<group>"; };
 		315DE2C46CCA4D76A497AD23 /* Pods-PBTOSXSpecs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBTOSXSpecs.xcconfig"; path = "Pods/Pods-PBTOSXSpecs.xcconfig"; sourceTree = "<group>"; };
 		31B730183A626AD19A2B366E /* PBTSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSequence.h; sourceTree = "<group>"; };
 		31B7304B35C6D552B28742C9 /* PBTConstantRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTConstantRandom.h; sourceTree = "<group>"; };
@@ -270,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */,
+				1FF5B93519737D4600416383 /* PBTIntSpec.mm */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
@@ -321,6 +329,8 @@
 				31B739B6808E7B8BAC643DC8 /* PBTLazySequence.h */,
 				31B73DDC59910BDB958F4226 /* PBTLazySequence.m */,
 				31B730183A626AD19A2B366E /* PBTSequence.h */,
+				1FF5B93C1973BD9000416383 /* PBTRoseTree.h */,
+				1FF5B93D1973BD9000416383 /* PBTRoseTree.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -517,6 +527,7 @@
 				31B73C3D84FDBB94D8A6FE6A /* PBTGenerator.m in Sources */,
 				31B73D53EB506977E8B6D87D /* PBTConstantRandom.m in Sources */,
 				31B7391D14C8AD2561D14117 /* PBTAbstractSequence.m in Sources */,
+				1FF5B93E1973BD9000416383 /* PBTRoseTree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F59A817196E8E9000957FAA /* PBTLazySequenceSpec.mm in Sources */,
+				1FF5B93619737D4600416383 /* PBTIntSpec.mm in Sources */,
 				1F59A81D196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */,
 				31B73CCA0CFC274B9068281C /* PBTPropertySpec.mm in Sources */,
 				1F61E450196E88A6003EA164 /* PBTReturnSpec.mm in Sources */,
@@ -543,12 +555,14 @@
 				1F61E457196E8AEF003EA164 /* PBTConcreteSequenceSpec.mm in Sources */,
 				1FC3B984191B664500AA359B /* PBTConcreteSequence.m in Sources */,
 				1F3462671924780800AE515C /* PBTRandom.mm in Sources */,
+				1FF5B93F1973BD9000416383 /* PBTRoseTree.m in Sources */,
 				1F7EFA32191B63980074B028 /* main.m in Sources */,
 				1FC3B987191B664500AA359B /* PBTProperty.m in Sources */,
 				1FC3B985191B664500AA359B /* PBTLazySequence.m in Sources */,
 				1FC3B986191B664500AA359B /* PBTGenerator.m in Sources */,
 				31B73CF6F20CF5FF10AADAD4 /* PBTAbstractSequence.m in Sources */,
 				1F61E451196E88A6003EA164 /* PBTReturnSpec.mm in Sources */,
+				1FF5B93719737D4600416383 /* PBTIntSpec.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

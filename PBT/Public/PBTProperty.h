@@ -2,21 +2,29 @@
 #import "PBTGenerator.h"
 
 
-typedef NS_ENUM(NSUInteger, PBTPropertyResult) {
-    PBTPropertyResultSkipped,
-    PBTPropertyResultFailed,
-    PBTPropertyResultPassed,
+typedef NS_ENUM(NSUInteger, PBTPropertyStatus) {
+    PBTPropertyStatusSkipped,
+    PBTPropertyStatusFailed,
+    PBTPropertyStatusPassed,
+    PBTPropertyStatusUncaughtException,
 };
 
 @interface PBTProperty : NSObject
 
-+ (id)forAll:(PBTGenerator)generator
-        then:(PBTPropertyResult (^)(id generatedValue))then;
++ (PBTGenerator)forAll:(PBTGenerator)generator
+                  then:(PBTPropertyStatus (^)(id generatedValue))then;
+
+@end
+
+@interface PBTPropertyResult : NSObject
+
+@property (nonatomic) id generatedValue;
+@property (nonatomic) PBTPropertyStatus status;
 
 @end
 
 
-FOUNDATION_STATIC_INLINE PBTPropertyResult PBTRequire(BOOL assertion)
+FOUNDATION_STATIC_INLINE PBTPropertyStatus PBTRequire(BOOL assertion)
 {
-    return assertion ? PBTPropertyResultPassed : PBTPropertyResultFailed;
+    return assertion ? PBTPropertyStatusPassed : PBTPropertyStatusFailed;
 }

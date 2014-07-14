@@ -108,6 +108,15 @@ describe(@"PBTLazySequence", ^{
         it(@"should return nil for remaining sequence", ^{
             [subject remainingSequence] should be_same_instance_as(remainingSequence);
         });
+
+        it(@"should allow applying a block", ^{
+            remainingSequence stub_method(@selector(sequenceByApplyingBlock:))
+                .and_return(remainingSequence);
+            id<PBTSequence> newSeq = [subject sequenceByApplyingBlock:^id(id value) {
+                return @([value integerValue] + 1);
+            }];
+            [[newSeq objectEnumerator] allObjects] should equal(@[@2, @2]);
+        });
     });
 });
 

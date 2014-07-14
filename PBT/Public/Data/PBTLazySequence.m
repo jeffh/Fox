@@ -1,11 +1,12 @@
 #import "PBTLazySequence.h"
 
+@interface PBTLazySequence ()
+@property (nonatomic, copy) PBTLazySequenceBlock block;
+@property (nonatomic) id blockValue;
+@property (nonatomic) id<PBTSequence> sequenceValue;
+@end
 
-@implementation PBTLazySequence {
-    PBTLazySequenceBlock _block;
-    id _blockValue;
-    id<PBTSequence> _sequenceValue;
-}
+@implementation PBTLazySequence
 
 - (instancetype)init
 {

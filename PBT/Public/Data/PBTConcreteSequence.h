@@ -3,6 +3,7 @@
 
 @interface PBTConcreteSequence : PBTAbstractSequence
 
++ (instancetype)sequenceFromArray:(NSArray *)array;
 - (instancetype)init;
 - (instancetype)initWithObject:(id)object;
 - (instancetype)initWithObject:(id)object

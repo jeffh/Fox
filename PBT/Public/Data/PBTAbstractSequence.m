@@ -1,5 +1,7 @@
 #import "PBTAbstractSequence.h"
 #import "PBTSequence.h"
+#import "PBTLazySequence.h"
+#import "PBTConcreteSequence.h"
 
 @interface PBTSequenceEnumerator : NSEnumerator
 
@@ -62,6 +64,38 @@
     return [[PBTSequenceEnumerator alloc] initWithSequence:self];
 }
 
+- (id<PBTSequence>)sequenceByApplyingBlock:(id (^)(id))block
+{
+    return [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
+        id transformedFirstObject = block([self firstObject]);
+        id<PBTSequence> transformedRemainingSeq = [[self remainingSequence] sequenceByApplyingBlock:block];
+        return [[PBTConcreteSequence alloc] initWithObject:transformedFirstObject
+                                         remainingSequence:transformedRemainingSeq];
+    }];
+}
+
+- (id<PBTSequence>)sequenceFilteredByBlock:(BOOL (^)(id))predicate
+{
+    return [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
+        id<PBTSequence> filteredRemainingSeq = [[self remainingSequence] sequenceFilteredByBlock:predicate];
+        if (predicate([self firstObject])) {
+            return [[PBTConcreteSequence alloc] initWithObject:[self firstObject]
+                                             remainingSequence:filteredRemainingSeq];
+        } else {
+            return filteredRemainingSeq;
+        }
+    }];
+}
+
+- (id<PBTSequence>)sequenceByConcatenatingSequence:(id<PBTSequence>)sequence {
+    NSArray *reversedItems = [[[[self objectEnumerator] allObjects] reverseObjectEnumerator] allObjects];
+    id<PBTSequence> seq = sequence;
+    for (id item in reversedItems) {
+        seq = [[PBTConcreteSequence alloc] initWithObject:item remainingSequence:seq];
+    }
+    return seq;
+}
+
 #pragma mark - NSFastEnumeration
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
@@ -103,7 +137,7 @@
 
 - (NSString *)description
 {
-    NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
+    NSMutableString *description = [NSMutableString stringWithFormat:@"("];
 
     NSUInteger count = 0;
     for (id object in self) {
@@ -115,7 +149,7 @@
     }
 
     [description deleteCharactersInRange:NSMakeRange(description.length - 2, 2)];
-    [description appendString:@">"];
+    [description appendString:@")"];
     return description;
 }
 
