@@ -9,7 +9,7 @@ describe(@"PBTReturn", ^{
     it(@"should always return the given value", ^{
         for (NSUInteger i = 0; i < 10; i++) {
             PBTConstantRandom *random = [[PBTConstantRandom alloc] initWithDoubleValue:i];
-            PBTRoseTree *tree = PBTReturn(@1)(random, @(i));
+            PBTRoseTree *tree = [PBTReturn(@1) lazyTreeWithRandom:random maximumSize:i];
             tree should equal([PBTRoseTree treeFromArray:@[@1, @[]]]);
         }
     });

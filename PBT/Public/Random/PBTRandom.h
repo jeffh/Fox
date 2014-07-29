@@ -3,6 +3,8 @@
 
 @protocol PBTRandom <NSObject>
 
+- (uint32_t)seed;
+- (void)setSeed:(uint32_t)seed;
 - (double)randomDouble;
 - (double)randomDoubleWithinMinimum:(double)minDouble
                          andMaximum:(double)maxDouble;

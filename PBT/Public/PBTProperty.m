@@ -5,8 +5,8 @@
 
 @implementation PBTProperty
 
-+ (PBTGenerator)forAll:(PBTGenerator)generator
-                     then:(PBTPropertyStatus (^)(id))verifier
++ (id<PBTGenerator>)forAll:(id<PBTGenerator>)generator
+                      then:(PBTPropertyStatus (^)(id))verifier
 {
     return PBTMap(generator, ^id(id value) {
         PBTPropertyResult *result = [[PBTPropertyResult alloc] init];
@@ -20,6 +20,28 @@
 
 
 @implementation PBTPropertyResult
+
+- (BOOL)hasFailedOrRaisedException
+{
+    return self.status == PBTPropertyStatusFailed
+        || self.status == PBTPropertyStatusUncaughtException;
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+
+    PBTPropertyResult *other = object;
+
+    return self.status == other.status && self.generatedValue == other.generatedValue;
+}
+
+- (NSUInteger)hash
+{
+    return self.status ^ [self.generatedValue hash];
+}
 
 - (NSString *)statusString
 {

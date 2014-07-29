@@ -4,6 +4,7 @@
 @interface PBTConstantRandom ()
 
 @property (nonatomic) double doubleValue;
+@property (nonatomic) uint32_t seed;
 
 @end
 

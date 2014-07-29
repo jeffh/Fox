@@ -1,4 +1,5 @@
 #import "PBTLazySequence.h"
+#import "PBTConcreteSequence.h"
 
 @interface PBTLazySequence ()
 @property (nonatomic, copy) PBTLazySequenceBlock block;
@@ -18,6 +19,9 @@
     self = [super init];
     if (self) {
         _block = block;
+#ifdef DEBUG
+//        [self evaluateSequence];
+#endif
     }
     return self;
 }
@@ -32,30 +36,6 @@
 - (id<PBTSequence>)remainingSequence
 {
     return [[self evaluateSequence] remainingSequence];
-}
-
-#pragma mark - NSObject
-
-- (BOOL)isEqual:(id)other
-{
-    if (![other conformsToProtocol:@protocol(PBTSequence)]) {
-        return NO;
-    }
-
-    id otherFirstObject = [other firstObject];
-    id firstObject = [self firstObject];
-    if (firstObject != otherFirstObject && ![firstObject isEqual:otherFirstObject]) {
-        return NO;
-    }
-
-    id otherRemainingSequence = [other remainingSequence];
-    id remainingSequence = [self remainingSequence];
-    return remainingSequence == otherRemainingSequence || [remainingSequence isEqual:otherRemainingSequence];
-}
-
-- (NSUInteger)hash
-{
-    return [[self firstObject] hash] ^ [[self remainingSequence] hash];
 }
 
 #pragma mark - Private
@@ -75,12 +55,14 @@
     [self evaluateBlock];
     @synchronized (self) {
         if (_blockValue) {
-            id value = _blockValue;
-            _blockValue = nil;
-            while ([_block isKindOfClass:[PBTLazySequence class]]) {
-                value = [value evaluateBlock];
+            @autoreleasepool {
+                id value = _blockValue;
+                _blockValue = nil;
+                while ([_block isKindOfClass:[PBTLazySequence class]]) {
+                    value = [value evaluateBlock];
+                }
+                _sequenceValue = value;
             }
-            _sequenceValue = value;
         }
         return _sequenceValue;
     }

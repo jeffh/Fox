@@ -11,8 +11,8 @@ typedef NS_ENUM(NSUInteger, PBTPropertyStatus) {
 
 @interface PBTProperty : NSObject
 
-+ (PBTGenerator)forAll:(PBTGenerator)generator
-                  then:(PBTPropertyStatus (^)(id generatedValue))then;
++ (id<PBTGenerator>)forAll:(id<PBTGenerator>)generator
+                      then:(PBTPropertyStatus (^)(id generatedValue))then;
 
 @end
 
@@ -20,6 +20,8 @@ typedef NS_ENUM(NSUInteger, PBTPropertyStatus) {
 
 @property (nonatomic) id generatedValue;
 @property (nonatomic) PBTPropertyStatus status;
+
+- (BOOL)hasFailedOrRaisedException;
 
 @end
 

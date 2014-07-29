@@ -1,19 +1,59 @@
 #import "PBTRoseTree.h"
-#import "PBTConcreteSequence.h"
-#import "PBTLazySequence.h"
+#import "PBTSequence.h"
 
+#import <objc/message.h>
 
 @implementation PBTRoseTree
 
 + (instancetype)treeFromArray:(NSArray *)roseTreeLiteral
 {
     NSParameterAssert(roseTreeLiteral.count == 2);
-    id<PBTSequence> children = [[PBTConcreteSequence sequenceFromArray:roseTreeLiteral[1]] sequenceByApplyingBlock:^id(NSArray *subtree) {
-        return [self treeFromArray:subtree];
-    }];
+    NSMutableArray *subtrees = [NSMutableArray arrayWithCapacity:roseTreeLiteral.count];
+    for (id subtree in roseTreeLiteral[1]) {
+        [subtrees addObject:[self treeFromArray:subtree]];
+    }
     return [[PBTRoseTree alloc] initWithValue:[roseTreeLiteral firstObject]
-                                     children:children];
+                                     children:[PBTSequence sequenceFromArray:subtrees]];
 }
+
++ (instancetype)mergedTreeFromRoseTrees:(NSArray *)roseTrees merger:(id(^)(NSArray *values))merger
+{
+    if (!roseTrees.count) {
+        return [[PBTRoseTree alloc] initWithValue:merger(nil)];
+    }
+    id<PBTSequence> rootChildren = [PBTSequence lazySequenceFromBlock:^id<PBTSequence>{
+        id<PBTSequence> sequence = [PBTSequence sequenceFromArray:roseTrees];
+
+        id<PBTSequence> oneLessTreeSequence = [sequence sequenceByApplyingIndexedBlock:^id(NSUInteger index, PBTRoseTree *_roseTree) {
+            return [sequence sequenceByExcludingIndex:index];
+        }];
+
+        id<PBTSequence> permutationSequence = ({
+            NSArray *base = [[sequence objectEnumerator] allObjects];
+            NSMutableArray *permutations = [NSMutableArray array];
+            NSUInteger i = 0;
+            for (PBTRoseTree *roseTree in sequence) {
+                for (id<PBTSequence> child in roseTree.children) {
+                    NSMutableArray *permutation = [base mutableCopy];
+                    permutation[i] = child;
+                    [permutations addObject:permutation];
+                }
+                i++;
+            }
+            [PBTSequence sequenceFromArray:permutations];
+        });
+
+        id<PBTSequence> removalTree = [oneLessTreeSequence sequenceByConcatenatingSequence:permutationSequence];
+
+        return [removalTree sequenceByApplyingBlock:^id(id trees) {
+            return [self mergedTreeFromRoseTrees:[[trees objectEnumerator] allObjects] merger:merger];
+        }];
+    }];
+    id value = merger([roseTrees valueForKey:@"value"]);
+    return [[PBTRoseTree alloc] initWithValue:value
+                                     children:rootChildren];
+}
+
 
 - (instancetype)initWithValue:(id)value
 {
@@ -22,14 +62,13 @@
 
 - (instancetype)initWithValue:(id)value children:(id<PBTSequence>)children
 {
-    self = [super init];
+    self = [self init];
     if (self) {
         self.value = value;
         self.children = children;
     }
     return self;
 }
-
 
 - (PBTRoseTree *)treeByApplyingBlock:(id(^)(id element))block
 {
@@ -62,6 +101,16 @@
     return items;
 }
 
+#pragma mark - Property Overrides
+
+- (id<PBTSequence>)children
+{
+    if (!_children) {
+        _children = [PBTSequence sequence];
+    }
+    return _children;
+}
+
 #pragma mark - NSObject
 
 - (BOOL)isEqual:(id)object
@@ -73,23 +122,24 @@
     PBTRoseTree *other = object;
 
     return (self.value == other.value || [self.value isEqual:other.value])
-    && (self.children == other.children || [self.children isEqual:other.children]);
+        && (self.children == other.children || [self.children isEqual:other.children]);
 }
 
 - (NSUInteger)hash
 {
-    return (37 << 1) ^ [self.value hash] ^ [self.children hash];
+    return 31 * [self.value hash] + 31 * [self.children hash];
 }
 
 - (NSString *)description
 {
     NSMutableString *string = [NSMutableString stringWithFormat:@"<%@: ",
                                NSStringFromClass([self class])];
-    [string appendString:[self.value description]];
+    [string appendString:[self.value description] ?: @"nil"];
 
-    if (self.children.count) {
-        [string appendString:@", "];
-        [string appendString:[self.children description]];
+    if ([self.children firstObject]) {
+        [string appendString:@",\n  "];
+        NSArray *lines = [[self.children description] componentsSeparatedByString:@"\n"];
+        [string appendString:[lines componentsJoinedByString:@"\n  "]];
     }
 
     [string appendString:@">"];

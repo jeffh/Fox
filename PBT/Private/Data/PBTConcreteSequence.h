@@ -1,9 +1,7 @@
-#import "PBTAbstractSequence.h"
+#import "PBTSequence.h"
 
+@interface PBTConcreteSequence : PBTSequence
 
-@interface PBTConcreteSequence : PBTAbstractSequence
-
-+ (instancetype)sequenceFromArray:(NSArray *)array;
 - (instancetype)init;
 - (instancetype)initWithObject:(id)object;
 - (instancetype)initWithObject:(id)object
