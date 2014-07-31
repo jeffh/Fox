@@ -1,43 +1,42 @@
 #import "PBT.h"
+#import "PBTSpecHelper.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
-
-#define SEQ(...) [PBTConcreteSequence sequenceFromArray:(@[__VA_ARGS__])]
-#define ARR(...) @[__VA_ARGS__]
 
 
 SPEC_BEGIN(PBTArraySpec)
 
 describe(@"PBTArray", ^{
-    context(@"when the randomizer returns zero", ^{
-        it(@"should return an number within the range generated", ^{
-            PBTConstantRandom *random = [[PBTConstantRandom alloc] initWithDoubleValue:0];
-            PBTRoseTree *tree = [PBTArray(PBTInteger()) lazyTreeWithRandom:random maximumSize:0];
-            tree should equal([PBTRoseTree treeFromArray:@[SEQ(), @[]]]);
-        });
+    it(@"should be able to return arrays of any size", ^{
+        NSMutableSet *sizesSeen = [NSMutableSet set];
+        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger()) then:^BOOL(id value) {
+            BOOL isValid = YES;
+            for (id element in value) {
+                if (![element isKindOfClass:[NSNumber class]]) {
+                    isValid = NO;
+                }
+            }
+            [sizesSeen addObject:@([value count])];
+            return isValid;
+        }];
+        result.succeeded should be_truthy;
+        sizesSeen.count should be_greater_than(1);
     });
 
-    context(@"when the randomizer returns 1", ^{
-        it(@"should return an number within the range generated [0, 1] in side an array", ^{
-            PBTConstantRandom *random = [[PBTConstantRandom alloc] initWithDoubleValue:1];
-            PBTRoseTree *tree = [PBTArray(PBTInteger()) lazyTreeWithRandom:random maximumSize:1];
-            tree should equal([PBTRoseTree treeFromArray:@[SEQ(@1), @[@[SEQ(@0), @[]]]]]);
-        });
+    it(@"should be able to return arrays of a given size", ^{
+        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger(), 5) then:^BOOL(id value) {
+            return [value count] == 5;
+        }];
+        result.succeeded should be_truthy;
     });
 
-    context(@"when the randomizer returns 2", ^{
-        it(@"should return an number within the range generated [0, 2] in side an array of ", ^{
-            PBTConstantRandom *random = [[PBTConstantRandom alloc] initWithDoubleValue:2];
-            PBTRoseTree *tree = [PBTArray(PBTInteger()) lazyTreeWithRandom:random maximumSize:2];
-            tree should equal([PBTRoseTree treeFromArray:@[ARR(@2, @2), @[
-                                                               @[ARR(@0, @0), @[
-                                                                     @[ARR(@1, @1), @[
-                                                                           @[ARR(@0, @0), @[]]
-                                                                       ]]
-                                                                ]]]
-                                                           ]]);
-        });
+    it(@"should be able to return arrays of a given size range", ^{
+        PBTQuickCheckResult *result = [PBTSpecHelper debug_resultForAll:PBTArray(PBTInteger(), 5, 10) then:^BOOL(id value) {
+            NSUInteger count = [value count];
+            return count >= 5 && count < 10;
+        }];
+        result.succeeded should be_truthy;
     });
 });
 

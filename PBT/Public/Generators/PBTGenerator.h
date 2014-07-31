@@ -29,6 +29,15 @@ PBT_EXPORT id<PBTGenerator> PBTNegativeInteger(void);
 PBT_EXPORT id<PBTGenerator> PBTStrictPositiveInteger(void);
 PBT_EXPORT id<PBTGenerator> PBTStrictNegativeInteger(void);
 
-PBT_EXPORT id<PBTGenerator> PBTSeq(id<PBTSequence> generators);
+PBT_EXPORT id<PBTGenerator> PBTSequenceGenerator(id<PBTSequence> generators);
 PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator);
-PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator);
+PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator, NSUInteger numberOfElements);
+PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator,
+                                     NSUInteger minimumNumberOfElements,
+                                     NSUInteger maximumNumberOfElements);
+
+PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator);
+PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator, NSUInteger numberOfElements);
+PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator,
+                                     NSUInteger minimumNumberOfElements,
+                                     NSUInteger maximumNumberOfElements);

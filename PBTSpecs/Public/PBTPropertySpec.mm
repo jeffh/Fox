@@ -21,8 +21,6 @@ describe(@"PBTProperty", ^{
         PBTPropertyResult *result = tree.value;
         result.status should equal(PBTPropertyStatusPassed);
         result.generatedValue should equal(@1);
-
-        tree.children should be_nil;
     });
 
     it(@"should generate failed results", ^{
@@ -35,12 +33,10 @@ describe(@"PBTProperty", ^{
         PBTPropertyResult *result = tree.value;
         result.status should equal(PBTPropertyStatusFailed);
         result.generatedValue should equal(@2);
-
-        tree.children should be_nil;
     });
 
     it(@"should be shrinkable", ^{
-        PBTQuickCheck *quick = [[PBTQuickCheck alloc] init];
+        PBTQuickCheck *quick = [[PBTQuickCheck alloc] initWithReporter:nil];
         PBTQuickCheckResult *result = [quick checkWithNumberOfTests:100 forAll:PBTInteger() then:^PBTPropertyStatus(NSNumber *generatedValue) {
             return PBTRequire([generatedValue integerValue] / 2 <= [generatedValue integerValue]);
         }];
@@ -50,14 +46,14 @@ describe(@"PBTProperty", ^{
         result.smallestFailingArguments should be_greater_than_or_equal_to(result.failingArguments);
     });
 
-    fit(@"should validate arbitary data structures", ^{
+    xit(@"should validate arbitary data structures", ^{
         random = [[PBTConstantRandom alloc] initWithDoubleValue:2];
         property = [PBTProperty forAll:PBTArray(PBTInteger()) then:^PBTPropertyStatus(NSArray *value){
             return PBTRequire(value.count < 2);
         }];
-        PBTQuickCheck *quick = [[PBTQuickCheck alloc] init];
+        PBTQuickCheck *quick = [[PBTQuickCheck alloc] initWithReporter:nil];
         PBTQuickCheckResult *result = [quick checkWithNumberOfTests:100 property:property];
-        NSLog(@"================> RESULT: %@", result);
+        result.smallestFailingArguments should equal(@[@0, @0]);
     });
 });
 

@@ -7,11 +7,13 @@ using namespace Cedar::Doubles;
 SPEC_BEGIN(PBTLazySequenceSpec)
 
 describe(@"PBTLazySequence", ^{
-    __block PBTLazySequence *subject;
+    __block PBTSequence *subject;
 
     describe(@"zero-element sequence", ^{
         beforeEach(^{
-            subject = [[PBTLazySequence alloc] init];
+            subject = [PBTSequence lazySequenceFromBlock:^id<PBTSequence>{
+                return [PBTSequence sequence];
+            }];
         });
 
         it(@"should have a count of zero", ^{
@@ -38,9 +40,9 @@ describe(@"PBTLazySequence", ^{
         beforeEach(^{
             evaluated = NO;
 
-            subject = [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
+            subject = [PBTSequence lazySequenceFromBlock:^id<PBTSequence>{
                 evaluated = YES;
-                return [[PBTConcreteSequence alloc] initWithObject:@1];
+                return [PBTSequence sequenceWithObject:@1];
             }];
         });
 
@@ -76,10 +78,9 @@ describe(@"PBTLazySequence", ^{
             evaluated = NO;
             remainingSequence = nice_fake_for(@protocol(PBTSequence));
 
-            subject = [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
+            subject = [PBTSequence lazySequenceFromBlock:^id<PBTSequence>{
                 evaluated = YES;
-                return [[PBTConcreteSequence alloc] initWithObject:@1
-                                                 remainingSequence:remainingSequence];
+                return [PBTSequence sequenceWithObject:@1 remainingSequence:remainingSequence];
             }];
 
             remainingSequence stub_method(@selector(count)).and_return((NSUInteger)1);

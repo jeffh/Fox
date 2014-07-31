@@ -88,15 +88,12 @@ PBT_EXPORT id<PBTGenerator> PBTReturn(id value) {
 }
 
 // converts an array of generators to a generator that emits an array of generated values
-PBT_EXPORT id<PBTGenerator> PBTSeq(id<PBTSequence> generators) {
+PBT_EXPORT id<PBTGenerator> PBTSequenceGenerator(id<PBTSequence> generators) {
     return [generators objectByReducingWithSeed:PBTGenPure([[PBTRoseTree alloc] initWithValue:@[]]) reducer:^id(id<PBTGenerator> accumGenerator, id<PBTGenerator> generator) {
         return PBTGenBind(accumGenerator, ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
            return PBTGenBind(generator, ^id<PBTGenerator>(PBTRoseTree *itemTree) {
                return PBTGenPure([PBTRoseTree mergedTreeFromRoseTrees:@[generatorTree, itemTree] merger:^id(NSArray *values){
-                   if (0) {
-                       NSLog(@"================> %@ - %@", generatorTree, itemTree);
-                   }
-                   if (values.count < 2) {
+                   if (values.count == 1) {
                        return values;
                    }
                    if (values[0] == [NSNull null]) {
@@ -202,14 +199,42 @@ PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator) {
         return PBTChoose(@0, @(size));
     });
     return PBTWithName(@"Array", PBTGenBind(sizeGenerator, ^id<PBTGenerator>(PBTRoseTree *sizeTree) {
-        id<PBTGenerator> arrayGenerator = PBTSeq(_PBTRepeat(elementGenerator, [sizeTree.value integerValue]));
-        return arrayGenerator;
-        return PBTGenBind(arrayGenerator, ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
-            return PBTGenPure([generatorTree treeByApplyingBlock:^id(NSArray *subtrees) {
-                return [PBTRoseTree mergedTreeFromRoseTrees:subtrees merger:^id(NSArray *values) {
-                    return values;
-                }];
+        return PBTSequenceGenerator(_PBTRepeat(elementGenerator, [sizeTree.value integerValue]));
+    }));
+}
+
+PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator, NSUInteger numberOfElements) {
+    return PBTWithName(@"Array", PBTSequenceGenerator(_PBTRepeat(elementGenerator, numberOfElements)));
+}
+
+PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator,
+                                     NSUInteger minimumNumberOfElements,
+                                     NSUInteger maximumNumberOfElements) {
+    id<PBTGenerator> sizeGenerator = PBTChoose(@(minimumNumberOfElements),
+                                               @(maximumNumberOfElements + 1));
+    return PBTWithName(@"Array", PBTGenBind(sizeGenerator, ^id<PBTGenerator>(PBTRoseTree *sizeTree) {
+        id<PBTGenerator> sequenceGenerator = PBTSequenceGenerator(_PBTRepeat(elementGenerator, [sizeTree.value integerValue]));
+        return PBTGenBind(sequenceGenerator, ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
+            return PBTGenPure([generatorTree treeFilteredByBlock:^BOOL(NSArray *elements) {
+                NSUInteger count = [elements count];
+                return count >= minimumNumberOfElements && count <= maximumNumberOfElements;
             }]);
         });
     }));
 }
+
+PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator) {
+    return PBTMap(PBTArray(elementGenerator), ^id(NSArray *elements) {
+        return [NSSet setWithArray:elements];
+    });
+}
+
+PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator, NSUInteger numberOfElements) {
+    return PBTMap(PBTArray(elementGenerator, numberOfElements), ^id(NSArray *elements) {
+        return [NSSet setWithArray:elements];
+    });
+}
+
+PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator,
+                                   NSUInteger minimumNumberOfElements,
+                                   NSUInteger maximumNumberOfElements);

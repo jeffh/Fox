@@ -15,4 +15,6 @@
 @property (nonatomic) NSUInteger shrinkNodeWalkCount;
 @property (nonatomic) id smallestFailingArguments;
 
+- (NSString *)friendlyDescription;
+
 @end

@@ -44,8 +44,6 @@
 
 @interface PBTSequence (LazyConstructors)
 
-+ (instancetype)lazySequenceWithInterleavingItemsFromSequences:(NSArray *)sequences;
-+ (instancetype)lazySequenceWithByTakingFromSequence:(id<PBTSequence>)sequence maxIndex:(NSUInteger)maxIndex;
 + (instancetype)lazySequenceByConcatenatingSequences:(NSArray *)sequences;
 + (instancetype)lazySequenceFromBlock:(id<PBTSequence>(^)())block;
 

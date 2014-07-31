@@ -33,7 +33,7 @@
             NSMutableArray *permutations = [NSMutableArray array];
             NSUInteger i = 0;
             for (PBTRoseTree *roseTree in sequence) {
-                for (id<PBTSequence> child in roseTree.children) {
+                for (id<PBTSequence> child in [roseTree.children objectEnumerator]) {
                     NSMutableArray *permutation = [base mutableCopy];
                     permutation[i] = child;
                     [permutations addObject:permutation];
@@ -53,7 +53,6 @@
     return [[PBTRoseTree alloc] initWithValue:value
                                      children:rootChildren];
 }
-
 
 - (instancetype)initWithValue:(id)value
 {

@@ -3,12 +3,6 @@
 #import "PBTConcreteSequence.h"
 #import "PBTSequenceEnumerator.h"
 
-@interface PBTSequence ()
-#ifdef DEBUG
-@property (nonatomic) NSArray *creationStackSymbols;
-#endif
-@end
-
 
 @implementation PBTSequence {
     NSUInteger _cache;
@@ -20,9 +14,6 @@
 {
     if (self = [super init]) {
         _cache = NSNotFound;
-#ifdef DEBUG
-        _creationStackSymbols = [NSThread callStackSymbols];
-#endif
     }
     return self;
 }
@@ -88,9 +79,8 @@
 
 - (id<PBTSequence>)sequenceByConcatenatingSequence:(id<PBTSequence>)sequence
 {
-    NSArray *reversedItems = [[[[self objectEnumerator] allObjects] reverseObjectEnumerator] allObjects];
     id<PBTSequence> seq = sequence;
-    for (id item in reversedItems) {
+    for (id item in [[[self objectEnumerator] allObjects] reverseObjectEnumerator]) {
         seq = [[PBTConcreteSequence alloc] initWithObject:item remainingSequence:seq];
     }
     return seq;
@@ -123,7 +113,7 @@
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
                                   objects:(id __unsafe_unretained[])buffer
-                                    count:(NSUInteger)len
+                                    count:(NSUInteger)batchSize
 {
     const unsigned long firstTimeState = 0;
     const unsigned long processingState = 1;
@@ -141,7 +131,7 @@
 
     state->itemsPtr = buffer;
 
-    while (objectsCaptured < len && seq) {
+    while (objectsCaptured < batchSize && seq) {
         id object = [seq firstObject];
         if (!object) {
             break;
@@ -246,31 +236,6 @@
 
 
 @implementation PBTSequence (LazyConstructors)
-
-+ (instancetype)lazySequenceWithInterleavingItemsFromSequences:(NSArray *)sequences
-{
-    for (id firstObject in [sequences valueForKey:@"firstObject"]) {
-        if (!firstObject || [firstObject isKindOfClass:[NSNull class]]) {
-            return nil;
-        }
-    }
-    return [self lazySequenceFromBlock:^id<PBTSequence>{
-        return [[PBTConcreteSequence alloc] initWithObject:[sequences valueForKey:@"firstObject"]
-                                         remainingSequence:[self lazySequenceWithInterleavingItemsFromSequences:[sequences valueForKey:@"remainingSequence"]]];
-    }];
-}
-
-+ (instancetype)lazySequenceWithByTakingFromSequence:(id<PBTSequence>)sequence maxIndex:(NSUInteger)maxIndex
-{
-    if (maxIndex <= 0) {
-        return nil;
-    }
-    return [self lazySequenceFromBlock:^id<PBTSequence>{
-        return [[PBTConcreteSequence alloc] initWithObject:[sequence firstObject]
-                                         remainingSequence:[self lazySequenceWithByTakingFromSequence:[sequence remainingSequence]
-                                                                                             maxIndex:maxIndex - 1]];
-    }];
-}
 
 + (instancetype)lazySequenceByConcatenatingSequences:(NSArray *)sequences
 {

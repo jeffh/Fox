@@ -3,11 +3,13 @@
 #import "PBTRandom.h"
 #import "PBTSequence.h"
 #import "PBTQuickCheckResult.h"
+#import "PBTQuickCheckPrinter.h"
 
 
 @interface PBTQuickCheck ()
 
 @property (nonatomic) id<PBTRandom> random;
+@property (nonatomic) id<PBTQuickCheckReporter> reporter;
 
 @end
 
@@ -16,9 +18,20 @@
 
 - (instancetype)init
 {
+    return [self initWithReporter:[[PBTQuickCheckPrinter alloc] initWithFile:stdout]];
+}
+
+- (instancetype)initWithReporter:(id<PBTQuickCheckReporter>)reporter
+{
+    return [self initWithReporter:reporter random:[[PBTRandom alloc] init]];
+}
+
+- (instancetype)initWithReporter:(id<PBTQuickCheckReporter>)reporter random:(id<PBTRandom>)random
+{
     self = [super init];
     if (self) {
-        self.random = [[PBTRandom alloc] init];
+        self.random = random;
+        self.reporter = reporter;
     }
     return self;
 }
@@ -30,6 +43,8 @@
 {
     NSUInteger currentTestNumber = 0;
     [self.random setSeed:seed];
+    [self.reporter checkerWillRunWithSeed:seed];
+
     while (true) {
         for (NSUInteger size = 0; size < maxSize; size++) {
             if (currentTestNumber == totalNumberOfTests) {
@@ -45,12 +60,19 @@
             NSAssert([result isKindOfClass:[PBTPropertyResult class]],
                      @"Expected property generator to return PBTPropertyResult, got %@",
                      NSStringFromClass([result class]));
+
+
+            [self.reporter checkerWillVerifyTestNumber:currentTestNumber
+                                       withMaximumSize:size];
+
             if ([result hasFailedOrRaisedException]) {
                 return [self failureReportWithNumberOfTests:currentTestNumber
                                             failureRoseTree:tree
                                                 failingSize:size
                                                     maxSize:maxSize
                                                        seed:seed];
+            } else {
+                [self.reporter checkerDidPassTestNumber:totalNumberOfTests];
             }
         }
     }
@@ -85,6 +107,9 @@
     result.numberOfTests = numberOfTests;
     result.seed = seed;
     result.maxSize = maxSize;
+
+    [self.reporter checkerDidPassNumberOfTests:numberOfTests
+                                    withResult:result];
     return result;
 }
 
@@ -94,8 +119,11 @@
                                                 maxSize:(NSUInteger)maxSize
                                                    seed:(uint32_t)seed
 {
+    [self.reporter checkerWillShrinkFailingTestNumber:numberOfTests];
+
     PBTPropertyResult *propertyResult = failureRoseTree.value;
-    NSDictionary *shrinkReport = [self shrinkReportForRoseTree:failureRoseTree];
+    NSDictionary *shrinkReport = [self shrinkReportForRoseTree:failureRoseTree
+                                                 numberOfTests:numberOfTests];
     PBTQuickCheckResult *result = [[PBTQuickCheckResult alloc] init];
     result.numberOfTests = numberOfTests;
     result.seed = seed;
@@ -105,26 +133,28 @@
     result.shrinkDepth = [shrinkReport[@"depth"] unsignedIntegerValue];
     result.shrinkNodeWalkCount = [shrinkReport[@"numberOfNodesVisited"] unsignedIntegerValue];
     result.smallestFailingArguments = shrinkReport[@"smallest"];
+
+    [self.reporter checkerDidFailTestNumber:numberOfTests
+                                 withResult:result];
+
     return result;
 }
 
 - (NSDictionary *)shrinkReportForRoseTree:(PBTRoseTree *)failureRoseTree
+                            numberOfTests:(NSUInteger)numberOfTests
 {
     NSUInteger numberOfNodesVisited = 0;
     NSUInteger depth = 0;
     id<PBTSequence> shrinkChoices = failureRoseTree.children;
     PBTPropertyResult *currentSmallest = failureRoseTree.value;
-    fprintf(stderr, "Shrinking");
-    NSLog(@"================> ~> %@", [shrinkChoices firstObject]);
+
     while ([shrinkChoices firstObject]) {
-        fprintf(stderr, ".");
-        fflush(stderr);
         PBTRoseTree *firstTree = [shrinkChoices firstObject];
         PBTPropertyResult *smallestCandidate = firstTree.value;
         if ([smallestCandidate hasFailedOrRaisedException]) {
             currentSmallest = smallestCandidate;
 
-            if ([firstTree.children count]) {
+            if ([firstTree.children firstObject]) {
                 shrinkChoices = firstTree.children;
                 ++depth;
             } else {
@@ -135,9 +165,8 @@
         }
 
         ++numberOfNodesVisited;
+        [self.reporter checkerShrankFailingTestNumber:numberOfTests];
     }
-    fprintf(stderr, "\n");
-    fflush(stderr);
     return @{@"numberOfNodesVisited": @(numberOfNodesVisited),
              @"depth": @(depth),
              @"result": @(currentSmallest.status),
