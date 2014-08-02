@@ -11,12 +11,14 @@
 
 @end
 
+// Boxes the generator with a description that indicates its origin.
+PBT_EXPORT id<PBTGenerator> PBTWithName(NSString *name, id<PBTGenerator> generator);
 
 PBT_EXPORT id<PBTGenerator> PBTGenPure(PBTRoseTree *tree);
 PBT_EXPORT id<PBTGenerator> PBTGenMap(id<PBTGenerator> generator,
                                          PBTRoseTree *(^mapfn)(PBTRoseTree *generatorTree));
 PBT_EXPORT id<PBTGenerator> PBTGenBind(id<PBTGenerator> generator,
-                                              id<PBTGenerator> (^generatorFactory)(PBTRoseTree *generatorTree));
+                                       id<PBTGenerator> (^generatorFactory)(PBTRoseTree *generatorTree));
 PBT_EXPORT id<PBTGenerator> PBTMap(id<PBTGenerator> generator, id(^fn)(id generatedValue));
 
 PBT_EXPORT id<PBTGenerator> PBTChoose(NSNumber *lower, NSNumber *upper);
@@ -28,8 +30,16 @@ PBT_EXPORT id<PBTGenerator> PBTPositiveInteger(void);
 PBT_EXPORT id<PBTGenerator> PBTNegativeInteger(void);
 PBT_EXPORT id<PBTGenerator> PBTStrictPositiveInteger(void);
 PBT_EXPORT id<PBTGenerator> PBTStrictNegativeInteger(void);
+PBT_EXPORT id<PBTGenerator> PBTCharacter(void);
+PBT_EXPORT id<PBTGenerator> PBTAlphabetCharacter(void);
+PBT_EXPORT id<PBTGenerator> PBTNumericCharacter(void);
+PBT_EXPORT id<PBTGenerator> PBTAlphanumericCharacter(void);
+PBT_EXPORT id<PBTGenerator> PBTAsciiCharacter(void);
+PBT_EXPORT id<PBTGenerator> PBTString(void);
 
-PBT_EXPORT id<PBTGenerator> PBTSequenceGenerator(id<PBTSequence> generators);
+PBT_EXPORT id<PBTGenerator> PBTTuple(id<PBTSequence> generators);
+PBT_EXPORT id<PBTGenerator> PBTTuple(NSArray *generators);
+
 PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator);
 PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator, NSUInteger numberOfElements);
 PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator,
@@ -37,7 +47,4 @@ PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator,
                                      NSUInteger maximumNumberOfElements);
 
 PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator);
-PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator, NSUInteger numberOfElements);
-PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator,
-                                     NSUInteger minimumNumberOfElements,
-                                     NSUInteger maximumNumberOfElements);
+PBT_EXPORT id<PBTGenerator> PBTDictionary(id<PBTGenerator> keyGenerator, id<PBTGenerator> valueGenerator);

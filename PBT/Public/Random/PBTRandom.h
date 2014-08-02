@@ -5,20 +5,15 @@
 
 - (uint32_t)seed;
 - (void)setSeed:(uint32_t)seed;
-- (double)randomDouble;
-- (double)randomDoubleWithinMinimum:(double)minDouble
-                         andMaximum:(double)maxDouble;
+- (double)randomInteger;
+- (double)randomIntegerWithinMinimum:(NSInteger)minimumNumber
+                          andMaximum:(NSInteger)maximumNumber;
 
 @end
 
 @interface PBTRandom : NSObject <PBTRandom>
 
 - (instancetype)init;
-- (uint32_t)seed;
-- (void)setSeed:(uint32_t)seed;
-
-- (double)randomDouble;
-- (double)randomDoubleWithinMinimum:(double)minDouble
-                         andMaximum:(double)maxDouble;
+- (instancetype)initWithSeed:(uint32_t)seed;
 
 @end

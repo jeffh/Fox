@@ -5,6 +5,6 @@
 @interface PBTConstantRandom : NSObject<PBTRandom>
 
 - (instancetype)init;
-- (instancetype)initWithDoubleValue:(double)doubleValue;
+- (instancetype)initWithValue:(NSInteger)value;
 
 @end

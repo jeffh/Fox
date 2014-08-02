@@ -8,7 +8,7 @@ SPEC_BEGIN(PBTNegativeIntegerSpec)
 describe(@"PBTNegativeInteger", ^{
     context(@"when the randomizer returns zero", ^{
         it(@"should return an number within the range generated", ^{
-            PBTConstantRandom *random = [[PBTConstantRandom alloc] initWithDoubleValue:0];
+            PBTConstantRandom *random = [[PBTConstantRandom alloc] initWithValue:0];
             PBTRoseTree *tree = [PBTNegativeInteger() lazyTreeWithRandom:random maximumSize:0];
             tree should equal([PBTRoseTree treeFromArray:@[@0, @[]]]);
         });
@@ -16,7 +16,7 @@ describe(@"PBTNegativeInteger", ^{
 
     context(@"when the randomizer returns -1", ^{
         it(@"should return an number within the range generated [0, 1]", ^{
-            PBTConstantRandom *random = [[PBTConstantRandom alloc] initWithDoubleValue:1];
+            PBTConstantRandom *random = [[PBTConstantRandom alloc] initWithValue:1];
             PBTRoseTree *tree = [PBTNegativeInteger() lazyTreeWithRandom:random maximumSize:1];
             tree should equal([PBTRoseTree treeFromArray:@[@(-1), @[@[@0, @[]]]]]);
         });
@@ -24,7 +24,7 @@ describe(@"PBTNegativeInteger", ^{
 
     context(@"when the randomizer returns -2", ^{
         it(@"should return an number within the range generated [0, 2]", ^{
-            PBTConstantRandom *random = [[PBTConstantRandom alloc] initWithDoubleValue:2];
+            PBTConstantRandom *random = [[PBTConstantRandom alloc] initWithValue:2];
             PBTRoseTree *tree = [PBTNegativeInteger() lazyTreeWithRandom:random maximumSize:2];
             tree should equal([PBTRoseTree treeFromArray:@[@(-2), @[@[@0, @[]],
                                                                    @[@(-1), @[@[@0, @[]]]]]]]);

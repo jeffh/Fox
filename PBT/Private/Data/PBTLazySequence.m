@@ -82,11 +82,11 @@
     @synchronized (self) {
         if (self.blockValue) {
             id value = self.blockValue;
+            self.blockValue = nil;
             while ([self.block isKindOfClass:[PBTLazySequence class]]) {
                 value = [value evaluateBlock];
             }
             self.sequenceValue = value;
-            self.blockValue = nil;
         }
         return self.sequenceValue;
     }

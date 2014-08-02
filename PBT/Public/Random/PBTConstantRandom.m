@@ -3,7 +3,7 @@
 
 @interface PBTConstantRandom ()
 
-@property (nonatomic) double doubleValue;
+@property (nonatomic) NSInteger value;
 @property (nonatomic) uint32_t seed;
 
 @end
@@ -13,26 +13,26 @@
 
 - (instancetype)init
 {
-    return [self initWithDoubleValue:0.0];
+    return [self initWithValue:0];
 }
 
-- (instancetype)initWithDoubleValue:(double)doubleValue
+- (instancetype)initWithValue:(NSInteger)value
 {
     self = [super init];
     if (self) {
-        self.doubleValue = doubleValue;
+        self.value = value;
     }
     return self;
 }
 
-- (double)randomDouble
+- (double)randomInteger
 {
-    return self.doubleValue;
+    return self.value;
 }
 
-- (double)randomDoubleWithinMinimum:(double)minDouble andMaximum:(double)maxDouble
+- (double)randomIntegerWithinMinimum:(NSInteger)minimumNumber andMaximum:(NSInteger)maximumNumber
 {
-    return MAX(MIN(self.doubleValue, maxDouble), minDouble);
+    return MAX(MIN(self.value, maximumNumber), minimumNumber);
 }
 
 @end

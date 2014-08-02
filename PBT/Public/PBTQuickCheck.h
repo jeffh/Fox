@@ -18,6 +18,10 @@
 - (PBTQuickCheckResult *)checkWithNumberOfTests:(NSUInteger)numberOfTests
                                          forAll:(id<PBTGenerator>)values
                                            then:(PBTPropertyStatus (^)(id generatedValue))then;
+- (PBTQuickCheckResult *)checkWithNumberOfTests:(NSUInteger)totalNumberOfTests
+                                       property:(id<PBTGenerator>)property
+                                           seed:(uint32_t)seed
+                                        maxSize:(NSUInteger)maxSize;
 
 
 @end

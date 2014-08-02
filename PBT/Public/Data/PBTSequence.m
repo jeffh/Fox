@@ -88,7 +88,7 @@
 
 - (id<PBTSequence>)sequenceByExcludingIndex:(NSUInteger)index
 {
-    return [[self class] lazySequenceFromBlock:^id<PBTSequence>{
+    return [PBTSequence lazySequenceFromBlock:^id<PBTSequence>{
         if (index == 0) {
             return [self remainingSequence];
         } else {
@@ -230,6 +230,15 @@
         seq = [[PBTConcreteSequence alloc] initWithObject:item remainingSequence:seq];
     }
     return seq ?: [[PBTConcreteSequence alloc] init];
+}
+
++ (instancetype)sequenceByRepeatingObject:(id)object times:(NSUInteger)times
+{
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:times];
+    for (NSUInteger i = 0; i<times; i++) {
+        [array addObject:object];
+    }
+    return [PBTConcreteSequence sequenceFromArray:array];
 }
 
 @end

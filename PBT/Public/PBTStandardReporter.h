@@ -1,6 +1,6 @@
 #import "PBTQuickCheck.h"
 
-@interface PBTQuickCheckPrinter : NSObject <PBTQuickCheckReporter>
+@interface PBTStandardReporter : NSObject <PBTQuickCheckReporter>
 
 - (instancetype)init;
 - (instancetype)initWithFile:(FILE *)file;

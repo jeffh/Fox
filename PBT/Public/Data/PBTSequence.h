@@ -39,6 +39,7 @@
 + (instancetype)sequenceWithObject:(id)firstObject;
 + (instancetype)sequenceWithObject:(id)firstObject remainingSequence:(id<PBTSequence>)remainingSequence;
 + (instancetype)sequenceFromArray:(NSArray *)array;
++ (instancetype)sequenceByRepeatingObject:(id)object times:(NSUInteger)times;
 
 @end
 

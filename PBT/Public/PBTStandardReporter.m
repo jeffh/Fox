@@ -1,8 +1,8 @@
-#import "PBTQuickCheckPrinter.h"
+#import "PBTStandardReporter.h"
 #import "PBTQuickCheckResult.h"
 
 
-@implementation PBTQuickCheckPrinter {
+@implementation PBTStandardReporter {
     FILE *_file;
 }
 
@@ -31,7 +31,7 @@
 
 - (void)checkerWillShrinkFailingTestNumber:(NSUInteger)testNumber
 {
-    [self logString:@"F [Shrinking"];
+    [self logString:@"F (Shrinking"];
 }
 
 - (void)checkerShrankFailingTestNumber:(NSUInteger)testNumber
@@ -51,8 +51,8 @@
 
 - (void)checkerDidFailTestNumber:(NSUInteger)testNumber withResult:(PBTQuickCheckResult *)result
 {
-    [self logString:[NSString stringWithFormat:@"\n\n%@\n", [result friendlyDescription]]];
-    [self logString:[NSString stringWithFormat:@"]\n\nFailure after %lu tests.\n", testNumber + 1]];
+    [self logString:[NSString stringWithFormat:@"\n\n  %@\n", [[result friendlyDescription] stringByReplacingOccurrencesOfString:@"\n" withString:@"\n  "]]];
+    [self logString:[NSString stringWithFormat:@")\n\nFailure after %lu tests.\n", testNumber + 1]];
 }
 
 #pragma mark - Private

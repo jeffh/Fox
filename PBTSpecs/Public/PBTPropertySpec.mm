@@ -12,7 +12,7 @@ describe(@"PBTProperty", ^{
     __block id<PBTRandom> random;
 
     it(@"should generate passed results", ^{
-        random = [[PBTConstantRandom alloc] initWithDoubleValue:2];
+        random = [[PBTConstantRandom alloc] initWithValue:2];
         property = [PBTProperty forAll:PBTReturn(@1) then:^PBTPropertyStatus(id value){
             return PBTRequire([@1 isEqual:value]);
         }];
@@ -24,7 +24,7 @@ describe(@"PBTProperty", ^{
     });
 
     it(@"should generate failed results", ^{
-        random = [[PBTConstantRandom alloc] initWithDoubleValue:2];
+        random = [[PBTConstantRandom alloc] initWithValue:2];
         property = [PBTProperty forAll:PBTReturn(@2) then:^PBTPropertyStatus(id value){
             return PBTRequire([@1 isEqual:value]);
         }];
@@ -47,7 +47,7 @@ describe(@"PBTProperty", ^{
     });
 
     xit(@"should validate arbitary data structures", ^{
-        random = [[PBTConstantRandom alloc] initWithDoubleValue:2];
+        random = [[PBTConstantRandom alloc] initWithValue:2];
         property = [PBTProperty forAll:PBTArray(PBTInteger()) then:^PBTPropertyStatus(NSArray *value){
             return PBTRequire(value.count < 2);
         }];

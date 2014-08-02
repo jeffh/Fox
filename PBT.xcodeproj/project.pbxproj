@@ -10,10 +10,32 @@
 		165D2B012DAD434C88132AE8 /* libPods-PBTOSXSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77BAA3674CD14BCA971CCA79 /* libPods-PBTOSXSpecs.a */; };
 		1F3462661924780800AE515C /* PBTConstantRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E4FFE7B868F0EA1A6D3 /* PBTConstantRandom.m */; };
 		1F3462671924780800AE515C /* PBTRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7367B3E11AD0DC06F6595 /* PBTRandom.mm */; };
+		1F35BC1F198D824600BEA6E1 /* PBTNamedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC1E198D824600BEA6E1 /* PBTNamedGenerator.m */; };
+		1F35BC20198D824A00BEA6E1 /* PBTNamedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC1E198D824600BEA6E1 /* PBTNamedGenerator.m */; };
+		1F35BC23198D838300BEA6E1 /* PBTStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC22198D838300BEA6E1 /* PBTStringGenerator.m */; };
+		1F35BC24198D838300BEA6E1 /* PBTStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC22198D838300BEA6E1 /* PBTStringGenerator.m */; };
+		1F35BC27198D881900BEA6E1 /* PBTArrayGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC26198D881900BEA6E1 /* PBTArrayGenerator.m */; };
+		1F35BC28198D881900BEA6E1 /* PBTArrayGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC26198D881900BEA6E1 /* PBTArrayGenerator.m */; };
+		1F35BC2B198D89DF00BEA6E1 /* PBTTupleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2A198D89DF00BEA6E1 /* PBTTupleGenerator.m */; };
+		1F35BC2C198D89DF00BEA6E1 /* PBTTupleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2A198D89DF00BEA6E1 /* PBTTupleGenerator.m */; };
 		1F4187FB1975108000FEBB8D /* PBTQuickCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* PBTQuickCheck.m */; };
 		1F4187FC1975187000FEBB8D /* PBTQuickCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* PBTQuickCheck.m */; };
 		1F4187FF19751BB700FEBB8D /* PBTQuickCheckResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FE19751BB700FEBB8D /* PBTQuickCheckResult.m */; };
 		1F41880019751F0900FEBB8D /* PBTQuickCheckResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FE19751BB700FEBB8D /* PBTQuickCheckResult.m */; };
+		1F46E508198CAEB100F87028 /* PBTBlockGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E507198CAEB100F87028 /* PBTBlockGenerator.m */; };
+		1F46E509198CAEB100F87028 /* PBTBlockGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E507198CAEB100F87028 /* PBTBlockGenerator.m */; };
+		1F46E50C198CAFAD00F87028 /* PBTPureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50B198CAFAD00F87028 /* PBTPureGenerator.m */; };
+		1F46E50D198CAFAD00F87028 /* PBTPureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50B198CAFAD00F87028 /* PBTPureGenerator.m */; };
+		1F46E510198CB2E800F87028 /* PBTMapGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50F198CB2E800F87028 /* PBTMapGenerator.m */; };
+		1F46E511198CB2E800F87028 /* PBTMapGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50F198CB2E800F87028 /* PBTMapGenerator.m */; };
+		1F46E514198CB4C000F87028 /* PBTBindGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E513198CB4C000F87028 /* PBTBindGenerator.m */; };
+		1F46E515198CB4C000F87028 /* PBTBindGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E513198CB4C000F87028 /* PBTBindGenerator.m */; };
+		1F46E518198CB63200F87028 /* PBTSizedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E517198CB63200F87028 /* PBTSizedGenerator.m */; };
+		1F46E519198CB63200F87028 /* PBTSizedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E517198CB63200F87028 /* PBTSizedGenerator.m */; };
+		1F46E51C198CB78000F87028 /* PBTChooseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51B198CB78000F87028 /* PBTChooseGenerator.m */; };
+		1F46E51D198CB78000F87028 /* PBTChooseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51B198CB78000F87028 /* PBTChooseGenerator.m */; };
+		1F46E520198CBAF100F87028 /* PBTSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51F198CBAF100F87028 /* PBTSequenceGenerator.m */; };
+		1F46E521198CBAF100F87028 /* PBTSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51F198CBAF100F87028 /* PBTSequenceGenerator.m */; };
 		1F59A817196E8E9000957FAA /* PBTLazySequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A816196E8E9000957FAA /* PBTLazySequenceSpec.mm */; };
 		1F59A818196E8E9000957FAA /* PBTLazySequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A816196E8E9000957FAA /* PBTLazySequenceSpec.mm */; };
 		1F59A81D196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */; };
@@ -43,10 +65,18 @@
 		1F8FDBEF1987773F0059D31A /* PBTLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBEB1987773F0059D31A /* PBTLazySequence.m */; };
 		1F8FDBF2198777540059D31A /* PBTSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* PBTSequenceEnumerator.m */; };
 		1F8FDBF3198777540059D31A /* PBTSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* PBTSequenceEnumerator.m */; };
-		1F8FDBF61988A6070059D31A /* PBTQuickCheckPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF51988A6070059D31A /* PBTQuickCheckPrinter.m */; };
-		1F8FDBF71988A6070059D31A /* PBTQuickCheckPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF51988A6070059D31A /* PBTQuickCheckPrinter.m */; };
+		1F8FDBF61988A6070059D31A /* PBTStandardReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF51988A6070059D31A /* PBTStandardReporter.m */; };
+		1F8FDBF71988A6070059D31A /* PBTStandardReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF51988A6070059D31A /* PBTStandardReporter.m */; };
 		1F8FDBFA1988B4BA0059D31A /* PBTSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF91988B4BA0059D31A /* PBTSpecHelper.m */; };
 		1F8FDBFB1988B4BA0059D31A /* PBTSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF91988B4BA0059D31A /* PBTSpecHelper.m */; };
+		1F8FDBFD1989F9DD0059D31A /* PBTSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */; };
+		1F8FDBFE1989F9DD0059D31A /* PBTSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */; };
+		1F8FDC001989FE530059D31A /* PBTDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */; };
+		1F8FDC011989FE530059D31A /* PBTDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */; };
+		1F8FDC031989FED70059D31A /* PBTStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* PBTStringSpec.mm */; };
+		1F8FDC041989FED70059D31A /* PBTStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* PBTStringSpec.mm */; };
+		1F8FDC14198B78B00059D31A /* PBTDebugReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC13198B78B00059D31A /* PBTDebugReporter.m */; };
+		1F8FDC15198B78B00059D31A /* PBTDebugReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC13198B78B00059D31A /* PBTDebugReporter.m */; };
 		1FC3B983191B663600AA359B /* PBTPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */; };
 		1FC3B986191B664500AA359B /* PBTGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B730E5432718F19A902CB9 /* PBTGenerator.m */; };
 		1FC3B987191B664500AA359B /* PBTProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73399D02DC2E56346E0A0 /* PBTProperty.m */; };
@@ -88,10 +118,32 @@
 
 /* Begin PBXFileReference section */
 		00B47442628246AF911A644E /* Pods-PBTSpecs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBTSpecs.xcconfig"; path = "Pods/Pods-PBTSpecs.xcconfig"; sourceTree = "<group>"; };
+		1F35BC1D198D824600BEA6E1 /* PBTNamedGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTNamedGenerator.h; sourceTree = "<group>"; };
+		1F35BC1E198D824600BEA6E1 /* PBTNamedGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTNamedGenerator.m; sourceTree = "<group>"; };
+		1F35BC21198D838300BEA6E1 /* PBTStringGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTStringGenerator.h; sourceTree = "<group>"; };
+		1F35BC22198D838300BEA6E1 /* PBTStringGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTStringGenerator.m; sourceTree = "<group>"; };
+		1F35BC25198D881900BEA6E1 /* PBTArrayGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTArrayGenerator.h; sourceTree = "<group>"; };
+		1F35BC26198D881900BEA6E1 /* PBTArrayGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTArrayGenerator.m; sourceTree = "<group>"; };
+		1F35BC29198D89DF00BEA6E1 /* PBTTupleGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTTupleGenerator.h; sourceTree = "<group>"; };
+		1F35BC2A198D89DF00BEA6E1 /* PBTTupleGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTTupleGenerator.m; sourceTree = "<group>"; };
 		1F4187F91975108000FEBB8D /* PBTQuickCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTQuickCheck.h; sourceTree = "<group>"; };
 		1F4187FA1975108000FEBB8D /* PBTQuickCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTQuickCheck.m; sourceTree = "<group>"; };
 		1F4187FD19751BB700FEBB8D /* PBTQuickCheckResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTQuickCheckResult.h; sourceTree = "<group>"; };
 		1F4187FE19751BB700FEBB8D /* PBTQuickCheckResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTQuickCheckResult.m; sourceTree = "<group>"; };
+		1F46E506198CAEB100F87028 /* PBTBlockGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTBlockGenerator.h; sourceTree = "<group>"; };
+		1F46E507198CAEB100F87028 /* PBTBlockGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTBlockGenerator.m; sourceTree = "<group>"; };
+		1F46E50A198CAFAD00F87028 /* PBTPureGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTPureGenerator.h; sourceTree = "<group>"; };
+		1F46E50B198CAFAD00F87028 /* PBTPureGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTPureGenerator.m; sourceTree = "<group>"; };
+		1F46E50E198CB2E800F87028 /* PBTMapGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTMapGenerator.h; sourceTree = "<group>"; };
+		1F46E50F198CB2E800F87028 /* PBTMapGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTMapGenerator.m; sourceTree = "<group>"; };
+		1F46E512198CB4C000F87028 /* PBTBindGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTBindGenerator.h; sourceTree = "<group>"; };
+		1F46E513198CB4C000F87028 /* PBTBindGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTBindGenerator.m; sourceTree = "<group>"; };
+		1F46E516198CB63200F87028 /* PBTSizedGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSizedGenerator.h; sourceTree = "<group>"; };
+		1F46E517198CB63200F87028 /* PBTSizedGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSizedGenerator.m; sourceTree = "<group>"; };
+		1F46E51A198CB78000F87028 /* PBTChooseGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTChooseGenerator.h; sourceTree = "<group>"; };
+		1F46E51B198CB78000F87028 /* PBTChooseGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTChooseGenerator.m; sourceTree = "<group>"; };
+		1F46E51E198CBAF100F87028 /* PBTSequenceGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSequenceGenerator.h; sourceTree = "<group>"; };
+		1F46E51F198CBAF100F87028 /* PBTSequenceGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSequenceGenerator.m; sourceTree = "<group>"; };
 		1F59A816196E8E9000957FAA /* PBTLazySequenceSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTLazySequenceSpec.mm; sourceTree = "<group>"; };
 		1F59A81B196E900B00957FAA /* NSArray+FastEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FastEnumerator.h"; sourceTree = "<group>"; };
 		1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FastEnumerator.m"; sourceTree = "<group>"; };
@@ -106,14 +158,14 @@
 		1F60164E1919DF90003D8484 /* PBTSpecs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PBTSpecs-Info.plist"; sourceTree = "<group>"; };
 		1F6016501919DF90003D8484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F6016571919DF91003D8484 /* PBTSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBTSpecs-Prefix.pch"; sourceTree = "<group>"; };
-		1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTReturnSpec.mm; sourceTree = "<group>"; };
+		1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTReturnSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F61E452196E88C4003EA164 /* PBT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBT.h; sourceTree = "<group>"; };
 		1F61E455196E8AEF003EA164 /* PBTConcreteSequenceSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTConcreteSequenceSpec.mm; sourceTree = "<group>"; };
 		1F7EFA29191B63970074B028 /* PBTOSXSpecs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PBTOSXSpecs; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7EFA2E191B63970074B028 /* PBTOSXSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBTOSXSpecs-Prefix.pch"; sourceTree = "<group>"; };
 		1F7EFA31191B63980074B028 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTPositiveIntegerSpec.mm; sourceTree = "<group>"; };
-		1F848B4419779F6600F0966E /* PBTNegativeIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTNegativeIntegerSpec.mm; sourceTree = "<group>"; };
+		1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTPositiveIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1F848B4419779F6600F0966E /* PBTNegativeIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTNegativeIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F848B471977A75200F0966E /* PBTMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBTMacros.h; sourceTree = "<group>"; };
 		1F848B481977B8F100F0966E /* PBTArraySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTArraySpec.mm; sourceTree = "<group>"; };
 		1F8FDBE81987773F0059D31A /* PBTConcreteSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTConcreteSequence.h; sourceTree = "<group>"; };
@@ -122,11 +174,16 @@
 		1F8FDBEB1987773F0059D31A /* PBTLazySequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTLazySequence.m; sourceTree = "<group>"; };
 		1F8FDBF0198777540059D31A /* PBTSequenceEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSequenceEnumerator.h; sourceTree = "<group>"; };
 		1F8FDBF1198777540059D31A /* PBTSequenceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSequenceEnumerator.m; sourceTree = "<group>"; };
-		1F8FDBF41988A6070059D31A /* PBTQuickCheckPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTQuickCheckPrinter.h; sourceTree = "<group>"; };
-		1F8FDBF51988A6070059D31A /* PBTQuickCheckPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTQuickCheckPrinter.m; sourceTree = "<group>"; };
+		1F8FDBF41988A6070059D31A /* PBTStandardReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTStandardReporter.h; sourceTree = "<group>"; };
+		1F8FDBF51988A6070059D31A /* PBTStandardReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTStandardReporter.m; sourceTree = "<group>"; };
 		1F8FDBF81988B4BA0059D31A /* PBTSpecHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSpecHelper.h; sourceTree = "<group>"; };
 		1F8FDBF91988B4BA0059D31A /* PBTSpecHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSpecHelper.m; sourceTree = "<group>"; };
-		1FF5B93519737D4600416383 /* PBTIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTIntegerSpec.mm; sourceTree = "<group>"; };
+		1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTSetSpec.mm; sourceTree = "<group>"; };
+		1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTDictionarySpec.mm; sourceTree = "<group>"; };
+		1F8FDC021989FED70059D31A /* PBTStringSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTStringSpec.mm; sourceTree = "<group>"; };
+		1F8FDC12198B78B00059D31A /* PBTDebugReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTDebugReporter.h; sourceTree = "<group>"; };
+		1F8FDC13198B78B00059D31A /* PBTDebugReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTDebugReporter.m; sourceTree = "<group>"; };
+		1FF5B93519737D4600416383 /* PBTIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1FF5B93C1973BD9000416383 /* PBTRoseTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTRoseTree.h; sourceTree = "<group>"; };
 		1FF5B93D1973BD9000416383 /* PBTRoseTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTRoseTree.m; sourceTree = "<group>"; };
 		315DE2C46CCA4D76A497AD23 /* Pods-PBTOSXSpecs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBTOSXSpecs.xcconfig"; path = "Pods/Pods-PBTOSXSpecs.xcconfig"; sourceTree = "<group>"; };
@@ -139,7 +196,7 @@
 		31B733ACE038CF303D9ECC27 /* PBTSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSequence.m; sourceTree = "<group>"; };
 		31B7359D19C07C6410676A13 /* PBTGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTGenerator.h; sourceTree = "<group>"; };
 		31B7367B3E11AD0DC06F6595 /* PBTRandom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTRandom.mm; sourceTree = "<group>"; };
-		31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTPropertySpec.mm; sourceTree = "<group>"; };
+		31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTPropertySpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		31B73E4FFE7B868F0EA1A6D3 /* PBTConstantRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTConstantRandom.m; sourceTree = "<group>"; };
 		438E463FF96642B589CA99D1 /* libPods-PBTSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PBTSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BAA3674CD14BCA971CCA79 /* libPods-PBTOSXSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PBTOSXSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +236,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F46E505198CAE6400F87028 /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+				1F46E506198CAEB100F87028 /* PBTBlockGenerator.h */,
+				1F46E507198CAEB100F87028 /* PBTBlockGenerator.m */,
+				1F46E50A198CAFAD00F87028 /* PBTPureGenerator.h */,
+				1F46E50B198CAFAD00F87028 /* PBTPureGenerator.m */,
+				1F46E50E198CB2E800F87028 /* PBTMapGenerator.h */,
+				1F46E50F198CB2E800F87028 /* PBTMapGenerator.m */,
+				1F46E512198CB4C000F87028 /* PBTBindGenerator.h */,
+				1F46E513198CB4C000F87028 /* PBTBindGenerator.m */,
+				1F46E516198CB63200F87028 /* PBTSizedGenerator.h */,
+				1F46E517198CB63200F87028 /* PBTSizedGenerator.m */,
+				1F46E51A198CB78000F87028 /* PBTChooseGenerator.h */,
+				1F46E51B198CB78000F87028 /* PBTChooseGenerator.m */,
+				1F46E51E198CBAF100F87028 /* PBTSequenceGenerator.h */,
+				1F46E51F198CBAF100F87028 /* PBTSequenceGenerator.m */,
+				1F35BC1D198D824600BEA6E1 /* PBTNamedGenerator.h */,
+				1F35BC1E198D824600BEA6E1 /* PBTNamedGenerator.m */,
+				1F35BC21198D838300BEA6E1 /* PBTStringGenerator.h */,
+				1F35BC22198D838300BEA6E1 /* PBTStringGenerator.m */,
+				1F35BC25198D881900BEA6E1 /* PBTArrayGenerator.h */,
+				1F35BC26198D881900BEA6E1 /* PBTArrayGenerator.m */,
+				1F35BC29198D89DF00BEA6E1 /* PBTTupleGenerator.h */,
+				1F35BC2A198D89DF00BEA6E1 /* PBTTupleGenerator.m */,
+			);
+			path = Generators;
+			sourceTree = "<group>";
+		};
 		1F59A819196E8FC000957FAA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,8 +350,10 @@
 				1F4187F91975108000FEBB8D /* PBTQuickCheck.h */,
 				1F4187FA1975108000FEBB8D /* PBTQuickCheck.m */,
 				1F848B471977A75200F0966E /* PBTMacros.h */,
-				1F8FDBF41988A6070059D31A /* PBTQuickCheckPrinter.h */,
-				1F8FDBF51988A6070059D31A /* PBTQuickCheckPrinter.m */,
+				1F8FDBF41988A6070059D31A /* PBTStandardReporter.h */,
+				1F8FDBF51988A6070059D31A /* PBTStandardReporter.m */,
+				1F8FDC12198B78B00059D31A /* PBTDebugReporter.h */,
+				1F8FDC13198B78B00059D31A /* PBTDebugReporter.m */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -318,6 +406,9 @@
 				1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */,
 				1F848B4419779F6600F0966E /* PBTNegativeIntegerSpec.mm */,
 				1F848B481977B8F100F0966E /* PBTArraySpec.mm */,
+				1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */,
+				1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */,
+				1F8FDC021989FED70059D31A /* PBTStringSpec.mm */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
@@ -351,6 +442,7 @@
 		1F8FDBE6198776FA0059D31A /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				1F46E505198CAE6400F87028 /* Generators */,
 				1F8FDBE7198777080059D31A /* Data */,
 			);
 			path = Private;
@@ -579,16 +671,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B73925BF4547CBBA83F14E /* PBTRandom.mm in Sources */,
+				1F46E51C198CB78000F87028 /* PBTChooseGenerator.m in Sources */,
+				1F35BC1F198D824600BEA6E1 /* PBTNamedGenerator.m in Sources */,
+				1F35BC23198D838300BEA6E1 /* PBTStringGenerator.m in Sources */,
 				31B7371271F4035919E0E931 /* PBTProperty.m in Sources */,
+				1F46E520198CBAF100F87028 /* PBTSequenceGenerator.m in Sources */,
 				1F4187FB1975108000FEBB8D /* PBTQuickCheck.m in Sources */,
 				31B73C3D84FDBB94D8A6FE6A /* PBTGenerator.m in Sources */,
+				1F46E518198CB63200F87028 /* PBTSizedGenerator.m in Sources */,
 				1F4187FF19751BB700FEBB8D /* PBTQuickCheckResult.m in Sources */,
 				1F8FDBF2198777540059D31A /* PBTSequenceEnumerator.m in Sources */,
+				1F46E50C198CAFAD00F87028 /* PBTPureGenerator.m in Sources */,
+				1F46E514198CB4C000F87028 /* PBTBindGenerator.m in Sources */,
+				1F46E510198CB2E800F87028 /* PBTMapGenerator.m in Sources */,
 				31B73D53EB506977E8B6D87D /* PBTConstantRandom.m in Sources */,
 				31B7391D14C8AD2561D14117 /* PBTSequence.m in Sources */,
 				1F8FDBEE1987773F0059D31A /* PBTLazySequence.m in Sources */,
+				1F8FDC14198B78B00059D31A /* PBTDebugReporter.m in Sources */,
+				1F46E508198CAEB100F87028 /* PBTBlockGenerator.m in Sources */,
 				1F8FDBEC1987773F0059D31A /* PBTConcreteSequence.m in Sources */,
-				1F8FDBF61988A6070059D31A /* PBTQuickCheckPrinter.m in Sources */,
+				1F8FDBF61988A6070059D31A /* PBTStandardReporter.m in Sources */,
+				1F35BC2B198D89DF00BEA6E1 /* PBTTupleGenerator.m in Sources */,
+				1F35BC27198D881900BEA6E1 /* PBTArrayGenerator.m in Sources */,
 				1FF5B93E1973BD9000416383 /* PBTRoseTree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,10 +704,13 @@
 				1F59A817196E8E9000957FAA /* PBTLazySequenceSpec.mm in Sources */,
 				1FF5B93619737D4600416383 /* PBTIntegerSpec.mm in Sources */,
 				1F59A81D196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */,
+				1F8FDBFD1989F9DD0059D31A /* PBTSetSpec.mm in Sources */,
 				1F848B4519779F6600F0966E /* PBTNegativeIntegerSpec.mm in Sources */,
 				31B73CCA0CFC274B9068281C /* PBTPropertySpec.mm in Sources */,
 				1F848B491977B8F100F0966E /* PBTArraySpec.mm in Sources */,
+				1F8FDC001989FE530059D31A /* PBTDictionarySpec.mm in Sources */,
 				1F61E450196E88A6003EA164 /* PBTReturnSpec.mm in Sources */,
+				1F8FDC031989FED70059D31A /* PBTStringSpec.mm in Sources */,
 				1F8FDBFA1988B4BA0059D31A /* PBTSpecHelper.m in Sources */,
 				1F848B421977965500F0966E /* PBTPositiveIntegerSpec.mm in Sources */,
 				1F61E456196E8AEF003EA164 /* PBTConcreteSequenceSpec.mm in Sources */,
@@ -615,25 +722,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F59A818196E8E9000957FAA /* PBTLazySequenceSpec.mm in Sources */,
+				1F46E51D198CB78000F87028 /* PBTChooseGenerator.m in Sources */,
 				1F8FDBED1987773F0059D31A /* PBTConcreteSequence.m in Sources */,
+				1F8FDBFE1989F9DD0059D31A /* PBTSetSpec.mm in Sources */,
 				1F59A81E196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */,
 				1F3462661924780800AE515C /* PBTConstantRandom.m in Sources */,
 				1F8FDBFB1988B4BA0059D31A /* PBTSpecHelper.m in Sources */,
-				1F8FDBF71988A6070059D31A /* PBTQuickCheckPrinter.m in Sources */,
+				1F46E515198CB4C000F87028 /* PBTBindGenerator.m in Sources */,
+				1F8FDBF71988A6070059D31A /* PBTStandardReporter.m in Sources */,
+				1F35BC20198D824A00BEA6E1 /* PBTNamedGenerator.m in Sources */,
+				1F8FDC011989FE530059D31A /* PBTDictionarySpec.mm in Sources */,
 				1FC3B983191B663600AA359B /* PBTPropertySpec.mm in Sources */,
+				1F46E511198CB2E800F87028 /* PBTMapGenerator.m in Sources */,
+				1F46E50D198CAFAD00F87028 /* PBTPureGenerator.m in Sources */,
 				1F61E457196E8AEF003EA164 /* PBTConcreteSequenceSpec.mm in Sources */,
+				1F46E509198CAEB100F87028 /* PBTBlockGenerator.m in Sources */,
+				1F35BC28198D881900BEA6E1 /* PBTArrayGenerator.m in Sources */,
 				1F3462671924780800AE515C /* PBTRandom.mm in Sources */,
 				1F8FDBEF1987773F0059D31A /* PBTLazySequence.m in Sources */,
 				1F848B4A1977B8F100F0966E /* PBTArraySpec.mm in Sources */,
+				1F35BC24198D838300BEA6E1 /* PBTStringGenerator.m in Sources */,
 				1F8FDBF3198777540059D31A /* PBTSequenceEnumerator.m in Sources */,
 				1FF5B93F1973BD9000416383 /* PBTRoseTree.m in Sources */,
 				1F7EFA32191B63980074B028 /* main.m in Sources */,
 				1F848B431977965500F0966E /* PBTPositiveIntegerSpec.mm in Sources */,
+				1F8FDC15198B78B00059D31A /* PBTDebugReporter.m in Sources */,
 				1FC3B987191B664500AA359B /* PBTProperty.m in Sources */,
 				1F848B4619779F6600F0966E /* PBTNegativeIntegerSpec.mm in Sources */,
+				1F46E521198CBAF100F87028 /* PBTSequenceGenerator.m in Sources */,
+				1F35BC2C198D89DF00BEA6E1 /* PBTTupleGenerator.m in Sources */,
 				1F41880019751F0900FEBB8D /* PBTQuickCheckResult.m in Sources */,
 				1F4187FC1975187000FEBB8D /* PBTQuickCheck.m in Sources */,
+				1F46E519198CB63200F87028 /* PBTSizedGenerator.m in Sources */,
 				1FC3B986191B664500AA359B /* PBTGenerator.m in Sources */,
+				1F8FDC041989FED70059D31A /* PBTStringSpec.mm in Sources */,
 				31B73CF6F20CF5FF10AADAD4 /* PBTSequence.m in Sources */,
 				1F61E451196E88A6003EA164 /* PBTReturnSpec.mm in Sources */,
 				1FF5B93719737D4600416383 /* PBTIntegerSpec.mm in Sources */,

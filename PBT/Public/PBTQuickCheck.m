@@ -3,7 +3,7 @@
 #import "PBTRandom.h"
 #import "PBTSequence.h"
 #import "PBTQuickCheckResult.h"
-#import "PBTQuickCheckPrinter.h"
+#import "PBTStandardReporter.h"
 
 
 @interface PBTQuickCheck ()
@@ -18,7 +18,7 @@
 
 - (instancetype)init
 {
-    return [self initWithReporter:[[PBTQuickCheckPrinter alloc] initWithFile:stdout]];
+    return [self initWithReporter:[[PBTStandardReporter alloc] initWithFile:stdout]];
 }
 
 - (instancetype)initWithReporter:(id<PBTQuickCheckReporter>)reporter
@@ -154,7 +154,7 @@
         if ([smallestCandidate hasFailedOrRaisedException]) {
             currentSmallest = smallestCandidate;
 
-            if ([firstTree.children firstObject]) {
+            if ([firstTree.children firstObject] && [firstTree.children firstObject]) {
                 shrinkChoices = firstTree.children;
                 ++depth;
             } else {

@@ -8,6 +8,34 @@ using namespace Cedar::Doubles;
 SPEC_BEGIN(PBTArraySpec)
 
 describe(@"PBTArray", ^{
+    it(@"should be able to shrink to an empty array", ^{
+        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger()) then:^BOOL(NSArray *values) {
+            BOOL isValid = YES;
+            for (id element in values) {
+                if (![element isKindOfClass:[NSNumber class]]) {
+                    isValid = NO;
+                }
+            }
+            return isValid && [values count] > 10;
+        }];
+        result.succeeded should be_falsy;
+        result.smallestFailingArguments should equal(@[]);
+    });
+
+    it(@"should be able to shrink elements of the array", ^{
+        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger()) then:^BOOL(NSArray *values) {
+            BOOL isValid = YES;
+            for (id element in values) {
+                if (![element isKindOfClass:[NSNumber class]]) {
+                    isValid = NO;
+                }
+            }
+            return isValid && [values count] <= 2;
+        }];
+        result.succeeded should be_falsy;
+        result.smallestFailingArguments should equal(@[@0, @0, @0]);
+    });
+
     it(@"should be able to return arrays of any size", ^{
         NSMutableSet *sizesSeen = [NSMutableSet set];
         PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger()) then:^BOOL(id value) {
@@ -32,9 +60,9 @@ describe(@"PBTArray", ^{
     });
 
     it(@"should be able to return arrays of a given size range", ^{
-        PBTQuickCheckResult *result = [PBTSpecHelper debug_resultForAll:PBTArray(PBTInteger(), 5, 10) then:^BOOL(id value) {
+        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger(), 5, 10) then:^BOOL(id value) {
             NSUInteger count = [value count];
-            return count >= 5 && count < 10;
+            return count >= 5 && count <= 10;
         }];
         result.succeeded should be_truthy;
     });

@@ -5,16 +5,21 @@
 @implementation PBTRandom {
     uint32_t _seed;
     std::mt19937 _generator;
-    std::uniform_real_distribution<double> _distribution;
+    std::uniform_int_distribution<NSInteger> _distribution;
 }
 
 - (instancetype)init
 {
+    return [self initWithSeed:(uint32_t)time(NULL)];
+}
+
+- (instancetype)initWithSeed:(uint32_t)seed
+{
     self = [super init];
     if (self) {
-        _distribution = std::uniform_real_distribution<double>(std::numeric_limits<double>::min(),
-                                                               std::numeric_limits<double>::max());
-        [self setSeed:(uint32_t)time(NULL)];
+        _distribution = std::uniform_int_distribution<NSInteger>(std::numeric_limits<NSInteger>::min(),
+                                                                 std::numeric_limits<NSInteger>::max());
+        self.seed = seed;
     }
     return self;
 }
@@ -30,15 +35,17 @@
     _generator = std::mt19937(seed);
 }
 
-- (double)randomDouble
+- (double)randomInteger
 {
     return _distribution(_generator);
 }
 
-- (double)randomDoubleWithinMinimum:(double)minDouble andMaximum:(double)maxDouble
+- (double)randomIntegerWithinMinimum:(NSInteger)minimumNumber andMaximum:(NSInteger)maximumNumber
 {
-    std::uniform_real_distribution<double> distributionRange(minDouble, maxDouble);
-    return distributionRange(_generator);
+    NSInteger difference = maximumNumber - minimumNumber;
+    std::uniform_int_distribution<NSInteger> distributionRange(0, difference);
+    NSInteger randomNumber = distributionRange(_generator);
+    return randomNumber + minimumNumber;
 }
 
 @end

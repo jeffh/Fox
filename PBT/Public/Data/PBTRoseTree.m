@@ -1,9 +1,23 @@
 #import "PBTRoseTree.h"
 #import "PBTSequence.h"
 
-#import <objc/message.h>
 
 @implementation PBTRoseTree
+
++ (id<PBTSequence>)permutationsOfRoseTrees:(NSArray *)roseTrees
+{
+    NSMutableArray *permutations = [NSMutableArray array];
+    NSUInteger index = 0;
+    for (PBTRoseTree *roseTree in roseTrees) {
+        for (id<PBTSequence> child in roseTree.children) {
+            NSMutableArray *permutation = [roseTrees mutableCopy];
+            permutation[index] = child;
+            [permutations addObject:permutation];
+        }
+        ++index;
+    }
+    return [PBTSequence sequenceFromArray:permutations];
+}
 
 + (instancetype)treeFromArray:(NSArray *)roseTreeLiteral
 {
@@ -16,43 +30,47 @@
                                      children:[PBTSequence sequenceFromArray:subtrees]];
 }
 
-+ (instancetype)mergedTreeFromRoseTrees:(NSArray *)roseTrees merger:(id(^)(NSArray *values))merger
++ (instancetype)mergedTreeFromRoseTrees:(NSArray *)roseTrees emptyTree:(PBTRoseTree *)emptyTree merger:(id(^)(NSArray *values))merger
 {
     if (!roseTrees.count) {
-        return [[PBTRoseTree alloc] initWithValue:merger(nil)];
+        return emptyTree;
     }
+    NSAssert([roseTrees count] > 1, @"Need at least 2 rose trees to merge");
+
     id<PBTSequence> rootChildren = [PBTSequence lazySequenceFromBlock:^id<PBTSequence>{
         id<PBTSequence> sequence = [PBTSequence sequenceFromArray:roseTrees];
 
         id<PBTSequence> oneLessTreeSequence = [sequence sequenceByApplyingIndexedBlock:^id(NSUInteger index, PBTRoseTree *_roseTree) {
-            return [sequence sequenceByExcludingIndex:index];
+            return [[[sequence sequenceByExcludingIndex:index] objectEnumerator] allObjects];
+        }];
+        id<PBTSequence> permutationSequence = [self permutationsOfRoseTrees:roseTrees];
+
+        id<PBTSequence> alternativeTrees = [oneLessTreeSequence sequenceByConcatenatingSequence:permutationSequence];
+        // TODO: Figure out why we can't/should merge one-tree sequences
+        alternativeTrees = [alternativeTrees sequenceFilteredByBlock:^BOOL(id item) {
+            return [item count] > 1;
         }];
 
-        id<PBTSequence> permutationSequence = ({
-            NSArray *base = [[sequence objectEnumerator] allObjects];
-            NSMutableArray *permutations = [NSMutableArray array];
-            NSUInteger i = 0;
-            for (PBTRoseTree *roseTree in sequence) {
-                for (id<PBTSequence> child in [roseTree.children objectEnumerator]) {
-                    NSMutableArray *permutation = [base mutableCopy];
-                    permutation[i] = child;
-                    [permutations addObject:permutation];
-                }
-                i++;
+        return [alternativeTrees sequenceByApplyingBlock:^id(id trees) {
+            if (0){
+                NSLog(@"================> %@ %@ %@ %@", alternativeTrees, oneLessTreeSequence, permutationSequence, roseTrees);
             }
-            [PBTSequence sequenceFromArray:permutations];
-        });
-
-        id<PBTSequence> removalTree = [oneLessTreeSequence sequenceByConcatenatingSequence:permutationSequence];
-
-        return [removalTree sequenceByApplyingBlock:^id(id trees) {
-            return [self mergedTreeFromRoseTrees:[[trees objectEnumerator] allObjects] merger:merger];
+            return [self mergedTreeFromRoseTrees:[[trees objectEnumerator] allObjects] emptyTree:emptyTree merger:merger];
         }];
     }];
     id value = merger([roseTrees valueForKey:@"value"]);
     return [[PBTRoseTree alloc] initWithValue:value
                                      children:rootChildren];
 }
+
++ (instancetype)zipTreeFromRoseTrees:(NSArray *)roseTrees byApplying:(id(^)(NSArray *values))block
+{
+    return [[PBTRoseTree alloc] initWithValue:block([roseTrees valueForKey:@"value"])
+                                     children:[[self permutationsOfRoseTrees:roseTrees] sequenceByApplyingBlock:^id(NSArray *subtrees) {
+        return [self zipTreeFromRoseTrees:subtrees byApplying:block];
+    }]];
+}
+
 
 - (instancetype)initWithValue:(id)value
 {
@@ -77,14 +95,28 @@
     }]];
 }
 
-- (PBTRoseTree *)treeFilteredByBlock:(BOOL(^)(id element))block
+- (PBTRoseTree *)treeFilterChildrenByBlock:(BOOL(^)(id element))block
 {
     return [[PBTRoseTree alloc] initWithValue:self.value
                                      children:[[self.children sequenceFilteredByBlock:^BOOL(PBTRoseTree *subtree) {
         return block(subtree.value);
     }] sequenceByApplyingBlock:^id(PBTRoseTree *subtree) {
-        return [subtree treeFilteredByBlock:block];
+        return [subtree treeFilterChildrenByBlock:block];
     }]];
+}
+
+- (PBTRoseTree *)treeFilterByBlock:(BOOL(^)(id element))block
+{
+    if (block(self.value)) {
+        return [self treeFilterChildrenByBlock:block];
+    } else {
+        for (PBTRoseTree *subtree in self.children) {
+            if (block(subtree.value)) {
+                return [subtree treeFilterChildrenByBlock:block];
+            }
+        }
+        return [[PBTRoseTree alloc] initWithValue:nil];
+    }
 }
 
 - (NSArray *)array
@@ -131,8 +163,8 @@
 
 - (NSString *)description
 {
-    NSMutableString *string = [NSMutableString stringWithFormat:@"<%@: ",
-                               NSStringFromClass([self class])];
+    NSMutableString *string = [NSMutableString stringWithFormat:@"<%@: %p ",
+                               NSStringFromClass([self class]), self];
     [string appendString:[self.value description] ?: @"nil"];
 
     if ([self.children firstObject]) {
