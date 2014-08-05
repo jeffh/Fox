@@ -46,7 +46,7 @@ describe(@"PBTProperty", ^{
         result.smallestFailingArguments should be_greater_than_or_equal_to(result.failingArguments);
     });
 
-    xit(@"should validate arbitary data structures", ^{
+    it(@"should validate arbitary data structures", ^{
         random = [[PBTConstantRandom alloc] initWithValue:2];
         property = [PBTProperty forAll:PBTArray(PBTInteger()) then:^PBTPropertyStatus(NSArray *value){
             return PBTRequire(value.count < 2);
@@ -54,6 +54,24 @@ describe(@"PBTProperty", ^{
         PBTQuickCheck *quick = [[PBTQuickCheck alloc] initWithReporter:nil];
         PBTQuickCheckResult *result = [quick checkWithNumberOfTests:100 property:property];
         result.smallestFailingArguments should equal(@[@0, @0]);
+    });
+
+    it(@"should capture and report exceptions", ^{
+        NSException *exception = [NSException exceptionWithName:@"hand" reason:@"answer" userInfo:nil];
+        random = [[PBTConstantRandom alloc] initWithValue:2];
+        property = [PBTProperty forAll:PBTArray(PBTInteger()) then:^PBTPropertyStatus(NSArray *value){
+            [exception raise];
+            return PBTRequire(YES);
+        }];
+        PBTRoseTree *tree = [property lazyTreeWithRandom:random maximumSize:1];
+        PBTPropertyResult *propertyResult = tree.value;
+        propertyResult.status should equal(PBTPropertyStatusUncaughtException);
+        propertyResult.uncaughtException should be_same_instance_as(exception);
+
+        PBTQuickCheck *quick = [[PBTQuickCheck alloc] initWithReporter:nil];
+        PBTQuickCheckResult *qcResult = [quick checkWithNumberOfTests:100 property:property];
+        qcResult.failingException should be_same_instance_as(exception);
+        qcResult.smallestFailingException should be_same_instance_as(exception);
     });
 });
 
