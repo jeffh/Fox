@@ -32,6 +32,8 @@
 		1F35BC431990CA5600BEA6E1 /* PBTDebugReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3F1990CA5600BEA6E1 /* PBTDebugReporter.m */; };
 		1F35BC441990CA5600BEA6E1 /* PBTStandardReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC411990CA5600BEA6E1 /* PBTStandardReporter.m */; };
 		1F35BC451990CA5600BEA6E1 /* PBTStandardReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC411990CA5600BEA6E1 /* PBTStandardReporter.m */; };
+		1F35BC481990CB6400BEA6E1 /* PBTRandomSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC471990CB6400BEA6E1 /* PBTRandomSpec.mm */; };
+		1F35BC491990CB6400BEA6E1 /* PBTRandomSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC471990CB6400BEA6E1 /* PBTRandomSpec.mm */; };
 		1F4187FB1975108000FEBB8D /* PBTQuickCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* PBTQuickCheck.m */; };
 		1F4187FC1975187000FEBB8D /* PBTQuickCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* PBTQuickCheck.m */; };
 		1F4187FF19751BB700FEBB8D /* PBTQuickCheckResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FE19751BB700FEBB8D /* PBTQuickCheckResult.m */; };
@@ -142,6 +144,7 @@
 		1F35BC3F1990CA5600BEA6E1 /* PBTDebugReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTDebugReporter.m; sourceTree = "<group>"; };
 		1F35BC401990CA5600BEA6E1 /* PBTStandardReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTStandardReporter.h; sourceTree = "<group>"; };
 		1F35BC411990CA5600BEA6E1 /* PBTStandardReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTStandardReporter.m; sourceTree = "<group>"; };
+		1F35BC471990CB6400BEA6E1 /* PBTRandomSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTRandomSpec.mm; sourceTree = "<group>"; };
 		1F4187F91975108000FEBB8D /* PBTQuickCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTQuickCheck.h; sourceTree = "<group>"; };
 		1F4187FA1975108000FEBB8D /* PBTQuickCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTQuickCheck.m; sourceTree = "<group>"; };
 		1F4187FD19751BB700FEBB8D /* PBTQuickCheckResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTQuickCheckResult.h; sourceTree = "<group>"; };
@@ -254,6 +257,14 @@
 				1F35BC411990CA5600BEA6E1 /* PBTStandardReporter.m */,
 			);
 			path = Reporters;
+			sourceTree = "<group>";
+		};
+		1F35BC461990CB4800BEA6E1 /* Random */ = {
+			isa = PBXGroup;
+			children = (
+				1F35BC471990CB6400BEA6E1 /* PBTRandomSpec.mm */,
+			);
+			path = Random;
 			sourceTree = "<group>";
 		};
 		1F46E505198CAE6400F87028 /* Generators */ = {
@@ -408,6 +419,7 @@
 		1F60165B1919E283003D8484 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				1F35BC461990CB4800BEA6E1 /* Random */,
 				1F61E453196E8AD6003EA164 /* Data */,
 				1F60165C1919E28E003D8484 /* Generators */,
 				31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */,
@@ -721,6 +733,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F35BC481990CB6400BEA6E1 /* PBTRandomSpec.mm in Sources */,
 				1FF5B93619737D4600416383 /* PBTIntegerSpec.mm in Sources */,
 				1F59A81D196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */,
 				1F8FDBFD1989F9DD0059D31A /* PBTSetSpec.mm in Sources */,
@@ -750,6 +763,7 @@
 				1F8FDBFE1989F9DD0059D31A /* PBTSetSpec.mm in Sources */,
 				1F59A81E196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */,
 				1F3462661924780800AE515C /* PBTConstantRandom.m in Sources */,
+				1F35BC491990CB6400BEA6E1 /* PBTRandomSpec.mm in Sources */,
 				1F8FDBFB1988B4BA0059D31A /* PBTSpecHelper.m in Sources */,
 				1F46E515198CB4C000F87028 /* PBTBindGenerator.m in Sources */,
 				1F35BC20198D824A00BEA6E1 /* PBTNamedGenerator.m in Sources */,

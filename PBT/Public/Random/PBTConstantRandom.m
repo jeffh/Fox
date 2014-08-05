@@ -25,12 +25,12 @@
     return self;
 }
 
-- (double)randomInteger
+- (NSInteger)randomInteger
 {
     return self.value;
 }
 
-- (double)randomIntegerWithinMinimum:(NSInteger)minimumNumber andMaximum:(NSInteger)maximumNumber
+- (NSInteger)randomIntegerWithinMinimum:(NSInteger)minimumNumber andMaximum:(NSInteger)maximumNumber
 {
     return MAX(MIN(self.value, maximumNumber), minimumNumber);
 }

@@ -35,12 +35,12 @@
     _generator = std::mt19937(seed);
 }
 
-- (double)randomInteger
+- (NSInteger)randomInteger
 {
     return _distribution(_generator);
 }
 
-- (double)randomIntegerWithinMinimum:(NSInteger)minimumNumber andMaximum:(NSInteger)maximumNumber
+- (NSInteger)randomIntegerWithinMinimum:(NSInteger)minimumNumber andMaximum:(NSInteger)maximumNumber
 {
     NSInteger difference = maximumNumber - minimumNumber;
     std::uniform_int_distribution<NSInteger> distributionRange(0, difference);

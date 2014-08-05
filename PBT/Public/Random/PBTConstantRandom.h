@@ -2,7 +2,7 @@
 #import "PBTRandom.h"
 
 
-@interface PBTConstantRandom : NSObject<PBTRandom>
+@interface PBTConstantRandom : NSObject <PBTRandom>
 
 - (instancetype)init;
 - (instancetype)initWithValue:(NSInteger)value;

@@ -5,9 +5,9 @@
 
 - (uint32_t)seed;
 - (void)setSeed:(uint32_t)seed;
-- (double)randomInteger;
-- (double)randomIntegerWithinMinimum:(NSInteger)minimumNumber
-                          andMaximum:(NSInteger)maximumNumber;
+- (NSInteger)randomInteger;
+- (NSInteger)randomIntegerWithinMinimum:(NSInteger)minimumNumber
+                             andMaximum:(NSInteger)maximumNumber;
 
 @end
 
