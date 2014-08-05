@@ -32,7 +32,12 @@
 - (void)checkerWillShrinkFailingTestNumber:(NSUInteger)testNumber
                   failedWithPropertyResult:(PBTPropertyResult *)result
 {
-    [self logString:@"F (Shrinking"];
+    if (result.status == PBTPropertyStatusUncaughtException) {
+        [self logString:@"E"];
+    } else {
+        [self logString:@"F"];
+    }
+    [self logString:@" (Shrinking"];
 }
 
 - (void)checkerShrankFailingTestNumber:(NSUInteger)testNumber
