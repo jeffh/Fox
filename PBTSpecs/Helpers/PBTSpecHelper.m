@@ -46,4 +46,30 @@
                                  maxSize:maxSize];
 }
 
++ (PBTQuickCheckResult *)shrunkResultForAll:(id<PBTGenerator>)generator
+{
+    __block NSInteger timesUntilFailure = 10;
+    return [self resultForAll:generator then:^BOOL(id value) {
+        if (timesUntilFailure == 0) {
+            return NO;
+        } else {
+            timesUntilFailure--;
+        }
+        return YES;
+    }];
+}
+
++ (PBTQuickCheckResult *)debug_shrunkResultForAll:(id<PBTGenerator>)generator
+{
+    __block NSInteger timesUntilFailure = 10;
+    return [self debug_resultForAll:generator then:^BOOL(id value) {
+        if (timesUntilFailure == 0) {
+            return NO;
+        } else {
+            timesUntilFailure--;
+        }
+        return YES;
+    }];
+}
+
 @end

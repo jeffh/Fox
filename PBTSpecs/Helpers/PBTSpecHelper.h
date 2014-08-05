@@ -10,9 +10,7 @@
 + (PBTQuickCheckResult *)resultForAll:(id<PBTGenerator>)generator
                                  then:(BOOL(^)(id value))block
                                  seed:(uint32_t)seed;
-+ (PBTQuickCheckResult *)resultForAll:(id<PBTGenerator>)generator
-                                 then:(BOOL(^)(id value))block
-                                 seed:(uint32_t)seed
-                              maxSize:(NSUInteger)maxSize;
++ (PBTQuickCheckResult *)shrunkResultForAll:(id<PBTGenerator>)generator;
++ (PBTQuickCheckResult *)debug_shrunkResultForAll:(id<PBTGenerator>)generator;
 
 @end

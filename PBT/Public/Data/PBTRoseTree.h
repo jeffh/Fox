@@ -15,9 +15,11 @@
 @property (nonatomic) id<PBTSequence> children; // of PBTRoseTrees
 
 + (id<PBTSequence>)permutationsOfRoseTrees:(NSArray *)roseTrees;
++ (id<PBTSequence>)sequenceByExpandingRoseTrees:(NSArray *)roseTrees;
 
 + (instancetype)treeFromArray:(NSArray *)roseTreeLiteral;
-+ (instancetype)mergedTreeFromRoseTrees:(NSArray *)roseTrees emptyTree:(PBTRoseTree *)emptyTree merger:(id(^)(NSArray *values))merger;
++ (instancetype)joinedTreeFromNestedRoseTree:(PBTRoseTree *)roseTree;
++ (instancetype)shrinkTreeFromRoseTrees:(NSArray *)roseTrees merger:(id(^)(NSArray *values))merger;
 + (instancetype)zipTreeFromRoseTrees:(NSArray *)roseTrees byApplying:(id(^)(NSArray *values))block;
 
 - (instancetype)initWithValue:(id)value;

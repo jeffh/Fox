@@ -36,29 +36,14 @@
 - (id<PBTGenerator>)sequenceGenerator
 {
     if (!_sequenceGenerator) {
-        _sequenceGenerator = [[PBTSequenceGenerator alloc] initWithGenerators:self.generators reducer:^id(id<PBTGenerator> accumGenerator, id<PBTGenerator> generator) {
-            return PBTGenBind(accumGenerator, ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
-                return PBTGenBind(generator, ^id<PBTGenerator>(PBTRoseTree *itemTree) {
-                    return PBTGenPure([self roseTreeFromAccumulatorTree:generatorTree itemRoseTree:itemTree]);
-                });
-            });
-        }];
+        _sequenceGenerator = PBTGenBind([[PBTSequenceGenerator alloc] initWithGenerators:self.generators], ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
+            NSArray *roseTrees = generatorTree.value;
+            return PBTGenPure([PBTRoseTree shrinkTreeFromRoseTrees:roseTrees merger:^id(NSArray *values) {
+                return values;
+            }]);
+        });
     }
     return _sequenceGenerator;
-}
-
-#pragma mark - Private
-
-- (PBTRoseTree *)roseTreeFromAccumulatorTree:(PBTRoseTree *)accumulatorTree itemRoseTree:(PBTRoseTree *)itemTree
-{
-    return [PBTRoseTree mergedTreeFromRoseTrees:@[accumulatorTree, itemTree]
-                                      emptyTree:[[PBTRoseTree alloc] initWithValue:@[]]
-                                         merger:^id(NSArray *values)
-            {
-                NSArray *accumValues = values[0];
-                id generatorValue = values[1];
-                return [accumValues arrayByAddingObject:generatorValue];
-            }];
 }
 
 @end

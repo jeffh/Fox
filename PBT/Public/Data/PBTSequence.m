@@ -47,6 +47,9 @@
 - (id<PBTSequence>)sequenceByApplyingIndexedBlock:(id(^)(NSUInteger index, id item))block startingIndex:(NSUInteger)index
 {
     return [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
+        if (![self firstObject]) {
+            return [PBTSequence sequence];
+        }
         id transformedFirstObject = block(index, [self firstObject]);
         id<PBTSequence> transformedRemainingSeq = [[self remainingSequence] sequenceByApplyingIndexedBlock:block startingIndex:index + 1];
         return [[PBTConcreteSequence alloc] initWithObject:transformedFirstObject
@@ -57,16 +60,23 @@
 - (id<PBTSequence>)sequenceByApplyingBlock:(id (^)(id))block
 {
     return [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
+        if (![self firstObject]) {
+            return [PBTSequence sequence];
+        }
         id transformedFirstObject = block([self firstObject]);
         id<PBTSequence> transformedRemainingSeq = [[self remainingSequence] sequenceByApplyingBlock:block];
         return [[PBTConcreteSequence alloc] initWithObject:transformedFirstObject
-                                         remainingSequence:transformedRemainingSeq];
+                                             remainingSequence:transformedRemainingSeq];
     }];
 }
 
 - (id<PBTSequence>)sequenceFilteredByBlock:(BOOL (^)(id))predicate
 {
     return [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
+        if (![self firstObject]) {
+            return [PBTSequence sequence];
+        }
+
         id<PBTSequence> filteredRemainingSeq = [[self remainingSequence] sequenceFilteredByBlock:predicate];
         if (predicate([self firstObject])) {
             return [[PBTConcreteSequence alloc] initWithObject:[self firstObject]
@@ -79,11 +89,18 @@
 
 - (id<PBTSequence>)sequenceByConcatenatingSequence:(id<PBTSequence>)sequence
 {
-    id<PBTSequence> seq = sequence;
-    for (id item in [[[self objectEnumerator] allObjects] reverseObjectEnumerator]) {
-        seq = [[PBTConcreteSequence alloc] initWithObject:item remainingSequence:seq];
-    }
-    return seq;
+    return [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
+        if ([self firstObject]) {
+            id<PBTSequence> remainingSequence = [[self remainingSequence] sequenceByConcatenatingSequence:sequence];
+            if (!remainingSequence) {
+                remainingSequence = sequence;
+            }
+            return [[PBTConcreteSequence alloc] initWithObject:[self firstObject]
+                                             remainingSequence:remainingSequence];
+        } else {
+            return sequence;
+        }
+    }];
 }
 
 - (id<PBTSequence>)sequenceByExcludingIndex:(NSUInteger)index
@@ -151,7 +168,7 @@
 - (BOOL)isEqual:(id)other
 {
     if (![other conformsToProtocol:@protocol(PBTSequence)]) {
-        return NO;
+        return [self firstObject] == nil && other == nil;
     }
 
     id firstObject = [self firstObject];

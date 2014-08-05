@@ -4,7 +4,6 @@
 
 @interface PBTSequenceGenerator : NSObject <PBTGenerator>
 
-- (instancetype)initWithGenerators:(id<PBTSequence>)generators
-                           reducer:(PBTRoseTree *(^)(id<PBTGenerator> accumGenerator, id<PBTGenerator> itemGenerator))shrinker;
+- (instancetype)initWithGenerators:(id<PBTSequence>)generators;
 
 @end

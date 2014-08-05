@@ -1,6 +1,13 @@
 #import "PBTRoseTree.h"
 #import "PBTSequence.h"
 
+#ifdef DEBUG
+@interface PBTRoseTree ()
+@property (nonatomic, weak) id parent;
+@property (nonatomic) NSArray *createdCallStack;
+@end
+#endif
+
 
 @implementation PBTRoseTree
 
@@ -9,7 +16,7 @@
     NSMutableArray *permutations = [NSMutableArray array];
     NSUInteger index = 0;
     for (PBTRoseTree *roseTree in roseTrees) {
-        for (id<PBTSequence> child in roseTree.children) {
+        for (PBTRoseTree *child in roseTree.children) {
             NSMutableArray *permutation = [roseTrees mutableCopy];
             permutation[index] = child;
             [permutations addObject:permutation];
@@ -21,7 +28,7 @@
 
 + (instancetype)treeFromArray:(NSArray *)roseTreeLiteral
 {
-    NSParameterAssert(roseTreeLiteral.count == 2);
+    NSAssert(roseTreeLiteral.count == 2, @"roseTreeLiteral.count == 2, got: %@ (count=%lu)", roseTreeLiteral, (unsigned long)roseTreeLiteral.count);
     NSMutableArray *subtrees = [NSMutableArray arrayWithCapacity:roseTreeLiteral.count];
     for (id subtree in roseTreeLiteral[1]) {
         [subtrees addObject:[self treeFromArray:subtree]];
@@ -30,45 +37,54 @@
                                      children:[PBTSequence sequenceFromArray:subtrees]];
 }
 
-+ (instancetype)mergedTreeFromRoseTrees:(NSArray *)roseTrees emptyTree:(PBTRoseTree *)emptyTree merger:(id(^)(NSArray *values))merger
++ (instancetype)joinedTreeFromNestedRoseTree:(PBTRoseTree *)roseTree
 {
-    if (!roseTrees.count) {
-        return emptyTree;
-    }
-    NSAssert([roseTrees count] > 1, @"Need at least 2 rose trees to merge");
+    PBTRoseTree *rootTree = roseTree.value;
+    id<PBTSequence> children = [rootTree.children sequenceByApplyingBlock:^id(PBTRoseTree *tree) {
+        return [self joinedTreeFromNestedRoseTree:tree];
+    }];
+    children = [children sequenceByConcatenatingSequence:roseTree.children];
+    return [[PBTRoseTree alloc] initWithValue:rootTree.value
+                                     children:children];
+}
 
-    id<PBTSequence> rootChildren = [PBTSequence lazySequenceFromBlock:^id<PBTSequence>{
++ (id<PBTSequence>)sequenceByExpandingRoseTrees:(NSArray *)roseTrees
+{
+    return [PBTSequence lazySequenceFromBlock:^id<PBTSequence>{
         id<PBTSequence> sequence = [PBTSequence sequenceFromArray:roseTrees];
 
         id<PBTSequence> oneLessTreeSequence = [sequence sequenceByApplyingIndexedBlock:^id(NSUInteger index, PBTRoseTree *_roseTree) {
             return [[[sequence sequenceByExcludingIndex:index] objectEnumerator] allObjects];
         }];
+
         id<PBTSequence> permutationSequence = [self permutationsOfRoseTrees:roseTrees];
-
-        id<PBTSequence> alternativeTrees = [oneLessTreeSequence sequenceByConcatenatingSequence:permutationSequence];
-        // TODO: Figure out why we can't/should merge one-tree sequences
-        alternativeTrees = [alternativeTrees sequenceFilteredByBlock:^BOOL(id item) {
-            return [item count] > 1;
-        }];
-
-        return [alternativeTrees sequenceByApplyingBlock:^id(id trees) {
-            if (0){
-                NSLog(@"================> %@ %@ %@ %@", alternativeTrees, oneLessTreeSequence, permutationSequence, roseTrees);
-            }
-            return [self mergedTreeFromRoseTrees:[[trees objectEnumerator] allObjects] emptyTree:emptyTree merger:merger];
-        }];
+        return [oneLessTreeSequence sequenceByConcatenatingSequence:permutationSequence];
     }];
+}
+
++ (instancetype)shrinkTreeFromRoseTrees:(NSArray *)roseTrees merger:(id(^)(NSArray *values))merger
+{
+    if (!roseTrees.count) {
+        return [[PBTRoseTree alloc] initWithValue:@[]];
+    }
+
+    id<PBTSequence> children = [[self sequenceByExpandingRoseTrees:roseTrees] sequenceByApplyingBlock:^id(id<PBTSequence> trees) {
+        return [self shrinkTreeFromRoseTrees:[[trees objectEnumerator] allObjects] merger:merger];
+    }];
+
     id value = merger([roseTrees valueForKey:@"value"]);
     return [[PBTRoseTree alloc] initWithValue:value
-                                     children:rootChildren];
+                                     children:children];
 }
 
 + (instancetype)zipTreeFromRoseTrees:(NSArray *)roseTrees byApplying:(id(^)(NSArray *values))block
 {
-    return [[PBTRoseTree alloc] initWithValue:block([roseTrees valueForKey:@"value"])
-                                     children:[[self permutationsOfRoseTrees:roseTrees] sequenceByApplyingBlock:^id(NSArray *subtrees) {
+    id<PBTSequence> children = [[self permutationsOfRoseTrees:roseTrees] sequenceByApplyingBlock:^id(NSArray *subtrees) {
         return [self zipTreeFromRoseTrees:subtrees byApplying:block];
-    }]];
+    }];
+
+    return [[PBTRoseTree alloc] initWithValue:block([roseTrees valueForKey:@"value"])
+                                     children:children];
 }
 
 
@@ -83,6 +99,9 @@
     if (self) {
         self.value = value;
         self.children = children;
+#ifdef DEBUG
+        self.createdCallStack = [NSThread callStackSymbols];
+#endif
     }
     return self;
 }
@@ -139,7 +158,10 @@
     if (!_children) {
         _children = [PBTSequence sequence];
     }
-    return _children;
+    return [_children sequenceByApplyingBlock:^id(PBTRoseTree *tree) {
+        tree.parent = self;
+        return tree;
+    }];
 }
 
 #pragma mark - NSObject
@@ -163,14 +185,19 @@
 
 - (NSString *)description
 {
-    NSMutableString *string = [NSMutableString stringWithFormat:@"<%@: %p ",
-                               NSStringFromClass([self class]), self];
-    [string appendString:[self.value description] ?: @"nil"];
+    NSMutableString *string = [NSMutableString stringWithFormat:@"<%@: ",
+                               NSStringFromClass([self class])];
+    NSString *valueDesc = [self.value description] ?: @"nil";
+    NSRegularExpression *regexp = [NSRegularExpression regularExpressionWithPattern:@"[\n ]+" options:0 error:nil];
+    valueDesc = [regexp stringByReplacingMatchesInString:valueDesc options:0 range:NSMakeRange(0, valueDesc.length) withTemplate:@" "];
+    [string appendString:valueDesc];
 
     if ([self.children firstObject]) {
-        [string appendString:@",\n  "];
-        NSArray *lines = [[self.children description] componentsSeparatedByString:@"\n"];
+        [string appendString:@", {\n  "];
+        NSString *desc = [self.children description];
+        NSArray *lines = [[desc substringWithRange:NSMakeRange(@"SEQ(".length, desc.length - @"SEQ()".length)] componentsSeparatedByString:@"\n"];
         [string appendString:[lines componentsJoinedByString:@"\n  "]];
+        [string appendString:@"\n}"];
     }
 
     [string appendString:@">"];

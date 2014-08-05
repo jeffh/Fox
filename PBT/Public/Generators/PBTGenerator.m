@@ -47,6 +47,19 @@ PBT_EXPORT id<PBTGenerator> PBTReturn(id value) {
     return PBTGenPure([[PBTRoseTree alloc] initWithValue:value]);
 }
 
+PBT_EXPORT id<PBTGenerator> PBTBind(id<PBTGenerator> generator, id<PBTGenerator> (^fn)(PBTRoseTree *generatedTree)) {
+    return PBTGenBind(generator, ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
+        id<PBTGenerator> innerGenerator = [[PBTBlockGenerator alloc] initWithBlock:^PBTRoseTree *(id<PBTRandom> random, NSUInteger size) {
+            return [[generatorTree treeByApplyingBlock:fn] treeByApplyingBlock:^id(id<PBTGenerator> gen) {
+                return [gen lazyTreeWithRandom:random maximumSize:size];
+            }];
+        }];
+        return PBTGenMap(innerGenerator, ^PBTRoseTree *(PBTRoseTree *innerTree) {
+            return [PBTRoseTree joinedTreeFromNestedRoseTree:innerTree];
+        });
+    });
+}
+
 PBT_EXPORT id<PBTGenerator> PBTTuple(id<PBTSequence> generators) {
     return [[PBTTupleGenerator alloc] initWithGenerators:generators];
 }
@@ -151,7 +164,7 @@ PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator) {
 PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator, NSUInteger numberOfElements) {
     id<PBTSequence> generators = [PBTSequence sequenceByRepeatingObject:elementGenerator
                                                                   times:numberOfElements];
-    return [[PBTArrayGenerator alloc] initWithGenerators:generators];
+    return PBTTuple(generators);
 }
 
 PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator,

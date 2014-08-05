@@ -9,31 +9,25 @@ SPEC_BEGIN(PBTArraySpec)
 
 describe(@"PBTArray", ^{
     it(@"should be able to shrink to an empty array", ^{
-        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger()) then:^BOOL(NSArray *values) {
-            BOOL isValid = YES;
-            for (id element in values) {
-                if (![element isKindOfClass:[NSNumber class]]) {
-                    isValid = NO;
-                }
-            }
-            return isValid && [values count] > 10;
-        }];
+        PBTQuickCheckResult *result = [PBTSpecHelper shrunkResultForAll:PBTArray(PBTInteger())];
         result.succeeded should be_falsy;
         result.smallestFailingArguments should equal(@[]);
     });
 
     it(@"should be able to shrink elements of the array", ^{
         PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger()) then:^BOOL(NSArray *values) {
-            BOOL isValid = YES;
-            for (id element in values) {
-                if (![element isKindOfClass:[NSNumber class]]) {
-                    isValid = NO;
-                }
-            }
-            return isValid && [values count] <= 2;
+            return [values count] <= 2;
         }];
         result.succeeded should be_falsy;
         result.smallestFailingArguments should equal(@[@0, @0, @0]);
+    });
+
+    it(@"should be able to shrink elements of the nested array", ^{
+        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTArray(PBTInteger())) then:^BOOL(NSArray *values) {
+            return [values count] <= 1;
+        }];
+        result.succeeded should be_falsy;
+        result.smallestFailingArguments should equal(@[@[], @[]]);
     });
 
     it(@"should be able to return arrays of any size", ^{

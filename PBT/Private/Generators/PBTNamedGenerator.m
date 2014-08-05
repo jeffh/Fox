@@ -33,7 +33,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<PBTNamedGenerator: %@>", self.name];
+    return [NSString stringWithFormat:@"<PBT:%@Generator>", self.name];
 }
 
 @end

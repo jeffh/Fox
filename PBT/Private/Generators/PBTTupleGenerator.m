@@ -36,11 +36,12 @@
 - (id<PBTGenerator>)sequenceGenerator
 {
     if (!_sequenceGenerator) {
-        _sequenceGenerator = [[PBTSequenceGenerator alloc] initWithGenerators:self.generators reducer:^PBTRoseTree *(id<PBTGenerator> accumGenerator, id<PBTGenerator> itemGenerator) {
-            return PBTGenPure([PBTRoseTree zipTreeFromRoseTrees:@[accumGenerator, itemGenerator] byApplying:^id(NSArray *values) {
+        _sequenceGenerator = PBTGenBind([[PBTSequenceGenerator alloc] initWithGenerators:self.generators], ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
+            NSArray *roseTrees = generatorTree.value;
+            return PBTGenPure([PBTRoseTree zipTreeFromRoseTrees:roseTrees byApplying:^id(NSArray *values) {
                 return values;
             }]);
-        }];
+        });
     }
     return _sequenceGenerator;
 }
