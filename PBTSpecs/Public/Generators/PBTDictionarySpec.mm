@@ -6,33 +6,27 @@ using namespace Cedar::Doubles;
 
 SPEC_BEGIN(PBTDictionarySpec)
 
-xdescribe(@"PBTDictionary", ^{
-    it(@"should be able to return dictionary of any size", ^{
-        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTSet(PBTInteger()) then:^BOOL(id value) {
-            BOOL isValid = YES;
-            for (id element in value) {
-                if (![element isKindOfClass:[NSNumber class]]) {
-                    isValid = NO;
-                }
-            }
-            return isValid;
+describe(@"PBTDictionary", ^{
+    it(@"should always return the same size as the template", ^{
+        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTDictionary(@{@"a": PBTString(), @"b": PBTInteger()}) then:^BOOL(NSDictionary *value) {
+            return [value count] == 2;
         }];
         result.succeeded should be_truthy;
     });
 
-    it(@"should be able to return dictionary of a given size", ^{
-        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger(), 5) then:^BOOL(id value) {
-            return [value count] == 5;
+    it(@"should be able to return dictionary where values are generated", ^{
+        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTDictionary(@{@"a": PBTString(), @"b": PBTInteger()}) then:^BOOL(id value) {
+            return [value[@"a"] isKindOfClass:[NSString class]]
+                && [value[@"b"] isKindOfClass:[NSNumber class]];
         }];
         result.succeeded should be_truthy;
     });
 
-    it(@"should be able to return dictionary of a given size range", ^{
-        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger(), 5, 10) then:^BOOL(id value) {
-            NSUInteger count = [value count];
-            return count >= 5 && count <= 10;
-        }];
-        result.succeeded should be_truthy;
-    });});
+    it(@"should shrink its values down", ^{
+        PBTQuickCheckResult *result = [PBTSpecHelper shrunkResultForAll:PBTDictionary(@{@"a": PBTString(), @"b": PBTInteger()})];
+        result.succeeded should be_falsy;
+        result.smallestFailingArguments should equal(@{@"a": @"", @"b": @0});
+    });
+});
 
 SPEC_END

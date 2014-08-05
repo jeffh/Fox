@@ -63,9 +63,18 @@
     }
 }
 
+- (NSString *)generatedValueOrException
+{
+    if (self.status == PBTPropertyStatusUncaughtException) {
+        return [self.uncaughtException description];
+    }
+    return [self.generatedValue description];
+}
+
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<Result: %@ %@>", self.generatedValue, [self statusString]];
+    return [NSString stringWithFormat:@"<%@: %@>",
+            [self statusString], [self generatedValueOrException]];
 }
 
 @end

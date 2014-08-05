@@ -187,6 +187,12 @@ PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator,
 
 PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator) {
     return PBTMap(PBTArray(elementGenerator), ^id(NSArray *elements) {
-        return [NSSet setWithArray:elements];
+        return [NSMutableSet setWithArray:elements];
+    });
+}
+
+PBT_EXPORT id<PBTGenerator> PBTDictionary(NSDictionary *dictionaryTemplate) {
+    return PBTMap(PBTTuple([dictionaryTemplate allValues]), ^id(NSArray *values) {
+        return [NSDictionary dictionaryWithObjects:values forKeys:[dictionaryTemplate allKeys]];
     });
 }

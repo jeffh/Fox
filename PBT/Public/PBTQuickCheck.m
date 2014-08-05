@@ -127,8 +127,8 @@ typedef struct _PBTShrinkReport {
                                                 maxSize:(NSUInteger)maxSize
                                                    seed:(uint32_t)seed
 {
-    [self.reporter checkerWillShrinkFailingTestNumber:numberOfTests];
-
+    [self.reporter checkerWillShrinkFailingTestNumber:numberOfTests
+                             failedWithPropertyResult:failureRoseTree.value];
     PBTPropertyResult *propertyResult = failureRoseTree.value;
     PBTShrinkReport report = [self shrinkReportForRoseTree:failureRoseTree
                                              numberOfTests:numberOfTests];
@@ -175,7 +175,8 @@ typedef struct _PBTShrinkReport {
         }
 
         ++numberOfNodesVisited;
-        [self.reporter checkerShrankFailingTestNumber:numberOfTests];
+        [self.reporter checkerShrankFailingTestNumber:numberOfTests
+                                   withPropertyResult:smallestCandidate];
     }
 
     return (PBTShrinkReport){

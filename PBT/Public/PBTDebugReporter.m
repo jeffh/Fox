@@ -31,11 +31,13 @@
 }
 
 - (void)checkerWillShrinkFailingTestNumber:(NSUInteger)testNumber
+                  failedWithPropertyResult:(PBTPropertyResult *)result
 {
-    [self logString:@" [Shrinking]\n"];
+    [self logString:[NSString stringWithFormat:@" [%@] Shrinking", result]];
 }
 
 - (void)checkerShrankFailingTestNumber:(NSUInteger)testNumber
+                    withPropertyResult:(PBTPropertyResult *)result
 {
     [self logString:@"."];
 }

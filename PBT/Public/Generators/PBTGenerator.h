@@ -47,4 +47,8 @@ PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator,
                                      NSUInteger maximumNumberOfElements);
 
 PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator);
-PBT_EXPORT id<PBTGenerator> PBTDictionary(id<PBTGenerator> keyGenerator, id<PBTGenerator> valueGenerator);
+
+/*! Generates values from a given dictionary template.
+ *  The string are constant values while the values are generators.
+ */
+PBT_EXPORT id<PBTGenerator> PBTDictionary(NSDictionary *dictionaryTemplate);

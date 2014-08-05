@@ -36,8 +36,10 @@
 
 - (void)checkerDidPassTestNumber:(NSUInteger)testNumber;
 
-- (void)checkerWillShrinkFailingTestNumber:(NSUInteger)testNumber;
-- (void)checkerShrankFailingTestNumber:(NSUInteger)testNumber;
+- (void)checkerWillShrinkFailingTestNumber:(NSUInteger)testNumber
+                  failedWithPropertyResult:(PBTPropertyResult *)result;
+- (void)checkerShrankFailingTestNumber:(NSUInteger)testNumber
+                    withPropertyResult:(PBTPropertyResult *)result;
 - (void)checkerDidFailTestNumber:(NSUInteger)testNumber
                       withResult:(PBTQuickCheckResult *)result;
 
