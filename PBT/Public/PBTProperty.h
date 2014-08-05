@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, PBTPropertyStatus) {
 @interface PBTPropertyResult : NSObject
 
 @property (nonatomic) id generatedValue;
+@property (nonatomic) NSException *uncaughtException;
 @property (nonatomic) PBTPropertyStatus status;
 
 - (BOOL)hasFailedOrRaisedException;

@@ -6,6 +6,14 @@
 #import "PBTStandardReporter.h"
 
 
+typedef struct _PBTShrinkReport {
+    NSUInteger depth;
+    NSUInteger numberOfNodesVisited;
+    void *smallestArgument;
+    void *smallestUncaughtException;
+} PBTShrinkReport;
+
+
 @interface PBTQuickCheck ()
 
 @property (nonatomic) id<PBTRandom> random;
@@ -122,17 +130,19 @@
     [self.reporter checkerWillShrinkFailingTestNumber:numberOfTests];
 
     PBTPropertyResult *propertyResult = failureRoseTree.value;
-    NSDictionary *shrinkReport = [self shrinkReportForRoseTree:failureRoseTree
-                                                 numberOfTests:numberOfTests];
+    PBTShrinkReport report = [self shrinkReportForRoseTree:failureRoseTree
+                                             numberOfTests:numberOfTests];
     PBTQuickCheckResult *result = [[PBTQuickCheckResult alloc] init];
     result.numberOfTests = numberOfTests;
     result.seed = seed;
     result.maxSize = maxSize;
     result.failingSize = failingSize;
     result.failingArguments = propertyResult.generatedValue;
-    result.shrinkDepth = [shrinkReport[@"depth"] unsignedIntegerValue];
-    result.shrinkNodeWalkCount = [shrinkReport[@"numberOfNodesVisited"] unsignedIntegerValue];
-    result.smallestFailingArguments = shrinkReport[@"smallest"];
+    result.failingException = propertyResult.uncaughtException;
+    result.shrinkDepth = report.depth;
+    result.shrinkNodeWalkCount = report.numberOfNodesVisited;
+    result.smallestFailingArguments = CFBridgingRelease(report.smallestArgument);
+    result.smallestFailingException = CFBridgingRelease(report.smallestUncaughtException);
 
     [self.reporter checkerDidFailTestNumber:numberOfTests
                                  withResult:result];
@@ -140,8 +150,8 @@
     return result;
 }
 
-- (NSDictionary *)shrinkReportForRoseTree:(PBTRoseTree *)failureRoseTree
-                            numberOfTests:(NSUInteger)numberOfTests
+- (PBTShrinkReport)shrinkReportForRoseTree:(PBTRoseTree *)failureRoseTree
+                             numberOfTests:(NSUInteger)numberOfTests
 {
     NSUInteger numberOfNodesVisited = 0;
     NSUInteger depth = 0;
@@ -167,10 +177,13 @@
         ++numberOfNodesVisited;
         [self.reporter checkerShrankFailingTestNumber:numberOfTests];
     }
-    return @{@"numberOfNodesVisited": @(numberOfNodesVisited),
-             @"depth": @(depth),
-             @"result": @(currentSmallest.status),
-             @"smallest": currentSmallest.generatedValue ?: [NSNull null]};
+
+    return (PBTShrinkReport){
+        .depth=depth,
+        .numberOfNodesVisited=numberOfNodesVisited,
+        .smallestArgument=(void *)CFBridgingRetain(currentSmallest.generatedValue),
+        .smallestUncaughtException=(void *)CFBridgingRetain(currentSmallest.uncaughtException),
+    };
 }
 
 @end

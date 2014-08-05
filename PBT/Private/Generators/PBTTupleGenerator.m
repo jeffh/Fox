@@ -38,9 +38,7 @@
     if (!_sequenceGenerator) {
         _sequenceGenerator = PBTGenBind([[PBTSequenceGenerator alloc] initWithGenerators:self.generators], ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
             NSArray *roseTrees = generatorTree.value;
-            return PBTGenPure([PBTRoseTree zipTreeFromRoseTrees:roseTrees byApplying:^id(NSArray *values) {
-                return values;
-            }]);
+            return PBTGenPure([PBTRoseTree zipTreeFromRoseTrees:roseTrees]);
         });
     }
     return _sequenceGenerator;

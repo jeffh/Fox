@@ -13,7 +13,10 @@
 
 - (instancetype)init
 {
-    return self = [super init];
+    if (self = [super init]) {
+        _count = 0;
+    }
+    return self;
 }
 
 - (instancetype)initWithObject:(id)object
@@ -28,6 +31,9 @@
     if (self) {
         self.firstObject = object;
         self.remainingSequence = sequence;
+        if (!sequence) {
+            _count = 1;
+        }
     }
     return self;
 }

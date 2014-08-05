@@ -8,12 +8,15 @@
 @property (nonatomic) NSUInteger numberOfTests;
 @property (nonatomic) uint32_t seed;
 
-// only filled when failures occur (succeeded = NO)
+
+// properties below are only filled when failures occur (succeeded = NO)
 @property (nonatomic) NSUInteger failingSize;
 @property (nonatomic) id failingArguments;
+@property (nonatomic) NSException *failingException;         // only when exception occurs
 @property (nonatomic) NSUInteger shrinkDepth;
 @property (nonatomic) NSUInteger shrinkNodeWalkCount;
 @property (nonatomic) id smallestFailingArguments;
+@property (nonatomic) NSException *smallestFailingException; // only when exception occurs
 
 - (NSString *)friendlyDescription;
 

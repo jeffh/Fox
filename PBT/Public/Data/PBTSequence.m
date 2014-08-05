@@ -4,16 +4,14 @@
 #import "PBTSequenceEnumerator.h"
 
 
-@implementation PBTSequence {
-    NSUInteger _cache;
-}
+@implementation PBTSequence
 
 #pragma - Constructors
 
 - (id)init
 {
     if (self = [super init]) {
-        _cache = NSNotFound;
+        _count = NSNotFound;
     }
     return self;
 }
@@ -22,16 +20,16 @@
 
 - (NSUInteger)count
 {
-    if (_cache == NSNotFound) {
-        @synchronized (self) {
+    @synchronized (self) {
+        if (_count == NSNotFound) {
             if ([self firstObject]) {
-                _cache = 1 + [[self remainingSequence] count];
+                _count = 1 + [[self remainingSequence] count];
             } else {
-                _cache = 0;
+                _count = 0;
             }
         }
+        return _count;
     }
-    return _cache;
 }
 
 - (NSEnumerator *)objectEnumerator
@@ -48,12 +46,12 @@
 {
     return [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
         if (![self firstObject]) {
-            return [PBTSequence sequence];
+            return [[self class] sequence];
         }
         id transformedFirstObject = block(index, [self firstObject]);
         id<PBTSequence> transformedRemainingSeq = [[self remainingSequence] sequenceByApplyingIndexedBlock:block startingIndex:index + 1];
-        return [[PBTConcreteSequence alloc] initWithObject:transformedFirstObject
-                                         remainingSequence:transformedRemainingSeq];
+        return [[self class] sequenceWithObject:transformedFirstObject
+                              remainingSequence:transformedRemainingSeq];
     }];
 }
 
@@ -65,8 +63,8 @@
         }
         id transformedFirstObject = block([self firstObject]);
         id<PBTSequence> transformedRemainingSeq = [[self remainingSequence] sequenceByApplyingBlock:block];
-        return [[PBTConcreteSequence alloc] initWithObject:transformedFirstObject
-                                             remainingSequence:transformedRemainingSeq];
+        return [[self class] sequenceWithObject:transformedFirstObject
+                              remainingSequence:transformedRemainingSeq];
     }];
 }
 
@@ -74,13 +72,13 @@
 {
     return [[PBTLazySequence alloc] initWithLazyBlock:^id<PBTSequence>{
         if (![self firstObject]) {
-            return [PBTSequence sequence];
+            return [[self class] sequence];
         }
 
         id<PBTSequence> filteredRemainingSeq = [[self remainingSequence] sequenceFilteredByBlock:predicate];
         if (predicate([self firstObject])) {
-            return [[PBTConcreteSequence alloc] initWithObject:[self firstObject]
-                                             remainingSequence:filteredRemainingSeq];
+            return [[self class] sequenceWithObject:[self firstObject]
+                                  remainingSequence:filteredRemainingSeq];
         } else {
             return filteredRemainingSeq;
         }
@@ -95,8 +93,8 @@
             if (!remainingSequence) {
                 remainingSequence = sequence;
             }
-            return [[PBTConcreteSequence alloc] initWithObject:[self firstObject]
-                                             remainingSequence:remainingSequence];
+            return [[self class] sequenceWithObject:[self firstObject]
+                                  remainingSequence:remainingSequence];
         } else {
             return sequence;
         }
@@ -211,12 +209,16 @@
 
 - (id<PBTSequence>)remainingSequence
 {
+    NSAssert(NO, @"%@ is a subclass of PBTSequence and must implement -[%@])",
+             NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     [self doesNotRecognizeSelector:_cmd];
     return nil;
 }
 
 - (id)firstObject
 {
+    NSAssert(NO, @"%@ is a subclass of PBTSequence and must implement -[%@])",
+             NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     [self doesNotRecognizeSelector:_cmd];
     return nil;
 }

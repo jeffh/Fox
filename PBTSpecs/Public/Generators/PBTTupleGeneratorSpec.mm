@@ -16,9 +16,7 @@ describe(@"PBTTuple", ^{
 
     it(@"should foo", ^{
         PBTRoseTree *tree = [PBTRoseTree zipTreeFromRoseTrees:@[[[PBTRoseTree alloc] initWithValue:@1],
-                                            [[PBTRoseTree alloc] initWithValue:@2]] byApplying:^id(NSArray *values) {
-                                                return values;
-                                            }];
+                                                                [[PBTRoseTree alloc] initWithValue:@2]]];
         tree should equal([[PBTRoseTree alloc] initWithValue:@[@1, @2]]);
     });
 

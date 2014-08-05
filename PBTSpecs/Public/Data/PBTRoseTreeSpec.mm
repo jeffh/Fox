@@ -34,10 +34,7 @@ describe(@"PBTRoseTree", ^{
 
     describe(@"zipping rose trees", ^{
         it(@"should combine trees without reducing their size", ^{
-            PBTRoseTree *tree = [PBTRoseTree zipTreeFromRoseTrees:@[inputTree1, inputTree2] byApplying:^id(NSArray *values) {
-                return values;
-            }];
-
+            PBTRoseTree *tree = [PBTRoseTree zipTreeFromRoseTrees:@[inputTree1, inputTree2]];
             tree should equal([PBTRoseTree treeFromArray:@[@[@1, @3], @[@[@[@2, @3], @[@[@[@2, @4], @[]]]], @[@[@1, @4], @[@[@[@2, @4], @[]]]]]]]);
         });
     });
@@ -45,18 +42,13 @@ describe(@"PBTRoseTree", ^{
     describe(@"shrinking rose trees", ^{
         context(@"when there are no trees", ^{
             it(@"should return an rose tree with an empty array", ^{
-                PBTRoseTree *tree = [PBTRoseTree shrinkTreeFromRoseTrees:@[] merger:^id(NSArray *values) {
-                    return values;
-                }];
+                PBTRoseTree *tree = [PBTRoseTree shrinkTreeFromRoseTrees:@[]];
                 tree should equal([[PBTRoseTree alloc] initWithValue:@[]]);
             });
         });
 
         it(@"should return all permutations of the same size + permutations with one less element", ^{
-            PBTRoseTree *tree = [PBTRoseTree shrinkTreeFromRoseTrees:@[inputTree1, inputTree2] merger:^id(NSArray *values) {
-                return values;
-            }];
-
+            PBTRoseTree *tree = [PBTRoseTree shrinkTreeFromRoseTrees:@[inputTree1, inputTree2]];
             tree should equal([PBTRoseTree treeFromArray:@[@[@1, @3],
                                                            @[@[@[@3],
                                                                @[@[@[], @[]], @[@[@4], @[@[@[], @[]]]]]],

@@ -13,17 +13,13 @@
 
 + (id<PBTSequence>)permutationsOfRoseTrees:(NSArray *)roseTrees
 {
-    NSMutableArray *permutations = [NSMutableArray array];
-    NSUInteger index = 0;
-    for (PBTRoseTree *roseTree in roseTrees) {
-        for (PBTRoseTree *child in roseTree.children) {
-            NSMutableArray *permutation = [roseTrees mutableCopy];
-            permutation[index] = child;
-            [permutations addObject:permutation];
-        }
-        ++index;
+    if (!roseTrees.count) {
+        return [PBTSequence sequence];
     }
-    return [PBTSequence sequenceFromArray:permutations];
+    PBTRoseTree *nextRoseTree = roseTrees[0];
+    return [self _permutationsOfRoseTrees:roseTrees
+                             currentIndex:0
+                        remainingChildren:nextRoseTree.children];
 }
 
 + (instancetype)treeFromArray:(NSArray *)roseTreeLiteral
@@ -62,28 +58,27 @@
     }];
 }
 
-+ (instancetype)shrinkTreeFromRoseTrees:(NSArray *)roseTrees merger:(id(^)(NSArray *values))merger
++ (instancetype)shrinkTreeFromRoseTrees:(NSArray *)roseTrees
 {
     if (!roseTrees.count) {
         return [[PBTRoseTree alloc] initWithValue:@[]];
     }
 
     id<PBTSequence> children = [[self sequenceByExpandingRoseTrees:roseTrees] sequenceByApplyingBlock:^id(id<PBTSequence> trees) {
-        return [self shrinkTreeFromRoseTrees:[[trees objectEnumerator] allObjects] merger:merger];
+        return [self shrinkTreeFromRoseTrees:[[trees objectEnumerator] allObjects]];
     }];
 
-    id value = merger([roseTrees valueForKey:@"value"]);
-    return [[PBTRoseTree alloc] initWithValue:value
+    return [[PBTRoseTree alloc] initWithValue:[roseTrees valueForKey:@"value"]
                                      children:children];
 }
 
-+ (instancetype)zipTreeFromRoseTrees:(NSArray *)roseTrees byApplying:(id(^)(NSArray *values))block
++ (instancetype)zipTreeFromRoseTrees:(NSArray *)roseTrees
 {
     id<PBTSequence> children = [[self permutationsOfRoseTrees:roseTrees] sequenceByApplyingBlock:^id(NSArray *subtrees) {
-        return [self zipTreeFromRoseTrees:subtrees byApplying:block];
+        return [self zipTreeFromRoseTrees:subtrees];
     }];
 
-    return [[PBTRoseTree alloc] initWithValue:block([roseTrees valueForKey:@"value"])
+    return [[PBTRoseTree alloc] initWithValue:[roseTrees valueForKey:@"value"]
                                      children:children];
 }
 
@@ -122,20 +117,6 @@
     }] sequenceByApplyingBlock:^id(PBTRoseTree *subtree) {
         return [subtree treeFilterChildrenByBlock:block];
     }]];
-}
-
-- (PBTRoseTree *)treeFilterByBlock:(BOOL(^)(id element))block
-{
-    if (block(self.value)) {
-        return [self treeFilterChildrenByBlock:block];
-    } else {
-        for (PBTRoseTree *subtree in self.children) {
-            if (block(subtree.value)) {
-                return [subtree treeFilterChildrenByBlock:block];
-            }
-        }
-        return [[PBTRoseTree alloc] initWithValue:nil];
-    }
 }
 
 - (NSArray *)array
@@ -202,6 +183,29 @@
 
     [string appendString:@">"];
     return string;
+}
+
+#pragma mark - Private
+
++ (id<PBTSequence>)_permutationsOfRoseTrees:(NSArray *)roseTrees currentIndex:(NSUInteger)index remainingChildren:(id<PBTSequence>)children
+{
+    return [PBTSequence lazySequenceFromBlock:^id<PBTSequence>{
+        if ([children firstObject]) {
+            NSMutableArray *permutation = [roseTrees mutableCopy];
+            permutation[index] = [children firstObject];
+            return [PBTSequence sequenceWithObject:permutation
+                                 remainingSequence:[self _permutationsOfRoseTrees:roseTrees
+                                                                     currentIndex:index
+                                                                remainingChildren:[children remainingSequence]]];
+        } else if (index + 1 < roseTrees.count) {
+            PBTRoseTree *nextRoseTree = roseTrees[index + 1];
+            return [self _permutationsOfRoseTrees:roseTrees
+                                     currentIndex:index + 1
+                                remainingChildren:nextRoseTree.children];
+        } else {
+            return nil;
+        }
+    }];
 }
 
 @end
