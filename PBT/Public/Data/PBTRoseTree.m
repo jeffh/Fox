@@ -1,13 +1,6 @@
 #import "PBTRoseTree.h"
 #import "PBTSequence.h"
 
-#ifdef DEBUG
-@interface PBTRoseTree ()
-@property (nonatomic, weak) id parent;
-@property (nonatomic) NSArray *createdCallStack;
-@end
-#endif
-
 
 @implementation PBTRoseTree
 
@@ -94,9 +87,6 @@
     if (self) {
         self.value = value;
         self.children = children;
-#ifdef DEBUG
-        self.createdCallStack = [NSThread callStackSymbols];
-#endif
     }
     return self;
 }
@@ -119,19 +109,6 @@
     }]];
 }
 
-- (NSArray *)array
-{
-    NSMutableArray *items = [NSMutableArray array];
-    [items addObject:self.value];
-
-    NSArray *children = [[[self.children sequenceByApplyingBlock:^id(PBTRoseTree *subtree) {
-        return [subtree array];
-    }] objectEnumerator] allObjects];
-    [items addObject:[NSArray arrayWithObjects:children, nil]];
-    
-    return items;
-}
-
 #pragma mark - Property Overrides
 
 - (id<PBTSequence>)children
@@ -139,10 +116,7 @@
     if (!_children) {
         _children = [PBTSequence sequence];
     }
-    return [_children sequenceByApplyingBlock:^id(PBTRoseTree *tree) {
-        tree.parent = self;
-        return tree;
-    }];
+    return _children;
 }
 
 #pragma mark - NSObject

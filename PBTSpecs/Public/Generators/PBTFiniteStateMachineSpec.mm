@@ -28,7 +28,7 @@ describe(@"PBTFiniteStateMachine", ^{
     });
 
     it(@"should be able validate queue behavior", ^{
-        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTCommands(stateMachine) then:^BOOL(NSArray *commands) {
+        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTCommands(stateMachine) then:^BOOL(NSArray *commands) {
             return [stateMachine validateCommandSequence:commands initialActualState:[PBTQueue new]];
         }];
         result.succeeded should be_truthy;

@@ -45,6 +45,8 @@
                                   objects:(__unsafe_unretained id [])buffer
                                     count:(NSUInteger)len
 {
+    // lazy sequences are usually recursively lazy, so don't evaluate multiple
+    // items in the buffer to avoid potential wasted cycles for evaluations.
     const unsigned long firstTimeState = 0;
     const unsigned long processingState = 1;
     if (state->state == firstTimeState) {

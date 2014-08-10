@@ -1,11 +1,12 @@
 // protocols
 #import "PBTStateMachine.h"
 #import "PBTStateTransition.h"
+#import "PBTRandom.h"
 
 // data structures
 #import "PBTSequence.h"
 #import "PBTRoseTree.h"
-#import "PBTQuickCheckResult.h"
+#import "PBTRunnerResult.h"
 #import "PBTCommand.h"
 #import "PBTTransition.h"
 
@@ -16,10 +17,10 @@
 
 // randomizers
 #import "PBTConstantRandom.h"
-#import "PBTRandom.h"
+#import "PBTDeterministicRandom.h"
 
 // runner
-#import "PBTQuickCheck.h"
+#import "PBTRunner.h"
 
 // reporters
 #import "PBTStandardReporter.h"

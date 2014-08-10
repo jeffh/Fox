@@ -9,7 +9,7 @@ SPEC_BEGIN(PBTSetSpec)
 describe(@"PBTSet", ^{
     it(@"should be able to return sets of any size", ^{
         NSMutableSet *sizesSeen = [NSMutableSet set];
-        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTSet(PBTInteger()) then:^BOOL(id value) {
+        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTSet(PBTInteger()) then:^BOOL(id value) {
             BOOL isValid = YES;
             for (id element in value) {
                 if (![element isKindOfClass:[NSNumber class]]) {

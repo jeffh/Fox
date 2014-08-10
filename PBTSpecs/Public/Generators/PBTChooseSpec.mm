@@ -9,7 +9,7 @@ SPEC_BEGIN(PBTChooseSpec)
 
 describe(@"PBTChoose", ^{
     it(@"should be within a given range (inclusive)", ^{
-        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTChoose(@0, @10) then:^BOOL(NSNumber *value) {
+        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTChoose(@0, @10) then:^BOOL(NSNumber *value) {
             return [value integerValue] >= 0 && [value integerValue] <= 10;
         }];
 
@@ -17,10 +17,10 @@ describe(@"PBTChoose", ^{
     });
 
     it(@"should shrink to the smallest number", ^{
-        PBTQuickCheckResult *result = [PBTSpecHelper shrunkResultForAll:PBTChoose(@0, @10)];
+        PBTRunnerResult *result = [PBTSpecHelper shrunkResultForAll:PBTChoose(@0, @10)];
 
         result.succeeded should be_falsy;
-        result.smallestFailingArguments should equal(@0);
+        result.smallestFailingValue should equal(@0);
     });
 });
 

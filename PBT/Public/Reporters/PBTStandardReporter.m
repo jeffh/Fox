@@ -1,5 +1,5 @@
 #import "PBTStandardReporter.h"
-#import "PBTQuickCheckResult.h"
+#import "PBTRunnerResult.h"
 
 
 @implementation PBTStandardReporter {
@@ -51,12 +51,12 @@
     [self logString:@"."];
 }
 
-- (void)checkerDidPassNumberOfTests:(NSUInteger)testNumber withResult:(PBTQuickCheckResult *)result
+- (void)checkerDidPassNumberOfTests:(NSUInteger)testNumber withResult:(PBTRunnerResult *)result
 {
     [self logString:[NSString stringWithFormat:@"\n\n%lu Tests Passed.", testNumber]];
 }
 
-- (void)checkerDidFailTestNumber:(NSUInteger)testNumber withResult:(PBTQuickCheckResult *)result
+- (void)checkerDidFailTestNumber:(NSUInteger)testNumber withResult:(PBTRunnerResult *)result
 {
     [self logString:[NSString stringWithFormat:@"\n\n  %@\n", [[result friendlyDescription] stringByReplacingOccurrencesOfString:@"\n" withString:@"\n  "]]];
     [self logString:[NSString stringWithFormat:@")\n\nFailure after %lu tests.\n", testNumber + 1]];

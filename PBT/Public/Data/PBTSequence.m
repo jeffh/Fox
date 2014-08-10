@@ -225,7 +225,7 @@
 
 @end
 
-@implementation PBTSequence (EagarConstructors)
+@implementation PBTSequence (EagerConstructors)
 
 + (instancetype)sequence
 {
@@ -264,17 +264,6 @@
 
 
 @implementation PBTSequence (LazyConstructors)
-
-+ (instancetype)lazySequenceByConcatenatingSequences:(NSArray *)sequences
-{
-    id<PBTSequence> result = [sequences firstObject];
-    for (id<PBTSequence> seq in sequences) {
-        if (seq != result) {
-            result = [result sequenceByConcatenatingSequence:seq];
-        }
-    }
-    return result;
-}
 
 + (instancetype)lazySequenceFromBlock:(id<PBTSequence>(^)())block
 {

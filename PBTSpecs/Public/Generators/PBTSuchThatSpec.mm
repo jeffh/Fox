@@ -12,7 +12,7 @@ describe(@"PBTSuchThat", ^{
             return [generatedValue integerValue] % 2 == 0;
         });
 
-        PBTQuickCheckResult * result = [PBTSpecHelper resultForAll:generator then:^BOOL(NSNumber *value) {
+        PBTRunnerResult * result = [PBTSpecHelper resultForAll:generator then:^BOOL(NSNumber *value) {
             return [value integerValue] % 2 == 0;
         }];
         result.succeeded should be_truthy;

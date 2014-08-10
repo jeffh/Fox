@@ -32,8 +32,6 @@
  */
 @protocol PBTStateTransition <NSObject>
 
-@optional
-
 /*! This indicates if the current state can use this transition to move to
  *  a new state.
  *
@@ -42,6 +40,7 @@
  *  @param modelState The current model state of the SUT. Should not be mutated.
  *  @returns A BOOL indicating if this transition can be used.
  */
+@optional
 - (BOOL)satisfiesPreConditionForModelState:(id)modelState;
 
 /*! Indicates the generator that the state transition needs when advancing the
@@ -53,9 +52,8 @@
  *  If you need multiple arguments, a tuple generator can be used here.
  *  @see PBTTuple
  */
+@optional
 - (id<PBTGenerator>)generator;
-
-@required
 
 /*! Returns the next model state to advance to if the transition is followed.
  *
@@ -63,6 +61,7 @@
  *  @param generatedValue The generated value from the generated specified in ``-[generator]``.
  *  @returns The new model state of the SUT.
  */
+@required
 - (id)nextModelStateFromModelState:(id)previousModelState
                     generatedValue:(id)generatedValue;
 
@@ -74,10 +73,9 @@
  *  @returns Any object that might be useful for the postcondition to verify. Typically this is the return value from
  *           calling a method on ``actualState``.
  */
+@required
 - (id)objectFromAdvancingActualState:(id)actualState
                       generatedValue:(id)generatedValue;
-
-@optional
 
 /*! Verifies the state of the model with the actual state of the SUT.
  *
@@ -92,6 +90,7 @@
  *  @param returnedObjectFromAdvancing The object returned from ``-[objectFromAdvancingActualState:generatedValue:]``
  *  @returns A bool indicates if the model and actual state align. Returning NO fails the test.
  */
+@optional
 - (BOOL)satisfiesPostConditionInModelState:(id)currentModelState
                             fromModelState:(id)previousModelState
                                actualState:(id)actualState

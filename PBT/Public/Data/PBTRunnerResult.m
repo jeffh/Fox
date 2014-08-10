@@ -1,6 +1,6 @@
-#import "PBTQuickCheckResult.h"
+#import "PBTRunnerResult.h"
 
-@implementation PBTQuickCheckResult
+@implementation PBTRunnerResult
 
 - (NSString *)description
 {
@@ -13,8 +13,8 @@
 
     if (!self.succeeded) {
         [string appendFormat:@"\n failingSize: %lu", (unsigned long)self.failingSize];
-        [string appendFormat:@"\n failingArguments: %@", self.failingArguments];
-        [string appendFormat:@"\n   smallestFailingArguments: %@", self.smallestFailingArguments];
+        [string appendFormat:@"\n failingValue: %@", self.failingValue];
+        [string appendFormat:@"\n   smallestFailingValue: %@", self.smallestFailingValue];
         [string appendFormat:@"\n   shrinkDepth: %lu", (unsigned long)self.shrinkDepth];
         [string appendFormat:@"\n   shrinkNodeWalkCount: %lu", (unsigned long)self.shrinkNodeWalkCount];
     }
@@ -34,8 +34,8 @@
 
     if (!self.succeeded) {
         [string appendFormat:@"\n size that failed: %lu", (unsigned long)self.failingSize];
-        [string appendFormat:@"\n value that failed: %@", self.failingArguments];
-        [string appendFormat:@"\n smallest failing value: %@", self.smallestFailingArguments];
+        [string appendFormat:@"\n value that failed: %@", self.failingValue];
+        [string appendFormat:@"\n smallest failing value: %@", self.smallestFailingValue];
         [string appendFormat:@"\n shrink depth: %lu", (unsigned long)self.shrinkDepth];
         [string appendFormat:@"\n shrink nodes walked: %lu", (unsigned long)self.shrinkNodeWalkCount];
     }

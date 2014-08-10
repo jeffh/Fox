@@ -22,7 +22,7 @@
 
 /*! An abstract class for sequence implementations. Behaves like a class cluster, like NSArray.
  *
- *  The abstract class will provide convience methods that conforms to the PBTSequence protocol
+ *  The abstract class will provide convenience methods that conforms to the PBTSequence protocol
  *  Subclasses must implement the public methods listed below.
  *
  *  The _count ivar is used to cache multiple calls to -[count]. You can set it to explicitly
@@ -40,10 +40,10 @@
 
 @end
 
-/*! Convinence constructors. All these constructors create sequences that are fully realized in
+/*! Convenience constructors. All these constructors create sequences that are fully realized in
  *  memory upon creation.
  */
-@interface PBTSequence (EagarConstructors)
+@interface PBTSequence (EagerConstructors)
 
 + (instancetype)sequence;
 + (instancetype)sequenceWithObject:(id)firstObject;
@@ -53,12 +53,11 @@
 
 @end
 
-/*! Convinence constructors. All these constructors create sequences that are lazy -- realized when
- *  needed to avoid large memory allocation.
+/*! Convenience constructors. All these constructors create sequences that are lazy -- realized when
+ *  needed to avoid large memory allocations.
  */
 @interface PBTSequence (LazyConstructors)
 
-+ (instancetype)lazySequenceByConcatenatingSequences:(NSArray *)sequences;
 + (instancetype)lazySequenceFromBlock:(id<PBTSequence>(^)())block;
 
 @end

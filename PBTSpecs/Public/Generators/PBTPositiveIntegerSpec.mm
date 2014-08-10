@@ -36,7 +36,7 @@ describe(@"PBTPositiveInteger", ^{
 
     context(@"integration", ^{
         it(@"should generate positive numbers", ^{
-            PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTPositiveInteger() then:^BOOL(NSNumber *value) {
+            PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTPositiveInteger() then:^BOOL(NSNumber *value) {
                 return [value unsignedIntegerValue] > 0 || [value unsignedIntegerValue] == 0;
             }];
 
@@ -44,7 +44,7 @@ describe(@"PBTPositiveInteger", ^{
         });
 
         it(@"should not generate negative numbers", ^{
-            PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTPositiveInteger() then:^BOOL(NSNumber *value) {
+            PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTPositiveInteger() then:^BOOL(NSNumber *value) {
                 return [value integerValue] >= 0;
             }];
 
@@ -52,10 +52,10 @@ describe(@"PBTPositiveInteger", ^{
         });
 
         it(@"should shrink to zero", ^{
-            PBTQuickCheckResult *result = [PBTSpecHelper shrunkResultForAll:PBTPositiveInteger()];
+            PBTRunnerResult *result = [PBTSpecHelper shrunkResultForAll:PBTPositiveInteger()];
 
             result.succeeded should be_falsy;
-            result.smallestFailingArguments should equal(@0);
+            result.smallestFailingValue should equal(@0);
         });
     });
 });

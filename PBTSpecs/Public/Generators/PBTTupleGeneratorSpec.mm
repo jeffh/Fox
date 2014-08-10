@@ -8,7 +8,7 @@ SPEC_BEGIN(PBTTupleGeneratorSpec)
 
 describe(@"PBTTuple", ^{
     it(@"should always have the same size", ^{
-        PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTTuple(@[PBTInteger(), PBTInteger()]) then:^BOOL(NSArray *values) {
+        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTTuple(@[PBTInteger(), PBTInteger()]) then:^BOOL(NSArray *values) {
             return [values count] == 2;
         }];
         result.succeeded should be_truthy;
@@ -21,9 +21,9 @@ describe(@"PBTTuple", ^{
     });
 
     it(@"should always have the same size when shrunk", ^{
-        PBTQuickCheckResult *result = [PBTSpecHelper shrunkResultForAll:PBTTuple(@[PBTInteger(), PBTInteger()])];
+        PBTRunnerResult *result = [PBTSpecHelper shrunkResultForAll:PBTTuple(@[PBTInteger(), PBTInteger()])];
         result.succeeded should be_falsy;
-        result.smallestFailingArguments should equal(@[@0, @0]);
+        result.smallestFailingValue should equal(@[@0, @0]);
     });
 });
 

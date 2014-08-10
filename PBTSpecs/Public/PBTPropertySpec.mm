@@ -1,5 +1,5 @@
 #import "PBT.h"
-#import "PBTQuickCheck.h"
+#import "PBTRunner.h"
 
 
 using namespace Cedar::Matchers;
@@ -36,14 +36,14 @@ describe(@"PBTProperty", ^{
     });
 
     it(@"should be shrinkable", ^{
-        PBTQuickCheck *quick = [[PBTQuickCheck alloc] initWithReporter:nil];
-        PBTQuickCheckResult *result = [quick checkWithNumberOfTests:100 forAll:PBTInteger() then:^PBTPropertyStatus(NSNumber *generatedValue) {
+        PBTRunner *quick = [[PBTRunner alloc] initWithReporter:nil];
+        PBTRunnerResult *result = [quick resultForNumberOfTests:100 forAll:PBTInteger() then:^PBTPropertyStatus(NSNumber *generatedValue) {
             return PBTRequire([generatedValue integerValue] / 2 <= [generatedValue integerValue]);
         }];
         result.succeeded should be_falsy;
-        result.failingArguments should be_less_than(@0);
-        result.smallestFailingArguments should equal(@(-1));
-        result.smallestFailingArguments should be_greater_than_or_equal_to(result.failingArguments);
+        result.failingValue should be_less_than(@0);
+        result.smallestFailingValue should equal(@(-1));
+        result.smallestFailingValue should be_greater_than_or_equal_to(result.failingValue);
     });
 
     it(@"should validate arbitary data structures", ^{
@@ -51,9 +51,9 @@ describe(@"PBTProperty", ^{
         property = [PBTProperty forAll:PBTArray(PBTInteger()) then:^PBTPropertyStatus(NSArray *value){
             return PBTRequire(value.count < 2);
         }];
-        PBTQuickCheck *quick = [[PBTQuickCheck alloc] initWithReporter:nil];
-        PBTQuickCheckResult *result = [quick checkWithNumberOfTests:100 property:property];
-        result.smallestFailingArguments should equal(@[@0, @0]);
+        PBTRunner *quick = [[PBTRunner alloc] initWithReporter:nil];
+        PBTRunnerResult *result = [quick resultForNumberOfTests:100 property:property];
+        result.smallestFailingValue should equal(@[@0, @0]);
     });
 
     it(@"should capture and report exceptions", ^{
@@ -68,8 +68,8 @@ describe(@"PBTProperty", ^{
         propertyResult.status should equal(PBTPropertyStatusUncaughtException);
         propertyResult.uncaughtException should be_same_instance_as(exception);
 
-        PBTQuickCheck *quick = [[PBTQuickCheck alloc] initWithReporter:nil];
-        PBTQuickCheckResult *qcResult = [quick checkWithNumberOfTests:100 property:property];
+        PBTRunner *quick = [[PBTRunner alloc] initWithReporter:nil];
+        PBTRunnerResult *qcResult = [quick resultForNumberOfTests:100 property:property];
         qcResult.failingException should be_same_instance_as(exception);
         qcResult.smallestFailingException should be_same_instance_as(exception);
     });

@@ -11,7 +11,7 @@
 #import "PBTArrayGenerator.h"
 #import "PBTTupleGenerator.h"
 #import "PBTSuchThatGenerator.h"
-#import "PBTRandom.h"
+#import "PBTDeterministicRandom.h"
 #import "PBTRoseTree.h"
 #import "PBTFiniteStateMachine.h"
 #import "PBTStateTransition.h"

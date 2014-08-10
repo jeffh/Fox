@@ -1,4 +1,4 @@
-#import "PBTRandom.h"
+#import "PBTDeterministicRandom.h"
 
 
 @interface PBTConstantRandom : NSObject <PBTRandom>

@@ -16,7 +16,7 @@
  */
 @property (nonatomic) id value;
 
-/*! Children always returns an id<PBTSequence> object, even if set to nil.
+/*! Children always returns a sequence, even if set to nil.
  */
 @property (nonatomic) id<PBTSequence> children; // of PBTRoseTrees
 
@@ -58,7 +58,7 @@
  *
  *     @[<value>, <children>]
  *
- *  where <children> can be an array of rose trees in the same array-literal form.
+ *  where <children> is an array of rose trees in the same array-literal form.
  *
  *  This is mostly useful for creating deep rose trees in tests.
  */
@@ -71,7 +71,9 @@
 /*! Merges rose trees and provides shrinking from all the merged results. The returned rose tree
  *  will contain arrays from all/some of the values in roseTrees.
  *
- *  If you prefer the returned values not shrink in size, use +ß[zipTreeFromRoseTrees:] instead.
+ *  If you prefer the returned values not shrink in size, use +[zipTreeFromRoseTrees:] instead.
+ *
+ *  @see PBTArray
  */
 + (instancetype)shrinkTreeFromRoseTrees:(NSArray *)roseTrees;
 
@@ -79,21 +81,23 @@
  *  will contain arrays from all of the values in the roseTrees.
  *
  *  If you prefer the return values to shrink in size, use +[shrinkTreeFromRoseTrees:] instead.
+ *
+ *  @see PBTTuple
  */
 + (instancetype)zipTreeFromRoseTrees:(NSArray *)roseTrees;
 
-/*! Creates a "pure" rose tree, containing only one value.
+/*! Creates a "pure" rose tree, containing only one value with no possible smaller values.
  */
 - (instancetype)initWithValue:(id)value;
 
-/*! Creates a rose tree with a value and children.
+/*! Creates a rose tree with a value and children (possible smaller values).
  *
  *  Due to the potential large size of rose trees, it's recommended to have children be a lazy
  *  sequence.
  */
 - (instancetype)initWithValue:(id)value children:(id<PBTSequence>)children;
 
-/*! Creates a new rose tree by applying the block to each element inside the rose tree.
+/*! Creates a new rose tree by applying the block to each node's value inside the rose tree.
  */
 - (instancetype)treeByApplyingBlock:(id(^)(id element))block;
 
@@ -102,10 +106,5 @@
  *  @notice this will NOT call the block on the current (largest) value.
  */
 - (instancetype)treeFilterChildrenByBlock:(BOOL(^)(id element))block;
-
-/*! Converts the rose tree to a nested array data structure that is accepted by
- *  +[treeFromArray:].
- */
-- (NSArray *)array;
 
 @end

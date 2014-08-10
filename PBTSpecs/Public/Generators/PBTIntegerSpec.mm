@@ -36,19 +36,19 @@ describe(@"PBTInteger", ^{
 
     context(@"integration", ^{
         it(@"should shrink towards zero", ^{
-            PBTQuickCheckResult *result = [PBTSpecHelper shrunkResultForAll:PBTInteger()];
+            PBTRunnerResult *result = [PBTSpecHelper shrunkResultForAll:PBTInteger()];
 
             result.succeeded should be_falsy;
-            result.smallestFailingArguments should equal(@0);
+            result.smallestFailingValue should equal(@0);
         });
 
         it(@"should shrink negative values to zero", ^{
-            PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTInteger() then:^BOOL(NSNumber *value) {
+            PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTInteger() then:^BOOL(NSNumber *value) {
                 return [value integerValue] >= 0;
             }];
 
             result.succeeded should be_falsy;
-            result.smallestFailingArguments should equal(@(-1));
+            result.smallestFailingValue should equal(@(-1));
         });
     });
 });

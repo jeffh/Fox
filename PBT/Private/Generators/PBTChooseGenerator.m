@@ -1,6 +1,6 @@
 #import "PBTChooseGenerator.h"
 #import "PBTSequence.h"
-#import "PBTRandom.h"
+#import "PBTDeterministicRandom.h"
 #import "PBTRoseTree.h"
 
 

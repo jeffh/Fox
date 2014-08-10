@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "PBTRandom.h"
+
 
 @protocol PBTRandom <NSObject>
 
@@ -11,9 +11,3 @@
 
 @end
 
-@interface PBTRandom : NSObject <PBTRandom>
-
-- (instancetype)init;
-- (instancetype)initWithSeed:(uint32_t)seed;
-
-@end

@@ -36,7 +36,7 @@ describe(@"PBTNegativeInteger", ^{
 
     context(@"integration", ^{
         it(@"should only produce negative numbers", ^{
-            PBTQuickCheckResult *result = [PBTSpecHelper resultForAll:PBTNegativeInteger() then:^BOOL(NSNumber *value) {
+            PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTNegativeInteger() then:^BOOL(NSNumber *value) {
                 return [value integerValue] <= 0;
             }];
 
@@ -44,10 +44,10 @@ describe(@"PBTNegativeInteger", ^{
         });
 
         it(@"should shrink to zero", ^{
-            PBTQuickCheckResult *result = [PBTSpecHelper shrunkResultForAll:PBTNegativeInteger()];
+            PBTRunnerResult *result = [PBTSpecHelper shrunkResultForAll:PBTNegativeInteger()];
 
             result.succeeded should be_falsy;
-            result.smallestFailingArguments should equal(@0);
+            result.smallestFailingValue should equal(@0);
         });
     });
 });
