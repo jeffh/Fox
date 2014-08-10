@@ -1,4 +1,5 @@
 #import "PBTSpecHelper.h"
+#import "PBT.h"
 #import "PBTDebugReporter.h"
 
 @implementation PBTSpecHelper

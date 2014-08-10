@@ -2,6 +2,7 @@
 
 @protocol PBTRandom;
 @protocol PBTSequence;
+@protocol PBTStateMachine;
 @class PBTRoseTree;
 
 
@@ -52,3 +53,8 @@ PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator);
  *  The string are constant values while the values are generators.
  */
 PBT_EXPORT id<PBTGenerator> PBTDictionary(NSDictionary *dictionaryTemplate);
+
+PBT_EXPORT id<PBTGenerator> PBTSuchThat(id<PBTGenerator> generator, BOOL(^predicate)(id generatedValue));
+PBT_EXPORT id<PBTGenerator> PBTSuchThat(id<PBTGenerator> generator, BOOL(^predicate)(id generatedValue), NSUInteger maxTries);
+
+PBT_EXPORT id<PBTGenerator> PBTCommands(id<PBTStateMachine> stateMachine);

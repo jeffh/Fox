@@ -1,12 +1,11 @@
-#import <Foundation/Foundation.h>
 #import "PBTGenerator.h"
 
 
-typedef NS_ENUM(NSUInteger, PBTPropertyStatus) {
-    PBTPropertyStatusSkipped,
-    PBTPropertyStatusFailed,
-    PBTPropertyStatusPassed,
-    PBTPropertyStatusUncaughtException,
+typedef NS_ENUM(NSInteger, PBTPropertyStatus) {
+    PBTPropertyStatusFailed = 0,
+    PBTPropertyStatusPassed = 1,
+    PBTPropertyStatusSkipped = -1,
+    PBTPropertyStatusUncaughtException = -2,
 };
 
 @interface PBTProperty : NSObject

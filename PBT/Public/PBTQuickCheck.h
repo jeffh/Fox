@@ -1,4 +1,3 @@
-#import <Foundation/Foundation.h>
 #import "PBTGenerator.h"
 #import "PBTProperty.h"
 
@@ -9,6 +8,7 @@
 
 @interface PBTQuickCheck : NSObject
 
++ (instancetype)sharedInstance;
 - (instancetype)init;
 - (instancetype)initWithReporter:(id<PBTQuickCheckReporter>)reporter;
 - (instancetype)initWithReporter:(id<PBTQuickCheckReporter>)reporter random:(id<PBTRandom>)random;

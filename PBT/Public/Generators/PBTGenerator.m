@@ -10,10 +10,12 @@
 #import "PBTStringGenerator.h"
 #import "PBTArrayGenerator.h"
 #import "PBTTupleGenerator.h"
-#import "PBTConcreteSequence.h"
-#import "PBTLazySequence.h"
+#import "PBTSuchThatGenerator.h"
 #import "PBTRandom.h"
 #import "PBTRoseTree.h"
+#import "PBTFiniteStateMachine.h"
+#import "PBTStateTransition.h"
+#import "PBTCommand.h"
 
 
 PBT_EXPORT id<PBTGenerator> PBTWithName(NSString *name, id<PBTGenerator> generator) {
@@ -194,5 +196,45 @@ PBT_EXPORT id<PBTGenerator> PBTSet(id<PBTGenerator> elementGenerator) {
 PBT_EXPORT id<PBTGenerator> PBTDictionary(NSDictionary *dictionaryTemplate) {
     return PBTMap(PBTTuple([dictionaryTemplate allValues]), ^id(NSArray *values) {
         return [NSDictionary dictionaryWithObjects:values forKeys:[dictionaryTemplate allKeys]];
+    });
+}
+
+PBT_EXPORT id<PBTGenerator> PBTSuchThat(id<PBTGenerator> generator, BOOL(^predicate)(id)) {
+    return PBTSuchThat(generator, predicate, 10);
+}
+
+PBT_EXPORT id<PBTGenerator> PBTSuchThat(id<PBTGenerator> generator, BOOL(^predicate)(id), NSUInteger maxTries) {
+    return [[PBTSuchThatGenerator alloc] initWithGenerator:generator predicate:predicate maxTries:maxTries];
+}
+
+PBT_EXPORT id<PBTGenerator> PBTElements(NSArray *elements) {
+    NSCParameterAssert(elements.count);
+    return PBTGenBind(PBTChoose(@0, @(elements.count - 1)), ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
+        return PBTGenPure([generatorTree treeByApplyingBlock:^id(NSNumber *number) {
+            return elements[[number integerValue]];
+        }]);
+    });
+}
+
+PBT_EXPORT id<PBTGenerator> PBTGenCommands(id<PBTStateMachine> stateMachine) {
+    return PBTGenBind(PBTElements([stateMachine allTransitions]), ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
+        id<PBTStateTransition> transition = generatorTree.value;
+        id<PBTGenerator> argGenerator = nil;
+
+        if ([transition respondsToSelector:@selector(generator)]) {
+            argGenerator = [transition generator];
+        } else {
+            argGenerator = PBTReturn(@[]);
+        }
+
+        return PBTMap(PBTTuple(@[PBTReturn(transition), argGenerator]), ^id(NSArray *commandTuple) {
+            return [[PBTCommand alloc] initWithTransition:commandTuple[0] generatedValue:commandTuple[1]];
+        });
+    });
+}
+
+PBT_EXPORT id<PBTGenerator> PBTCommands(id<PBTStateMachine> stateMachine) {
+    return PBTSuchThat(PBTArray(PBTGenCommands(stateMachine)), ^BOOL(NSArray *commands) {
+        return [stateMachine isValidCommandSequence:commands];
     });
 }

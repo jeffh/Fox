@@ -24,6 +24,16 @@ typedef struct _PBTShrinkReport {
 
 @implementation PBTQuickCheck
 
++ (instancetype)sharedInstance
+{
+    static PBTQuickCheck *__check;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __check = [[PBTQuickCheck alloc] init];
+    });
+    return __check;
+}
+
 - (instancetype)init
 {
     return [self initWithReporter:[[PBTStandardReporter alloc] initWithFile:stdout]];

@@ -16,8 +16,7 @@
  */
 @property (nonatomic) id value;
 
-/*! Children always returns an id<PBTSequence> object, even if set
- *  to nil.
+/*! Children always returns an id<PBTSequence> object, even if set to nil.
  */
 @property (nonatomic) id<PBTSequence> children; // of PBTRoseTrees
 
