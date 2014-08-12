@@ -2,6 +2,7 @@
 #import "PBTStateMachine.h"
 #import "PBTStateTransition.h"
 #import "PBTRandom.h"
+#import "PBTGenerator.h"
 
 // data structures
 #import "PBTSequence.h"
@@ -9,10 +10,19 @@
 #import "PBTRunnerResult.h"
 #import "PBTCommand.h"
 #import "PBTTransition.h"
+#import "PBTPropertyResult.h"
 
 // generators
-#import "PBTGenerator.h"
-#import "PBTProperty.h"
+#import "PBTCoreGenerators.h"
+#import "PBTNumericGenerators.h"
+#import "PBTStringGenerators.h"
+#import "PBTSetGenerators.h"
+#import "PBTArrayGenerators.h"
+#import "PBTDictionaryGenerators.h"
+#import "PBTPropertyGenerators.h"
+#import "PBTStateMachineGenerators.h"
+
+// stateful testers
 #import "PBTFiniteStateMachine.h"
 
 // randomizers

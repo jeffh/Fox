@@ -7,6 +7,4 @@
     return (EXPR);\
 }])
 
-#define CHECK(NUM_TESTS, PROPERTY) ([[PBTQuickCheck sharedInstance] checkWithNumberOfTests:(NUM_TESTS) property:(PROPERTY)])
-
 #endif

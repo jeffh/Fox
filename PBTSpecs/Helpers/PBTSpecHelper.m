@@ -11,35 +11,35 @@
 
 + (PBTRunnerResult *)resultForAll:(id<PBTGenerator>)generator
                                  then:(BOOL(^)(id value))block {
-    id<PBTGenerator> property = [PBTProperty forAll:generator then:^PBTPropertyStatus(id value){
+    id<PBTGenerator> property = PBTForAll(generator, ^PBTPropertyStatus(id value) {
         return PBTRequire(block(value));
-    }];
+    });
     PBTRunner *quick = [[PBTRunner alloc] initWithReporter:nil];
     return [quick resultForNumberOfTests:[self numberOfTestsPerProperty] property:property];
 }
 
 + (PBTRunnerResult *)debug_resultForAll:(id<PBTGenerator>)generator
                                        then:(BOOL(^)(id value))block {
-    id<PBTGenerator> property = [PBTProperty forAll:generator then:^PBTPropertyStatus(id value){
+    id<PBTGenerator> property = PBTForAll(generator, ^PBTPropertyStatus(id value) {
         return PBTRequire(block(value));
-    }];
+    });
     PBTRunner *quick = [[PBTRunner alloc] initWithReporter:[[PBTDebugReporter alloc] init]];
     return [quick resultForNumberOfTests:[self numberOfTestsPerProperty] property:property];
 }
 
 + (PBTRunnerResult *)resultForAll:(id<PBTGenerator>)generator
-                                 then:(BOOL(^)(id value))block
-                                 seed:(uint32_t)seed {
+                             then:(BOOL(^)(id value))block
+                             seed:(uint32_t)seed {
     return [self resultForAll:generator then:block seed:seed maxSize:50];
 }
 
 + (PBTRunnerResult *)resultForAll:(id<PBTGenerator>)generator
-                                 then:(BOOL(^)(id value))block
-                                 seed:(uint32_t)seed
-                              maxSize:(NSUInteger)maxSize {
-    id<PBTGenerator> property = [PBTProperty forAll:generator then:^PBTPropertyStatus(id value){
+                             then:(BOOL(^)(id value))block
+                             seed:(uint32_t)seed
+                          maxSize:(NSUInteger)maxSize {
+    id<PBTGenerator> property = PBTForAll(generator, ^PBTPropertyStatus(id value) {
         return PBTRequire(block(value));
-    }];
+    });
     PBTRunner *quick = [[PBTRunner alloc] initWithReporter:[[PBTDebugReporter alloc] init]];
     return [quick resultForNumberOfTests:[self numberOfTestsPerProperty]
                                 property:property

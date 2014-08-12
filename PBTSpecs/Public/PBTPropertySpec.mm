@@ -1,5 +1,6 @@
 #import "PBT.h"
 #import "PBTRunner.h"
+#include "PBTArrayGenerators.h"
 
 
 using namespace Cedar::Matchers;
@@ -13,9 +14,9 @@ describe(@"PBTProperty", ^{
 
     it(@"should generate passed results", ^{
         random = [[PBTConstantRandom alloc] initWithValue:2];
-        property = [PBTProperty forAll:PBTReturn(@1) then:^PBTPropertyStatus(id value){
+        property = PBTForAll(PBTReturn(@1), ^PBTPropertyStatus(id value) {
             return PBTRequire([@1 isEqual:value]);
-        }];
+        });
         PBTRoseTree *tree = [property lazyTreeWithRandom:random maximumSize:1];
 
         PBTPropertyResult *result = tree.value;
@@ -25,9 +26,9 @@ describe(@"PBTProperty", ^{
 
     it(@"should generate failed results", ^{
         random = [[PBTConstantRandom alloc] initWithValue:2];
-        property = [PBTProperty forAll:PBTReturn(@2) then:^PBTPropertyStatus(id value){
+        property = PBTForAll(PBTReturn(@2), ^PBTPropertyStatus(id value) {
             return PBTRequire([@1 isEqual:value]);
-        }];
+        });
         PBTRoseTree *tree = [property lazyTreeWithRandom:random maximumSize:1];
 
         PBTPropertyResult *result = tree.value;
@@ -48,9 +49,9 @@ describe(@"PBTProperty", ^{
 
     it(@"should validate arbitary data structures", ^{
         random = [[PBTConstantRandom alloc] initWithValue:2];
-        property = [PBTProperty forAll:PBTArray(PBTInteger()) then:^PBTPropertyStatus(NSArray *value){
+        property = PBTForAll(PBTArray(PBTInteger()), ^PBTPropertyStatus(NSArray *value) {
             return PBTRequire(value.count < 2);
-        }];
+        });
         PBTRunner *quick = [[PBTRunner alloc] initWithReporter:nil];
         PBTRunnerResult *result = [quick resultForNumberOfTests:100 property:property];
         result.smallestFailingValue should equal(@[@0, @0]);
@@ -59,10 +60,10 @@ describe(@"PBTProperty", ^{
     it(@"should capture and report exceptions", ^{
         NSException *exception = [NSException exceptionWithName:@"hand" reason:@"answer" userInfo:nil];
         random = [[PBTConstantRandom alloc] initWithValue:2];
-        property = [PBTProperty forAll:PBTArray(PBTInteger()) then:^PBTPropertyStatus(NSArray *value){
+        property = PBTForAll(PBTArray(PBTInteger()), ^PBTPropertyStatus(NSArray *value) {
             [exception raise];
             return PBTRequire(YES);
-        }];
+        });
         PBTRoseTree *tree = [property lazyTreeWithRandom:random maximumSize:1];
         PBTPropertyResult *propertyResult = tree.value;
         propertyResult.status should equal(PBTPropertyStatusUncaughtException);

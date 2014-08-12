@@ -1,5 +1,6 @@
 #import "PBT.h"
 #import "PBTSpecHelper.h"
+#include "PBTSetGenerators.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;

@@ -1,5 +1,7 @@
 #import "PBTGenerator.h"
 
+@protocol PBTSequence;
+
 
 @interface PBTArrayGenerator : NSObject <PBTGenerator>
 

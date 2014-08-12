@@ -7,22 +7,23 @@
 
 @protocol PBTReporter <NSObject>
 
-- (void)checkerWillRunWithSeed:(uint32_t)randomSeed;
+- (void)runnerWillRunWithSeed:(uint32_t)randomSeed;
 
-- (void)checkerWillVerifyTestNumber:(NSUInteger)testNumber
-                    withMaximumSize:(NSUInteger)maxSize;
+- (void)runnerWillVerifyTestNumber:(NSUInteger)testNumber
+                   withMaximumSize:(NSUInteger)maxSize;
 
-- (void)checkerDidPassTestNumber:(NSUInteger)testNumber;
+- (void)runnerDidPassTestNumber:(NSUInteger)testNumber;
 
-- (void)checkerWillShrinkFailingTestNumber:(NSUInteger)testNumber
-                  failedWithPropertyResult:(PBTPropertyResult *)result;
-- (void)checkerShrankFailingTestNumber:(NSUInteger)testNumber
-                    withPropertyResult:(PBTPropertyResult *)result;
-- (void)checkerDidFailTestNumber:(NSUInteger)testNumber
-                      withResult:(PBTRunnerResult *)result;
+- (void)runnerWillShrinkFailingTestNumber:(NSUInteger)testNumber
+                 failedWithPropertyResult:(PBTPropertyResult *)result;
+- (void)runnerDidShrinkFailingTestNumber:(NSUInteger)testNumber
+                      withPropertyResult:(PBTPropertyResult *)result;
+- (void)runnerDidFailTestNumber:(NSUInteger)testNumber
+                     withResult:(PBTRunnerResult *)result;
 
-- (void)checkerDidPassNumberOfTests:(NSUInteger)testNumber
-                         withResult:(PBTRunnerResult *)result;
+- (void)runnerDidPassNumberOfTests:(NSUInteger)testNumber
+                        withResult:(PBTRunnerResult *)result;
 
+- (void)runnerDidRunWithResult:(PBTRunnerResult *)result;
 
 @end

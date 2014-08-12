@@ -1,5 +1,6 @@
 #import "PBTSequenceGenerator.h"
 #import "PBTRoseTree.h"
+#include "PBTCoreGenerators.h"
 
 
 @interface PBTSequenceGenerator ()

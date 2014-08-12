@@ -3,6 +3,7 @@
 #import "PBTQueueAddTransition.h"
 #import "PBTSpecHelper.h"
 #import "PBTQueue.h"
+#include "PBTStateMachineGenerators.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;

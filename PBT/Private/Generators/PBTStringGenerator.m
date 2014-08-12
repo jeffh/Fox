@@ -1,4 +1,5 @@
 #import "PBTStringGenerator.h"
+#include "PBTCoreGenerators.h"
 
 
 @interface PBTStringGenerator ()

@@ -1,5 +1,7 @@
 #import "PBT.h"
 #import "PBTSpecHelper.h"
+#include "PBTStringGenerators.h"
+#include "PBTDictionaryGenerators.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;

@@ -1,5 +1,5 @@
 #import "PBTGenerator.h"
-#import "PBTProperty.h"
+#import "PBTPropertyGenerators.h"
 #import "PBTReporter.h"
 
 
@@ -25,19 +25,6 @@
                                   property:(id<PBTGenerator>)property
                                       seed:(uint32_t)seed
                                    maxSize:(NSUInteger)maxSize;
-
-- (void)checkWithNumberOfTests:(NSUInteger)numberOfTests
-                      property:(id<PBTGenerator>)property;
-- (void)checkWithNumberOfTests:(NSUInteger)numberOfTests
-                        forAll:(id<PBTGenerator>)values
-                          then:(PBTPropertyStatus (^)(id generatedValue))then;
-- (void)checkWithNumberOfTests:(NSUInteger)totalNumberOfTests
-                      property:(id<PBTGenerator>)property
-                          seed:(uint32_t)seed;
-- (void)checkWithNumberOfTests:(NSUInteger)totalNumberOfTests
-                      property:(id<PBTGenerator>)property
-                          seed:(uint32_t)seed
-                       maxSize:(NSUInteger)maxSize;
 
 @end
 

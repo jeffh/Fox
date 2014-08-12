@@ -1,28 +1,4 @@
-#import "PBTProperty.h"
-#import "PBTGenerator.h"
-#import "PBTSequence.h"
-
-
-@implementation PBTProperty
-
-+ (id<PBTGenerator>)forAll:(id<PBTGenerator>)generator
-                      then:(PBTPropertyStatus (^)(id))verifier
-{
-    return PBTMap(generator, ^id(id value) {
-        PBTPropertyResult *result = [[PBTPropertyResult alloc] init];
-        result.generatedValue = value;
-        @try {
-            result.status = verifier(value);
-        }
-        @catch (NSException *exception) {
-            result.uncaughtException = exception;
-            result.status = PBTPropertyStatusUncaughtException;
-        }
-        return result;
-    });
-}
-
-@end
+#import "PBTPropertyGenerators.h"
 
 
 @implementation PBTPropertyResult

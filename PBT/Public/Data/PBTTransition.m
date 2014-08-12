@@ -1,5 +1,6 @@
 #import "PBTTransition.h"
 #import "PBTGenerator.h"
+#include "PBTCoreGenerators.h"
 
 
 @implementation PBTTransition

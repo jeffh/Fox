@@ -63,7 +63,7 @@ typedef struct _PBTShrinkReport {
 {
     NSUInteger currentTestNumber = 0;
     [self.random setSeed:seed];
-    [self.reporter checkerWillRunWithSeed:seed];
+    [self.reporter runnerWillRunWithSeed:seed];
 
     while (true) {
         for (NSUInteger size = 0; size < maxSize; size++) {
@@ -82,8 +82,8 @@ typedef struct _PBTShrinkReport {
                     NSStringFromClass([result class]));
 
 
-            [self.reporter checkerWillVerifyTestNumber:currentTestNumber
-                                       withMaximumSize:size];
+            [self.reporter runnerWillVerifyTestNumber:currentTestNumber
+                                      withMaximumSize:size];
 
             if ([result hasFailedOrRaisedException]) {
                 return [self failureReportWithNumberOfTests:currentTestNumber
@@ -92,7 +92,7 @@ typedef struct _PBTShrinkReport {
                                                     maxSize:maxSize
                                                        seed:seed];
             } else {
-                [self.reporter checkerDidPassTestNumber:totalNumberOfTests];
+                [self.reporter runnerDidPassTestNumber:totalNumberOfTests];
             }
         }
     }
@@ -123,38 +123,10 @@ typedef struct _PBTShrinkReport {
                                       then:(PBTPropertyStatus (^)(id generatedValue))then
 {
     return [self resultForNumberOfTests:numberOfTests
-                               property:[PBTProperty forAll:values then:then]];
-}
-
-- (void)checkWithNumberOfTests:(NSUInteger)totalNumberOfTests
-                      property:(id <PBTGenerator>)property
-                          seed:(uint32_t)seed
-                       maxSize:(NSUInteger)maxSize
-{
-    [self checkResult:[self resultForNumberOfTests:totalNumberOfTests property:property seed:seed maxSize:maxSize]];
-}
-
-- (void)checkWithNumberOfTests:(NSUInteger)numberOfTests property:(id <PBTGenerator>)property
-{
-    [self checkResult:[self resultForNumberOfTests:numberOfTests property:property]];
-}
-
-- (void)checkWithNumberOfTests:(NSUInteger)numberOfTests forAll:(id <PBTGenerator>)values then:(PBTPropertyStatus (^)(id generatedValue))then
-{
-    [self checkResult:[self resultForNumberOfTests:numberOfTests forAll:values then:then]];
-}
-
-- (void)checkWithNumberOfTests:(NSUInteger)totalNumberOfTests property:(id <PBTGenerator>)property seed:(uint32_t)seed
-{
-    [self checkResult:[self resultForNumberOfTests:totalNumberOfTests property:property seed:seed]];
+                               property:PBTForAll(values, then)];
 }
 
 #pragma mark - Private
-
-- (void)checkResult:(PBTRunnerResult *)result
-{
-    NSAssert(result.succeeded, @"=== Failed ===\n%@", result);
-}
 
 - (PBTRunnerResult *)successfulReportWithNumberOfTests:(NSUInteger)numberOfTests
                                               maxSize:(NSUInteger)maxSize
@@ -166,8 +138,9 @@ typedef struct _PBTShrinkReport {
     result.seed = seed;
     result.maxSize = maxSize;
 
-    [self.reporter checkerDidPassNumberOfTests:numberOfTests
-                                    withResult:result];
+    [self.reporter runnerDidPassNumberOfTests:numberOfTests
+                                   withResult:result];
+    [self.reporter runnerDidRunWithResult:result];
     return result;
 }
 
@@ -177,8 +150,8 @@ typedef struct _PBTShrinkReport {
                                            maxSize:(NSUInteger)maxSize
                                               seed:(uint32_t)seed
 {
-    [self.reporter checkerWillShrinkFailingTestNumber:numberOfTests
-                             failedWithPropertyResult:failureRoseTree.value];
+    [self.reporter runnerWillShrinkFailingTestNumber:numberOfTests
+                            failedWithPropertyResult:failureRoseTree.value];
     PBTPropertyResult *propertyResult = failureRoseTree.value;
     PBTShrinkReport report = [self shrinkReportForRoseTree:failureRoseTree
                                              numberOfTests:numberOfTests];
@@ -194,8 +167,9 @@ typedef struct _PBTShrinkReport {
     result.smallestFailingValue = CFBridgingRelease(report.smallestArgument);
     result.smallestFailingException = CFBridgingRelease(report.smallestUncaughtException);
 
-    [self.reporter checkerDidFailTestNumber:numberOfTests
-                                 withResult:result];
+    [self.reporter runnerDidFailTestNumber:numberOfTests
+                                withResult:result];
+    [self.reporter runnerDidRunWithResult:result];
 
     return result;
 }
@@ -225,8 +199,8 @@ typedef struct _PBTShrinkReport {
         }
 
         ++numberOfNodesVisited;
-        [self.reporter checkerShrankFailingTestNumber:numberOfTests
-                                   withPropertyResult:smallestCandidate];
+        [self.reporter runnerDidShrinkFailingTestNumber:numberOfTests
+                                     withPropertyResult:smallestCandidate];
     }
 
     return (PBTShrinkReport) {

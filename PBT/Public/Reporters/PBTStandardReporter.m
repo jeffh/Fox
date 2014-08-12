@@ -20,17 +20,17 @@
     return self;
 }
 
-- (void)checkerWillRunWithSeed:(uint32_t)randomSeed
+- (void)runnerWillRunWithSeed:(uint32_t)randomSeed
 {
     [self logString:[NSString stringWithFormat:@"Checking with random seed: %u\n", randomSeed]];
 }
 
-- (void)checkerWillVerifyTestNumber:(NSUInteger)testNumber withMaximumSize:(NSUInteger)maxSize
+- (void)runnerWillVerifyTestNumber:(NSUInteger)testNumber withMaximumSize:(NSUInteger)maxSize
 {
 }
 
-- (void)checkerWillShrinkFailingTestNumber:(NSUInteger)testNumber
-                  failedWithPropertyResult:(PBTPropertyResult *)result
+- (void)runnerWillShrinkFailingTestNumber:(NSUInteger)testNumber
+                 failedWithPropertyResult:(PBTPropertyResult *)result
 {
     if (result.status == PBTPropertyStatusUncaughtException) {
         [self logString:@"E"];
@@ -40,28 +40,31 @@
     [self logString:@" (Shrinking"];
 }
 
-- (void)checkerShrankFailingTestNumber:(NSUInteger)testNumber
-                    withPropertyResult:(PBTPropertyResult *)result
+- (void)runnerDidShrinkFailingTestNumber:(NSUInteger)testNumber
+                      withPropertyResult:(PBTPropertyResult *)result
 {
     [self logString:@"."];
 }
 
-- (void)checkerDidPassTestNumber:(NSUInteger)testNumber
+- (void)runnerDidPassTestNumber:(NSUInteger)testNumber
 {
     [self logString:@"."];
 }
 
-- (void)checkerDidPassNumberOfTests:(NSUInteger)testNumber withResult:(PBTRunnerResult *)result
+- (void)runnerDidPassNumberOfTests:(NSUInteger)testNumber withResult:(PBTRunnerResult *)result
 {
     [self logString:[NSString stringWithFormat:@"\n\n%lu Tests Passed.", testNumber]];
 }
 
-- (void)checkerDidFailTestNumber:(NSUInteger)testNumber withResult:(PBTRunnerResult *)result
+- (void)runnerDidFailTestNumber:(NSUInteger)testNumber withResult:(PBTRunnerResult *)result
 {
     [self logString:[NSString stringWithFormat:@"\n\n  %@\n", [[result friendlyDescription] stringByReplacingOccurrencesOfString:@"\n" withString:@"\n  "]]];
     [self logString:[NSString stringWithFormat:@")\n\nFailure after %lu tests.\n", testNumber + 1]];
 }
 
+- (void)runnerDidRunWithResult:(PBTRunnerResult *)result
+{
+}
 #pragma mark - Private
 
 - (void)logString:(NSString *)message

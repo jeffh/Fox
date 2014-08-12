@@ -1,4 +1,4 @@
-#import "PBTGenerator.h"
+#import <Foundation/Foundation.h>
 
 
 typedef NS_ENUM(NSInteger, PBTPropertyStatus) {
@@ -8,12 +8,9 @@ typedef NS_ENUM(NSInteger, PBTPropertyStatus) {
     PBTPropertyStatusUncaughtException = -2,
 };
 
-@interface PBTProperty : NSObject
-
-+ (id<PBTGenerator>)forAll:(id<PBTGenerator>)generator
-                      then:(PBTPropertyStatus (^)(id generatedValue))then;
-
-@end
+FOUNDATION_STATIC_INLINE PBTPropertyStatus PBTRequire(BOOL assertion) {
+    return assertion ? PBTPropertyStatusPassed : PBTPropertyStatusFailed;
+}
 
 @interface PBTPropertyResult : NSObject
 
@@ -25,8 +22,3 @@ typedef NS_ENUM(NSInteger, PBTPropertyStatus) {
 
 @end
 
-
-FOUNDATION_STATIC_INLINE PBTPropertyStatus PBTRequire(BOOL assertion)
-{
-    return assertion ? PBTPropertyStatusPassed : PBTPropertyStatusFailed;
-}
