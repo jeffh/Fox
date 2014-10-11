@@ -1,1192 +1,3875 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		165D2B012DAD434C88132AE8 /* libPods-PBTOSXSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77BAA3674CD14BCA971CCA79 /* libPods-PBTOSXSpecs.a */; };
-		1F2A94F61997383300471B24 /* PBTTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A94F51997383300471B24 /* PBTTransition.m */; };
-		1F2A94F71997383300471B24 /* PBTTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A94F51997383300471B24 /* PBTTransition.m */; };
-		1F3462661924780800AE515C /* PBTConstantRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E4FFE7B868F0EA1A6D3 /* PBTConstantRandom.m */; };
-		1F3462671924780800AE515C /* PBTDeterministicRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7367B3E11AD0DC06F6595 /* PBTDeterministicRandom.mm */; };
-		1F35BC1F198D824600BEA6E1 /* PBTNamedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC1E198D824600BEA6E1 /* PBTNamedGenerator.m */; };
-		1F35BC20198D824A00BEA6E1 /* PBTNamedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC1E198D824600BEA6E1 /* PBTNamedGenerator.m */; };
-		1F35BC23198D838300BEA6E1 /* PBTStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC22198D838300BEA6E1 /* PBTStringGenerator.m */; };
-		1F35BC24198D838300BEA6E1 /* PBTStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC22198D838300BEA6E1 /* PBTStringGenerator.m */; };
-		1F35BC27198D881900BEA6E1 /* PBTArrayGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC26198D881900BEA6E1 /* PBTArrayGenerator.m */; };
-		1F35BC28198D881900BEA6E1 /* PBTArrayGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC26198D881900BEA6E1 /* PBTArrayGenerator.m */; };
-		1F35BC2B198D89DF00BEA6E1 /* PBTTupleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2A198D89DF00BEA6E1 /* PBTTupleGenerator.m */; };
-		1F35BC2C198D89DF00BEA6E1 /* PBTTupleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2A198D89DF00BEA6E1 /* PBTTupleGenerator.m */; };
-		1F35BC2E198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2D198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm */; };
-		1F35BC2F198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2D198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm */; };
-		1F35BC31198DF48A00BEA6E1 /* PBTChooseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC30198DF48A00BEA6E1 /* PBTChooseSpec.mm */; };
-		1F35BC32198DF48A00BEA6E1 /* PBTChooseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC30198DF48A00BEA6E1 /* PBTChooseSpec.mm */; };
-		1F35BC34198DF77400BEA6E1 /* PBTCharacterSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC33198DF77400BEA6E1 /* PBTCharacterSpec.mm */; };
-		1F35BC35198DF77400BEA6E1 /* PBTCharacterSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC33198DF77400BEA6E1 /* PBTCharacterSpec.mm */; };
-		1F35BC37198F78C200BEA6E1 /* PBTRoseTreeSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC36198F78C200BEA6E1 /* PBTRoseTreeSpec.mm */; };
-		1F35BC38198F78C200BEA6E1 /* PBTRoseTreeSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC36198F78C200BEA6E1 /* PBTRoseTreeSpec.mm */; };
-		1F35BC3B198F7C9A00BEA6E1 /* PBTBlockGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3A198F7C9A00BEA6E1 /* PBTBlockGenerator.m */; };
-		1F35BC3C198F7C9A00BEA6E1 /* PBTBlockGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3A198F7C9A00BEA6E1 /* PBTBlockGenerator.m */; };
-		1F35BC421990CA5600BEA6E1 /* PBTDebugReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3F1990CA5600BEA6E1 /* PBTDebugReporter.m */; };
-		1F35BC431990CA5600BEA6E1 /* PBTDebugReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3F1990CA5600BEA6E1 /* PBTDebugReporter.m */; };
-		1F35BC441990CA5600BEA6E1 /* PBTStandardReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC411990CA5600BEA6E1 /* PBTStandardReporter.m */; };
-		1F35BC451990CA5600BEA6E1 /* PBTStandardReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC411990CA5600BEA6E1 /* PBTStandardReporter.m */; };
-		1F35BC481990CB6400BEA6E1 /* PBTRandomSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC471990CB6400BEA6E1 /* PBTRandomSpec.mm */; };
-		1F35BC491990CB6400BEA6E1 /* PBTRandomSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC471990CB6400BEA6E1 /* PBTRandomSpec.mm */; };
-		1F4187FB1975108000FEBB8D /* PBTRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* PBTRunner.m */; };
-		1F4187FC1975187000FEBB8D /* PBTRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* PBTRunner.m */; };
-		1F4187FF19751BB700FEBB8D /* PBTRunnerResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FE19751BB700FEBB8D /* PBTRunnerResult.m */; };
-		1F41880019751F0900FEBB8D /* PBTRunnerResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FE19751BB700FEBB8D /* PBTRunnerResult.m */; };
-		1F46E50C198CAFAD00F87028 /* PBTPureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50B198CAFAD00F87028 /* PBTPureGenerator.m */; };
-		1F46E50D198CAFAD00F87028 /* PBTPureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50B198CAFAD00F87028 /* PBTPureGenerator.m */; };
-		1F46E510198CB2E800F87028 /* PBTMapGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50F198CB2E800F87028 /* PBTMapGenerator.m */; };
-		1F46E511198CB2E800F87028 /* PBTMapGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50F198CB2E800F87028 /* PBTMapGenerator.m */; };
-		1F46E514198CB4C000F87028 /* PBTBindGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E513198CB4C000F87028 /* PBTBindGenerator.m */; };
-		1F46E515198CB4C000F87028 /* PBTBindGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E513198CB4C000F87028 /* PBTBindGenerator.m */; };
-		1F46E518198CB63200F87028 /* PBTSizedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E517198CB63200F87028 /* PBTSizedGenerator.m */; };
-		1F46E519198CB63200F87028 /* PBTSizedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E517198CB63200F87028 /* PBTSizedGenerator.m */; };
-		1F46E51C198CB78000F87028 /* PBTChooseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51B198CB78000F87028 /* PBTChooseGenerator.m */; };
-		1F46E51D198CB78000F87028 /* PBTChooseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51B198CB78000F87028 /* PBTChooseGenerator.m */; };
-		1F46E520198CBAF100F87028 /* PBTSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51F198CBAF100F87028 /* PBTSequenceGenerator.m */; };
-		1F46E521198CBAF100F87028 /* PBTSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51F198CBAF100F87028 /* PBTSequenceGenerator.m */; };
-		1F50188A1991D37A001AB3A9 /* PBTQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018891991D37A001AB3A9 /* PBTQueue.m */; };
-		1F50188B1991D37A001AB3A9 /* PBTQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018891991D37A001AB3A9 /* PBTQueue.m */; };
-		1F50188D1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F50188C1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm */; };
-		1F50188E1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F50188C1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm */; };
-		1F5018951991D708001AB3A9 /* PBTFiniteStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018941991D708001AB3A9 /* PBTFiniteStateMachine.m */; };
-		1F5018961991D708001AB3A9 /* PBTFiniteStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018941991D708001AB3A9 /* PBTFiniteStateMachine.m */; };
-		1F59A81D196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */; };
-		1F59A81E196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */; };
-		1F6016101919DCE0003D8484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
-		1F6016471919DF90003D8484 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6016461919DF90003D8484 /* SenTestingKit.framework */; };
-		1F6016491919DF90003D8484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6016481919DF90003D8484 /* CoreGraphics.framework */; };
-		1F60164A1919DF90003D8484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6016201919DCE0003D8484 /* UIKit.framework */; };
-		1F60164B1919DF90003D8484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
-		1F6016511919DF90003D8484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F60164F1919DF90003D8484 /* InfoPlist.strings */; };
-		1F61E450196E88A6003EA164 /* PBTReturnSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */; };
-		1F61E451196E88A6003EA164 /* PBTReturnSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */; };
-		1F61E456196E8AEF003EA164 /* PBTSequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */; };
-		1F61E457196E8AEF003EA164 /* PBTSequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */; };
-		1F7EFA12191B4BE70074B028 /* libPBT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160C1919DCE0003D8484 /* libPBT.a */; };
-		1F7EFA2A191B63970074B028 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
-		1F7EFA32191B63980074B028 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7EFA31191B63980074B028 /* main.m */; };
-		1F848B421977965500F0966E /* PBTPositiveIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */; };
-		1F848B431977965500F0966E /* PBTPositiveIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */; };
-		1F848B4519779F6600F0966E /* PBTNegativeIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B4419779F6600F0966E /* PBTNegativeIntegerSpec.mm */; };
-		1F848B4619779F6600F0966E /* PBTNegativeIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B4419779F6600F0966E /* PBTNegativeIntegerSpec.mm */; };
-		1F848B491977B8F100F0966E /* PBTArraySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B481977B8F100F0966E /* PBTArraySpec.mm */; };
-		1F848B4A1977B8F100F0966E /* PBTArraySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B481977B8F100F0966E /* PBTArraySpec.mm */; };
-		1F8FDBEC1987773F0059D31A /* PBTConcreteSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBE91987773F0059D31A /* PBTConcreteSequence.m */; };
-		1F8FDBED1987773F0059D31A /* PBTConcreteSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBE91987773F0059D31A /* PBTConcreteSequence.m */; };
-		1F8FDBEE1987773F0059D31A /* PBTLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBEB1987773F0059D31A /* PBTLazySequence.m */; };
-		1F8FDBEF1987773F0059D31A /* PBTLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBEB1987773F0059D31A /* PBTLazySequence.m */; };
-		1F8FDBF2198777540059D31A /* PBTSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* PBTSequenceEnumerator.m */; };
-		1F8FDBF3198777540059D31A /* PBTSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* PBTSequenceEnumerator.m */; };
-		1F8FDBFA1988B4BA0059D31A /* PBTSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF91988B4BA0059D31A /* PBTSpecHelper.m */; };
-		1F8FDBFB1988B4BA0059D31A /* PBTSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF91988B4BA0059D31A /* PBTSpecHelper.m */; };
-		1F8FDBFD1989F9DD0059D31A /* PBTSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */; };
-		1F8FDBFE1989F9DD0059D31A /* PBTSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */; };
-		1F8FDC001989FE530059D31A /* PBTDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */; };
-		1F8FDC011989FE530059D31A /* PBTDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */; };
-		1F8FDC031989FED70059D31A /* PBTStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* PBTStringSpec.mm */; };
-		1F8FDC041989FED70059D31A /* PBTStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* PBTStringSpec.mm */; };
-		1FA94A36199606F800803AF3 /* PBTSuchThatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A35199606F800803AF3 /* PBTSuchThatSpec.mm */; };
-		1FA94A37199606F800803AF3 /* PBTSuchThatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A35199606F800803AF3 /* PBTSuchThatSpec.mm */; };
-		1FA94A3A199609D000803AF3 /* PBTSuchThatGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A39199609D000803AF3 /* PBTSuchThatGenerator.m */; };
-		1FA94A3B199609D000803AF3 /* PBTSuchThatGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A39199609D000803AF3 /* PBTSuchThatGenerator.m */; };
-		1FC3B983191B663600AA359B /* PBTPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */; };
-		1FF5B93619737D4600416383 /* PBTIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* PBTIntegerSpec.mm */; };
-		1FF5B93719737D4600416383 /* PBTIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* PBTIntegerSpec.mm */; };
-		1FF5B93E1973BD9000416383 /* PBTRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* PBTRoseTree.m */; };
-		1FF5B93F1973BD9000416383 /* PBTRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* PBTRoseTree.m */; };
-		31B7306F3DE18171A4D1A2CE /* PBTSetGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B732DF762CE64B6BE7A599 /* PBTSetGenerators.m */; };
-		31B73119A5F87531FA87A8B0 /* PBTArrayGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F4A43C962308369B5A9 /* PBTArrayGenerators.m */; };
-		31B734BDF31AF37ACAA7EF5A /* PBTPropertyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D791208A96A73A2FB89 /* PBTPropertyResult.m */; };
-		31B734C77CE50AF2827BA35C /* PBTPropertyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D791208A96A73A2FB89 /* PBTPropertyResult.m */; };
-		31B734FE326DCB9B9291BC68 /* PBTPropertyGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73CE3BB0FE0A496DEA102 /* PBTPropertyGenerators.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
-		31B735B7CCFCD90D521378FC /* PBTCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C0260617192E88A3392 /* PBTCommand.m */; };
-		31B7361BAB18DA6C12732177 /* PBTSetGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B732DF762CE64B6BE7A599 /* PBTSetGenerators.m */; };
-		31B7363E1AD3352531CA1171 /* PBTNumericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F0233EF475592DC4F26 /* PBTNumericGenerators.m */; };
-		31B73751373E8DF9C946EFA9 /* PBTStringGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E288878A28D1FD44435 /* PBTStringGenerators.m */; };
-		31B7376DCB06ACF9EEBB0A64 /* PBTRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7309489DDD0177A39ED35 /* PBTRandom.mm */; };
-		31B737BB9E0AE122DAE8BF70 /* PBTQueueRemoveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73BE31D123C54907C7EE3 /* PBTQueueRemoveTransition.m */; };
-		31B737D3CDD59A39BFB48F0D /* PBTArrayGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F4A43C962308369B5A9 /* PBTArrayGenerators.m */; };
-		31B73816797AFCE946FE118D /* PBTRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7309489DDD0177A39ED35 /* PBTRandom.mm */; };
-		31B7391D14C8AD2561D14117 /* PBTSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B733ACE038CF303D9ECC27 /* PBTSequence.m */; };
-		31B73925BF4547CBBA83F14E /* PBTDeterministicRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7367B3E11AD0DC06F6595 /* PBTDeterministicRandom.mm */; };
-		31B739893ED0C6493D0B12C7 /* PBTCoreGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F6A9C93C681CE532804 /* PBTCoreGenerators.m */; };
-		31B739F1774AF3BD251555AE /* PBTDictionaryGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FCF31FFF93B1783938C /* PBTDictionaryGenerators.m */; };
-		31B739F4E96E95DB627EF8C3 /* PBTCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C0260617192E88A3392 /* PBTCommand.m */; };
-		31B73A187530BC9FEB4A3631 /* PBTCoreGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F6A9C93C681CE532804 /* PBTCoreGenerators.m */; };
-		31B73A5F7884A7DC970148D4 /* PBTPropertyGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73CE3BB0FE0A496DEA102 /* PBTPropertyGenerators.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
-		31B73BE4B51F6DCC7230A40B /* PBTQueueRemoveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73BE31D123C54907C7EE3 /* PBTQueueRemoveTransition.m */; };
-		31B73C87EA2A3923327A60FF /* PBTStateMachineGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AAAC1A903382CE73DC4 /* PBTStateMachineGenerators.m */; };
-		31B73CC8C2DBD8E91FA49880 /* PBTQueueAddTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73029745CB5B325095CB3 /* PBTQueueAddTransition.m */; };
-		31B73CCA0CFC274B9068281C /* PBTPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */; };
-		31B73CF6F20CF5FF10AADAD4 /* PBTSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B733ACE038CF303D9ECC27 /* PBTSequence.m */; };
-		31B73D53EB506977E8B6D87D /* PBTConstantRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E4FFE7B868F0EA1A6D3 /* PBTConstantRandom.m */; };
-		31B73D9927A4467233CE38CA /* PBTDictionaryGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FCF31FFF93B1783938C /* PBTDictionaryGenerators.m */; };
-		31B73E318D310CCDB7ADB91C /* PBTStateMachineGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AAAC1A903382CE73DC4 /* PBTStateMachineGenerators.m */; };
-		31B73F8B45D4F6222DC77E9D /* PBTQueueAddTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73029745CB5B325095CB3 /* PBTQueueAddTransition.m */; };
-		31B73FA23522FA7FC4604F7C /* PBTNumericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F0233EF475592DC4F26 /* PBTNumericGenerators.m */; };
-		31B73FAD1A10E9E84AD53ECA /* PBTStringGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E288878A28D1FD44435 /* PBTStringGenerators.m */; };
-		D73EBA85B776476FA344D2BD /* libPods-PBTSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E463FF96642B589CA99D1 /* libPods-PBTSpecs.a */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1F7EFA0F191B4BCD0074B028 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F6016041919DCE0003D8484 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1F60160B1919DCE0003D8484;
-			remoteInfo = PBT;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		1F60160A1919DCE0003D8484 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXFileReference section */
-		00B47442628246AF911A644E /* Pods-PBTSpecs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBTSpecs.xcconfig"; path = "Pods/Pods-PBTSpecs.xcconfig"; sourceTree = "<group>"; };
-		1F2A94F41997383300471B24 /* PBTTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTTransition.h; sourceTree = "<group>"; };
-		1F2A94F51997383300471B24 /* PBTTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTTransition.m; sourceTree = "<group>"; };
-		1F35BC1D198D824600BEA6E1 /* PBTNamedGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTNamedGenerator.h; sourceTree = "<group>"; };
-		1F35BC1E198D824600BEA6E1 /* PBTNamedGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTNamedGenerator.m; sourceTree = "<group>"; };
-		1F35BC21198D838300BEA6E1 /* PBTStringGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTStringGenerator.h; sourceTree = "<group>"; };
-		1F35BC22198D838300BEA6E1 /* PBTStringGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTStringGenerator.m; sourceTree = "<group>"; };
-		1F35BC25198D881900BEA6E1 /* PBTArrayGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTArrayGenerator.h; sourceTree = "<group>"; };
-		1F35BC26198D881900BEA6E1 /* PBTArrayGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTArrayGenerator.m; sourceTree = "<group>"; };
-		1F35BC29198D89DF00BEA6E1 /* PBTTupleGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTTupleGenerator.h; sourceTree = "<group>"; };
-		1F35BC2A198D89DF00BEA6E1 /* PBTTupleGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTTupleGenerator.m; sourceTree = "<group>"; };
-		1F35BC2D198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTTupleGeneratorSpec.mm; sourceTree = "<group>"; };
-		1F35BC30198DF48A00BEA6E1 /* PBTChooseSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTChooseSpec.mm; sourceTree = "<group>"; };
-		1F35BC33198DF77400BEA6E1 /* PBTCharacterSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTCharacterSpec.mm; sourceTree = "<group>"; };
-		1F35BC36198F78C200BEA6E1 /* PBTRoseTreeSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTRoseTreeSpec.mm; sourceTree = "<group>"; };
-		1F35BC39198F7C9A00BEA6E1 /* PBTBlockGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTBlockGenerator.h; sourceTree = "<group>"; };
-		1F35BC3A198F7C9A00BEA6E1 /* PBTBlockGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTBlockGenerator.m; sourceTree = "<group>"; };
-		1F35BC3E1990CA5600BEA6E1 /* PBTDebugReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTDebugReporter.h; sourceTree = "<group>"; };
-		1F35BC3F1990CA5600BEA6E1 /* PBTDebugReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTDebugReporter.m; sourceTree = "<group>"; };
-		1F35BC401990CA5600BEA6E1 /* PBTStandardReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTStandardReporter.h; sourceTree = "<group>"; };
-		1F35BC411990CA5600BEA6E1 /* PBTStandardReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTStandardReporter.m; sourceTree = "<group>"; };
-		1F35BC471990CB6400BEA6E1 /* PBTRandomSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTRandomSpec.mm; sourceTree = "<group>"; };
-		1F4187F91975108000FEBB8D /* PBTRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTRunner.h; sourceTree = "<group>"; };
-		1F4187FA1975108000FEBB8D /* PBTRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTRunner.m; sourceTree = "<group>"; };
-		1F4187FD19751BB700FEBB8D /* PBTRunnerResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTRunnerResult.h; sourceTree = "<group>"; };
-		1F4187FE19751BB700FEBB8D /* PBTRunnerResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTRunnerResult.m; sourceTree = "<group>"; };
-		1F46E50A198CAFAD00F87028 /* PBTPureGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTPureGenerator.h; sourceTree = "<group>"; };
-		1F46E50B198CAFAD00F87028 /* PBTPureGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTPureGenerator.m; sourceTree = "<group>"; };
-		1F46E50E198CB2E800F87028 /* PBTMapGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTMapGenerator.h; sourceTree = "<group>"; };
-		1F46E50F198CB2E800F87028 /* PBTMapGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTMapGenerator.m; sourceTree = "<group>"; };
-		1F46E512198CB4C000F87028 /* PBTBindGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTBindGenerator.h; sourceTree = "<group>"; };
-		1F46E513198CB4C000F87028 /* PBTBindGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTBindGenerator.m; sourceTree = "<group>"; };
-		1F46E516198CB63200F87028 /* PBTSizedGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSizedGenerator.h; sourceTree = "<group>"; };
-		1F46E517198CB63200F87028 /* PBTSizedGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSizedGenerator.m; sourceTree = "<group>"; };
-		1F46E51A198CB78000F87028 /* PBTChooseGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTChooseGenerator.h; sourceTree = "<group>"; };
-		1F46E51B198CB78000F87028 /* PBTChooseGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTChooseGenerator.m; sourceTree = "<group>"; };
-		1F46E51E198CBAF100F87028 /* PBTSequenceGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSequenceGenerator.h; sourceTree = "<group>"; };
-		1F46E51F198CBAF100F87028 /* PBTSequenceGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSequenceGenerator.m; sourceTree = "<group>"; };
-		1F5018881991D37A001AB3A9 /* PBTQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTQueue.h; sourceTree = "<group>"; };
-		1F5018891991D37A001AB3A9 /* PBTQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTQueue.m; sourceTree = "<group>"; };
-		1F50188C1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTFiniteStateMachineSpec.mm; sourceTree = "<group>"; };
-		1F5018931991D708001AB3A9 /* PBTFiniteStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTFiniteStateMachine.h; sourceTree = "<group>"; };
-		1F5018941991D708001AB3A9 /* PBTFiniteStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTFiniteStateMachine.m; sourceTree = "<group>"; };
-		1F59A81B196E900B00957FAA /* NSArray+FastEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FastEnumerator.h"; sourceTree = "<group>"; };
-		1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FastEnumerator.m"; sourceTree = "<group>"; };
-		1F60160C1919DCE0003D8484 /* libPBT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPBT.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F60160F1919DCE0003D8484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1F6016131919DCE0003D8484 /* PBT-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBT-Prefix.pch"; sourceTree = "<group>"; };
-		1F60161D1919DCE0003D8484 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		1F6016201919DCE0003D8484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		1F6016451919DF90003D8484 /* PBTSpecs.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PBTSpecs.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F6016461919DF90003D8484 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		1F6016481919DF90003D8484 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		1F60164E1919DF90003D8484 /* PBTSpecs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PBTSpecs-Info.plist"; sourceTree = "<group>"; };
-		1F6016501919DF90003D8484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1F6016571919DF91003D8484 /* PBTSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBTSpecs-Prefix.pch"; sourceTree = "<group>"; };
-		1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTReturnSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTSequenceSpec.mm; sourceTree = "<group>"; };
-		1F7EFA29191B63970074B028 /* PBTOSXSpecs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PBTOSXSpecs; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F7EFA2E191B63970074B028 /* PBTOSXSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBTOSXSpecs-Prefix.pch"; sourceTree = "<group>"; };
-		1F7EFA31191B63980074B028 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTPositiveIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F848B4419779F6600F0966E /* PBTNegativeIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTNegativeIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F848B471977A75200F0966E /* PBTMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBTMacros.h; sourceTree = "<group>"; };
-		1F848B481977B8F100F0966E /* PBTArraySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTArraySpec.mm; sourceTree = "<group>"; };
-		1F8FDBE81987773F0059D31A /* PBTConcreteSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTConcreteSequence.h; sourceTree = "<group>"; };
-		1F8FDBE91987773F0059D31A /* PBTConcreteSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTConcreteSequence.m; sourceTree = "<group>"; };
-		1F8FDBEA1987773F0059D31A /* PBTLazySequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTLazySequence.h; sourceTree = "<group>"; };
-		1F8FDBEB1987773F0059D31A /* PBTLazySequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTLazySequence.m; sourceTree = "<group>"; };
-		1F8FDBF0198777540059D31A /* PBTSequenceEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSequenceEnumerator.h; sourceTree = "<group>"; };
-		1F8FDBF1198777540059D31A /* PBTSequenceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSequenceEnumerator.m; sourceTree = "<group>"; };
-		1F8FDBF81988B4BA0059D31A /* PBTSpecHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSpecHelper.h; sourceTree = "<group>"; };
-		1F8FDBF91988B4BA0059D31A /* PBTSpecHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSpecHelper.m; sourceTree = "<group>"; };
-		1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTSetSpec.mm; sourceTree = "<group>"; };
-		1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTDictionarySpec.mm; sourceTree = "<group>"; };
-		1F8FDC021989FED70059D31A /* PBTStringSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTStringSpec.mm; sourceTree = "<group>"; };
-		1FA94A35199606F800803AF3 /* PBTSuchThatSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTSuchThatSpec.mm; sourceTree = "<group>"; };
-		1FA94A38199609D000803AF3 /* PBTSuchThatGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSuchThatGenerator.h; sourceTree = "<group>"; };
-		1FA94A39199609D000803AF3 /* PBTSuchThatGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSuchThatGenerator.m; sourceTree = "<group>"; };
-		1FF5B93519737D4600416383 /* PBTIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1FF5B93C1973BD9000416383 /* PBTRoseTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTRoseTree.h; sourceTree = "<group>"; };
-		1FF5B93D1973BD9000416383 /* PBTRoseTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTRoseTree.m; sourceTree = "<group>"; };
-		315DE2C46CCA4D76A497AD23 /* Pods-PBTOSXSpecs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBTOSXSpecs.xcconfig"; path = "Pods/Pods-PBTOSXSpecs.xcconfig"; sourceTree = "<group>"; };
-		31B730183A626AD19A2B366E /* PBTSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSequence.h; sourceTree = "<group>"; };
-		31B73029745CB5B325095CB3 /* PBTQueueAddTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTQueueAddTransition.m; sourceTree = "<group>"; };
-		31B7303EEEA0827C94541FB4 /* PBTStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTStateMachine.h; sourceTree = "<group>"; };
-		31B7304B35C6D552B28742C9 /* PBTConstantRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTConstantRandom.h; sourceTree = "<group>"; };
-		31B7309489DDD0177A39ED35 /* PBTRandom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTRandom.mm; sourceTree = "<group>"; };
-		31B731E731758B29364363DF /* PBTArrayGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTArrayGenerators.h; sourceTree = "<group>"; };
-		31B73282B254E07DFC8B2073 /* PBTRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTRandom.h; sourceTree = "<group>"; };
-		31B732DF762CE64B6BE7A599 /* PBTSetGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSetGenerators.m; sourceTree = "<group>"; };
-		31B732EA700E97A90EFBD56F /* PBT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBT.h; sourceTree = "<group>"; };
-		31B733656606413AC3D482E3 /* PBTDeterministicRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTDeterministicRandom.h; sourceTree = "<group>"; };
-		31B733ACE038CF303D9ECC27 /* PBTSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTSequence.m; sourceTree = "<group>"; };
-		31B7346B19612B83E717E236 /* PBTDictionaryGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTDictionaryGenerators.h; sourceTree = "<group>"; };
-		31B7359D19C07C6410676A13 /* PBTGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTGenerator.h; sourceTree = "<group>"; };
-		31B7367B3E11AD0DC06F6595 /* PBTDeterministicRandom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTDeterministicRandom.mm; sourceTree = "<group>"; };
-		31B736A7992BBD359C72E397 /* PBTCoreGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTCoreGenerators.h; sourceTree = "<group>"; };
-		31B73763F568C2CE1290B46F /* PBTQueueRemoveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTQueueRemoveTransition.h; sourceTree = "<group>"; };
-		31B739B35946B2CB1FD5C6DC /* PBTReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTReporter.h; sourceTree = "<group>"; };
-		31B73AAAC1A903382CE73DC4 /* PBTStateMachineGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTStateMachineGenerators.m; sourceTree = "<group>"; };
-		31B73AC32A19CA6467FCB298 /* PBTPropertyResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTPropertyResult.h; sourceTree = "<group>"; };
-		31B73B954203F429AA611143 /* PBTQueueAddTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTQueueAddTransition.h; sourceTree = "<group>"; };
-		31B73BE31D123C54907C7EE3 /* PBTQueueRemoveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTQueueRemoveTransition.m; sourceTree = "<group>"; };
-		31B73C0260617192E88A3392 /* PBTCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTCommand.m; sourceTree = "<group>"; };
-		31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTPropertySpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		31B73CE3BB0FE0A496DEA102 /* PBTPropertyGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTPropertyGenerators.m; sourceTree = "<group>"; };
-		31B73D3849E734CA2A32F5D4 /* PBTNumericGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTNumericGenerators.h; sourceTree = "<group>"; };
-		31B73D791208A96A73A2FB89 /* PBTPropertyResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTPropertyResult.m; sourceTree = "<group>"; };
-		31B73E288878A28D1FD44435 /* PBTStringGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTStringGenerators.m; sourceTree = "<group>"; };
-		31B73E4270D7E9BB43B88512 /* PBTStateTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTStateTransition.h; sourceTree = "<group>"; };
-		31B73E4FFE7B868F0EA1A6D3 /* PBTConstantRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTConstantRandom.m; sourceTree = "<group>"; };
-		31B73E65793C9A0F5F12FF3B /* PBTStringGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTStringGenerators.h; sourceTree = "<group>"; };
-		31B73F0233EF475592DC4F26 /* PBTNumericGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTNumericGenerators.m; sourceTree = "<group>"; };
-		31B73F20F954586E20BE9329 /* PBTStateMachineGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTStateMachineGenerators.h; sourceTree = "<group>"; };
-		31B73F4A43C962308369B5A9 /* PBTArrayGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTArrayGenerators.m; sourceTree = "<group>"; };
-		31B73F6A9C93C681CE532804 /* PBTCoreGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTCoreGenerators.m; sourceTree = "<group>"; };
-		31B73F732828E21A3B5D4FA3 /* PBTPropertyGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTPropertyGenerators.h; sourceTree = "<group>"; };
-		31B73FB26FF4BC3AF8F34E33 /* PBTSetGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTSetGenerators.h; sourceTree = "<group>"; };
-		31B73FBA1C97463CD5A8D15D /* PBTCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTCommand.h; sourceTree = "<group>"; };
-		31B73FCF31FFF93B1783938C /* PBTDictionaryGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTDictionaryGenerators.m; sourceTree = "<group>"; };
-		438E463FF96642B589CA99D1 /* libPods-PBTSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PBTSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		77BAA3674CD14BCA971CCA79 /* libPods-PBTOSXSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PBTOSXSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		1F6016091919DCE0003D8484 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1F6016101919DCE0003D8484 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1F6016411919DF90003D8484 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1F7EFA12191B4BE70074B028 /* libPBT.a in Frameworks */,
-				1F6016491919DF90003D8484 /* CoreGraphics.framework in Frameworks */,
-				1F60164A1919DF90003D8484 /* UIKit.framework in Frameworks */,
-				1F6016471919DF90003D8484 /* SenTestingKit.framework in Frameworks */,
-				1F60164B1919DF90003D8484 /* Foundation.framework in Frameworks */,
-				D73EBA85B776476FA344D2BD /* libPods-PBTSpecs.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1F7EFA27191B63970074B028 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1F7EFA2A191B63970074B028 /* Foundation.framework in Frameworks */,
-				165D2B012DAD434C88132AE8 /* libPods-PBTOSXSpecs.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		1F35BC3D1990CA3900BEA6E1 /* Reporters */ = {
-			isa = PBXGroup;
-			children = (
-				1F35BC3E1990CA5600BEA6E1 /* PBTDebugReporter.h */,
-				1F35BC3F1990CA5600BEA6E1 /* PBTDebugReporter.m */,
-				1F35BC401990CA5600BEA6E1 /* PBTStandardReporter.h */,
-				1F35BC411990CA5600BEA6E1 /* PBTStandardReporter.m */,
-				31B739B35946B2CB1FD5C6DC /* PBTReporter.h */,
-			);
-			path = Reporters;
-			sourceTree = "<group>";
-		};
-		1F35BC461990CB4800BEA6E1 /* Random */ = {
-			isa = PBXGroup;
-			children = (
-				1F35BC471990CB6400BEA6E1 /* PBTRandomSpec.mm */,
-			);
-			path = Random;
-			sourceTree = "<group>";
-		};
-		1F46E505198CAE6400F87028 /* Generators */ = {
-			isa = PBXGroup;
-			children = (
-				1F35BC39198F7C9A00BEA6E1 /* PBTBlockGenerator.h */,
-				1F35BC3A198F7C9A00BEA6E1 /* PBTBlockGenerator.m */,
-				1F35BC25198D881900BEA6E1 /* PBTArrayGenerator.h */,
-				1F35BC26198D881900BEA6E1 /* PBTArrayGenerator.m */,
-				1F46E512198CB4C000F87028 /* PBTBindGenerator.h */,
-				1F46E513198CB4C000F87028 /* PBTBindGenerator.m */,
-				1F46E51A198CB78000F87028 /* PBTChooseGenerator.h */,
-				1F46E51B198CB78000F87028 /* PBTChooseGenerator.m */,
-				1F46E50E198CB2E800F87028 /* PBTMapGenerator.h */,
-				1F46E50F198CB2E800F87028 /* PBTMapGenerator.m */,
-				1F35BC1D198D824600BEA6E1 /* PBTNamedGenerator.h */,
-				1F35BC1E198D824600BEA6E1 /* PBTNamedGenerator.m */,
-				1F46E50A198CAFAD00F87028 /* PBTPureGenerator.h */,
-				1F46E50B198CAFAD00F87028 /* PBTPureGenerator.m */,
-				1F46E51E198CBAF100F87028 /* PBTSequenceGenerator.h */,
-				1F46E51F198CBAF100F87028 /* PBTSequenceGenerator.m */,
-				1F46E516198CB63200F87028 /* PBTSizedGenerator.h */,
-				1F46E517198CB63200F87028 /* PBTSizedGenerator.m */,
-				1F35BC21198D838300BEA6E1 /* PBTStringGenerator.h */,
-				1F35BC22198D838300BEA6E1 /* PBTStringGenerator.m */,
-				1F35BC29198D89DF00BEA6E1 /* PBTTupleGenerator.h */,
-				1F35BC2A198D89DF00BEA6E1 /* PBTTupleGenerator.m */,
-				1FA94A38199609D000803AF3 /* PBTSuchThatGenerator.h */,
-				1FA94A39199609D000803AF3 /* PBTSuchThatGenerator.m */,
-			);
-			path = Generators;
-			sourceTree = "<group>";
-		};
-		1F59A819196E8FC000957FAA /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				1F5018881991D37A001AB3A9 /* PBTQueue.h */,
-				1F5018891991D37A001AB3A9 /* PBTQueue.m */,
-				31B73B954203F429AA611143 /* PBTQueueAddTransition.h */,
-				31B73029745CB5B325095CB3 /* PBTQueueAddTransition.m */,
-				31B73763F568C2CE1290B46F /* PBTQueueRemoveTransition.h */,
-				31B73BE31D123C54907C7EE3 /* PBTQueueRemoveTransition.m */,
-				1F8FDBF81988B4BA0059D31A /* PBTSpecHelper.h */,
-				1F8FDBF91988B4BA0059D31A /* PBTSpecHelper.m */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		1F59A81A196E8FE300957FAA /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				1F59A81B196E900B00957FAA /* NSArray+FastEnumerator.h */,
-				1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		1F6016031919DCE0003D8484 = {
-			isa = PBXGroup;
-			children = (
-				1F6016111919DCE0003D8484 /* PBT */,
-				1F60164C1919DF90003D8484 /* PBTSpecs */,
-				1F7EFA2B191B63970074B028 /* PBTOSXSpecs */,
-				1F60160E1919DCE0003D8484 /* Frameworks */,
-				1F60160D1919DCE0003D8484 /* Products */,
-				00B47442628246AF911A644E /* Pods-PBTSpecs.xcconfig */,
-				315DE2C46CCA4D76A497AD23 /* Pods-PBTOSXSpecs.xcconfig */,
-			);
-			sourceTree = "<group>";
-		};
-		1F60160D1919DCE0003D8484 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1F60160C1919DCE0003D8484 /* libPBT.a */,
-				1F6016451919DF90003D8484 /* PBTSpecs.octest */,
-				1F7EFA29191B63970074B028 /* PBTOSXSpecs */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		1F60160E1919DCE0003D8484 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1F60160F1919DCE0003D8484 /* Foundation.framework */,
-				1F60161D1919DCE0003D8484 /* XCTest.framework */,
-				1F6016201919DCE0003D8484 /* UIKit.framework */,
-				1F6016461919DF90003D8484 /* SenTestingKit.framework */,
-				1F6016481919DF90003D8484 /* CoreGraphics.framework */,
-				438E463FF96642B589CA99D1 /* libPods-PBTSpecs.a */,
-				77BAA3674CD14BCA971CCA79 /* libPods-PBTOSXSpecs.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1F6016111919DCE0003D8484 /* PBT */ = {
-			isa = PBXGroup;
-			children = (
-				1F8FDBE6198776FA0059D31A /* Private */,
-				1F6016351919DD35003D8484 /* Public */,
-				1F6016121919DCE0003D8484 /* Supporting Files */,
-			);
-			path = PBT;
-			sourceTree = "<group>";
-		};
-		1F6016121919DCE0003D8484 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1F6016131919DCE0003D8484 /* PBT-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1F6016351919DD35003D8484 /* Public */ = {
-			isa = PBXGroup;
-			children = (
-				31B7376ABDE93DF780F6384A /* Data */,
-				1F6016371919DD40003D8484 /* Generators */,
-				31B732EA700E97A90EFBD56F /* PBT.h */,
-				1F848B471977A75200F0966E /* PBTMacros.h */,
-				1F4187F91975108000FEBB8D /* PBTRunner.h */,
-				1F4187FA1975108000FEBB8D /* PBTRunner.m */,
-				31B736A976CDB3B7301033AB /* Random */,
-				1F35BC3D1990CA3900BEA6E1 /* Reporters */,
-			);
-			path = Public;
-			sourceTree = "<group>";
-		};
-		1F6016371919DD40003D8484 /* Generators */ = {
-			isa = PBXGroup;
-			children = (
-				1F5018931991D708001AB3A9 /* PBTFiniteStateMachine.h */,
-				1F5018941991D708001AB3A9 /* PBTFiniteStateMachine.m */,
-				31B7359D19C07C6410676A13 /* PBTGenerator.h */,
-				31B7303EEEA0827C94541FB4 /* PBTStateMachine.h */,
-				31B73E4270D7E9BB43B88512 /* PBTStateTransition.h */,
-				31B73CE3BB0FE0A496DEA102 /* PBTPropertyGenerators.m */,
-				31B73F732828E21A3B5D4FA3 /* PBTPropertyGenerators.h */,
-				31B736A7992BBD359C72E397 /* PBTCoreGenerators.h */,
-				31B73F6A9C93C681CE532804 /* PBTCoreGenerators.m */,
-				31B73D3849E734CA2A32F5D4 /* PBTNumericGenerators.h */,
-				31B73F0233EF475592DC4F26 /* PBTNumericGenerators.m */,
-				31B73E65793C9A0F5F12FF3B /* PBTStringGenerators.h */,
-				31B73E288878A28D1FD44435 /* PBTStringGenerators.m */,
-				31B731E731758B29364363DF /* PBTArrayGenerators.h */,
-				31B73F4A43C962308369B5A9 /* PBTArrayGenerators.m */,
-				31B73FB26FF4BC3AF8F34E33 /* PBTSetGenerators.h */,
-				31B732DF762CE64B6BE7A599 /* PBTSetGenerators.m */,
-				31B7346B19612B83E717E236 /* PBTDictionaryGenerators.h */,
-				31B73FCF31FFF93B1783938C /* PBTDictionaryGenerators.m */,
-				31B73F20F954586E20BE9329 /* PBTStateMachineGenerators.h */,
-				31B73AAAC1A903382CE73DC4 /* PBTStateMachineGenerators.m */,
-			);
-			path = Generators;
-			sourceTree = "<group>";
-		};
-		1F60164C1919DF90003D8484 /* PBTSpecs */ = {
-			isa = PBXGroup;
-			children = (
-				1F59A81A196E8FE300957FAA /* Extensions */,
-				1F59A819196E8FC000957FAA /* Helpers */,
-				1F60165B1919E283003D8484 /* Public */,
-				1F60164D1919DF90003D8484 /* Supporting Files */,
-			);
-			path = PBTSpecs;
-			sourceTree = "<group>";
-		};
-		1F60164D1919DF90003D8484 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1F60164E1919DF90003D8484 /* PBTSpecs-Info.plist */,
-				1F60164F1919DF90003D8484 /* InfoPlist.strings */,
-				1F6016571919DF91003D8484 /* PBTSpecs-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1F60165B1919E283003D8484 /* Public */ = {
-			isa = PBXGroup;
-			children = (
-				1F35BC461990CB4800BEA6E1 /* Random */,
-				1F61E453196E8AD6003EA164 /* Data */,
-				1F60165C1919E28E003D8484 /* Generators */,
-				31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */,
-			);
-			path = Public;
-			sourceTree = "<group>";
-		};
-		1F60165C1919E28E003D8484 /* Generators */ = {
-			isa = PBXGroup;
-			children = (
-				1F848B481977B8F100F0966E /* PBTArraySpec.mm */,
-				1F35BC30198DF48A00BEA6E1 /* PBTChooseSpec.mm */,
-				1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */,
-				1FF5B93519737D4600416383 /* PBTIntegerSpec.mm */,
-				1F848B4419779F6600F0966E /* PBTNegativeIntegerSpec.mm */,
-				1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */,
-				1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */,
-				1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */,
-				1F8FDC021989FED70059D31A /* PBTStringSpec.mm */,
-				1F35BC2D198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm */,
-				1F35BC33198DF77400BEA6E1 /* PBTCharacterSpec.mm */,
-				1F50188C1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm */,
-				1FA94A35199606F800803AF3 /* PBTSuchThatSpec.mm */,
-			);
-			path = Generators;
-			sourceTree = "<group>";
-		};
-		1F61E453196E8AD6003EA164 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */,
-				1F35BC36198F78C200BEA6E1 /* PBTRoseTreeSpec.mm */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		1F7EFA2B191B63970074B028 /* PBTOSXSpecs */ = {
-			isa = PBXGroup;
-			children = (
-				1F7EFA31191B63980074B028 /* main.m */,
-				1F7EFA2D191B63970074B028 /* Supporting Files */,
-			);
-			path = PBTOSXSpecs;
-			sourceTree = "<group>";
-		};
-		1F7EFA2D191B63970074B028 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1F7EFA2E191B63970074B028 /* PBTOSXSpecs-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1F8FDBE6198776FA0059D31A /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				1F46E505198CAE6400F87028 /* Generators */,
-				1F8FDBE7198777080059D31A /* Data */,
-			);
-			path = Private;
-			sourceTree = "<group>";
-		};
-		1F8FDBE7198777080059D31A /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				1F8FDBE81987773F0059D31A /* PBTConcreteSequence.h */,
-				1F8FDBE91987773F0059D31A /* PBTConcreteSequence.m */,
-				1F8FDBEA1987773F0059D31A /* PBTLazySequence.h */,
-				1F8FDBEB1987773F0059D31A /* PBTLazySequence.m */,
-				1F8FDBF0198777540059D31A /* PBTSequenceEnumerator.h */,
-				1F8FDBF1198777540059D31A /* PBTSequenceEnumerator.m */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		31B736A976CDB3B7301033AB /* Random */ = {
-			isa = PBXGroup;
-			children = (
-				31B7304B35C6D552B28742C9 /* PBTConstantRandom.h */,
-				31B73E4FFE7B868F0EA1A6D3 /* PBTConstantRandom.m */,
-				31B733656606413AC3D482E3 /* PBTDeterministicRandom.h */,
-				31B7367B3E11AD0DC06F6595 /* PBTDeterministicRandom.mm */,
-				31B73282B254E07DFC8B2073 /* PBTRandom.h */,
-				31B7309489DDD0177A39ED35 /* PBTRandom.mm */,
-			);
-			path = Random;
-			sourceTree = "<group>";
-		};
-		31B7376ABDE93DF780F6384A /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				31B730183A626AD19A2B366E /* PBTSequence.h */,
-				31B733ACE038CF303D9ECC27 /* PBTSequence.m */,
-				1FF5B93C1973BD9000416383 /* PBTRoseTree.h */,
-				1FF5B93D1973BD9000416383 /* PBTRoseTree.m */,
-				1F4187FD19751BB700FEBB8D /* PBTRunnerResult.h */,
-				1F4187FE19751BB700FEBB8D /* PBTRunnerResult.m */,
-				31B73FBA1C97463CD5A8D15D /* PBTCommand.h */,
-				31B73C0260617192E88A3392 /* PBTCommand.m */,
-				1F2A94F41997383300471B24 /* PBTTransition.h */,
-				1F2A94F51997383300471B24 /* PBTTransition.m */,
-				31B73D791208A96A73A2FB89 /* PBTPropertyResult.m */,
-				31B73AC32A19CA6467FCB298 /* PBTPropertyResult.h */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		1F60160B1919DCE0003D8484 /* PBT */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1F60162F1919DCE0003D8484 /* Build configuration list for PBXNativeTarget "PBT" */;
-			buildPhases = (
-				1F6016081919DCE0003D8484 /* Sources */,
-				1F6016091919DCE0003D8484 /* Frameworks */,
-				1F60160A1919DCE0003D8484 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PBT;
-			productName = PBT;
-			productReference = 1F60160C1919DCE0003D8484 /* libPBT.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		1F6016441919DF90003D8484 /* PBTSpecs */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1F6016581919DF91003D8484 /* Build configuration list for PBXNativeTarget "PBTSpecs" */;
-			buildPhases = (
-				8CD29E692D1946F2BF9C66EE /* Check Pods Manifest.lock */,
-				1F6016401919DF90003D8484 /* Sources */,
-				1F6016411919DF90003D8484 /* Frameworks */,
-				1F6016421919DF90003D8484 /* Resources */,
-				1F6016431919DF90003D8484 /* ShellScript */,
-				45A53A26DABB4864A684F23E /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1F7EFA10191B4BCD0074B028 /* PBXTargetDependency */,
-			);
-			name = PBTSpecs;
-			productName = PBTSpecs;
-			productReference = 1F6016451919DF90003D8484 /* PBTSpecs.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
-		};
-		1F7EFA28191B63970074B028 /* PBTOSXSpecs */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1F7EFA35191B63980074B028 /* Build configuration list for PBXNativeTarget "PBTOSXSpecs" */;
-			buildPhases = (
-				0A5F33090D0540AB86629CE7 /* Check Pods Manifest.lock */,
-				1F7EFA26191B63970074B028 /* Sources */,
-				1F7EFA27191B63970074B028 /* Frameworks */,
-				C4DA064C82114CFEA8755198 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PBTOSXSpecs;
-			productName = PBTOSXSpecs;
-			productReference = 1F7EFA29191B63970074B028 /* PBTOSXSpecs */;
-			productType = "com.apple.product-type.tool";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		1F6016041919DCE0003D8484 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastTestingUpgradeCheck = 0600;
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "Jeff Hui";
-				TargetAttributes = {
-					1F6016441919DF90003D8484 = {
-						TestTargetID = 1F60160B1919DCE0003D8484;
-					};
-				};
-			};
-			buildConfigurationList = 1F6016071919DCE0003D8484 /* Build configuration list for PBXProject "PBT" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 1F6016031919DCE0003D8484;
-			productRefGroup = 1F60160D1919DCE0003D8484 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				1F60160B1919DCE0003D8484 /* PBT */,
-				1F6016441919DF90003D8484 /* PBTSpecs */,
-				1F7EFA28191B63970074B028 /* PBTOSXSpecs */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		1F6016421919DF90003D8484 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1F6016511919DF90003D8484 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0A5F33090D0540AB86629CE7 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		1F6016431919DF90003D8484 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		45A53A26DABB4864A684F23E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-PBTSpecs-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8CD29E692D1946F2BF9C66EE /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C4DA064C82114CFEA8755198 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-PBTOSXSpecs-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		1F6016081919DCE0003D8484 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				31B73925BF4547CBBA83F14E /* PBTDeterministicRandom.mm in Sources */,
-				1F46E51C198CB78000F87028 /* PBTChooseGenerator.m in Sources */,
-				1F35BC441990CA5600BEA6E1 /* PBTStandardReporter.m in Sources */,
-				1F35BC1F198D824600BEA6E1 /* PBTNamedGenerator.m in Sources */,
-				1F35BC23198D838300BEA6E1 /* PBTStringGenerator.m in Sources */,
-				1F46E520198CBAF100F87028 /* PBTSequenceGenerator.m in Sources */,
-				1F4187FB1975108000FEBB8D /* PBTRunner.m in Sources */,
-				1F46E518198CB63200F87028 /* PBTSizedGenerator.m in Sources */,
-				1F4187FF19751BB700FEBB8D /* PBTRunnerResult.m in Sources */,
-				1F8FDBF2198777540059D31A /* PBTSequenceEnumerator.m in Sources */,
-				1F46E50C198CAFAD00F87028 /* PBTPureGenerator.m in Sources */,
-				1F46E514198CB4C000F87028 /* PBTBindGenerator.m in Sources */,
-				1F46E510198CB2E800F87028 /* PBTMapGenerator.m in Sources */,
-				31B73D53EB506977E8B6D87D /* PBTConstantRandom.m in Sources */,
-				31B7391D14C8AD2561D14117 /* PBTSequence.m in Sources */,
-				1F35BC421990CA5600BEA6E1 /* PBTDebugReporter.m in Sources */,
-				1FA94A3A199609D000803AF3 /* PBTSuchThatGenerator.m in Sources */,
-				1F8FDBEE1987773F0059D31A /* PBTLazySequence.m in Sources */,
-				1F8FDBEC1987773F0059D31A /* PBTConcreteSequence.m in Sources */,
-				1F5018951991D708001AB3A9 /* PBTFiniteStateMachine.m in Sources */,
-				1F35BC2B198D89DF00BEA6E1 /* PBTTupleGenerator.m in Sources */,
-				1F35BC27198D881900BEA6E1 /* PBTArrayGenerator.m in Sources */,
-				1F35BC3B198F7C9A00BEA6E1 /* PBTBlockGenerator.m in Sources */,
-				1FF5B93E1973BD9000416383 /* PBTRoseTree.m in Sources */,
-				31B735B7CCFCD90D521378FC /* PBTCommand.m in Sources */,
-				1F2A94F61997383300471B24 /* PBTTransition.m in Sources */,
-				31B7376DCB06ACF9EEBB0A64 /* PBTRandom.mm in Sources */,
-				31B73A5F7884A7DC970148D4 /* PBTPropertyGenerators.m in Sources */,
-				31B734C77CE50AF2827BA35C /* PBTPropertyResult.m in Sources */,
-				31B73A187530BC9FEB4A3631 /* PBTCoreGenerators.m in Sources */,
-				31B7363E1AD3352531CA1171 /* PBTNumericGenerators.m in Sources */,
-				31B73FAD1A10E9E84AD53ECA /* PBTStringGenerators.m in Sources */,
-				31B737D3CDD59A39BFB48F0D /* PBTArrayGenerators.m in Sources */,
-				31B7306F3DE18171A4D1A2CE /* PBTSetGenerators.m in Sources */,
-				31B73D9927A4467233CE38CA /* PBTDictionaryGenerators.m in Sources */,
-				31B73E318D310CCDB7ADB91C /* PBTStateMachineGenerators.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1F6016401919DF90003D8484 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1F35BC481990CB6400BEA6E1 /* PBTRandomSpec.mm in Sources */,
-				1FF5B93619737D4600416383 /* PBTIntegerSpec.mm in Sources */,
-				1F59A81D196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */,
-				1F8FDBFD1989F9DD0059D31A /* PBTSetSpec.mm in Sources */,
-				1F848B4519779F6600F0966E /* PBTNegativeIntegerSpec.mm in Sources */,
-				31B73CCA0CFC274B9068281C /* PBTPropertySpec.mm in Sources */,
-				1F848B491977B8F100F0966E /* PBTArraySpec.mm in Sources */,
-				1FA94A36199606F800803AF3 /* PBTSuchThatSpec.mm in Sources */,
-				1F8FDC001989FE530059D31A /* PBTDictionarySpec.mm in Sources */,
-				1F50188D1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm in Sources */,
-				1F50188A1991D37A001AB3A9 /* PBTQueue.m in Sources */,
-				1F35BC2E198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm in Sources */,
-				1F35BC34198DF77400BEA6E1 /* PBTCharacterSpec.mm in Sources */,
-				1F61E450196E88A6003EA164 /* PBTReturnSpec.mm in Sources */,
-				1F35BC37198F78C200BEA6E1 /* PBTRoseTreeSpec.mm in Sources */,
-				1F8FDC031989FED70059D31A /* PBTStringSpec.mm in Sources */,
-				1F8FDBFA1988B4BA0059D31A /* PBTSpecHelper.m in Sources */,
-				1F848B421977965500F0966E /* PBTPositiveIntegerSpec.mm in Sources */,
-				1F61E456196E8AEF003EA164 /* PBTSequenceSpec.mm in Sources */,
-				1F35BC31198DF48A00BEA6E1 /* PBTChooseSpec.mm in Sources */,
-				31B73BE4B51F6DCC7230A40B /* PBTQueueRemoveTransition.m in Sources */,
-				31B73F8B45D4F6222DC77E9D /* PBTQueueAddTransition.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1F7EFA26191B63970074B028 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1F46E51D198CB78000F87028 /* PBTChooseGenerator.m in Sources */,
-				1F35BC451990CA5600BEA6E1 /* PBTStandardReporter.m in Sources */,
-				1F8FDBED1987773F0059D31A /* PBTConcreteSequence.m in Sources */,
-				1F8FDBFE1989F9DD0059D31A /* PBTSetSpec.mm in Sources */,
-				1F59A81E196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */,
-				1F3462661924780800AE515C /* PBTConstantRandom.m in Sources */,
-				1F35BC491990CB6400BEA6E1 /* PBTRandomSpec.mm in Sources */,
-				1FA94A3B199609D000803AF3 /* PBTSuchThatGenerator.m in Sources */,
-				1F8FDBFB1988B4BA0059D31A /* PBTSpecHelper.m in Sources */,
-				1F46E515198CB4C000F87028 /* PBTBindGenerator.m in Sources */,
-				1F35BC20198D824A00BEA6E1 /* PBTNamedGenerator.m in Sources */,
-				1FA94A37199606F800803AF3 /* PBTSuchThatSpec.mm in Sources */,
-				1F8FDC011989FE530059D31A /* PBTDictionarySpec.mm in Sources */,
-				1FC3B983191B663600AA359B /* PBTPropertySpec.mm in Sources */,
-				1F46E511198CB2E800F87028 /* PBTMapGenerator.m in Sources */,
-				1F5018961991D708001AB3A9 /* PBTFiniteStateMachine.m in Sources */,
-				1F46E50D198CAFAD00F87028 /* PBTPureGenerator.m in Sources */,
-				1F61E457196E8AEF003EA164 /* PBTSequenceSpec.mm in Sources */,
-				1F50188B1991D37A001AB3A9 /* PBTQueue.m in Sources */,
-				1F35BC28198D881900BEA6E1 /* PBTArrayGenerator.m in Sources */,
-				1F35BC3C198F7C9A00BEA6E1 /* PBTBlockGenerator.m in Sources */,
-				1F2A94F71997383300471B24 /* PBTTransition.m in Sources */,
-				1F3462671924780800AE515C /* PBTDeterministicRandom.mm in Sources */,
-				1F8FDBEF1987773F0059D31A /* PBTLazySequence.m in Sources */,
-				1F50188E1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm in Sources */,
-				1F848B4A1977B8F100F0966E /* PBTArraySpec.mm in Sources */,
-				1F35BC24198D838300BEA6E1 /* PBTStringGenerator.m in Sources */,
-				1F35BC2F198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm in Sources */,
-				1F8FDBF3198777540059D31A /* PBTSequenceEnumerator.m in Sources */,
-				1F35BC431990CA5600BEA6E1 /* PBTDebugReporter.m in Sources */,
-				1FF5B93F1973BD9000416383 /* PBTRoseTree.m in Sources */,
-				1F7EFA32191B63980074B028 /* main.m in Sources */,
-				1F848B431977965500F0966E /* PBTPositiveIntegerSpec.mm in Sources */,
-				1F848B4619779F6600F0966E /* PBTNegativeIntegerSpec.mm in Sources */,
-				1F46E521198CBAF100F87028 /* PBTSequenceGenerator.m in Sources */,
-				1F35BC2C198D89DF00BEA6E1 /* PBTTupleGenerator.m in Sources */,
-				1F41880019751F0900FEBB8D /* PBTRunnerResult.m in Sources */,
-				1F4187FC1975187000FEBB8D /* PBTRunner.m in Sources */,
-				1F46E519198CB63200F87028 /* PBTSizedGenerator.m in Sources */,
-				1F35BC32198DF48A00BEA6E1 /* PBTChooseSpec.mm in Sources */,
-				1F8FDC041989FED70059D31A /* PBTStringSpec.mm in Sources */,
-				1F35BC38198F78C200BEA6E1 /* PBTRoseTreeSpec.mm in Sources */,
-				31B73CF6F20CF5FF10AADAD4 /* PBTSequence.m in Sources */,
-				1F35BC35198DF77400BEA6E1 /* PBTCharacterSpec.mm in Sources */,
-				1F61E451196E88A6003EA164 /* PBTReturnSpec.mm in Sources */,
-				1FF5B93719737D4600416383 /* PBTIntegerSpec.mm in Sources */,
-				31B737BB9E0AE122DAE8BF70 /* PBTQueueRemoveTransition.m in Sources */,
-				31B73CC8C2DBD8E91FA49880 /* PBTQueueAddTransition.m in Sources */,
-				31B739F4E96E95DB627EF8C3 /* PBTCommand.m in Sources */,
-				31B73816797AFCE946FE118D /* PBTRandom.mm in Sources */,
-				31B734FE326DCB9B9291BC68 /* PBTPropertyGenerators.m in Sources */,
-				31B734BDF31AF37ACAA7EF5A /* PBTPropertyResult.m in Sources */,
-				31B739893ED0C6493D0B12C7 /* PBTCoreGenerators.m in Sources */,
-				31B73FA23522FA7FC4604F7C /* PBTNumericGenerators.m in Sources */,
-				31B73751373E8DF9C946EFA9 /* PBTStringGenerators.m in Sources */,
-				31B73119A5F87531FA87A8B0 /* PBTArrayGenerators.m in Sources */,
-				31B7361BAB18DA6C12732177 /* PBTSetGenerators.m in Sources */,
-				31B739F1774AF3BD251555AE /* PBTDictionaryGenerators.m in Sources */,
-				31B73C87EA2A3923327A60FF /* PBTStateMachineGenerators.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1F7EFA10191B4BCD0074B028 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1F60160B1919DCE0003D8484 /* PBT */;
-			targetProxy = 1F7EFA0F191B4BCD0074B028 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		1F60164F1919DF90003D8484 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F6016501919DF90003D8484 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		1F60162D1919DCE0003D8484 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_SHADOW = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		1F60162E1919DCE0003D8484 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_SHADOW = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		1F6016301919DCE0003D8484 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/PBT.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PBT/PBT-Prefix.pch";
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_SHADOW = YES;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		1F6016311919DCE0003D8484 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/PBT.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PBT/PBT-Prefix.pch";
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_SHADOW = YES;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		1F6016591919DF91003D8484 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00B47442628246AF911A644E /* Pods-PBTSpecs.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(PROJECT_DIR)/LOL/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PBTSpecs/PBTSpecs-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "PBTSpecs/PBTSpecs-Info.plist";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-all_load",
-					"-lstdc++",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		1F60165A1919DF91003D8484 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00B47442628246AF911A644E /* Pods-PBTSpecs.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(PROJECT_DIR)/LOL/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PBTSpecs/PBTSpecs-Prefix.pch";
-				INFOPLIST_FILE = "PBTSpecs/PBTSpecs-Info.plist";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-all_load",
-					"-lstdc++",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
-		1F7EFA36191B63980074B028 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 315DE2C46CCA4D76A497AD23 /* Pods-PBTOSXSpecs.xcconfig */;
-			buildSettings = {
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PBTOSXSpecs/PBTOSXSpecs-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		1F7EFA37191B63980074B028 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 315DE2C46CCA4D76A497AD23 /* Pods-PBTOSXSpecs.xcconfig */;
-			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PBTOSXSpecs/PBTOSXSpecs-Prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		1F6016071919DCE0003D8484 /* Build configuration list for PBXProject "PBT" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1F60162D1919DCE0003D8484 /* Debug */,
-				1F60162E1919DCE0003D8484 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1F60162F1919DCE0003D8484 /* Build configuration list for PBXNativeTarget "PBT" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1F6016301919DCE0003D8484 /* Debug */,
-				1F6016311919DCE0003D8484 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1F6016581919DF91003D8484 /* Build configuration list for PBXNativeTarget "PBTSpecs" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1F6016591919DF91003D8484 /* Debug */,
-				1F60165A1919DF91003D8484 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1F7EFA35191B63980074B028 /* Build configuration list for PBXNativeTarget "PBTOSXSpecs" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1F7EFA36191B63980074B028 /* Debug */,
-				1F7EFA37191B63980074B028 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 1F6016041919DCE0003D8484 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0A5F33090D0540AB86629CE7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>165D2B012DAD434C88132AE8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>77BAA3674CD14BCA971CCA79</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F2A94F41997383300471B24</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTTransition.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F2A94F51997383300471B24</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTTransition.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F2A94F61997383300471B24</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F2A94F51997383300471B24</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F2A94F71997383300471B24</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F2A94F51997383300471B24</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F3462661924780800AE515C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73E4FFE7B868F0EA1A6D3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F3462671924780800AE515C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B7367B3E11AD0DC06F6595</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC1D198D824600BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTNamedGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC1E198D824600BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTNamedGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC1F198D824600BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC1E198D824600BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC20198D824A00BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC1E198D824600BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC21198D838300BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTStringGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC22198D838300BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTStringGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC23198D838300BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC22198D838300BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC24198D838300BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC22198D838300BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC25198D881900BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTArrayGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC26198D881900BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTArrayGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC27198D881900BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC26198D881900BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC28198D881900BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC26198D881900BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC29198D89DF00BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTTupleGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC2A198D89DF00BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTTupleGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC2B198D89DF00BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC2A198D89DF00BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC2C198D89DF00BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC2A198D89DF00BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC2D198DB6AA00BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTTupleGeneratorSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC2E198DB6AA00BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC2D198DB6AA00BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC2F198DB6AA00BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC2D198DB6AA00BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC30198DF48A00BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTChooseSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC31198DF48A00BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC30198DF48A00BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC32198DF48A00BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC30198DF48A00BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC33198DF77400BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTCharacterSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC34198DF77400BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC33198DF77400BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC35198DF77400BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC33198DF77400BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC36198F78C200BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTRoseTreeSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC37198F78C200BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC36198F78C200BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC38198F78C200BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC36198F78C200BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC39198F7C9A00BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTBlockGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC3A198F7C9A00BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTBlockGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC3B198F7C9A00BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC3A198F7C9A00BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC3C198F7C9A00BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC3A198F7C9A00BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC3D1990CA3900BEA6E1</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F35BC3E1990CA5600BEA6E1</string>
+				<string>1F35BC3F1990CA5600BEA6E1</string>
+				<string>1F35BC401990CA5600BEA6E1</string>
+				<string>1F35BC411990CA5600BEA6E1</string>
+				<string>31B739B35946B2CB1FD5C6DC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Reporters</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC3E1990CA5600BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTDebugReporter.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC3F1990CA5600BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTDebugReporter.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC401990CA5600BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTStandardReporter.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC411990CA5600BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTStandardReporter.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC421990CA5600BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC3F1990CA5600BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC431990CA5600BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC3F1990CA5600BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC441990CA5600BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC411990CA5600BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC451990CA5600BEA6E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F35BC411990CA5600BEA6E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F35BC461990CB4800BEA6E1</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F35BC471990CB6400BEA6E1</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Random</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F35BC471990CB6400BEA6E1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTRandomSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F4187F91975108000FEBB8D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTRunner.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F4187FA1975108000FEBB8D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTRunner.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F4187FB1975108000FEBB8D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F4187FA1975108000FEBB8D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F4187FC1975187000FEBB8D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F4187FA1975108000FEBB8D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F4187FD19751BB700FEBB8D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTRunnerResult.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F4187FE19751BB700FEBB8D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTRunnerResult.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F4187FF19751BB700FEBB8D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F4187FE19751BB700FEBB8D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F41880019751F0900FEBB8D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F4187FE19751BB700FEBB8D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E505198CAE6400F87028</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F35BC39198F7C9A00BEA6E1</string>
+				<string>1F35BC3A198F7C9A00BEA6E1</string>
+				<string>1F35BC25198D881900BEA6E1</string>
+				<string>1F35BC26198D881900BEA6E1</string>
+				<string>1F46E512198CB4C000F87028</string>
+				<string>1F46E513198CB4C000F87028</string>
+				<string>1F46E51A198CB78000F87028</string>
+				<string>1F46E51B198CB78000F87028</string>
+				<string>1F46E50E198CB2E800F87028</string>
+				<string>1F46E50F198CB2E800F87028</string>
+				<string>1F35BC1D198D824600BEA6E1</string>
+				<string>1F35BC1E198D824600BEA6E1</string>
+				<string>1F46E50A198CAFAD00F87028</string>
+				<string>1F46E50B198CAFAD00F87028</string>
+				<string>1F46E51E198CBAF100F87028</string>
+				<string>1F46E51F198CBAF100F87028</string>
+				<string>1F46E516198CB63200F87028</string>
+				<string>1F46E517198CB63200F87028</string>
+				<string>1F35BC21198D838300BEA6E1</string>
+				<string>1F35BC22198D838300BEA6E1</string>
+				<string>1F35BC29198D89DF00BEA6E1</string>
+				<string>1F35BC2A198D89DF00BEA6E1</string>
+				<string>1FA94A38199609D000803AF3</string>
+				<string>1FA94A39199609D000803AF3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Generators</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E50A198CAFAD00F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTPureGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E50B198CAFAD00F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTPureGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E50C198CAFAD00F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E50B198CAFAD00F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E50D198CAFAD00F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E50B198CAFAD00F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E50E198CB2E800F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTMapGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E50F198CB2E800F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTMapGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E510198CB2E800F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E50F198CB2E800F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E511198CB2E800F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E50F198CB2E800F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E512198CB4C000F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTBindGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E513198CB4C000F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTBindGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E514198CB4C000F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E513198CB4C000F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E515198CB4C000F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E513198CB4C000F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E516198CB63200F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTSizedGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E517198CB63200F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTSizedGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E518198CB63200F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E517198CB63200F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E519198CB63200F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E517198CB63200F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E51A198CB78000F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTChooseGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E51B198CB78000F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTChooseGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E51C198CB78000F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E51B198CB78000F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E51D198CB78000F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E51B198CB78000F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E51E198CBAF100F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTSequenceGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E51F198CBAF100F87028</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTSequenceGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F46E520198CBAF100F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E51F198CBAF100F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F46E521198CBAF100F87028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F46E51F198CBAF100F87028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F5018881991D37A001AB3A9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTQueue.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F5018891991D37A001AB3A9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTQueue.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F50188A1991D37A001AB3A9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F5018891991D37A001AB3A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F50188B1991D37A001AB3A9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F5018891991D37A001AB3A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F50188C1991D406001AB3A9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTFiniteStateMachineSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F50188D1991D406001AB3A9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F50188C1991D406001AB3A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F50188E1991D406001AB3A9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F50188C1991D406001AB3A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F5018931991D708001AB3A9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTFiniteStateMachine.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F5018941991D708001AB3A9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTFiniteStateMachine.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F5018951991D708001AB3A9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F5018941991D708001AB3A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F5018961991D708001AB3A9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F5018941991D708001AB3A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F59A819196E8FC000957FAA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F5018881991D37A001AB3A9</string>
+				<string>1F5018891991D37A001AB3A9</string>
+				<string>31B73B954203F429AA611143</string>
+				<string>31B73029745CB5B325095CB3</string>
+				<string>31B73763F568C2CE1290B46F</string>
+				<string>31B73BE31D123C54907C7EE3</string>
+				<string>1F8FDBF81988B4BA0059D31A</string>
+				<string>1F8FDBF91988B4BA0059D31A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Helpers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F59A81A196E8FE300957FAA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F59A81B196E900B00957FAA</string>
+				<string>1F59A81C196E900B00957FAA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Extensions</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F59A81B196E900B00957FAA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NSArray+FastEnumerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F59A81C196E900B00957FAA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NSArray+FastEnumerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F59A81D196E900B00957FAA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F59A81C196E900B00957FAA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F59A81E196E900B00957FAA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F59A81C196E900B00957FAA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F6016031919DCE0003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F6016111919DCE0003D8484</string>
+				<string>1F60164C1919DF90003D8484</string>
+				<string>1F7EFA2B191B63970074B028</string>
+				<string>1F60160E1919DCE0003D8484</string>
+				<string>1F60160D1919DCE0003D8484</string>
+				<string>97EC271938F8AFC6DD5B220D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F6016041919DCE0003D8484</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastTestingUpgradeCheck</key>
+				<string>0600</string>
+				<key>LastUpgradeCheck</key>
+				<string>0510</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Jeff Hui</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>1F6016441919DF90003D8484</key>
+					<dict>
+						<key>TestTargetID</key>
+						<string>1F60160B1919DCE0003D8484</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>1F6016071919DCE0003D8484</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>1F6016031919DCE0003D8484</string>
+			<key>productRefGroup</key>
+			<string>1F60160D1919DCE0003D8484</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>1F60160B1919DCE0003D8484</string>
+				<string>1F6016441919DF90003D8484</string>
+				<string>1F7EFA28191B63970074B028</string>
+			</array>
+		</dict>
+		<key>1F6016071919DCE0003D8484</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>1F60162D1919DCE0003D8484</string>
+				<string>1F60162E1919DCE0003D8484</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>1F6016081919DCE0003D8484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>31B73925BF4547CBBA83F14E</string>
+				<string>1F46E51C198CB78000F87028</string>
+				<string>1F35BC441990CA5600BEA6E1</string>
+				<string>1F35BC1F198D824600BEA6E1</string>
+				<string>1F35BC23198D838300BEA6E1</string>
+				<string>1F46E520198CBAF100F87028</string>
+				<string>1F4187FB1975108000FEBB8D</string>
+				<string>1F46E518198CB63200F87028</string>
+				<string>1F4187FF19751BB700FEBB8D</string>
+				<string>1F8FDBF2198777540059D31A</string>
+				<string>1F46E50C198CAFAD00F87028</string>
+				<string>1F46E514198CB4C000F87028</string>
+				<string>1F46E510198CB2E800F87028</string>
+				<string>31B73D53EB506977E8B6D87D</string>
+				<string>31B7391D14C8AD2561D14117</string>
+				<string>1F35BC421990CA5600BEA6E1</string>
+				<string>1FA94A3A199609D000803AF3</string>
+				<string>1F8FDBEE1987773F0059D31A</string>
+				<string>1F8FDBEC1987773F0059D31A</string>
+				<string>1F5018951991D708001AB3A9</string>
+				<string>1F35BC2B198D89DF00BEA6E1</string>
+				<string>1F35BC27198D881900BEA6E1</string>
+				<string>1F35BC3B198F7C9A00BEA6E1</string>
+				<string>1FF5B93E1973BD9000416383</string>
+				<string>31B735B7CCFCD90D521378FC</string>
+				<string>1F2A94F61997383300471B24</string>
+				<string>31B7376DCB06ACF9EEBB0A64</string>
+				<string>31B73A5F7884A7DC970148D4</string>
+				<string>31B734C77CE50AF2827BA35C</string>
+				<string>31B73A187530BC9FEB4A3631</string>
+				<string>31B7363E1AD3352531CA1171</string>
+				<string>31B73FAD1A10E9E84AD53ECA</string>
+				<string>31B737D3CDD59A39BFB48F0D</string>
+				<string>31B7306F3DE18171A4D1A2CE</string>
+				<string>31B73D9927A4467233CE38CA</string>
+				<string>31B73E318D310CCDB7ADB91C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1F6016091919DCE0003D8484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1F6016101919DCE0003D8484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1F60160A1919DCE0003D8484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>dstPath</key>
+			<string>include/$(PRODUCT_NAME)</string>
+			<key>dstSubfolderSpec</key>
+			<string>16</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXCopyFilesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1F60160B1919DCE0003D8484</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>1F60162F1919DCE0003D8484</string>
+			<key>buildPhases</key>
+			<array>
+				<string>1F6016081919DCE0003D8484</string>
+				<string>1F6016091919DCE0003D8484</string>
+				<string>1F60160A1919DCE0003D8484</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>PBT</string>
+			<key>productName</key>
+			<string>PBT</string>
+			<key>productReference</key>
+			<string>1F60160C1919DCE0003D8484</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>1F60160C1919DCE0003D8484</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPBT.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>1F60160D1919DCE0003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F60160C1919DCE0003D8484</string>
+				<string>1F6016451919DF90003D8484</string>
+				<string>1F7EFA29191B63970074B028</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F60160E1919DCE0003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F60160F1919DCE0003D8484</string>
+				<string>1F60161D1919DCE0003D8484</string>
+				<string>1F6016201919DCE0003D8484</string>
+				<string>1F6016461919DF90003D8484</string>
+				<string>1F6016481919DF90003D8484</string>
+				<string>438E463FF96642B589CA99D1</string>
+				<string>77BAA3674CD14BCA971CCA79</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F60160F1919DCE0003D8484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>1F6016101919DCE0003D8484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F60160F1919DCE0003D8484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F6016111919DCE0003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F8FDBE6198776FA0059D31A</string>
+				<string>1F6016351919DD35003D8484</string>
+				<string>1F6016121919DCE0003D8484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>PBT</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F6016121919DCE0003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F6016131919DCE0003D8484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F6016131919DCE0003D8484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBT-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F60161D1919DCE0003D8484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>XCTest.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/XCTest.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>1F6016201919DCE0003D8484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>1F60162D1919DCE0003D8484</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_TREAT_WARNINGS_AS_ERRORS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_MISSING_NEWLINE</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_SHADOW</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.1</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>1F60162E1919DCE0003D8484</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_TREAT_WARNINGS_AS_ERRORS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_MISSING_NEWLINE</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_SHADOW</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.1</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>1F60162F1919DCE0003D8484</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>1F6016301919DCE0003D8484</string>
+				<string>1F6016311919DCE0003D8484</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>1F6016301919DCE0003D8484</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>DSTROOT</key>
+				<string>/tmp/PBT.dst</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>PBT/PBT-Prefix.pch</string>
+				<key>GCC_WARN_ABOUT_MISSING_NEWLINE</key>
+				<string>YES</string>
+				<key>GCC_WARN_SHADOW</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-ObjC</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>1F6016311919DCE0003D8484</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>DSTROOT</key>
+				<string>/tmp/PBT.dst</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>PBT/PBT-Prefix.pch</string>
+				<key>GCC_WARN_ABOUT_MISSING_NEWLINE</key>
+				<string>YES</string>
+				<key>GCC_WARN_SHADOW</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-ObjC</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>1F6016351919DD35003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>31B7376ABDE93DF780F6384A</string>
+				<string>1F6016371919DD40003D8484</string>
+				<string>31B732EA700E97A90EFBD56F</string>
+				<string>1F848B471977A75200F0966E</string>
+				<string>1F4187F91975108000FEBB8D</string>
+				<string>1F4187FA1975108000FEBB8D</string>
+				<string>31B736A976CDB3B7301033AB</string>
+				<string>1F35BC3D1990CA3900BEA6E1</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Public</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F6016371919DD40003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F5018931991D708001AB3A9</string>
+				<string>1F5018941991D708001AB3A9</string>
+				<string>31B7359D19C07C6410676A13</string>
+				<string>31B7303EEEA0827C94541FB4</string>
+				<string>31B73E4270D7E9BB43B88512</string>
+				<string>31B73CE3BB0FE0A496DEA102</string>
+				<string>31B73F732828E21A3B5D4FA3</string>
+				<string>31B736A7992BBD359C72E397</string>
+				<string>31B73F6A9C93C681CE532804</string>
+				<string>31B73D3849E734CA2A32F5D4</string>
+				<string>31B73F0233EF475592DC4F26</string>
+				<string>31B73E65793C9A0F5F12FF3B</string>
+				<string>31B73E288878A28D1FD44435</string>
+				<string>31B731E731758B29364363DF</string>
+				<string>31B73F4A43C962308369B5A9</string>
+				<string>31B73FB26FF4BC3AF8F34E33</string>
+				<string>31B732DF762CE64B6BE7A599</string>
+				<string>31B7346B19612B83E717E236</string>
+				<string>31B73FCF31FFF93B1783938C</string>
+				<string>31B73F20F954586E20BE9329</string>
+				<string>31B73AAAC1A903382CE73DC4</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Generators</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F6016401919DF90003D8484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1FF5B93619737D4600416383</string>
+				<string>1F59A81D196E900B00957FAA</string>
+				<string>1F8FDBFD1989F9DD0059D31A</string>
+				<string>1F848B4519779F6600F0966E</string>
+				<string>31B73CCA0CFC274B9068281C</string>
+				<string>1F848B491977B8F100F0966E</string>
+				<string>1FA94A36199606F800803AF3</string>
+				<string>1F8FDC001989FE530059D31A</string>
+				<string>1F50188D1991D406001AB3A9</string>
+				<string>1F50188A1991D37A001AB3A9</string>
+				<string>1F35BC2E198DB6AA00BEA6E1</string>
+				<string>1F35BC34198DF77400BEA6E1</string>
+				<string>1F61E450196E88A6003EA164</string>
+				<string>1F35BC37198F78C200BEA6E1</string>
+				<string>1F8FDC031989FED70059D31A</string>
+				<string>1F8FDBFA1988B4BA0059D31A</string>
+				<string>1F848B421977965500F0966E</string>
+				<string>1F61E456196E8AEF003EA164</string>
+				<string>1F35BC31198DF48A00BEA6E1</string>
+				<string>31B73BE4B51F6DCC7230A40B</string>
+				<string>31B73F8B45D4F6222DC77E9D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1F6016411919DF90003D8484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1F7EFA12191B4BE70074B028</string>
+				<string>1F6016491919DF90003D8484</string>
+				<string>1F60164A1919DF90003D8484</string>
+				<string>1F6016471919DF90003D8484</string>
+				<string>1F60164B1919DF90003D8484</string>
+				<string>D73EBA85B776476FA344D2BD</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1F6016421919DF90003D8484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1F6016511919DF90003D8484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1F6016431919DF90003D8484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string># Run the unit tests in this test bundle.
+"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests"
+</string>
+		</dict>
+		<key>1F6016441919DF90003D8484</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>1F6016581919DF91003D8484</string>
+			<key>buildPhases</key>
+			<array>
+				<string>8CD29E692D1946F2BF9C66EE</string>
+				<string>1F6016401919DF90003D8484</string>
+				<string>1F6016411919DF90003D8484</string>
+				<string>1F6016421919DF90003D8484</string>
+				<string>1F6016431919DF90003D8484</string>
+				<string>45A53A26DABB4864A684F23E</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>1F7EFA10191B4BCD0074B028</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>PBTSpecs</string>
+			<key>productName</key>
+			<string>PBTSpecs</string>
+			<key>productReference</key>
+			<string>1F6016451919DF90003D8484</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.ocunit-test</string>
+		</dict>
+		<key>1F6016451919DF90003D8484</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>PBTSpecs.octest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>1F6016461919DF90003D8484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>SenTestingKit.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/SenTestingKit.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>1F6016471919DF90003D8484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F6016461919DF90003D8484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F6016481919DF90003D8484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreGraphics.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/CoreGraphics.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>1F6016491919DF90003D8484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F6016481919DF90003D8484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F60164A1919DF90003D8484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F6016201919DCE0003D8484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F60164B1919DF90003D8484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F60160F1919DCE0003D8484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F60164C1919DF90003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F59A81A196E8FE300957FAA</string>
+				<string>1F59A819196E8FC000957FAA</string>
+				<string>1F60165B1919E283003D8484</string>
+				<string>1F60164D1919DF90003D8484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>PBTSpecs</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F60164D1919DF90003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F60164E1919DF90003D8484</string>
+				<string>1F60164F1919DF90003D8484</string>
+				<string>1F6016571919DF91003D8484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F60164E1919DF90003D8484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>PBTSpecs-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F60164F1919DF90003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F6016501919DF90003D8484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F6016501919DF90003D8484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F6016511919DF90003D8484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F60164F1919DF90003D8484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F6016571919DF91003D8484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTSpecs-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F6016581919DF91003D8484</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>1F6016591919DF91003D8484</string>
+				<string>1F60165A1919DF91003D8484</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>1F6016591919DF91003D8484</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>982684ED35AC2FE382E6AE08</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(DEVELOPER_LIBRARY_DIR)/Frameworks</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+					<string>$(PROJECT_DIR)/LOL/Frameworks</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>PBTSpecs/PBTSpecs-Prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>PBTSpecs/PBTSpecs-Info.plist</string>
+				<key>OTHER_LDFLAGS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>-all_load</string>
+					<string>-lstdc++</string>
+				</array>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>octest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>1F60165A1919DF91003D8484</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>73E9C7640150DB3035156B39</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(DEVELOPER_LIBRARY_DIR)/Frameworks</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+					<string>$(PROJECT_DIR)/LOL/Frameworks</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>PBTSpecs/PBTSpecs-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>PBTSpecs/PBTSpecs-Info.plist</string>
+				<key>OTHER_LDFLAGS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>-all_load</string>
+					<string>-lstdc++</string>
+				</array>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>octest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>1F60165B1919E283003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F35BC461990CB4800BEA6E1</string>
+				<string>1F61E453196E8AD6003EA164</string>
+				<string>1F60165C1919E28E003D8484</string>
+				<string>31B73C759823AC30AE97B012</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Public</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F60165C1919E28E003D8484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F848B481977B8F100F0966E</string>
+				<string>1F35BC30198DF48A00BEA6E1</string>
+				<string>1F8FDBFF1989FE530059D31A</string>
+				<string>1FF5B93519737D4600416383</string>
+				<string>1F848B4419779F6600F0966E</string>
+				<string>1F848B411977965500F0966E</string>
+				<string>1F61E44F196E88A6003EA164</string>
+				<string>1F8FDBFC1989F9DD0059D31A</string>
+				<string>1F8FDC021989FED70059D31A</string>
+				<string>1F35BC2D198DB6AA00BEA6E1</string>
+				<string>1F35BC33198DF77400BEA6E1</string>
+				<string>1F50188C1991D406001AB3A9</string>
+				<string>1FA94A35199606F800803AF3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Generators</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F61E44F196E88A6003EA164</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>lineEnding</key>
+			<string>0</string>
+			<key>path</key>
+			<string>PBTReturnSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.objcpp</string>
+		</dict>
+		<key>1F61E450196E88A6003EA164</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F61E44F196E88A6003EA164</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F61E451196E88A6003EA164</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F61E44F196E88A6003EA164</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F61E453196E8AD6003EA164</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F61E455196E8AEF003EA164</string>
+				<string>1F35BC36198F78C200BEA6E1</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Data</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F61E455196E8AEF003EA164</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTSequenceSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F61E456196E8AEF003EA164</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F61E455196E8AEF003EA164</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F61E457196E8AEF003EA164</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F61E455196E8AEF003EA164</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F7EFA0F191B4BCD0074B028</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>1F6016041919DCE0003D8484</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>1F60160B1919DCE0003D8484</string>
+			<key>remoteInfo</key>
+			<string>PBT</string>
+		</dict>
+		<key>1F7EFA10191B4BCD0074B028</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>1F60160B1919DCE0003D8484</string>
+			<key>targetProxy</key>
+			<string>1F7EFA0F191B4BCD0074B028</string>
+		</dict>
+		<key>1F7EFA12191B4BE70074B028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F60160C1919DCE0003D8484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F7EFA26191B63970074B028</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1F46E51D198CB78000F87028</string>
+				<string>1F35BC451990CA5600BEA6E1</string>
+				<string>1F8FDBED1987773F0059D31A</string>
+				<string>1F8FDBFE1989F9DD0059D31A</string>
+				<string>1F59A81E196E900B00957FAA</string>
+				<string>1F3462661924780800AE515C</string>
+				<string>1FA94A3B199609D000803AF3</string>
+				<string>1F8FDBFB1988B4BA0059D31A</string>
+				<string>1F46E515198CB4C000F87028</string>
+				<string>1F35BC20198D824A00BEA6E1</string>
+				<string>1FA94A37199606F800803AF3</string>
+				<string>1F8FDC011989FE530059D31A</string>
+				<string>1FC3B983191B663600AA359B</string>
+				<string>1F46E511198CB2E800F87028</string>
+				<string>1F5018961991D708001AB3A9</string>
+				<string>1F46E50D198CAFAD00F87028</string>
+				<string>1F61E457196E8AEF003EA164</string>
+				<string>1F50188B1991D37A001AB3A9</string>
+				<string>1F35BC28198D881900BEA6E1</string>
+				<string>1F35BC3C198F7C9A00BEA6E1</string>
+				<string>1F2A94F71997383300471B24</string>
+				<string>1F3462671924780800AE515C</string>
+				<string>1F8FDBEF1987773F0059D31A</string>
+				<string>1F50188E1991D406001AB3A9</string>
+				<string>1F848B4A1977B8F100F0966E</string>
+				<string>1F35BC24198D838300BEA6E1</string>
+				<string>1F35BC2F198DB6AA00BEA6E1</string>
+				<string>1F8FDBF3198777540059D31A</string>
+				<string>1F35BC431990CA5600BEA6E1</string>
+				<string>1FF5B93F1973BD9000416383</string>
+				<string>1F7EFA32191B63980074B028</string>
+				<string>1F848B431977965500F0966E</string>
+				<string>1F848B4619779F6600F0966E</string>
+				<string>1F46E521198CBAF100F87028</string>
+				<string>1F35BC2C198D89DF00BEA6E1</string>
+				<string>1F41880019751F0900FEBB8D</string>
+				<string>1F4187FC1975187000FEBB8D</string>
+				<string>1F46E519198CB63200F87028</string>
+				<string>1F35BC32198DF48A00BEA6E1</string>
+				<string>1F8FDC041989FED70059D31A</string>
+				<string>1F35BC38198F78C200BEA6E1</string>
+				<string>31B73CF6F20CF5FF10AADAD4</string>
+				<string>1F35BC35198DF77400BEA6E1</string>
+				<string>1F61E451196E88A6003EA164</string>
+				<string>1FF5B93719737D4600416383</string>
+				<string>31B737BB9E0AE122DAE8BF70</string>
+				<string>31B73CC8C2DBD8E91FA49880</string>
+				<string>31B739F4E96E95DB627EF8C3</string>
+				<string>31B73816797AFCE946FE118D</string>
+				<string>31B734FE326DCB9B9291BC68</string>
+				<string>31B734BDF31AF37ACAA7EF5A</string>
+				<string>31B739893ED0C6493D0B12C7</string>
+				<string>31B73FA23522FA7FC4604F7C</string>
+				<string>31B73751373E8DF9C946EFA9</string>
+				<string>31B73119A5F87531FA87A8B0</string>
+				<string>31B7361BAB18DA6C12732177</string>
+				<string>31B739F1774AF3BD251555AE</string>
+				<string>31B73C87EA2A3923327A60FF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1F7EFA27191B63970074B028</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1F7EFA2A191B63970074B028</string>
+				<string>165D2B012DAD434C88132AE8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1F7EFA28191B63970074B028</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>1F7EFA35191B63980074B028</string>
+			<key>buildPhases</key>
+			<array>
+				<string>0A5F33090D0540AB86629CE7</string>
+				<string>1F7EFA26191B63970074B028</string>
+				<string>1F7EFA27191B63970074B028</string>
+				<string>C4DA064C82114CFEA8755198</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>PBTOSXSpecs</string>
+			<key>productName</key>
+			<string>PBTOSXSpecs</string>
+			<key>productReference</key>
+			<string>1F7EFA29191B63970074B028</string>
+			<key>productType</key>
+			<string>com.apple.product-type.tool</string>
+		</dict>
+		<key>1F7EFA29191B63970074B028</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>compiled.mach-o.executable</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>PBTOSXSpecs</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>1F7EFA2A191B63970074B028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F60160F1919DCE0003D8484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F7EFA2B191B63970074B028</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F7EFA31191B63980074B028</string>
+				<string>1F7EFA2D191B63970074B028</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>PBTOSXSpecs</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F7EFA2D191B63970074B028</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F7EFA2E191B63970074B028</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F7EFA2E191B63970074B028</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTOSXSpecs-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F7EFA31191B63980074B028</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F7EFA32191B63980074B028</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F7EFA31191B63980074B028</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F7EFA35191B63980074B028</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>1F7EFA36191B63980074B028</string>
+				<string>1F7EFA37191B63980074B028</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>1F7EFA36191B63980074B028</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>20E3FB09FB89C2A364E190C0</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>PBTOSXSpecs/PBTOSXSpecs-Prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.9</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>1F7EFA37191B63980074B028</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>7C40C1DFBFFBE52D616ED9B8</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>PBTOSXSpecs/PBTOSXSpecs-Prefix.pch</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.9</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>1F848B411977965500F0966E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>lineEnding</key>
+			<string>0</string>
+			<key>path</key>
+			<string>PBTPositiveIntegerSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.objcpp</string>
+		</dict>
+		<key>1F848B421977965500F0966E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F848B411977965500F0966E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F848B431977965500F0966E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F848B411977965500F0966E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F848B4419779F6600F0966E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>lineEnding</key>
+			<string>0</string>
+			<key>path</key>
+			<string>PBTNegativeIntegerSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.objcpp</string>
+		</dict>
+		<key>1F848B4519779F6600F0966E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F848B4419779F6600F0966E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F848B4619779F6600F0966E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F848B4419779F6600F0966E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F848B471977A75200F0966E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTMacros.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F848B481977B8F100F0966E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTArraySpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F848B491977B8F100F0966E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F848B481977B8F100F0966E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F848B4A1977B8F100F0966E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F848B481977B8F100F0966E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDBE6198776FA0059D31A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F46E505198CAE6400F87028</string>
+				<string>1F8FDBE7198777080059D31A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Private</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDBE7198777080059D31A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1F8FDBE81987773F0059D31A</string>
+				<string>1F8FDBE91987773F0059D31A</string>
+				<string>1F8FDBEA1987773F0059D31A</string>
+				<string>1F8FDBEB1987773F0059D31A</string>
+				<string>1F8FDBF0198777540059D31A</string>
+				<string>1F8FDBF1198777540059D31A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Data</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDBE81987773F0059D31A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTConcreteSequence.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDBE91987773F0059D31A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTConcreteSequence.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDBEA1987773F0059D31A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTLazySequence.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDBEB1987773F0059D31A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTLazySequence.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDBEC1987773F0059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBE91987773F0059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDBED1987773F0059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBE91987773F0059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDBEE1987773F0059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBEB1987773F0059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDBEF1987773F0059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBEB1987773F0059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDBF0198777540059D31A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTSequenceEnumerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDBF1198777540059D31A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTSequenceEnumerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDBF2198777540059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBF1198777540059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDBF3198777540059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBF1198777540059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDBF81988B4BA0059D31A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTSpecHelper.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDBF91988B4BA0059D31A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTSpecHelper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDBFA1988B4BA0059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBF91988B4BA0059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDBFB1988B4BA0059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBF91988B4BA0059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDBFC1989F9DD0059D31A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTSetSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDBFD1989F9DD0059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBFC1989F9DD0059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDBFE1989F9DD0059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBFC1989F9DD0059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDBFF1989FE530059D31A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTDictionarySpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDC001989FE530059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBFF1989FE530059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDC011989FE530059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDBFF1989FE530059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDC021989FED70059D31A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTStringSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1F8FDC031989FED70059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDC021989FED70059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1F8FDC041989FED70059D31A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F8FDC021989FED70059D31A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1FA94A35199606F800803AF3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTSuchThatSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1FA94A36199606F800803AF3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1FA94A35199606F800803AF3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1FA94A37199606F800803AF3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1FA94A35199606F800803AF3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1FA94A38199609D000803AF3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTSuchThatGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1FA94A39199609D000803AF3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTSuchThatGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1FA94A3A199609D000803AF3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1FA94A39199609D000803AF3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1FA94A3B199609D000803AF3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1FA94A39199609D000803AF3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1FC3B983191B663600AA359B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73C759823AC30AE97B012</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1FF5B93519737D4600416383</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>lineEnding</key>
+			<string>0</string>
+			<key>path</key>
+			<string>PBTIntegerSpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.objcpp</string>
+		</dict>
+		<key>1FF5B93619737D4600416383</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1FF5B93519737D4600416383</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1FF5B93719737D4600416383</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1FF5B93519737D4600416383</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1FF5B93C1973BD9000416383</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTRoseTree.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1FF5B93D1973BD9000416383</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTRoseTree.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1FF5B93E1973BD9000416383</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1FF5B93D1973BD9000416383</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1FF5B93F1973BD9000416383</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1FF5B93D1973BD9000416383</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>20E3FB09FB89C2A364E190C0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-PBTOSXSpecs.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-PBTOSXSpecs/Pods-PBTOSXSpecs.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B730183A626AD19A2B366E</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTSequence.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73029745CB5B325095CB3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTQueueAddTransition.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B7303EEEA0827C94541FB4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTStateMachine.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B7304B35C6D552B28742C9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTConstantRandom.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B7306F3DE18171A4D1A2CE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B732DF762CE64B6BE7A599</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B7309489DDD0177A39ED35</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTRandom.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73119A5F87531FA87A8B0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73F4A43C962308369B5A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B731E731758B29364363DF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTArrayGenerators.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73282B254E07DFC8B2073</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTRandom.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B732DF762CE64B6BE7A599</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTSetGenerators.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B732EA700E97A90EFBD56F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBT.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B733656606413AC3D482E3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTDeterministicRandom.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B733ACE038CF303D9ECC27</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTSequence.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B7346B19612B83E717E236</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTDictionaryGenerators.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B734BDF31AF37ACAA7EF5A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73D791208A96A73A2FB89</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B734C77CE50AF2827BA35C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73D791208A96A73A2FB89</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B734FE326DCB9B9291BC68</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73CE3BB0FE0A496DEA102</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc-exceptions</string>
+			</dict>
+		</dict>
+		<key>31B7359D19C07C6410676A13</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B735B7CCFCD90D521378FC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73C0260617192E88A3392</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B7361BAB18DA6C12732177</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B732DF762CE64B6BE7A599</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B7363E1AD3352531CA1171</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73F0233EF475592DC4F26</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B7367B3E11AD0DC06F6595</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>path</key>
+			<string>PBTDeterministicRandom.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B736A7992BBD359C72E397</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTCoreGenerators.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B736A976CDB3B7301033AB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>31B7304B35C6D552B28742C9</string>
+				<string>31B73E4FFE7B868F0EA1A6D3</string>
+				<string>31B733656606413AC3D482E3</string>
+				<string>31B7367B3E11AD0DC06F6595</string>
+				<string>31B73282B254E07DFC8B2073</string>
+				<string>31B7309489DDD0177A39ED35</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Random</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73751373E8DF9C946EFA9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73E288878A28D1FD44435</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73763F568C2CE1290B46F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTQueueRemoveTransition.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B7376ABDE93DF780F6384A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>31B730183A626AD19A2B366E</string>
+				<string>31B733ACE038CF303D9ECC27</string>
+				<string>1FF5B93C1973BD9000416383</string>
+				<string>1FF5B93D1973BD9000416383</string>
+				<string>1F4187FD19751BB700FEBB8D</string>
+				<string>1F4187FE19751BB700FEBB8D</string>
+				<string>31B73FBA1C97463CD5A8D15D</string>
+				<string>31B73C0260617192E88A3392</string>
+				<string>1F2A94F41997383300471B24</string>
+				<string>1F2A94F51997383300471B24</string>
+				<string>31B73D791208A96A73A2FB89</string>
+				<string>31B73AC32A19CA6467FCB298</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Data</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B7376DCB06ACF9EEBB0A64</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B7309489DDD0177A39ED35</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B737BB9E0AE122DAE8BF70</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73BE31D123C54907C7EE3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B737D3CDD59A39BFB48F0D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73F4A43C962308369B5A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73816797AFCE946FE118D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B7309489DDD0177A39ED35</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B7391D14C8AD2561D14117</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B733ACE038CF303D9ECC27</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73925BF4547CBBA83F14E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B7367B3E11AD0DC06F6595</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B739893ED0C6493D0B12C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73F6A9C93C681CE532804</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B739B35946B2CB1FD5C6DC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTReporter.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B739F1774AF3BD251555AE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73FCF31FFF93B1783938C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B739F4E96E95DB627EF8C3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73C0260617192E88A3392</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73A187530BC9FEB4A3631</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73F6A9C93C681CE532804</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73A5F7884A7DC970148D4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73CE3BB0FE0A496DEA102</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc-exceptions</string>
+			</dict>
+		</dict>
+		<key>31B73AAAC1A903382CE73DC4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTStateMachineGenerators.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73AC32A19CA6467FCB298</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTPropertyResult.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73B954203F429AA611143</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTQueueAddTransition.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73BE31D123C54907C7EE3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTQueueRemoveTransition.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73BE4B51F6DCC7230A40B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73BE31D123C54907C7EE3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73C0260617192E88A3392</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTCommand.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73C759823AC30AE97B012</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.objcpp</string>
+			<key>lineEnding</key>
+			<string>0</string>
+			<key>path</key>
+			<string>PBTPropertySpec.mm</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.objcpp</string>
+		</dict>
+		<key>31B73C87EA2A3923327A60FF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73AAAC1A903382CE73DC4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73CC8C2DBD8E91FA49880</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73029745CB5B325095CB3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73CCA0CFC274B9068281C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73C759823AC30AE97B012</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73CE3BB0FE0A496DEA102</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTPropertyGenerators.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73CF6F20CF5FF10AADAD4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B733ACE038CF303D9ECC27</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73D3849E734CA2A32F5D4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTNumericGenerators.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73D53EB506977E8B6D87D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73E4FFE7B868F0EA1A6D3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73D791208A96A73A2FB89</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTPropertyResult.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73D9927A4467233CE38CA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73FCF31FFF93B1783938C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73E288878A28D1FD44435</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTStringGenerators.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73E318D310CCDB7ADB91C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73AAAC1A903382CE73DC4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73E4270D7E9BB43B88512</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTStateTransition.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73E4FFE7B868F0EA1A6D3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTConstantRandom.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73E65793C9A0F5F12FF3B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTStringGenerators.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73F0233EF475592DC4F26</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTNumericGenerators.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73F20F954586E20BE9329</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTStateMachineGenerators.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73F4A43C962308369B5A9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTArrayGenerators.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73F6A9C93C681CE532804</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTCoreGenerators.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73F732828E21A3B5D4FA3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTPropertyGenerators.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73F8B45D4F6222DC77E9D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73029745CB5B325095CB3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73FA23522FA7FC4604F7C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73F0233EF475592DC4F26</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73FAD1A10E9E84AD53ECA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31B73E288878A28D1FD44435</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>31B73FB26FF4BC3AF8F34E33</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTSetGenerators.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73FBA1C97463CD5A8D15D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PBTCommand.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>31B73FCF31FFF93B1783938C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PBTDictionaryGenerators.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>438E463FF96642B589CA99D1</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-PBTSpecs.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>45A53A26DABB4864A684F23E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-PBTSpecs/Pods-PBTSpecs-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>73E9C7640150DB3035156B39</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-PBTSpecs.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-PBTSpecs/Pods-PBTSpecs.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>77BAA3674CD14BCA971CCA79</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-PBTOSXSpecs.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>7C40C1DFBFFBE52D616ED9B8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-PBTOSXSpecs.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-PBTOSXSpecs/Pods-PBTOSXSpecs.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8CD29E692D1946F2BF9C66EE</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>97EC271938F8AFC6DD5B220D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>20E3FB09FB89C2A364E190C0</string>
+				<string>7C40C1DFBFFBE52D616ED9B8</string>
+				<string>982684ED35AC2FE382E6AE08</string>
+				<string>73E9C7640150DB3035156B39</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>982684ED35AC2FE382E6AE08</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-PBTSpecs.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-PBTSpecs/Pods-PBTSpecs.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C4DA064C82114CFEA8755198</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-PBTOSXSpecs/Pods-PBTOSXSpecs-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D73EBA85B776476FA344D2BD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>438E463FF96642B589CA99D1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>1F6016041919DCE0003D8484</string>
+</dict>
+</plist>

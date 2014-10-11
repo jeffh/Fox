@@ -10,9 +10,9 @@
 @property (nonatomic) id<PBTGenerator> generator;
 @property (nonatomic, copy) NSString *name;
 
-+ (instancetype)forCallingSelector:(SEL)selector
-                     withGenerator:(id<PBTGenerator>)generator
-                    nextModelState:(id (^)(id modelState, id generatedValue))nextState;
++ (instancetype)byCallingSelector:(SEL)selector
+                    withGenerator:(id<PBTGenerator>)generator
+                   nextModelState:(id (^)(id modelState, id generatedValue))nextState;
 
 + (instancetype)forCallingSelector:(SEL)selector
                     nextModelState:(id (^)(id modelState, id generatedValue))nextState;

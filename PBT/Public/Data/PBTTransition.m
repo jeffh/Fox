@@ -5,9 +5,9 @@
 
 @implementation PBTTransition
 
-+ (instancetype)forCallingSelector:(SEL)selector
-                     withGenerator:(id<PBTGenerator>)generator
-                    nextModelState:(id (^)(id modelState, id generatedValue))nextState
++ (instancetype)byCallingSelector:(SEL)selector
+                    withGenerator:(id<PBTGenerator>)generator
+                   nextModelState:(id (^)(id modelState, id generatedValue))nextState
 {
     PBTTransition *transition = [[PBTTransition alloc] initWithAction:^id(id actualState, id generatedValue) {
         NSMethodSignature *signature = [actualState methodSignatureForSelector:selector];
@@ -35,7 +35,7 @@
 + (instancetype)forCallingSelector:(SEL)selector
                     nextModelState:(id (^)(id modelState, id generatedValue))nextState
 {
-    return [self forCallingSelector:selector withGenerator:nil nextModelState:nextState];
+    return [self byCallingSelector:selector withGenerator:nil nextModelState:nextState];
 }
 
 - (instancetype)initWithGenerator:(id<PBTGenerator>)generator

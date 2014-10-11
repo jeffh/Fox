@@ -6,7 +6,7 @@
 
 + (NSUInteger)numberOfTestsPerProperty
 {
-    return 100;
+    return 500;
 }
 
 + (PBTRunnerResult *)resultForAll:(id<PBTGenerator>)generator
