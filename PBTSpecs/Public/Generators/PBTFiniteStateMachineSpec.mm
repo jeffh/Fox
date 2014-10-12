@@ -3,7 +3,6 @@
 #import "PBTQueueAddTransition.h"
 #import "PBTSpecHelper.h"
 #import "PBTQueue.h"
-#include "PBTStateMachineGenerators.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
@@ -28,13 +27,13 @@ describe(@"PBTFiniteStateMachine", ^{
         [stateMachine initialModelState] should equal(@[]);
     });
 
-    it(@"should be able validate queue behavior", ^{
-        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTCommands(stateMachine) then:^BOOL(NSArray *commands) {
-            return [stateMachine validateCommandSequence:commands initialActualState:[PBTQueue new]];
+    fit(@"should be able validate queue behavior", ^{
+        id<PBTGenerator> executedCommands = PBTExecuteCommands(stateMachine, ^id { return [PBTQueue new]; });
+        PBTRunnerResult *result = [PBTSpecHelper resultForAll:executedCommands
+                                                         then:^BOOL(NSArray *commands) {
+             return PBTExecutedSuccessfully(commands);
         }];
-        NSLog(@"Number Of Tests: %lu", result.numberOfTests);
-        NSLog(@"Failing: %@", result.failingValue);
-        NSLog(@"Smallest Failing: %@", result.smallestFailingValue);
+        NSLog(@"Smallest Failing: %@", [result friendlyDescription]);
         result.succeeded should be_truthy;
     });
 });

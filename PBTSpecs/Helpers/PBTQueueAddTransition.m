@@ -29,4 +29,8 @@
     return nil;
 }
 
+- (NSString *)descriptionWithGeneratedValue:(id)generatedValue {
+    return [NSString stringWithFormat:@"addObject:%@", generatedValue];
+}
+
 @end

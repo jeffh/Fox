@@ -6,6 +6,6 @@
 - (id)initialModelState;
 - (NSArray *)allTransitions; // PBTStateTransitions
 - (BOOL)isValidCommandSequence:(NSArray *)commands; // PBTCommands
-- (BOOL)validateCommandSequence:(NSArray *)commands initialActualState:(id)initialActualState;
+- (NSArray *)executeCommandSequence:(NSArray *)commands initialActualState:(id)initialActualState;
 
 @end

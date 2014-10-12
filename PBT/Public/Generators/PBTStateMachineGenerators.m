@@ -6,6 +6,7 @@
 #import "PBTStateTransition.h"
 #import "PBTRoseTree.h"
 #import "PBTCommand.h"
+#import "PBTExecutedCommand.h"
 
 
 PBT_EXPORT id<PBTGenerator> PBTGenCommands(id<PBTStateMachine> stateMachine) {
@@ -30,4 +31,20 @@ PBT_EXPORT id<PBTGenerator> PBTCommands(id<PBTStateMachine> stateMachine) {
     return PBTSuchThat(PBTArray(PBTGenCommands(stateMachine)), ^BOOL(NSArray *commands) {
         return [stateMachine isValidCommandSequence:commands];
     });
+}
+
+PBT_EXPORT id<PBTGenerator> PBTExecuteCommands(id<PBTStateMachine> stateMachine, id (^subject)(void)) {
+    return PBTMap(PBTCommands(stateMachine), ^id(NSArray *commands) {
+        return [stateMachine executeCommandSequence:commands initialActualState:subject()];
+    });
+}
+
+PBT_EXPORT BOOL PBTExecutedSuccessfully(NSArray *executedCommands) {
+    for (PBTExecutedCommand *cmd in executedCommands) {
+        if (![cmd wasSuccessfullyExecuted]) {
+            return NO;
+        }
+    }
+
+    return YES;
 }

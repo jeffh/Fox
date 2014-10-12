@@ -1,4 +1,5 @@
 #import "PBTCommand.h"
+#import "PBTStateTransition.h"
 
 
 @interface PBTCommand ()
@@ -21,8 +22,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<perform (%@) with %@>",
-            self.transition, self.generatedValue];
+    return [self.transition descriptionWithGeneratedValue:self.generatedValue];
 }
 
 @end

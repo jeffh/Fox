@@ -37,9 +37,9 @@
     return [expectedObject isEqual:actualStateResult];
 }
 
-- (NSString *)description
+- (NSString *)descriptionWithGeneratedValue:(id)generatedValue
 {
-    return NSStringFromSelector(@selector(removeObject:));
+    return NSStringFromSelector(@selector(removeObject));
 }
 
 @end

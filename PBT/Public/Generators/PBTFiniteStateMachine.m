@@ -1,6 +1,8 @@
 #import "PBTFiniteStateMachine.h"
 #import "PBTStateTransition.h"
 #import "PBTCommand.h"
+#import "PBTExecutedCommand.h"
+#import "PBTArray.h"
 
 
 @interface PBTFiniteStateMachine ()
@@ -46,8 +48,9 @@
     return YES;
 }
 
-- (BOOL)validateCommandSequence:(NSArray *)commands initialActualState:(id)initialActualState
+- (NSArray *)executeCommandSequence:(NSArray *)commands initialActualState:(id)initialActualState
 {
+    NSMutableArray *executedCommands = [NSMutableArray array];
     id modelState = self.initialModelState;
     id actualState = initialActualState;
     for (PBTCommand *command in commands) {
@@ -55,13 +58,35 @@
         id generatedValue = command.generatedValue;
         id previousModalState = modelState;
 
+        PBTExecutedCommand *executedCommand = [[PBTExecutedCommand alloc] init];
+        executedCommand.command = command;
+        executedCommand.dateExecuted = [NSDate date];
+        executedCommand.modelStateBeforeExecution = modelState;
+        [executedCommands addObject:executedCommand];
+
         if ([transition respondsToSelector:@selector(satisfiesPreConditionForModelState:)]) {
             if (![transition satisfiesPreConditionForModelState:modelState]) {
-                return NO;
+                break;
             }
         }
         modelState = [transition nextModelStateFromModelState:modelState generatedValue:generatedValue];
-        id resultingValue = [transition objectFromAdvancingActualState:actualState generatedValue:generatedValue];
+
+        id resultingValue = nil;
+
+        @try {
+            resultingValue = [transition objectFromAdvancingActualState:actualState generatedValue:generatedValue];
+        }
+        @catch (NSException *exception) {
+            executedCommand.raisedException = exception;
+        }
+
+        executedCommand.satisfiesPrecondition = YES;
+        executedCommand.objectFromAdvancingActualState = resultingValue;
+        executedCommand.modelStateAfterExecution = modelState;
+
+        if (executedCommand.raisedException) {
+            break;
+        }
 
         if ([transition respondsToSelector:@selector(satisfiesPostConditionInModelState:fromModelState:actualState:generatedValue:returnedObjectFromAdvancing:)]) {
             if (![transition satisfiesPostConditionInModelState:modelState
@@ -69,12 +94,14 @@
                                                     actualState:actualState
                                                  generatedValue:generatedValue
                                     returnedObjectFromAdvancing:resultingValue]) {
-                return NO;
+                break;
             }
         }
 
+        executedCommand.satisfiesPostcondition = YES;
     }
-    return YES;
+    PBTArray *prettyExecutedCommands = [[PBTArray alloc] initWithArray:executedCommands];
+    return prettyExecutedCommands;
 }
 
 @end

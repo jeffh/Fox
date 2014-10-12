@@ -32,6 +32,8 @@
  */
 @protocol PBTStateTransition <NSObject>
 
+- (NSString *)descriptionWithGeneratedValue:(id)generatedValue;
+
 /*! This indicates if the current state can use this transition to move to
  *  a new state.
  *

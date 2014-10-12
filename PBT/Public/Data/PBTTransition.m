@@ -65,6 +65,13 @@
 
 #pragma mark - PBTStateTransition
 
+- (NSString *)descriptionWithGeneratedValue:(id)generatedValue {
+    if ([self.name rangeOfString:@":"].location == NSNotFound) {
+        return self.name;
+    }
+    return [NSString stringWithFormat:@"%@%@", self.name, generatedValue];
+}
+
 - (BOOL)satisfiesPreConditionForModelState:(id)modelState
 {
     if (self.precondition) {
