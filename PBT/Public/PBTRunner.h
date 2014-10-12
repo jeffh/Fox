@@ -14,17 +14,17 @@
 - (instancetype)initWithReporter:(id<PBTReporter>)reporter random:(id<PBTRandom>)random;
 
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
-                                  property:(id<PBTGenerator>)property;
+                                   property:(id<PBTGenerator>)property;
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
-                                    forAll:(id<PBTGenerator>)values
-                                      then:(PBTPropertyStatus (^)(id generatedValue))then;
+                                     forAll:(id<PBTGenerator>)values
+                                       then:(PBTPropertyStatus (^)(id generatedValue))then;
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
-                                  property:(id<PBTGenerator>)property
-                                      seed:(uint32_t)seed;
+                                   property:(id<PBTGenerator>)property
+                                       seed:(uint32_t)seed;
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
-                                  property:(id<PBTGenerator>)property
-                                      seed:(uint32_t)seed
-                                   maxSize:(NSUInteger)maxSize;
+                                   property:(id<PBTGenerator>)property
+                                       seed:(uint32_t)seed
+                                    maxSize:(NSUInteger)maxSize;
 
 @end
 

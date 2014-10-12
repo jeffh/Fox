@@ -57,9 +57,9 @@ typedef struct _PBTShrinkReport {
 #pragma mark - Public
 
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
-                                  property:(id <PBTGenerator>)property
-                                      seed:(uint32_t)seed
-                                   maxSize:(NSUInteger)maxSize
+                                   property:(id <PBTGenerator>)property
+                                       seed:(uint32_t)seed
+                                    maxSize:(NSUInteger)maxSize
 {
     NSUInteger currentTestNumber = 0;
     [self.random setSeed:seed];
@@ -78,8 +78,8 @@ typedef struct _PBTShrinkReport {
             PBTRoseTree *tree = [property lazyTreeWithRandom:self.random maximumSize:size];
             PBTPropertyResult *result = tree.value;
             NSAssert([result isKindOfClass:[PBTPropertyResult class]],
-                    @"Expected property generator to return PBTPropertyResult, got %@",
-                    NSStringFromClass([result class]));
+                     @"Expected property generator to return PBTPropertyResult, got %@",
+                     NSStringFromClass([result class]));
 
 
             [self.reporter runnerWillVerifyTestNumber:currentTestNumber
@@ -101,8 +101,8 @@ typedef struct _PBTShrinkReport {
 #pragma mark - Public Convenience Methods
 
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
-                                  property:(id <PBTGenerator>)property
-                                      seed:(uint32_t)seed
+                                   property:(id <PBTGenerator>)property
+                                       seed:(uint32_t)seed
 {
     return [self resultForNumberOfTests:totalNumberOfTests
                                property:property
@@ -111,7 +111,7 @@ typedef struct _PBTShrinkReport {
 }
 
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
-                                  property:(id <PBTGenerator>)property
+                                   property:(id <PBTGenerator>)property
 {
     return [self resultForNumberOfTests:numberOfTests
                                property:property
@@ -119,8 +119,8 @@ typedef struct _PBTShrinkReport {
 }
 
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
-                                    forAll:(id <PBTGenerator>)values
-                                      then:(PBTPropertyStatus (^)(id generatedValue))then
+                                     forAll:(id <PBTGenerator>)values
+                                       then:(PBTPropertyStatus (^)(id generatedValue))then
 {
     return [self resultForNumberOfTests:numberOfTests
                                property:PBTForAll(values, then)];
@@ -129,8 +129,8 @@ typedef struct _PBTShrinkReport {
 #pragma mark - Private
 
 - (PBTRunnerResult *)successfulReportWithNumberOfTests:(NSUInteger)numberOfTests
-                                              maxSize:(NSUInteger)maxSize
-                                                 seed:(uint32_t)seed
+                                               maxSize:(NSUInteger)maxSize
+                                                  seed:(uint32_t)seed
 {
     PBTRunnerResult *result = [[PBTRunnerResult alloc] init];
     result.succeeded = YES;
@@ -145,10 +145,10 @@ typedef struct _PBTShrinkReport {
 }
 
 - (PBTRunnerResult *)failureReportWithNumberOfTests:(NSUInteger)numberOfTests
-                                   failureRoseTree:(PBTRoseTree *)failureRoseTree
-                                       failingSize:(NSUInteger)failingSize
-                                           maxSize:(NSUInteger)maxSize
-                                              seed:(uint32_t)seed
+                                    failureRoseTree:(PBTRoseTree *)failureRoseTree
+                                        failingSize:(NSUInteger)failingSize
+                                            maxSize:(NSUInteger)maxSize
+                                               seed:(uint32_t)seed
 {
     [self.reporter runnerWillShrinkFailingTestNumber:numberOfTests
                             failedWithPropertyResult:failureRoseTree.value];
@@ -204,10 +204,10 @@ typedef struct _PBTShrinkReport {
     }
 
     return (PBTShrinkReport) {
-            .depth=depth,
-            .numberOfNodesVisited=numberOfNodesVisited,
-            .smallestArgument=(void *) CFBridgingRetain(currentSmallest.generatedValue),
-            .smallestUncaughtException=(void *) CFBridgingRetain(currentSmallest.uncaughtException),
+        .depth=depth,
+        .numberOfNodesVisited=numberOfNodesVisited,
+        .smallestArgument=(void *) CFBridgingRetain(currentSmallest.generatedValue),
+        .smallestUncaughtException=(void *) CFBridgingRetain(currentSmallest.uncaughtException),
     };
 }
 
