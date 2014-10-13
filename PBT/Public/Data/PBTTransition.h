@@ -14,8 +14,8 @@
                     withGenerator:(id<PBTGenerator>)generator
                    nextModelState:(id (^)(id modelState, id generatedValue))nextState;
 
-+ (instancetype)forCallingSelector:(SEL)selector
-                    nextModelState:(id (^)(id modelState, id generatedValue))nextState;
++ (instancetype)byCallingSelector:(SEL)selector
+                   nextModelState:(id (^)(id modelState, id generatedValue))nextState;
 
 - (instancetype)initWithGenerator:(id<PBTGenerator>)generator
                            action:(id(^)(id actualState, id generatedValue))action

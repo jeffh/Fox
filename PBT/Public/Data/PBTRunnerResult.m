@@ -30,7 +30,7 @@
     [string appendString:(self.succeeded ? @"passed" : @"FAILED")];
     [string appendFormat:@"\n seed: %u", self.seed];
     [string appendFormat:@"\n maximum size: %lu", (unsigned long)self.maxSize];
-    [string appendFormat:@"\n number of tests until failure: %lu", (unsigned long)self.numberOfTests];
+    [string appendFormat:@"\n number of tests before failing: %lu", (unsigned long)self.numberOfTests];
 
     if (!self.succeeded) {
         [string appendFormat:@"\n size that failed: %lu", (unsigned long)self.failingSize];

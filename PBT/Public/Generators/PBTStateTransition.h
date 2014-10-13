@@ -32,6 +32,16 @@
  */
 @protocol PBTStateTransition <NSObject>
 
+/*! This indicates the method invocation call this transition invokes on the subject.
+ *
+ *  This is used for debugging information. The string should populate this template string:
+ *
+ *    "Called -[subject %@]"
+ *
+ *  Example:
+ *
+ *    "Called - [subject foo:1]"
+ */
 - (NSString *)descriptionWithGeneratedValue:(id)generatedValue;
 
 /*! This indicates if the current state can use this transition to move to

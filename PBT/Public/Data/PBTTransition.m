@@ -32,8 +32,8 @@
     return transition;
 }
 
-+ (instancetype)forCallingSelector:(SEL)selector
-                    nextModelState:(id (^)(id modelState, id generatedValue))nextState
++ (instancetype)byCallingSelector:(SEL)selector
+                   nextModelState:(id (^)(id modelState, id generatedValue))nextState
 {
     return [self byCallingSelector:selector withGenerator:nil nextModelState:nextState];
 }
@@ -56,11 +56,6 @@
                 nextModelState:(id (^)(id modelState, id generatedValue))nextState
 {
     return [self initWithGenerator:nil action:action nextModelState:nextState];
-}
-
-- (NSString *)description
-{
-    return self.name;
 }
 
 #pragma mark - PBTStateTransition
