@@ -42,6 +42,7 @@
  *
  *    "Called - [subject foo:1]"
  */
+@required
 - (NSString *)descriptionWithGeneratedValue:(id)generatedValue;
 
 /*! This indicates if the current state can use this transition to move to
