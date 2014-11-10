@@ -77,7 +77,8 @@ PBT_EXPORT id<PBTGenerator> PBTOneOf(NSArray *generators) {
     NSCAssert(([generators filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self conformsToProtocol: %@", @protocol(PBTGenerator)]].count),
               @"array elements do not all conform to @protocol(PBTGenerator)");
     return PBTWithName(@"OneOf", PBTGenBind(PBTChoose(@0, @(generators.count - 1)), ^id<PBTGenerator>(PBTRoseTree *sizeTree) {
-        return generators[[sizeTree.value integerValue]];
+        NSUInteger index = (NSUInteger)[sizeTree.value integerValue];
+        return generators[index];
     }));
 }
 
@@ -85,7 +86,8 @@ PBT_EXPORT id<PBTGenerator> PBTElements(NSArray *elements) {
     NSCParameterAssert(elements.count);
     return PBTGenBind(PBTChoose(@0, @(elements.count - 1)), ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
         return PBTGenPure([generatorTree treeByApplyingBlock:^id(NSNumber *number) {
-            return elements[[number integerValue]];
+            NSUInteger index = (NSUInteger)[number integerValue];
+            return elements[index];
         }]);
     });
 }
