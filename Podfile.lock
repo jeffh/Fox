@@ -1,10 +1,15 @@
 PODS:
-  - Cedar (HEAD based on 0.9.7)
+  - Cedar (0.10.0)
 
 DEPENDENCIES:
-  - Cedar (HEAD)
+  - Cedar (from `../Cedar`)
+
+EXTERNAL SOURCES:
+  Cedar:
+    :branch: cg-matchers-osx
+    :path: ../Cedar
 
 SPEC CHECKSUMS:
-  Cedar: d704a464f628b39ce763d49f42b5510a9e0b03b9
+  Cedar: ad7dba21c345daaf5714d5ff41febc51b8444a1b
 
-COCOAPODS: 0.34.2
+COCOAPODS: 0.34.4
