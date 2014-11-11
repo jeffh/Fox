@@ -1,3 +1,4 @@
+#import <Cedar/Cedar.h>
 #import "PBTDeterministicRandom.h"
 #import "PBTSpecHelper.h"
 

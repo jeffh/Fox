@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1F6016441919DF90003D8484"
-               BuildableName = "PBTSpecs.octest"
+               BlueprintIdentifier = "1F9BA18C1A11CFA90053B3C5"
+               BuildableName = "PBTSpecs.xctest"
                BlueprintName = "PBTSpecs"
                ReferencedContainer = "container:PBT.xcodeproj">
             </BuildableReference>
@@ -49,6 +49,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1F60160B1919DCE0003D8484"
+            BuildableName = "libPBT.a"
+            BlueprintName = "PBT"
+            ReferencedContainer = "container:PBT.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

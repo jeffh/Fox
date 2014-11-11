@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		165D2B012DAD434C88132AE8 /* libPods-PBTOSXSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77BAA3674CD14BCA971CCA79 /* libPods-PBTOSXSpecs.a */; };
-		1F2A94F61997383300471B24 /* PBTTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A94F51997383300471B24 /* PBTTransition.m */; };
+		18467B895BA56530D5998FCA /* libPods-PBTSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E463FF96642B589CA99D1 /* libPods-PBTSpecs.a */; };
 		1F2A94F71997383300471B24 /* PBTTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A94F51997383300471B24 /* PBTTransition.m */; };
 		1F3462661924780800AE515C /* PBTConstantRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E4FFE7B868F0EA1A6D3 /* PBTConstantRandom.m */; };
 		1F3462671924780800AE515C /* PBTDeterministicRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7367B3E11AD0DC06F6595 /* PBTDeterministicRandom.mm */; };
@@ -20,13 +20,9 @@
 		1F35BC28198D881900BEA6E1 /* PBTArrayGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC26198D881900BEA6E1 /* PBTArrayGenerator.m */; };
 		1F35BC2B198D89DF00BEA6E1 /* PBTTupleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2A198D89DF00BEA6E1 /* PBTTupleGenerator.m */; };
 		1F35BC2C198D89DF00BEA6E1 /* PBTTupleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2A198D89DF00BEA6E1 /* PBTTupleGenerator.m */; };
-		1F35BC2E198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2D198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm */; };
 		1F35BC2F198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2D198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm */; };
-		1F35BC31198DF48A00BEA6E1 /* PBTChooseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC30198DF48A00BEA6E1 /* PBTChooseSpec.mm */; };
 		1F35BC32198DF48A00BEA6E1 /* PBTChooseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC30198DF48A00BEA6E1 /* PBTChooseSpec.mm */; };
-		1F35BC34198DF77400BEA6E1 /* PBTCharacterSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC33198DF77400BEA6E1 /* PBTCharacterSpec.mm */; };
 		1F35BC35198DF77400BEA6E1 /* PBTCharacterSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC33198DF77400BEA6E1 /* PBTCharacterSpec.mm */; };
-		1F35BC37198F78C200BEA6E1 /* PBTRoseTreeSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC36198F78C200BEA6E1 /* PBTRoseTreeSpec.mm */; };
 		1F35BC38198F78C200BEA6E1 /* PBTRoseTreeSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC36198F78C200BEA6E1 /* PBTRoseTreeSpec.mm */; };
 		1F35BC3B198F7C9A00BEA6E1 /* PBTBlockGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3A198F7C9A00BEA6E1 /* PBTBlockGenerator.m */; };
 		1F35BC3C198F7C9A00BEA6E1 /* PBTBlockGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3A198F7C9A00BEA6E1 /* PBTBlockGenerator.m */; };
@@ -50,31 +46,17 @@
 		1F46E51D198CB78000F87028 /* PBTChooseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51B198CB78000F87028 /* PBTChooseGenerator.m */; };
 		1F46E520198CBAF100F87028 /* PBTSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51F198CBAF100F87028 /* PBTSequenceGenerator.m */; };
 		1F46E521198CBAF100F87028 /* PBTSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51F198CBAF100F87028 /* PBTSequenceGenerator.m */; };
-		1F50188A1991D37A001AB3A9 /* PBTQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018891991D37A001AB3A9 /* PBTQueue.m */; };
 		1F50188B1991D37A001AB3A9 /* PBTQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018891991D37A001AB3A9 /* PBTQueue.m */; };
-		1F50188D1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F50188C1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm */; };
 		1F50188E1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F50188C1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm */; };
 		1F5018951991D708001AB3A9 /* PBTFiniteStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018941991D708001AB3A9 /* PBTFiniteStateMachine.m */; };
-		1F59A81D196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */; };
 		1F59A81E196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */; };
 		1F6016101919DCE0003D8484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
-		1F6016471919DF90003D8484 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6016461919DF90003D8484 /* SenTestingKit.framework */; };
-		1F6016491919DF90003D8484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6016481919DF90003D8484 /* CoreGraphics.framework */; };
-		1F60164A1919DF90003D8484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6016201919DCE0003D8484 /* UIKit.framework */; };
-		1F60164B1919DF90003D8484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
-		1F6016511919DF90003D8484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F60164F1919DF90003D8484 /* InfoPlist.strings */; };
-		1F61E450196E88A6003EA164 /* PBTReturnSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */; };
 		1F61E451196E88A6003EA164 /* PBTReturnSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */; };
-		1F61E456196E8AEF003EA164 /* PBTSequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */; };
 		1F61E457196E8AEF003EA164 /* PBTSequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */; };
-		1F7EFA12191B4BE70074B028 /* libPBT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160C1919DCE0003D8484 /* libPBT.a */; };
 		1F7EFA2A191B63970074B028 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
 		1F7EFA32191B63980074B028 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7EFA31191B63980074B028 /* main.m */; };
-		1F848B421977965500F0966E /* PBTPositiveIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */; };
 		1F848B431977965500F0966E /* PBTPositiveIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */; };
-		1F848B4519779F6600F0966E /* PBTNegativeIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B4419779F6600F0966E /* PBTNegativeIntegerSpec.mm */; };
 		1F848B4619779F6600F0966E /* PBTNegativeIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B4419779F6600F0966E /* PBTNegativeIntegerSpec.mm */; };
-		1F848B491977B8F100F0966E /* PBTArraySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B481977B8F100F0966E /* PBTArraySpec.mm */; };
 		1F848B4A1977B8F100F0966E /* PBTArraySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B481977B8F100F0966E /* PBTArraySpec.mm */; };
 		1F8FDBEC1987773F0059D31A /* PBTConcreteSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBE91987773F0059D31A /* PBTConcreteSequence.m */; };
 		1F8FDBED1987773F0059D31A /* PBTConcreteSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBE91987773F0059D31A /* PBTConcreteSequence.m */; };
@@ -82,25 +64,44 @@
 		1F8FDBEF1987773F0059D31A /* PBTLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBEB1987773F0059D31A /* PBTLazySequence.m */; };
 		1F8FDBF2198777540059D31A /* PBTSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* PBTSequenceEnumerator.m */; };
 		1F8FDBF3198777540059D31A /* PBTSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* PBTSequenceEnumerator.m */; };
-		1F8FDBFA1988B4BA0059D31A /* PBTSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF91988B4BA0059D31A /* PBTSpecHelper.m */; };
 		1F8FDBFB1988B4BA0059D31A /* PBTSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF91988B4BA0059D31A /* PBTSpecHelper.m */; };
-		1F8FDBFD1989F9DD0059D31A /* PBTSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */; };
 		1F8FDBFE1989F9DD0059D31A /* PBTSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */; };
-		1F8FDC001989FE530059D31A /* PBTDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */; };
 		1F8FDC011989FE530059D31A /* PBTDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */; };
-		1F8FDC031989FED70059D31A /* PBTStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* PBTStringSpec.mm */; };
 		1F8FDC041989FED70059D31A /* PBTStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* PBTStringSpec.mm */; };
+		1F9BA1931A11CFA90053B3C5 /* libPBT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160C1919DCE0003D8484 /* libPBT.a */; };
+		1F9BA1991A11CFB70053B3C5 /* PBTArraySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B481977B8F100F0966E /* PBTArraySpec.mm */; };
+		1F9BA19A1A11CFB70053B3C5 /* PBTChooseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC30198DF48A00BEA6E1 /* PBTChooseSpec.mm */; };
+		1F9BA19B1A11CFB70053B3C5 /* PBTDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */; };
+		1F9BA19C1A11CFB70053B3C5 /* PBTIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* PBTIntegerSpec.mm */; };
+		1F9BA19D1A11CFB70053B3C5 /* PBTNegativeIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B4419779F6600F0966E /* PBTNegativeIntegerSpec.mm */; };
+		1F9BA19E1A11CFB70053B3C5 /* PBTPositiveIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */; };
+		1F9BA19F1A11CFB70053B3C5 /* PBTReturnSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */; };
+		1F9BA1A01A11CFB70053B3C5 /* PBTSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */; };
+		1F9BA1A11A11CFB70053B3C5 /* PBTStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* PBTStringSpec.mm */; };
+		1F9BA1A21A11CFB70053B3C5 /* PBTTupleGeneratorSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2D198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm */; };
+		1F9BA1A31A11CFB70053B3C5 /* PBTCharacterSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC33198DF77400BEA6E1 /* PBTCharacterSpec.mm */; };
+		1F9BA1A41A11CFB70053B3C5 /* PBTFiniteStateMachineSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F50188C1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm */; };
+		1F9BA1A51A11CFB70053B3C5 /* PBTSuchThatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A35199606F800803AF3 /* PBTSuchThatSpec.mm */; };
+		1F9BA1A61A11CFB70053B3C5 /* PBTPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */; };
+		1F9BA1A71A11D0410053B3C5 /* NSArray+FastEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */; };
+		1F9BA1A81A11D0460053B3C5 /* PBTQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018891991D37A001AB3A9 /* PBTQueue.m */; };
+		1F9BA1A91A11D0460053B3C5 /* PBTQueueAddTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73029745CB5B325095CB3 /* PBTQueueAddTransition.m */; };
+		1F9BA1AA1A11D0460053B3C5 /* PBTQueueRemoveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73BE31D123C54907C7EE3 /* PBTQueueRemoveTransition.m */; };
+		1F9BA1AB1A11D0460053B3C5 /* PBTSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF91988B4BA0059D31A /* PBTSpecHelper.m */; };
+		1F9BA1AC1A11D04C0053B3C5 /* PBTRandomSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC471990CB6400BEA6E1 /* PBTRandomSpec.mm */; };
+		1F9BA1AD1A11D04D0053B3C5 /* PBTRandomSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC471990CB6400BEA6E1 /* PBTRandomSpec.mm */; };
+		1F9BA1AE1A11D0520053B3C5 /* PBTSequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */; };
+		1F9BA1AF1A11D0520053B3C5 /* PBTRoseTreeSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC36198F78C200BEA6E1 /* PBTRoseTreeSpec.mm */; };
+		1F9BA1B01A11D2520053B3C5 /* PBTTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A94F51997383300471B24 /* PBTTransition.m */; };
 		1F9BDD9719EA501500BAF25E /* PBTExecutedCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9BDD9619EA501500BAF25E /* PBTExecutedCommand.m */; };
 		1F9BDD9919EA54F400BAF25E /* PBTFiniteStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018941991D708001AB3A9 /* PBTFiniteStateMachine.m */; };
 		1F9BDD9A19EA54FB00BAF25E /* PBTExecutedCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9BDD9619EA501500BAF25E /* PBTExecutedCommand.m */; };
 		1FA0002A19EB0F71008BB037 /* PBTArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0002919EB0F71008BB037 /* PBTArray.m */; };
 		1FA0002B19EB0F71008BB037 /* PBTArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0002919EB0F71008BB037 /* PBTArray.m */; };
-		1FA94A36199606F800803AF3 /* PBTSuchThatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A35199606F800803AF3 /* PBTSuchThatSpec.mm */; };
 		1FA94A37199606F800803AF3 /* PBTSuchThatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A35199606F800803AF3 /* PBTSuchThatSpec.mm */; };
 		1FA94A3A199609D000803AF3 /* PBTSuchThatGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A39199609D000803AF3 /* PBTSuchThatGenerator.m */; };
 		1FA94A3B199609D000803AF3 /* PBTSuchThatGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A39199609D000803AF3 /* PBTSuchThatGenerator.m */; };
 		1FC3B983191B663600AA359B /* PBTPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */; };
-		1FF5B93619737D4600416383 /* PBTIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* PBTIntegerSpec.mm */; };
 		1FF5B93719737D4600416383 /* PBTIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* PBTIntegerSpec.mm */; };
 		1FF5B93E1973BD9000416383 /* PBTRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* PBTRoseTree.m */; };
 		1FF5B93F1973BD9000416383 /* PBTRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* PBTRoseTree.m */; };
@@ -122,22 +123,18 @@
 		31B739F4E96E95DB627EF8C3 /* PBTCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C0260617192E88A3392 /* PBTCommand.m */; };
 		31B73A187530BC9FEB4A3631 /* PBTCoreGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F6A9C93C681CE532804 /* PBTCoreGenerators.m */; };
 		31B73A5F7884A7DC970148D4 /* PBTPropertyGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73CE3BB0FE0A496DEA102 /* PBTPropertyGenerators.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
-		31B73BE4B51F6DCC7230A40B /* PBTQueueRemoveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73BE31D123C54907C7EE3 /* PBTQueueRemoveTransition.m */; };
 		31B73C87EA2A3923327A60FF /* PBTStateMachineGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AAAC1A903382CE73DC4 /* PBTStateMachineGenerators.m */; };
 		31B73CC8C2DBD8E91FA49880 /* PBTQueueAddTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73029745CB5B325095CB3 /* PBTQueueAddTransition.m */; };
-		31B73CCA0CFC274B9068281C /* PBTPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* PBTPropertySpec.mm */; };
 		31B73CF6F20CF5FF10AADAD4 /* PBTSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B733ACE038CF303D9ECC27 /* PBTSequence.m */; };
 		31B73D53EB506977E8B6D87D /* PBTConstantRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E4FFE7B868F0EA1A6D3 /* PBTConstantRandom.m */; };
 		31B73D9927A4467233CE38CA /* PBTDictionaryGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FCF31FFF93B1783938C /* PBTDictionaryGenerators.m */; };
 		31B73E318D310CCDB7ADB91C /* PBTStateMachineGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AAAC1A903382CE73DC4 /* PBTStateMachineGenerators.m */; };
-		31B73F8B45D4F6222DC77E9D /* PBTQueueAddTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73029745CB5B325095CB3 /* PBTQueueAddTransition.m */; };
 		31B73FA23522FA7FC4604F7C /* PBTNumericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F0233EF475592DC4F26 /* PBTNumericGenerators.m */; };
 		31B73FAD1A10E9E84AD53ECA /* PBTStringGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E288878A28D1FD44435 /* PBTStringGenerators.m */; };
-		D73EBA85B776476FA344D2BD /* libPods-PBTSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E463FF96642B589CA99D1 /* libPods-PBTSpecs.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1F7EFA0F191B4BCD0074B028 /* PBXContainerItemProxy */ = {
+		1F9BA1941A11CFA90053B3C5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1F6016041919DCE0003D8484 /* Project object */;
 			proxyType = 1;
@@ -208,12 +205,8 @@
 		1F6016131919DCE0003D8484 /* PBT-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBT-Prefix.pch"; sourceTree = "<group>"; };
 		1F60161D1919DCE0003D8484 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F6016201919DCE0003D8484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		1F6016451919DF90003D8484 /* PBTSpecs.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PBTSpecs.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6016461919DF90003D8484 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1F6016481919DF90003D8484 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		1F60164E1919DF90003D8484 /* PBTSpecs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PBTSpecs-Info.plist"; sourceTree = "<group>"; };
-		1F6016501919DF90003D8484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1F6016571919DF91003D8484 /* PBTSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBTSpecs-Prefix.pch"; sourceTree = "<group>"; };
 		1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTReturnSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTSequenceSpec.mm; sourceTree = "<group>"; };
 		1F7EFA29191B63970074B028 /* PBTOSXSpecs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PBTOSXSpecs; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +227,8 @@
 		1F8FDBFC1989F9DD0059D31A /* PBTSetSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTSetSpec.mm; sourceTree = "<group>"; };
 		1F8FDBFF1989FE530059D31A /* PBTDictionarySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTDictionarySpec.mm; sourceTree = "<group>"; };
 		1F8FDC021989FED70059D31A /* PBTStringSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTStringSpec.mm; sourceTree = "<group>"; };
+		1F9BA18D1A11CFA90053B3C5 /* PBTSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PBTSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F9BA1901A11CFA90053B3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F9BDD9519EA501500BAF25E /* PBTExecutedCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTExecutedCommand.h; sourceTree = "<group>"; };
 		1F9BDD9619EA501500BAF25E /* PBTExecutedCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTExecutedCommand.m; sourceTree = "<group>"; };
 		1FA0002819EB0F71008BB037 /* PBTArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTArray.h; sourceTree = "<group>"; };
@@ -283,10 +278,10 @@
 		31B73FBA1C97463CD5A8D15D /* PBTCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTCommand.h; sourceTree = "<group>"; };
 		31B73FCF31FFF93B1783938C /* PBTDictionaryGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTDictionaryGenerators.m; sourceTree = "<group>"; };
 		438E463FF96642B589CA99D1 /* libPods-PBTSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PBTSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		73E9C7640150DB3035156B39 /* Pods-PBTSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBTSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-PBTSpecs/Pods-PBTSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		77BAA3674CD14BCA971CCA79 /* libPods-PBTOSXSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PBTOSXSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C40C1DFBFFBE52D616ED9B8 /* Pods-PBTOSXSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBTOSXSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-PBTOSXSpecs/Pods-PBTOSXSpecs.release.xcconfig"; sourceTree = "<group>"; };
-		982684ED35AC2FE382E6AE08 /* Pods-PBTSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBTSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PBTSpecs/Pods-PBTSpecs.debug.xcconfig"; sourceTree = "<group>"; };
+		95D912A77127219F75B3AAD3 /* Pods-PBTSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBTSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PBTSpecs/Pods-PBTSpecs.debug.xcconfig"; sourceTree = "<group>"; };
+		9D2336B261B16AF402A4E0DB /* Pods-PBTSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBTSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-PBTSpecs/Pods-PBTSpecs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,25 +293,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F6016411919DF90003D8484 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1F7EFA12191B4BE70074B028 /* libPBT.a in Frameworks */,
-				1F6016491919DF90003D8484 /* CoreGraphics.framework in Frameworks */,
-				1F60164A1919DF90003D8484 /* UIKit.framework in Frameworks */,
-				1F6016471919DF90003D8484 /* SenTestingKit.framework in Frameworks */,
-				1F60164B1919DF90003D8484 /* Foundation.framework in Frameworks */,
-				D73EBA85B776476FA344D2BD /* libPods-PBTSpecs.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1F7EFA27191B63970074B028 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1F7EFA2A191B63970074B028 /* Foundation.framework in Frameworks */,
 				165D2B012DAD434C88132AE8 /* libPods-PBTOSXSpecs.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F9BA18A1A11CFA90053B3C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F9BA1931A11CFA90053B3C5 /* libPBT.a in Frameworks */,
+				18467B895BA56530D5998FCA /* libPods-PBTSpecs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,8 +405,8 @@
 			isa = PBXGroup;
 			children = (
 				1F60160C1919DCE0003D8484 /* libPBT.a */,
-				1F6016451919DF90003D8484 /* PBTSpecs.octest */,
 				1F7EFA29191B63970074B028 /* PBTOSXSpecs */,
+				1F9BA18D1A11CFA90053B3C5 /* PBTSpecs.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -501,19 +492,9 @@
 				1F59A81A196E8FE300957FAA /* Extensions */,
 				1F59A819196E8FC000957FAA /* Helpers */,
 				1F60165B1919E283003D8484 /* Public */,
-				1F60164D1919DF90003D8484 /* Supporting Files */,
+				1F9BA18F1A11CFA90053B3C5 /* Supporting Files */,
 			);
 			path = PBTSpecs;
-			sourceTree = "<group>";
-		};
-		1F60164D1919DF90003D8484 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1F60164E1919DF90003D8484 /* PBTSpecs-Info.plist */,
-				1F60164F1919DF90003D8484 /* InfoPlist.strings */,
-				1F6016571919DF91003D8484 /* PBTSpecs-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		1F60165B1919E283003D8484 /* Public */ = {
@@ -595,6 +576,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		1F9BA18F1A11CFA90053B3C5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F9BA1901A11CFA90053B3C5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		31B736A976CDB3B7301033AB /* Random */ = {
 			isa = PBXGroup;
 			children = (
@@ -635,8 +624,8 @@
 			children = (
 				20E3FB09FB89C2A364E190C0 /* Pods-PBTOSXSpecs.debug.xcconfig */,
 				7C40C1DFBFFBE52D616ED9B8 /* Pods-PBTOSXSpecs.release.xcconfig */,
-				982684ED35AC2FE382E6AE08 /* Pods-PBTSpecs.debug.xcconfig */,
-				73E9C7640150DB3035156B39 /* Pods-PBTSpecs.release.xcconfig */,
+				95D912A77127219F75B3AAD3 /* Pods-PBTSpecs.debug.xcconfig */,
+				9D2336B261B16AF402A4E0DB /* Pods-PBTSpecs.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -661,27 +650,6 @@
 			productReference = 1F60160C1919DCE0003D8484 /* libPBT.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		1F6016441919DF90003D8484 /* PBTSpecs */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1F6016581919DF91003D8484 /* Build configuration list for PBXNativeTarget "PBTSpecs" */;
-			buildPhases = (
-				8CD29E692D1946F2BF9C66EE /* Check Pods Manifest.lock */,
-				1F6016401919DF90003D8484 /* Sources */,
-				1F6016411919DF90003D8484 /* Frameworks */,
-				1F6016421919DF90003D8484 /* Resources */,
-				1F6016431919DF90003D8484 /* ShellScript */,
-				45A53A26DABB4864A684F23E /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1F7EFA10191B4BCD0074B028 /* PBXTargetDependency */,
-			);
-			name = PBTSpecs;
-			productName = PBTSpecs;
-			productReference = 1F6016451919DF90003D8484 /* PBTSpecs.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
-		};
 		1F7EFA28191B63970074B028 /* PBTOSXSpecs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F7EFA35191B63980074B028 /* Build configuration list for PBXNativeTarget "PBTOSXSpecs" */;
@@ -700,6 +668,26 @@
 			productReference = 1F7EFA29191B63970074B028 /* PBTOSXSpecs */;
 			productType = "com.apple.product-type.tool";
 		};
+		1F9BA18C1A11CFA90053B3C5 /* PBTSpecs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F9BA1961A11CFA90053B3C5 /* Build configuration list for PBXNativeTarget "PBTSpecs" */;
+			buildPhases = (
+				94506BF6E52C1CB586E45008 /* Check Pods Manifest.lock */,
+				1F9BA1891A11CFA90053B3C5 /* Sources */,
+				1F9BA18A1A11CFA90053B3C5 /* Frameworks */,
+				1F9BA18B1A11CFA90053B3C5 /* Resources */,
+				0E26B54CA8BAD61D3228E1AD /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F9BA1951A11CFA90053B3C5 /* PBXTargetDependency */,
+			);
+			name = PBTSpecs;
+			productName = PBTSpecs;
+			productReference = 1F9BA18D1A11CFA90053B3C5 /* PBTSpecs.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -710,8 +698,8 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jeff Hui";
 				TargetAttributes = {
-					1F6016441919DF90003D8484 = {
-						TestTargetID = 1F60160B1919DCE0003D8484;
+					1F9BA18C1A11CFA90053B3C5 = {
+						CreatedOnToolsVersion = 6.1;
 					};
 				};
 			};
@@ -728,18 +716,17 @@
 			projectRoot = "";
 			targets = (
 				1F60160B1919DCE0003D8484 /* PBT */,
-				1F6016441919DF90003D8484 /* PBTSpecs */,
 				1F7EFA28191B63970074B028 /* PBTOSXSpecs */,
+				1F9BA18C1A11CFA90053B3C5 /* PBTSpecs */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1F6016421919DF90003D8484 /* Resources */ = {
+		1F9BA18B1A11CFA90053B3C5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F6016511919DF90003D8484 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,20 +748,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		1F6016431919DF90003D8484 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		45A53A26DABB4864A684F23E /* Copy Pods Resources */ = {
+		0E26B54CA8BAD61D3228E1AD /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -789,7 +763,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PBTSpecs/Pods-PBTSpecs-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8CD29E692D1946F2BF9C66EE /* Check Pods Manifest.lock */ = {
+		94506BF6E52C1CB586E45008 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -851,9 +825,9 @@
 				1F35BC27198D881900BEA6E1 /* PBTArrayGenerator.m in Sources */,
 				1F35BC3B198F7C9A00BEA6E1 /* PBTBlockGenerator.m in Sources */,
 				1FA0002A19EB0F71008BB037 /* PBTArray.m in Sources */,
+				1F9BA1B01A11D2520053B3C5 /* PBTTransition.m in Sources */,
 				1FF5B93E1973BD9000416383 /* PBTRoseTree.m in Sources */,
 				31B735B7CCFCD90D521378FC /* PBTCommand.m in Sources */,
-				1F2A94F61997383300471B24 /* PBTTransition.m in Sources */,
 				31B73A5F7884A7DC970148D4 /* PBTPropertyGenerators.m in Sources */,
 				31B734C77CE50AF2827BA35C /* PBTPropertyResult.m in Sources */,
 				31B73A187530BC9FEB4A3631 /* PBTCoreGenerators.m in Sources */,
@@ -863,34 +837,6 @@
 				31B7306F3DE18171A4D1A2CE /* PBTSetGenerators.m in Sources */,
 				31B73D9927A4467233CE38CA /* PBTDictionaryGenerators.m in Sources */,
 				31B73E318D310CCDB7ADB91C /* PBTStateMachineGenerators.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1F6016401919DF90003D8484 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FF5B93619737D4600416383 /* PBTIntegerSpec.mm in Sources */,
-				1F59A81D196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */,
-				1F8FDBFD1989F9DD0059D31A /* PBTSetSpec.mm in Sources */,
-				1F848B4519779F6600F0966E /* PBTNegativeIntegerSpec.mm in Sources */,
-				31B73CCA0CFC274B9068281C /* PBTPropertySpec.mm in Sources */,
-				1F848B491977B8F100F0966E /* PBTArraySpec.mm in Sources */,
-				1FA94A36199606F800803AF3 /* PBTSuchThatSpec.mm in Sources */,
-				1F8FDC001989FE530059D31A /* PBTDictionarySpec.mm in Sources */,
-				1F50188D1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm in Sources */,
-				1F50188A1991D37A001AB3A9 /* PBTQueue.m in Sources */,
-				1F35BC2E198DB6AA00BEA6E1 /* PBTTupleGeneratorSpec.mm in Sources */,
-				1F35BC34198DF77400BEA6E1 /* PBTCharacterSpec.mm in Sources */,
-				1F61E450196E88A6003EA164 /* PBTReturnSpec.mm in Sources */,
-				1F35BC37198F78C200BEA6E1 /* PBTRoseTreeSpec.mm in Sources */,
-				1F8FDC031989FED70059D31A /* PBTStringSpec.mm in Sources */,
-				1F8FDBFA1988B4BA0059D31A /* PBTSpecHelper.m in Sources */,
-				1F848B421977965500F0966E /* PBTPositiveIntegerSpec.mm in Sources */,
-				1F61E456196E8AEF003EA164 /* PBTSequenceSpec.mm in Sources */,
-				1F35BC31198DF48A00BEA6E1 /* PBTChooseSpec.mm in Sources */,
-				31B73BE4B51F6DCC7230A40B /* PBTQueueRemoveTransition.m in Sources */,
-				31B73F8B45D4F6222DC77E9D /* PBTQueueAddTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,6 +850,7 @@
 				1F8FDBFE1989F9DD0059D31A /* PBTSetSpec.mm in Sources */,
 				1F59A81E196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */,
 				1F3462661924780800AE515C /* PBTConstantRandom.m in Sources */,
+				1F9BA1AD1A11D04D0053B3C5 /* PBTRandomSpec.mm in Sources */,
 				1FA94A3B199609D000803AF3 /* PBTSuchThatGenerator.m in Sources */,
 				1F8FDBFB1988B4BA0059D31A /* PBTSpecHelper.m in Sources */,
 				1F46E515198CB4C000F87028 /* PBTBindGenerator.m in Sources */,
@@ -960,26 +907,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F9BA1891A11CFA90053B3C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F9BA1A81A11D0460053B3C5 /* PBTQueue.m in Sources */,
+				1F9BA19C1A11CFB70053B3C5 /* PBTIntegerSpec.mm in Sources */,
+				1F9BA19D1A11CFB70053B3C5 /* PBTNegativeIntegerSpec.mm in Sources */,
+				1F9BA1A01A11CFB70053B3C5 /* PBTSetSpec.mm in Sources */,
+				1F9BA1A11A11CFB70053B3C5 /* PBTStringSpec.mm in Sources */,
+				1F9BA19A1A11CFB70053B3C5 /* PBTChooseSpec.mm in Sources */,
+				1F9BA1AC1A11D04C0053B3C5 /* PBTRandomSpec.mm in Sources */,
+				1F9BA1A71A11D0410053B3C5 /* NSArray+FastEnumerator.m in Sources */,
+				1F9BA19E1A11CFB70053B3C5 /* PBTPositiveIntegerSpec.mm in Sources */,
+				1F9BA1A61A11CFB70053B3C5 /* PBTPropertySpec.mm in Sources */,
+				1F9BA1A41A11CFB70053B3C5 /* PBTFiniteStateMachineSpec.mm in Sources */,
+				1F9BA1A91A11D0460053B3C5 /* PBTQueueAddTransition.m in Sources */,
+				1F9BA1AB1A11D0460053B3C5 /* PBTSpecHelper.m in Sources */,
+				1F9BA1AA1A11D0460053B3C5 /* PBTQueueRemoveTransition.m in Sources */,
+				1F9BA1A21A11CFB70053B3C5 /* PBTTupleGeneratorSpec.mm in Sources */,
+				1F9BA19B1A11CFB70053B3C5 /* PBTDictionarySpec.mm in Sources */,
+				1F9BA1A31A11CFB70053B3C5 /* PBTCharacterSpec.mm in Sources */,
+				1F9BA19F1A11CFB70053B3C5 /* PBTReturnSpec.mm in Sources */,
+				1F9BA1AF1A11D0520053B3C5 /* PBTRoseTreeSpec.mm in Sources */,
+				1F9BA1A51A11CFB70053B3C5 /* PBTSuchThatSpec.mm in Sources */,
+				1F9BA1AE1A11D0520053B3C5 /* PBTSequenceSpec.mm in Sources */,
+				1F9BA1991A11CFB70053B3C5 /* PBTArraySpec.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1F7EFA10191B4BCD0074B028 /* PBXTargetDependency */ = {
+		1F9BA1951A11CFA90053B3C5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1F60160B1919DCE0003D8484 /* PBT */;
-			targetProxy = 1F7EFA0F191B4BCD0074B028 /* PBXContainerItemProxy */;
+			targetProxy = 1F9BA1941A11CFA90053B3C5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		1F60164F1919DF90003D8484 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F6016501919DF90003D8484 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1F60162D1919DCE0003D8484 /* Debug */ = {
@@ -1084,54 +1049,6 @@
 			};
 			name = Release;
 		};
-		1F6016591919DF91003D8484 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 982684ED35AC2FE382E6AE08 /* Pods-PBTSpecs.debug.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PBTSpecs/PBTSpecs-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "PBTSpecs/PBTSpecs-Info.plist";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-all_load",
-					"-lstdc++",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		1F60165A1919DF91003D8484 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73E9C7640150DB3035156B39 /* Pods-PBTSpecs.release.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PBTSpecs/PBTSpecs-Prefix.pch";
-				INFOPLIST_FILE = "PBTSpecs/PBTSpecs-Info.plist";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-all_load",
-					"-lstdc++",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 		1F7EFA36191B63980074B028 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 20E3FB09FB89C2A364E190C0 /* Pods-PBTOSXSpecs.debug.xcconfig */;
@@ -1163,6 +1080,60 @@
 			};
 			name = Release;
 		};
+		1F9BA1971A11CFA90053B3C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95D912A77127219F75B3AAD3 /* Pods-PBTSpecs.debug.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PBTSpecs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-PBTSpecs-Cedar\"",
+					"-l\"c++\"",
+					"-framework",
+					XCTest,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1F9BA1981A11CFA90053B3C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D2336B261B16AF402A4E0DB /* Pods-PBTSpecs.release.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PBTSpecs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-PBTSpecs-Cedar\"",
+					"-l\"c++\"",
+					"-framework",
+					XCTest,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1184,20 +1155,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F6016581919DF91003D8484 /* Build configuration list for PBXNativeTarget "PBTSpecs" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1F6016591919DF91003D8484 /* Debug */,
-				1F60165A1919DF91003D8484 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		1F7EFA35191B63980074B028 /* Build configuration list for PBXNativeTarget "PBTOSXSpecs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F7EFA36191B63980074B028 /* Debug */,
 				1F7EFA37191B63980074B028 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F9BA1961A11CFA90053B3C5 /* Build configuration list for PBXNativeTarget "PBTSpecs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F9BA1971A11CFA90053B3C5 /* Debug */,
+				1F9BA1981A11CFA90053B3C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

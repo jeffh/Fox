@@ -1,3 +1,4 @@
+#import <Cedar/Cedar.h>
 #import "PBT.h"
 #import "PBTQueueRemoveTransition.h"
 #import "PBTQueueAddTransition.h"
@@ -27,8 +28,10 @@ describe(@"PBTFiniteStateMachine", ^{
         [stateMachine initialModelState] should equal(@[]);
     });
 
-    fit(@"should be able validate queue behavior", ^{
-        id<PBTGenerator> executedCommands = PBTExecuteCommands(stateMachine, ^id { return [PBTQueue new]; });
+    it(@"should be able validate queue behavior", ^{
+        id<PBTGenerator> executedCommands = PBTExecuteCommands(stateMachine, ^id {
+            return [PBTQueue new];
+        });
         PBTRunnerResult *result = [PBTSpecHelper resultForAll:executedCommands
                                                          then:^BOOL(NSArray *commands) {
              return PBTExecutedSuccessfully(commands);

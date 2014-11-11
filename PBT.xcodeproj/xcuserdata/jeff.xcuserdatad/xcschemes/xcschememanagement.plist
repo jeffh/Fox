@@ -12,7 +12,7 @@
 		<key>PBTOSXSpecs.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -33,6 +33,16 @@
 			<true/>
 		</dict>
 		<key>1F7EFA28191B63970074B028</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F9BA17C1A11CEAF0053B3C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F9BA18C1A11CFA90053B3C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,3 +1,4 @@
+#import <Cedar/Cedar.h>
 #import "PBTRoseTree.h"
 #import "PBTSequence.h"
 

@@ -9,6 +9,9 @@
 #import "PBTExecutedCommand.h"
 
 
+/**
+ Returns a generator of commands to execute from a given state machine.
+ */
 PBT_EXPORT id<PBTGenerator> PBTGenCommands(id<PBTStateMachine> stateMachine) {
     return PBTGenBind(PBTElements([stateMachine allTransitions]), ^id<PBTGenerator>(PBTRoseTree *generatorTree) {
         id<PBTStateTransition> transition = generatorTree.value;
@@ -33,12 +36,18 @@ PBT_EXPORT id<PBTGenerator> PBTCommands(id<PBTStateMachine> stateMachine) {
     });
 }
 
+/**
+ Returns a generator of executed commands using a given state machine and subject factory.
+ */
 PBT_EXPORT id<PBTGenerator> PBTExecuteCommands(id<PBTStateMachine> stateMachine, id (^subject)(void)) {
     return PBTMap(PBTCommands(stateMachine), ^id(NSArray *commands) {
         return [stateMachine executeCommandSequence:commands initialActualState:subject()];
     });
 }
 
+/**
+ Verifies if a given array of executed commands completed successfully.
+ */
 PBT_EXPORT BOOL PBTExecutedSuccessfully(NSArray *executedCommands) {
     for (PBTExecutedCommand *cmd in executedCommands) {
         if (![cmd wasSuccessfullyExecuted]) {

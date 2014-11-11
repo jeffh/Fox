@@ -1,7 +1,8 @@
+#import <Cedar/Cedar.h>
 #import "PBT.h"
 #import "PBTSpecHelper.h"
-#include "PBTStringGenerators.h"
-#include "PBTArrayGenerators.h"
+#import "PBTStringGenerators.h"
+#import "PBTArrayGenerators.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
