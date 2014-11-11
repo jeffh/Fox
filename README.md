@@ -72,8 +72,8 @@ PBTFiniteStateMachine *stateMachine = [[PBTFiniteStateMachine alloc] initWithIni
 // - The generator for the argument is a random integer in an NSNumber
 // - A block indicating how to update the model state. This should not mutate the original model state.
 [stateMachine addTransition:[PBTTransition byCallingSelector:@selector(addObject:)
-                                                withGenerator:PBTInteger()
-                                                nextModelState:^id(NSArray *modelState, id generatedValue) {
+                                               withGenerator:PBTInteger()
+                                              nextModelState:^id(NSArray *modelState, id generatedValue) {
     return [modelState arrayByAddingObject:generatedValue];
 }]];
 // Another way of adding a transition (see PBTStateTransition protocol)
@@ -91,7 +91,7 @@ id<PBTGenerator> executedCommands = PBTExecuteCommands(stateMachine, ^id {
 
 // Verify if the executed commands validated the API conformed to the state machine.
 PBTRunnerResult *result = [PBTSpecHelper resultForAll:executedCommands
-                                                    then:^BOOL(NSArray *commands) {
+                                                 then:^BOOL(NSArray *commands) {
     return PBTExecutedSuccessfully(commands);
 }];
 // result will shrinking to the small sequence of API calls to trigger the
