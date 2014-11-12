@@ -2,6 +2,7 @@ Capabilities.todo
 - Make the FSM transition API easier to use (shorter)
 - Make the Assertion of the FSM easier to use (shorter)
 - Make the Assertion of the data generators easier to use (shorter)
+- Remove cocoapods workspace dependency
 
 Documentation.todo
 - Generators

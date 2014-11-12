@@ -2,7 +2,7 @@
 #import "PBTCoreGenerators.h"
 #import "PBTGenerator.h"
 #import "PBTStringGenerator.h"
-#include "PBTArrayGenerators.h"
+#import "PBTArrayGenerators.h"
 
 PBT_EXPORT id<PBTGenerator> PBTCharacter(void) {
     return PBTWithName(@"Character", PBTChoose(@0, @255));

@@ -2,7 +2,7 @@
 #import "PBTSequence.h"
 #import "PBTSequenceGenerator.h"
 #import "PBTRoseTree.h"
-#include "PBTCoreGenerators.h"
+#import "PBTCoreGenerators.h"
 
 
 @interface PBTTupleGenerator ()

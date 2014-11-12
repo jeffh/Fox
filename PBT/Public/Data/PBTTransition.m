@@ -1,6 +1,6 @@
 #import "PBTTransition.h"
 #import "PBTGenerator.h"
-#include "PBTCoreGenerators.h"
+#import "PBTCoreGenerators.h"
 
 
 static void PBTPrepareInvocation(NSInvocation *invocation, NSArray *values);
