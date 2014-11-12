@@ -53,6 +53,7 @@
 		1F6016101919DCE0003D8484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
 		1F61E451196E88A6003EA164 /* PBTReturnSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */; };
 		1F61E457196E8AEF003EA164 /* PBTSequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */; };
+		1F6C41231A131D56003B6C83 /* PBTGenericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41221A131D56003B6C83 /* PBTGenericGenerators.m */; };
 		1F7EFA2A191B63970074B028 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
 		1F7EFA32191B63980074B028 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7EFA31191B63980074B028 /* main.m */; };
 		1F848B431977965500F0966E /* PBTPositiveIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */; };
@@ -209,6 +210,8 @@
 		1F6016481919DF90003D8484 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = PBTReturnSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTSequenceSpec.mm; sourceTree = "<group>"; };
+		1F6C41211A131D56003B6C83 /* PBTGenericGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTGenericGenerators.h; sourceTree = "<group>"; };
+		1F6C41221A131D56003B6C83 /* PBTGenericGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTGenericGenerators.m; sourceTree = "<group>"; };
 		1F7EFA29191B63970074B028 /* PBTOSXSpecs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PBTOSXSpecs; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7EFA2E191B63970074B028 /* PBTOSXSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBTOSXSpecs-Prefix.pch"; sourceTree = "<group>"; };
 		1F7EFA31191B63980074B028 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -482,6 +485,8 @@
 				31B73E4270D7E9BB43B88512 /* PBTStateTransition.h */,
 				31B73E65793C9A0F5F12FF3B /* PBTStringGenerators.h */,
 				31B73E288878A28D1FD44435 /* PBTStringGenerators.m */,
+				1F6C41211A131D56003B6C83 /* PBTGenericGenerators.h */,
+				1F6C41221A131D56003B6C83 /* PBTGenericGenerators.m */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
@@ -804,6 +809,7 @@
 				1F46E51C198CB78000F87028 /* PBTChooseGenerator.m in Sources */,
 				1F9BDD9719EA501500BAF25E /* PBTExecutedCommand.m in Sources */,
 				1F35BC441990CA5600BEA6E1 /* PBTStandardReporter.m in Sources */,
+				1F6C41231A131D56003B6C83 /* PBTGenericGenerators.m in Sources */,
 				1F35BC1F198D824600BEA6E1 /* PBTNamedGenerator.m in Sources */,
 				1F35BC23198D838300BEA6E1 /* PBTStringGenerator.m in Sources */,
 				1F46E520198CBAF100F87028 /* PBTSequenceGenerator.m in Sources */,

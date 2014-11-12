@@ -3,6 +3,7 @@
 
 @protocol PBTGenerator;
 
+PBT_EXPORT id<PBTGenerator> PBTBoolean(void);
 
 PBT_EXPORT id<PBTGenerator> PBTPositiveInteger(void);
 

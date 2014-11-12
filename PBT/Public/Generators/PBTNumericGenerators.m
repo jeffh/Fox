@@ -9,6 +9,10 @@ PBT_EXPORT id<PBTGenerator> _PBTNaturalInteger(void) {
     }));
 }
 
+PBT_EXPORT id<PBTGenerator> PBTBoolean(void) {
+    return PBTWithName(@"PBTBoolean", PBTChoose(@0, @1));
+}
+
 PBT_EXPORT id<PBTGenerator> PBTPositiveInteger(void) {
     return PBTWithName(@"PositiveInteger", _PBTNaturalInteger());
 }

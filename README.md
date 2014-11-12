@@ -18,8 +18,8 @@ of testing frameworks and/or libraries:
 PBT is a port of test.check for Objective-C. Unlike some ports of QuickCheck,
 PBT does implement shrinking (test.check does implement that too).
 
-Better than Example-Based Tests
-===============================
+More thorough than Example-Based Tests
+======================================
 
 Test generation can provide a better coverage than example-based tests. Instead
 of having to manually code test cases, PBT can generate tests for you.
@@ -97,5 +97,4 @@ PBTRunnerResult *result = [PBTSpecHelper resultForAll:executedCommands
 // result will shrinking to the small sequence of API calls to trigger the
 // failure if there is one
 ```
-
 
