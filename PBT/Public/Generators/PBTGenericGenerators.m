@@ -8,8 +8,15 @@
 
 PBT_EXPORT id<PBTGenerator> PBTSimpleType(void) {
     return PBTOneOf(@[PBTInteger(),
-                      PBTString(),
                       PBTCharacter(),
+                      PBTString(),
+                      PBTBoolean()]);
+}
+
+PBT_EXPORT id<PBTGenerator> PBTPrintableSimpleType(void) {
+    return PBTOneOf(@[PBTInteger(),
+                      PBTAsciiCharacter(),
+                      PBTAsciiString(),
                       PBTBoolean()]);
 }
 
