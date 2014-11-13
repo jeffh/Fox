@@ -21,6 +21,7 @@
 #import "PBTDictionaryGenerators.h"
 #import "PBTPropertyGenerators.h"
 #import "PBTStateMachineGenerators.h"
+#import "PBTGenericGenerators.h"
 
 // stateful testers
 #import "PBTFiniteStateMachine.h"
@@ -38,3 +39,4 @@
 
 // DSL
 #import "PBTMacros.h"
+#import "PBTDSL.h"

@@ -184,6 +184,8 @@ typedef struct _PBTShrinkReport {
 
     while ([shrinkChoices firstObject]) {
         PBTRoseTree *firstTree = [shrinkChoices firstObject];
+
+        // "try" next smallest permutation
         PBTPropertyResult *smallestCandidate = firstTree.value;
         if ([smallestCandidate hasFailedOrRaisedException]) {
             currentSmallest = smallestCandidate;

@@ -10,11 +10,14 @@ SPEC_BEGIN(PBTChooseSpec)
 
 describe(@"PBTChoose", ^{
     it(@"should be within a given range (inclusive)", ^{
-        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTChoose(@0, @10) then:^BOOL(NSNumber *value) {
+//        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTChoose(@0, @10) then:^BOOL(NSNumber *value) {
+//            return [value integerValue] >= 0 && [value integerValue] <= 10;
+//        }];
+//
+//        result.succeeded should be_truthy;
+        PBTAssert(PBTForAll(PBTChoose(@-2, @10), ^BOOL(id value) {
             return [value integerValue] >= 0 && [value integerValue] <= 10;
-        }];
-
-        result.succeeded should be_truthy;
+        }));
     });
 
     it(@"should shrink to the smallest number", ^{

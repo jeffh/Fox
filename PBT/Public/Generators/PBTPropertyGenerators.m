@@ -17,3 +17,8 @@ PBT_EXPORT id<PBTGenerator> PBTForAll(id<PBTGenerator> generator, PBTPropertySta
     });
 }
 
+PBT_EXPORT id<PBTGenerator> PBTForAll(id<PBTGenerator> generator, BOOL (^then)(id generatedValue)) {
+    return PBTForAll(generator, ^PBTPropertyStatus(id generatedValue) {
+        return PBTRequire(then(generatedValue));
+    });
+}

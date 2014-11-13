@@ -1,4 +1,3 @@
-#import <XCTest/XCTest.h>
 #import <Cedar/Cedar.h>
 #import "PBT.h"
 #import "PBTQueueRemoveTransition.h"
@@ -37,7 +36,6 @@ describe(@"PBTFiniteStateMachine", ^{
                                                          then:^BOOL(NSArray *commands) {
              return PBTExecutedSuccessfully(commands);
         }];
-        NSLog(@"Smallest Failing: %@", [result friendlyDescription]);
         result.succeeded should be_truthy;
     });
 });

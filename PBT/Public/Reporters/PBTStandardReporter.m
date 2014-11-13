@@ -22,7 +22,7 @@
 
 - (void)runnerWillRunWithSeed:(uint32_t)randomSeed
 {
-    [self logString:[NSString stringWithFormat:@"Checking with random seed: %u\n", randomSeed]];
+    [self logString:[NSString stringWithFormat:@"\nChecking with random seed %u\n", randomSeed]];
 }
 
 - (void)runnerWillVerifyTestNumber:(NSUInteger)testNumber withMaximumSize:(NSUInteger)maxSize
@@ -37,13 +37,26 @@
     } else {
         [self logString:@"F"];
     }
-    [self logString:@" (Shrinking"];
+    [self logString:@"\nShrinking "];
 }
 
 - (void)runnerDidShrinkFailingTestNumber:(NSUInteger)testNumber
                       withPropertyResult:(PBTPropertyResult *)result
 {
-    [self logString:@"."];
+    switch (result.status) {
+        case PBTPropertyStatusUncaughtException:
+            [self logString:@"E"];
+            break;
+        case PBTPropertyStatusFailed:
+            [self logString:@"F"];
+            break;
+        case PBTPropertyStatusPassed:
+            [self logString:@"."];
+            break;
+        case PBTPropertyStatusSkipped:
+            [self logString:@"S"];
+            break;
+    }
 }
 
 - (void)runnerDidPassTestNumber:(NSUInteger)testNumber
@@ -59,12 +72,14 @@
 - (void)runnerDidFailTestNumber:(NSUInteger)testNumber withResult:(PBTRunnerResult *)result
 {
     [self logString:[NSString stringWithFormat:@"\n\n  %@\n", [[result friendlyDescription] stringByReplacingOccurrencesOfString:@"\n" withString:@"\n  "]]];
-    [self logString:[NSString stringWithFormat:@")\n\nFailure after %lu tests.\n", testNumber + 1]];
+    [self logString:[NSString stringWithFormat:@"\n\nFailure after %lu tests.", testNumber + 1]];
 }
 
 - (void)runnerDidRunWithResult:(PBTRunnerResult *)result
 {
+    [self logString:@"\n"];
 }
+
 #pragma mark - Private
 
 - (void)logString:(NSString *)message

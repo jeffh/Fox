@@ -54,6 +54,11 @@
 		1F61E451196E88A6003EA164 /* PBTReturnSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E44F196E88A6003EA164 /* PBTReturnSpec.mm */; };
 		1F61E457196E8AEF003EA164 /* PBTSequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */; };
 		1F6C41231A131D56003B6C83 /* PBTGenericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41221A131D56003B6C83 /* PBTGenericGenerators.m */; };
+		1F6C41251A14736F003B6C83 /* PBTGenericSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41241A14736F003B6C83 /* PBTGenericSpec.mm */; };
+		1F6C41261A14736F003B6C83 /* PBTGenericSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41241A14736F003B6C83 /* PBTGenericSpec.mm */; };
+		1F6C41271A147431003B6C83 /* PBTGenericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41221A131D56003B6C83 /* PBTGenericGenerators.m */; };
+		1F6C412A1A147B3D003B6C83 /* PBTDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41291A147B3D003B6C83 /* PBTDSL.m */; };
+		1F6C412B1A147B3D003B6C83 /* PBTDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41291A147B3D003B6C83 /* PBTDSL.m */; };
 		1F7EFA2A191B63970074B028 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
 		1F7EFA32191B63980074B028 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7EFA31191B63980074B028 /* main.m */; };
 		1F848B431977965500F0966E /* PBTPositiveIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B411977965500F0966E /* PBTPositiveIntegerSpec.mm */; };
@@ -212,6 +217,9 @@
 		1F61E455196E8AEF003EA164 /* PBTSequenceSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTSequenceSpec.mm; sourceTree = "<group>"; };
 		1F6C41211A131D56003B6C83 /* PBTGenericGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTGenericGenerators.h; sourceTree = "<group>"; };
 		1F6C41221A131D56003B6C83 /* PBTGenericGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTGenericGenerators.m; sourceTree = "<group>"; };
+		1F6C41241A14736F003B6C83 /* PBTGenericSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PBTGenericSpec.mm; sourceTree = "<group>"; };
+		1F6C41281A147B3D003B6C83 /* PBTDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTDSL.h; sourceTree = "<group>"; };
+		1F6C41291A147B3D003B6C83 /* PBTDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTDSL.m; sourceTree = "<group>"; };
 		1F7EFA29191B63970074B028 /* PBTOSXSpecs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PBTOSXSpecs; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7EFA2E191B63970074B028 /* PBTOSXSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PBTOSXSpecs-Prefix.pch"; sourceTree = "<group>"; };
 		1F7EFA31191B63980074B028 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -457,6 +465,8 @@
 				1F4187FA1975108000FEBB8D /* PBTRunner.m */,
 				31B736A976CDB3B7301033AB /* Random */,
 				1F35BC3D1990CA3900BEA6E1 /* Reporters */,
+				1F6C41281A147B3D003B6C83 /* PBTDSL.h */,
+				1F6C41291A147B3D003B6C83 /* PBTDSL.m */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -529,6 +539,7 @@
 				1F35BC33198DF77400BEA6E1 /* PBTCharacterSpec.mm */,
 				1F50188C1991D406001AB3A9 /* PBTFiniteStateMachineSpec.mm */,
 				1FA94A35199606F800803AF3 /* PBTSuchThatSpec.mm */,
+				1F6C41241A14736F003B6C83 /* PBTGenericSpec.mm */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
@@ -808,6 +819,7 @@
 				31B73925BF4547CBBA83F14E /* PBTDeterministicRandom.mm in Sources */,
 				1F46E51C198CB78000F87028 /* PBTChooseGenerator.m in Sources */,
 				1F9BDD9719EA501500BAF25E /* PBTExecutedCommand.m in Sources */,
+				1F6C412A1A147B3D003B6C83 /* PBTDSL.m in Sources */,
 				1F35BC441990CA5600BEA6E1 /* PBTStandardReporter.m in Sources */,
 				1F6C41231A131D56003B6C83 /* PBTGenericGenerators.m in Sources */,
 				1F35BC1F198D824600BEA6E1 /* PBTNamedGenerator.m in Sources */,
@@ -856,6 +868,7 @@
 				1F8FDBFE1989F9DD0059D31A /* PBTSetSpec.mm in Sources */,
 				1F59A81E196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */,
 				1F3462661924780800AE515C /* PBTConstantRandom.m in Sources */,
+				1F6C41271A147431003B6C83 /* PBTGenericGenerators.m in Sources */,
 				1F9BA1AD1A11D04D0053B3C5 /* PBTRandomSpec.mm in Sources */,
 				1FA94A3B199609D000803AF3 /* PBTSuchThatGenerator.m in Sources */,
 				1F8FDBFB1988B4BA0059D31A /* PBTSpecHelper.m in Sources */,
@@ -867,6 +880,7 @@
 				1F46E511198CB2E800F87028 /* PBTMapGenerator.m in Sources */,
 				1F46E50D198CAFAD00F87028 /* PBTPureGenerator.m in Sources */,
 				1F61E457196E8AEF003EA164 /* PBTSequenceSpec.mm in Sources */,
+				1F6C412B1A147B3D003B6C83 /* PBTDSL.m in Sources */,
 				1F50188B1991D37A001AB3A9 /* PBTQueue.m in Sources */,
 				1F35BC28198D881900BEA6E1 /* PBTArrayGenerator.m in Sources */,
 				1F35BC3C198F7C9A00BEA6E1 /* PBTBlockGenerator.m in Sources */,
@@ -888,6 +902,7 @@
 				1F35BC2C198D89DF00BEA6E1 /* PBTTupleGenerator.m in Sources */,
 				1F41880019751F0900FEBB8D /* PBTRunnerResult.m in Sources */,
 				1F4187FC1975187000FEBB8D /* PBTRunner.m in Sources */,
+				1F6C41251A14736F003B6C83 /* PBTGenericSpec.mm in Sources */,
 				1F46E519198CB63200F87028 /* PBTSizedGenerator.m in Sources */,
 				1F35BC32198DF48A00BEA6E1 /* PBTChooseSpec.mm in Sources */,
 				1F8FDC041989FED70059D31A /* PBTStringSpec.mm in Sources */,
@@ -939,6 +954,7 @@
 				1F9BA1A51A11CFB70053B3C5 /* PBTSuchThatSpec.mm in Sources */,
 				1F9BA1AE1A11D0520053B3C5 /* PBTSequenceSpec.mm in Sources */,
 				1F9BA1991A11CFB70053B3C5 /* PBTArraySpec.mm in Sources */,
+				1F6C41261A14736F003B6C83 /* PBTGenericSpec.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
