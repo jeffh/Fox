@@ -137,6 +137,37 @@
 		31B73E318D310CCDB7ADB91C /* PBTStateMachineGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AAAC1A903382CE73DC4 /* PBTStateMachineGenerators.m */; };
 		31B73FA23522FA7FC4604F7C /* PBTNumericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F0233EF475592DC4F26 /* PBTNumericGenerators.m */; };
 		31B73FAD1A10E9E84AD53ECA /* PBTStringGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E288878A28D1FD44435 /* PBTStringGenerators.m */; };
+		DAF3D37E1A1563A8004498D2 /* PBT.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B732EA700E97A90EFBD56F /* PBT.h */; };
+		DAF3D3801A1563E6004498D2 /* PBTArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FA0002819EB0F71008BB037 /* PBTArray.h */; };
+		DAF3D3811A1563E6004498D2 /* PBTCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73FBA1C97463CD5A8D15D /* PBTCommand.h */; };
+		DAF3D3821A1563E6004498D2 /* PBTExecutedCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F9BDD9519EA501500BAF25E /* PBTExecutedCommand.h */; };
+		DAF3D3831A1563E6004498D2 /* PBTPropertyResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73AC32A19CA6467FCB298 /* PBTPropertyResult.h */; };
+		DAF3D3841A1563E6004498D2 /* PBTRoseTree.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FF5B93C1973BD9000416383 /* PBTRoseTree.h */; };
+		DAF3D3851A1563E6004498D2 /* PBTRunnerResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F4187FD19751BB700FEBB8D /* PBTRunnerResult.h */; };
+		DAF3D3861A1563E6004498D2 /* PBTSequence.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B730183A626AD19A2B366E /* PBTSequence.h */; };
+		DAF3D3871A1563E6004498D2 /* PBTTransition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2A94F41997383300471B24 /* PBTTransition.h */; };
+		DAF3D3881A1563E6004498D2 /* PBTArrayGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B731E731758B29364363DF /* PBTArrayGenerators.h */; };
+		DAF3D3891A1563E6004498D2 /* PBTCoreGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B736A7992BBD359C72E397 /* PBTCoreGenerators.h */; };
+		DAF3D38A1A1563E6004498D2 /* PBTDictionaryGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B7346B19612B83E717E236 /* PBTDictionaryGenerators.h */; };
+		DAF3D38B1A1563E6004498D2 /* PBTFiniteStateMachine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F5018931991D708001AB3A9 /* PBTFiniteStateMachine.h */; };
+		DAF3D38C1A1563E6004498D2 /* PBTGenerator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B7359D19C07C6410676A13 /* PBTGenerator.h */; };
+		DAF3D38D1A1563E6004498D2 /* PBTNumericGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73D3849E734CA2A32F5D4 /* PBTNumericGenerators.h */; };
+		DAF3D38E1A1563E6004498D2 /* PBTPropertyGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73F732828E21A3B5D4FA3 /* PBTPropertyGenerators.h */; };
+		DAF3D38F1A1563E6004498D2 /* PBTSetGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73FB26FF4BC3AF8F34E33 /* PBTSetGenerators.h */; };
+		DAF3D3901A1563E6004498D2 /* PBTStateMachine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B7303EEEA0827C94541FB4 /* PBTStateMachine.h */; };
+		DAF3D3911A1563E6004498D2 /* PBTStateMachineGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73F20F954586E20BE9329 /* PBTStateMachineGenerators.h */; };
+		DAF3D3921A1563E6004498D2 /* PBTStateTransition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73E4270D7E9BB43B88512 /* PBTStateTransition.h */; };
+		DAF3D3931A1563E6004498D2 /* PBTStringGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73E65793C9A0F5F12FF3B /* PBTStringGenerators.h */; };
+		DAF3D3941A1563E6004498D2 /* PBTGenericGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F6C41211A131D56003B6C83 /* PBTGenericGenerators.h */; };
+		DAF3D3951A1563E6004498D2 /* PBTMacros.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F848B471977A75200F0966E /* PBTMacros.h */; };
+		DAF3D3961A1563E6004498D2 /* PBTRunner.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F4187F91975108000FEBB8D /* PBTRunner.h */; };
+		DAF3D3971A1563E6004498D2 /* PBTConstantRandom.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B7304B35C6D552B28742C9 /* PBTConstantRandom.h */; };
+		DAF3D3981A1563E6004498D2 /* PBTDeterministicRandom.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B733656606413AC3D482E3 /* PBTDeterministicRandom.h */; };
+		DAF3D3991A1563E6004498D2 /* PBTRandom.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73282B254E07DFC8B2073 /* PBTRandom.h */; };
+		DAF3D39A1A1563E6004498D2 /* PBTDebugReporter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F35BC3E1990CA5600BEA6E1 /* PBTDebugReporter.h */; };
+		DAF3D39B1A1563E6004498D2 /* PBTStandardReporter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F35BC401990CA5600BEA6E1 /* PBTStandardReporter.h */; };
+		DAF3D39C1A1563E6004498D2 /* PBTReporter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B739B35946B2CB1FD5C6DC /* PBTReporter.h */; };
+		DAF3D39D1A1563E6004498D2 /* PBTDSL.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F6C41281A147B3D003B6C83 /* PBTDSL.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +187,37 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				DAF3D3801A1563E6004498D2 /* PBTArray.h in CopyFiles */,
+				DAF3D3811A1563E6004498D2 /* PBTCommand.h in CopyFiles */,
+				DAF3D3821A1563E6004498D2 /* PBTExecutedCommand.h in CopyFiles */,
+				DAF3D3831A1563E6004498D2 /* PBTPropertyResult.h in CopyFiles */,
+				DAF3D3841A1563E6004498D2 /* PBTRoseTree.h in CopyFiles */,
+				DAF3D3851A1563E6004498D2 /* PBTRunnerResult.h in CopyFiles */,
+				DAF3D3861A1563E6004498D2 /* PBTSequence.h in CopyFiles */,
+				DAF3D3871A1563E6004498D2 /* PBTTransition.h in CopyFiles */,
+				DAF3D3881A1563E6004498D2 /* PBTArrayGenerators.h in CopyFiles */,
+				DAF3D3891A1563E6004498D2 /* PBTCoreGenerators.h in CopyFiles */,
+				DAF3D38A1A1563E6004498D2 /* PBTDictionaryGenerators.h in CopyFiles */,
+				DAF3D38B1A1563E6004498D2 /* PBTFiniteStateMachine.h in CopyFiles */,
+				DAF3D38C1A1563E6004498D2 /* PBTGenerator.h in CopyFiles */,
+				DAF3D38D1A1563E6004498D2 /* PBTNumericGenerators.h in CopyFiles */,
+				DAF3D38E1A1563E6004498D2 /* PBTPropertyGenerators.h in CopyFiles */,
+				DAF3D38F1A1563E6004498D2 /* PBTSetGenerators.h in CopyFiles */,
+				DAF3D3901A1563E6004498D2 /* PBTStateMachine.h in CopyFiles */,
+				DAF3D3911A1563E6004498D2 /* PBTStateMachineGenerators.h in CopyFiles */,
+				DAF3D3921A1563E6004498D2 /* PBTStateTransition.h in CopyFiles */,
+				DAF3D3931A1563E6004498D2 /* PBTStringGenerators.h in CopyFiles */,
+				DAF3D3941A1563E6004498D2 /* PBTGenericGenerators.h in CopyFiles */,
+				DAF3D3951A1563E6004498D2 /* PBTMacros.h in CopyFiles */,
+				DAF3D3961A1563E6004498D2 /* PBTRunner.h in CopyFiles */,
+				DAF3D3971A1563E6004498D2 /* PBTConstantRandom.h in CopyFiles */,
+				DAF3D3981A1563E6004498D2 /* PBTDeterministicRandom.h in CopyFiles */,
+				DAF3D3991A1563E6004498D2 /* PBTRandom.h in CopyFiles */,
+				DAF3D39A1A1563E6004498D2 /* PBTDebugReporter.h in CopyFiles */,
+				DAF3D39B1A1563E6004498D2 /* PBTStandardReporter.h in CopyFiles */,
+				DAF3D39C1A1563E6004498D2 /* PBTReporter.h in CopyFiles */,
+				DAF3D39D1A1563E6004498D2 /* PBTDSL.h in CopyFiles */,
+				DAF3D37E1A1563A8004498D2 /* PBT.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1075,6 +1137,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 20E3FB09FB89C2A364E190C0 /* Pods-PBTOSXSpecs.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PBTOSXSpecs/PBTOSXSpecs-Prefix.pch";
@@ -1082,9 +1145,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1092,10 +1157,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C40C1DFBFFBE52D616ED9B8 /* Pods-PBTOSXSpecs.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PBTOSXSpecs/PBTOSXSpecs-Prefix.pch";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1106,6 +1173,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 95D912A77127219F75B3AAD3 /* Pods-PBTSpecs.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1128,6 +1196,7 @@
 					XCTest,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1135,6 +1204,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9D2336B261B16AF402A4E0DB /* Pods-PBTSpecs.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
