@@ -38,19 +38,15 @@ describe(@"PBTPositiveInteger", ^{
 
     context(@"integration", ^{
         it(@"should generate positive numbers", ^{
-            PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTPositiveInteger() then:^BOOL(NSNumber *value) {
+            PBTAssert(PBTForAll(PBTPositiveInteger(), ^BOOL(NSNumber *value) {
                 return [value unsignedIntegerValue] > 0 || [value unsignedIntegerValue] == 0;
-            }];
-
-            result.succeeded should be_truthy;
+            }));
         });
 
         it(@"should not generate negative numbers", ^{
-            PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTPositiveInteger() then:^BOOL(NSNumber *value) {
+            PBTAssert(PBTForAll(PBTPositiveInteger(), ^BOOL(NSNumber *value) {
                 return [value integerValue] >= 0;
-            }];
-
-            result.succeeded should be_truthy;
+            }));
         });
 
         it(@"should shrink to zero", ^{

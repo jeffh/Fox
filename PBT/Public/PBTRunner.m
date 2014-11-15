@@ -17,7 +17,6 @@ typedef struct _PBTShrinkReport {
 @interface PBTRunner ()
 
 @property (nonatomic) id <PBTRandom> random;
-@property (nonatomic) id <PBTReporter> reporter;
 
 @end
 
@@ -36,7 +35,7 @@ typedef struct _PBTShrinkReport {
 
 - (instancetype)init
 {
-    return [self initWithReporter:[[PBTStandardReporter alloc] initWithFile:stdout]];
+    return [self initWithReporter:nil];
 }
 
 - (instancetype)initWithReporter:(id <PBTReporter>)reporter

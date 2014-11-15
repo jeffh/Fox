@@ -8,6 +8,8 @@
 
 @interface PBTRunner : NSObject
 
+@property (nonatomic) id <PBTReporter> reporter;
+
 + (instancetype)sharedInstance;
 - (instancetype)init;
 - (instancetype)initWithReporter:(id<PBTReporter>)reporter;

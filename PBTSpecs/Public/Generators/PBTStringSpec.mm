@@ -24,25 +24,22 @@ describe(@"PBTString", ^{
     });
 
     it(@"should be able to return strings of any size", ^{
-        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTString() then:^BOOL(NSString *value) {
+        PBTAssert(PBTForAll(PBTString(), ^BOOL(NSString *value) {
             return [value isKindOfClass:[NSString class]];
-        }];
-        result.succeeded should be_truthy;
+        }));
     });
 
     it(@"should be able to return strings of a given size", ^{
-        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger(), 5) then:^BOOL(id value) {
+        PBTAssert(PBTForAll(PBTArray(PBTInteger(), 5), ^BOOL(id value) {
             return [value count] == 5;
-        }];
-        result.succeeded should be_truthy;
+        }));
     });
 
     it(@"should be able to return strings of a given size range", ^{
-        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTArray(PBTInteger(), 5, 10) then:^BOOL(id value) {
+        PBTAssert(PBTForAll(PBTArray(PBTInteger(), 5, 10), ^BOOL(id value) {
             NSUInteger count = [value count];
             return count >= 5 && count <= 10;
-        }];
-        result.succeeded should be_truthy;
+        }));
     });
 });
 

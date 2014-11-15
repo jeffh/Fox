@@ -3,11 +3,15 @@
 #import "PBTRunnerResult.h"
 
 
-PBT_EXPORT void PBTAssert(id<PBTGenerator> property) {
-    return PBTAssert(property, (PBTAssertOptions){});
+static void _PBTStringReplace(NSMutableString *str, NSString *original, NSString *replacement) {
+    [str replaceOccurrencesOfString:original
+                         withString:replacement
+                            options:0
+                              range:NSMakeRange(0, str.length)];
 }
 
-PBT_EXPORT void PBTAssert(id<PBTGenerator> property, PBTAssertOptions options) {
+
+PBT_EXPORT PBTRunnerResult *_PBTAssert(id<PBTGenerator> property, NSString *expr, const char *file, int line, PBTOptions options) {
     if (!options.numberOfTests) {
         options.numberOfTests = 500;
     }
@@ -17,7 +21,22 @@ PBT_EXPORT void PBTAssert(id<PBTGenerator> property, PBTAssertOptions options) {
 
     PBTRunner *runner = [PBTRunner sharedInstance];
     PBTRunnerResult *result = [runner resultForNumberOfTests:options.numberOfTests property:property seed:options.seed];
-    NSCAssert(result.succeeded,
-              @"Failed pass property %@:\n%@",
-              property, [result friendlyDescription]);
+    if (!result.succeeded) {
+        NSMutableString *formattedExpression = [NSMutableString stringWithFormat:@"  // %s:%d\n%@;",
+                                                file, line, expr];
+        _PBTStringReplace(formattedExpression, @"{", @"{\n");
+        _PBTStringReplace(formattedExpression, @"}", @"}\n");
+        _PBTStringReplace(formattedExpression, @";", @";\n");
+        _PBTStringReplace(formattedExpression, @"\n", @"\n  ");
+        [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithUTF8String:__PRETTY_FUNCTION__]
+                                                                file:[NSString stringWithUTF8String:file] \
+                                                          lineNumber:line
+                                                         description:
+         @"=== Property failed ===\n"
+         @"%@\n"
+         @"%@",
+         formattedExpression,
+         [result friendlyDescription]];
+    }
+    return result;
 }

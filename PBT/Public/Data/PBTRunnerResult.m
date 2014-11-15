@@ -34,10 +34,16 @@
 
     if (!self.succeeded) {
         [string appendFormat:@"\n size that failed: %lu", (unsigned long)self.failingSize];
-        [string appendFormat:@"\n value that failed: %@", self.failingValue];
-        [string appendFormat:@"\n smallest failing value: %@", self.smallestFailingValue];
         [string appendFormat:@"\n shrink depth: %lu", (unsigned long)self.shrinkDepth];
         [string appendFormat:@"\n shrink nodes walked: %lu", (unsigned long)self.shrinkNodeWalkCount];
+        [string appendFormat:@"\n value that failed: %@", self.failingValue];
+        if (self.failingException) {
+            [string appendFormat:@"\n   -> raised %@", self.failingException];
+        }
+        [string appendFormat:@"\n smallest failing value: %@", self.smallestFailingValue];
+        if (self.failingException) {
+            [string appendFormat:@"\n   -> raised %@", self.smallestFailingException];
+        }
     }
     return string;
 }

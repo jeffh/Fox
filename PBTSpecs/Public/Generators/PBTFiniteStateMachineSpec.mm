@@ -32,11 +32,9 @@ describe(@"PBTFiniteStateMachine", ^{
         id<PBTGenerator> executedCommands = PBTExecuteCommands(stateMachine, ^id {
             return [PBTQueue new];
         });
-        PBTRunnerResult *result = [PBTSpecHelper resultForAll:executedCommands
-                                                         then:^BOOL(NSArray *commands) {
-             return PBTExecutedSuccessfully(commands);
-        }];
-        result.succeeded should be_truthy;
+        PBTAssert(PBTForAll(executedCommands, ^BOOL(NSArray *commands) {
+            return PBTExecutedSuccessfully(commands);
+        }));
     });
 });
 

@@ -43,6 +43,9 @@ describe(@"PBTNegativeInteger", ^{
             }];
 
             result.succeeded should be_truthy;
+            PBTAssert(PBTForAll(PBTNegativeInteger(), ^BOOL(NSNumber *value) {
+                return [value integerValue] <= 0;
+            }));
         });
 
         it(@"should shrink to zero", ^{

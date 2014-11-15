@@ -10,10 +10,9 @@ SPEC_BEGIN(PBTTupleGeneratorSpec)
 
 describe(@"PBTTuple", ^{
     it(@"should always have the same size", ^{
-        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTTuple(@[PBTInteger(), PBTInteger()]) then:^BOOL(NSArray *values) {
+        PBTAssert(PBTForAll(PBTTuple(@[PBTInteger(), PBTInteger()]), ^BOOL(NSArray *values) {
             return [values count] == 2;
-        }];
-        result.succeeded should be_truthy;
+        }));
     });
 
     it(@"should foo", ^{

@@ -11,18 +11,16 @@ SPEC_BEGIN(PBTDictionarySpec)
 
 describe(@"PBTDictionary", ^{
     it(@"should always return the same size as the template", ^{
-        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTDictionary(@{@"a": PBTString(), @"b": PBTInteger()}) then:^BOOL(NSDictionary *value) {
+        PBTAssert(PBTForAll(PBTDictionary(@{@"a": PBTString(), @"b": PBTInteger()}), ^BOOL(NSDictionary *value) {
             return [value count] == 2;
-        }];
-        result.succeeded should be_truthy;
+        }));
     });
 
     it(@"should be able to return dictionary where values are generated", ^{
-        PBTRunnerResult *result = [PBTSpecHelper resultForAll:PBTDictionary(@{@"a": PBTString(), @"b": PBTInteger()}) then:^BOOL(id value) {
+        PBTAssert(PBTForAll(PBTDictionary(@{@"a": PBTString(), @"b": PBTInteger()}), ^BOOL(id value) {
             return [value[@"a"] isKindOfClass:[NSString class]]
                 && [value[@"b"] isKindOfClass:[NSNumber class]];
-        }];
-        result.succeeded should be_truthy;
+        }));
     });
 
     it(@"should shrink its values down", ^{
