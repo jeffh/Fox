@@ -3,13 +3,13 @@
 
 
 PBT_EXPORT id<PBTGenerator> PBTForAll(id<PBTGenerator> generator, BOOL (^then)(id generatedValue)) {
-    return PBTForAll(generator, ^PBTPropertyStatus(id generatedValue) {
+    return PBTWithName(@"PBTForAll", PBTForSome(generator, ^PBTPropertyStatus(id generatedValue) {
         return PBTRequire(then(generatedValue));
-    });
+    }));
 }
 
-PBT_EXPORT id<PBTGenerator> PBTForAll(id<PBTGenerator> generator, PBTPropertyStatus (^verifier)(id generatedValue)) {
-    return PBTWithName(@"PBTForAll", PBTMap(generator, ^id(id value) {
+PBT_EXPORT id<PBTGenerator> PBTForSome(id<PBTGenerator> generator, PBTPropertyStatus (^verifier)(id generatedValue)) {
+    return PBTWithName(@"PBTForSome", PBTMap(generator, ^id(id value) {
         PBTPropertyResult *result = [[PBTPropertyResult alloc] init];
         result.generatedValue = value;
         @try {

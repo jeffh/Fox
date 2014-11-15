@@ -10,7 +10,7 @@ SPEC_BEGIN(PBTTupleGeneratorSpec)
 
 describe(@"PBTTuple", ^{
     it(@"should always have the same size", ^{
-        PBTAssert(PBTForAll(PBTTuple(@[PBTInteger(), PBTInteger()]), ^BOOL(NSArray *values) {
+        PBTAssert(PBTForAll(PBTTupleOfGenerators(@[PBTInteger(), PBTInteger()]), ^BOOL(NSArray *values) {
             return [values count] == 2;
         }));
     });
@@ -22,7 +22,7 @@ describe(@"PBTTuple", ^{
     });
 
     it(@"should always have the same size when shrunk", ^{
-        PBTRunnerResult *result = [PBTSpecHelper shrunkResultForAll:PBTTuple(@[PBTInteger(), PBTInteger()])];
+        PBTRunnerResult *result = [PBTSpecHelper shrunkResultForAll:PBTTupleOfGenerators(@[PBTInteger(), PBTInteger()])];
         result.succeeded should be_falsy;
         result.smallestFailingValue should equal(@[@0, @0]);
     });

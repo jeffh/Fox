@@ -63,7 +63,7 @@
  *  If not implemented, the state machine will generate an empty NSArray.
  *
  *  If you need multiple arguments, a tuple generator can be used here.
- *  @see PBTTuple
+ *  @see PBTTupleOfGenerators
  */
 @optional
 - (id<PBTGenerator>)generator;

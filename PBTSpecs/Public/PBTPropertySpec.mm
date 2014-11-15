@@ -15,7 +15,7 @@ describe(@"PBTProperty", ^{
 
     it(@"should generate passed results", ^{
         random = [[PBTConstantRandom alloc] initWithValue:2];
-        property = PBTForAll(PBTReturn(@1), ^PBTPropertyStatus(id value) {
+        property = PBTForSome(PBTReturn(@1), ^PBTPropertyStatus(id value) {
             return PBTRequire([@1 isEqual:value]);
         });
         PBTRoseTree *tree = [property lazyTreeWithRandom:random maximumSize:1];
@@ -27,7 +27,7 @@ describe(@"PBTProperty", ^{
 
     it(@"should generate failed results", ^{
         random = [[PBTConstantRandom alloc] initWithValue:2];
-        property = PBTForAll(PBTReturn(@2), ^PBTPropertyStatus(id value) {
+        property = PBTForSome(PBTReturn(@2), ^PBTPropertyStatus(id value) {
             return PBTRequire([@1 isEqual:value]);
         });
         PBTRoseTree *tree = [property lazyTreeWithRandom:random maximumSize:1];
@@ -39,9 +39,11 @@ describe(@"PBTProperty", ^{
 
     it(@"should be shrinkable", ^{
         PBTRunner *quick = [[PBTRunner alloc] initWithReporter:nil];
-        PBTRunnerResult *result = [quick resultForNumberOfTests:100 forAll:PBTInteger() then:^PBTPropertyStatus(NSNumber *generatedValue) {
-            return PBTRequire([generatedValue integerValue] / 2 <= [generatedValue integerValue]);
-        }];
+        PBTRunnerResult *result = [quick resultForNumberOfTests:100
+                                                        forSome:PBTInteger()
+                                                           then:^PBTPropertyStatus(NSNumber *generatedValue) {
+                                                               return PBTRequire([generatedValue integerValue] / 2 <= [generatedValue integerValue]);
+                                                           }];
         result.succeeded should be_falsy;
         result.failingValue should be_less_than(@0);
         result.smallestFailingValue should equal(@(-1));
@@ -50,7 +52,7 @@ describe(@"PBTProperty", ^{
 
     it(@"should validate arbitary data structures", ^{
         random = [[PBTConstantRandom alloc] initWithValue:2];
-        property = PBTForAll(PBTArray(PBTInteger()), ^PBTPropertyStatus(NSArray *value) {
+        property = PBTForSome(PBTArray(PBTInteger()), ^PBTPropertyStatus(NSArray *value) {
             return PBTRequire(value.count < 2);
         });
         PBTRunner *quick = [[PBTRunner alloc] initWithReporter:nil];
@@ -61,7 +63,7 @@ describe(@"PBTProperty", ^{
     it(@"should capture and report exceptions", ^{
         NSException *exception = [NSException exceptionWithName:@"hand" reason:@"answer" userInfo:nil];
         random = [[PBTConstantRandom alloc] initWithValue:2];
-        property = PBTForAll(PBTArray(PBTInteger()), ^PBTPropertyStatus(NSArray *value) {
+        property = PBTForSome(PBTArray(PBTInteger()), ^PBTPropertyStatus(NSArray *value) {
             [exception raise];
             return PBTRequire(YES);
         });

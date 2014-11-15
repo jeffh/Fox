@@ -30,7 +30,7 @@ PBT_EXPORT id<PBTGenerator> PBTInteger(void);
 
 PBT_EXPORT id<PBTGenerator> PBTSuchThat(id<PBTGenerator> generator, BOOL(^predicate)(id generatedValue));
 
-PBT_EXPORT id<PBTGenerator> PBTSuchThat(id<PBTGenerator> generator, BOOL(^predicate)(id generatedValue), NSUInteger maxTries);
+PBT_EXPORT id<PBTGenerator> PBTSuchThatWithMaxTries(id<PBTGenerator> generator, BOOL(^predicate)(id generatedValue), NSUInteger maxTries);
 
 PBT_EXPORT id<PBTGenerator> PBTOneOf(NSArray *generators);
 

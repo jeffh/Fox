@@ -11,7 +11,7 @@ SPEC_BEGIN(PBTDictionarySpec)
 
 describe(@"PBTDictionary", ^{
     it(@"should always return the same size as the template", ^{
-        PBTAssert(PBTForAll(PBTDictionary(@{@"a": PBTString(), @"b": PBTInteger()}), ^BOOL(NSDictionary *value) {
+        PBTAssert(PBTForAll(PBTDictionary(@{@"a" : PBTString(), @"b" : PBTInteger()}), ^BOOL(NSDictionary *value) {
             return [value count] == 2;
         }));
     });

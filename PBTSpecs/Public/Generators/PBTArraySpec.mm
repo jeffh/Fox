@@ -49,13 +49,13 @@ describe(@"PBTArray", ^{
     });
 
     it(@"should be able to return arrays of a given size", ^{
-        Assert(forAll(PBTArray(PBTInteger(), 5), ^BOOL(id value) {
+        Assert(forAll(PBTArrayOfSize(PBTInteger(), 5), ^BOOL(id value) {
             return [value count] == 5;
         }));
     });
 
     it(@"should be able to return arrays of a given size range", ^{
-        PBTAssert(forAll(PBTArray(PBTInteger(), 5, 10), ^BOOL(id value) {
+        PBTAssert(forAll(PBTArrayOfSizeRange(PBTInteger(), 5, 10), ^BOOL(id value) {
             NSUInteger count = [value count];
             return count >= 5 && count <= 10;
         }));

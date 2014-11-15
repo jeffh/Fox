@@ -46,7 +46,7 @@
  *
  *  Use this method recursively to generate all possible shrinkings of a collection of rose trees.
  *
- *  @see PBTArray
+ *  @see PBTArrayOfSize
  *
  *  @returns a sequence of rose trees.
  */
@@ -73,7 +73,7 @@
  *
  *  If you prefer the returned values not shrink in size, use +[zipTreeFromRoseTrees:] instead.
  *
- *  @see PBTArray
+ *  @see PBTArrayOfSize
  */
 + (instancetype)shrinkTreeFromRoseTrees:(NSArray *)roseTrees;
 
@@ -82,7 +82,7 @@
  *
  *  If you prefer the return values to shrink in size, use +[shrinkTreeFromRoseTrees:] instead.
  *
- *  @see PBTTuple
+ *  @see PBTTupleOfGenerators
  */
 + (instancetype)zipTreeFromRoseTrees:(NSArray *)roseTrees;
 

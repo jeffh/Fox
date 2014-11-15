@@ -11,7 +11,7 @@
 
 + (PBTRunnerResult *)resultForAll:(id<PBTGenerator>)generator
                                  then:(BOOL(^)(id value))block {
-    id<PBTGenerator> property = PBTForAll(generator, ^PBTPropertyStatus(id value) {
+    id<PBTGenerator> property = PBTForSome(generator, ^PBTPropertyStatus(id value) {
         return PBTRequire(block(value));
     });
     PBTRunner *quick = [[PBTRunner alloc] initWithReporter:nil];
@@ -20,7 +20,7 @@
 
 + (PBTRunnerResult *)debug_resultForAll:(id<PBTGenerator>)generator
                                        then:(BOOL(^)(id value))block {
-    id<PBTGenerator> property = PBTForAll(generator, ^PBTPropertyStatus(id value) {
+    id<PBTGenerator> property = PBTForSome(generator, ^PBTPropertyStatus(id value) {
         return PBTRequire(block(value));
     });
     PBTRunner *quick = [[PBTRunner alloc] initWithReporter:[[PBTDebugReporter alloc] init]];
@@ -37,7 +37,7 @@
                              then:(BOOL(^)(id value))block
                              seed:(uint32_t)seed
                           maxSize:(NSUInteger)maxSize {
-    id<PBTGenerator> property = PBTForAll(generator, ^PBTPropertyStatus(id value) {
+    id<PBTGenerator> property = PBTForSome(generator, ^PBTPropertyStatus(id value) {
         return PBTRequire(block(value));
     });
     PBTRunner *quick = [[PBTRunner alloc] initWithReporter:[[PBTDebugReporter alloc] init]];

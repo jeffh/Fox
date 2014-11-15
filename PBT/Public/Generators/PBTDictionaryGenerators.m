@@ -4,7 +4,7 @@
 
 
 PBT_EXPORT id<PBTGenerator> PBTDictionary(NSDictionary *dictionaryTemplate) {
-    return PBTMap(PBTTuple([dictionaryTemplate allValues]), ^id(NSArray *values) {
+    return PBTMap(PBTTupleOfGenerators([dictionaryTemplate allValues]), ^id(NSArray *values) {
         return [NSDictionary dictionaryWithObjects:values forKeys:[dictionaryTemplate allKeys]];
     });
 }

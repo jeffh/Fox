@@ -118,11 +118,11 @@ typedef struct _PBTShrinkReport {
 }
 
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
-                                     forAll:(id <PBTGenerator>)values
+                                    forSome:(id<PBTGenerator>)values
                                        then:(PBTPropertyStatus (^)(id generatedValue))then
 {
     return [self resultForNumberOfTests:numberOfTests
-                               property:PBTForAll(values, then)];
+                               property:PBTForSome(values, then)];
 }
 
 #pragma mark - Private

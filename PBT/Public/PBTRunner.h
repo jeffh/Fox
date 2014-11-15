@@ -18,7 +18,7 @@
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
                                    property:(id<PBTGenerator>)property;
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
-                                     forAll:(id<PBTGenerator>)values
+                                    forSome:(id<PBTGenerator>)values
                                        then:(PBTPropertyStatus (^)(id generatedValue))then;
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
                                    property:(id<PBTGenerator>)property

@@ -53,10 +53,10 @@ PBT_EXPORT id<PBTGenerator> PBTInteger(void) {
 }
 
 PBT_EXPORT id<PBTGenerator> PBTSuchThat(id<PBTGenerator> generator, BOOL(^predicate)(id)) {
-    return PBTSuchThat(generator, predicate, 10);
+    return PBTSuchThatWithMaxTries(generator, predicate, 10);
 }
 
-PBT_EXPORT id<PBTGenerator> PBTSuchThat(id<PBTGenerator> generator, BOOL(^predicate)(id), NSUInteger maxTries) {
+PBT_EXPORT id<PBTGenerator> PBTSuchThatWithMaxTries(id<PBTGenerator> generator, BOOL(^predicate)(id), NSUInteger maxTries) {
     return [[PBTSuchThatGenerator alloc] initWithGenerator:generator predicate:predicate maxTries:maxTries];
 }
 

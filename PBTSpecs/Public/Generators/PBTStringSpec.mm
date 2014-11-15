@@ -30,13 +30,13 @@ describe(@"PBTString", ^{
     });
 
     it(@"should be able to return strings of a given size", ^{
-        PBTAssert(PBTForAll(PBTArray(PBTInteger(), 5), ^BOOL(id value) {
+        PBTAssert(PBTForAll(PBTArrayOfSize(PBTInteger(), 5), ^BOOL(id value) {
             return [value count] == 5;
         }));
     });
 
     it(@"should be able to return strings of a given size range", ^{
-        PBTAssert(PBTForAll(PBTArray(PBTInteger(), 5, 10), ^BOOL(id value) {
+        PBTAssert(PBTForAll(PBTArrayOfSizeRange(PBTInteger(), 5, 10), ^BOOL(id value) {
             NSUInteger count = [value count];
             return count >= 5 && count <= 10;
         }));
