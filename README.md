@@ -55,6 +55,39 @@ possible example that also exhibits the same failure:
 result.smallestFailingValue // @[@0, @0]; the smallest example that fails
 ```
 
+Data Generators
+---------------
+
+There are many data generators provided:
+
+Function                  | Generates      | Description
+---------------------------------------------------------
+PBTInteger                | NSNumber *     | Generates random integers
+PBTPositiveInteger        | NSNumber *     | Generates random zero or positive integers
+PBTNegativeInteger        | NSNumber *     | Generates random zero or negative integers
+PBTStrictPositiveInteger  | NSNumber *     | Generates random positive integers (non-zero)
+PBTStrictNegativeInteger  | NSNumber *     | Generates random negative integers (non-zero)
+PBTChoose                 | NSNumber *     | Generates random integers between the given range (inclusive)
+PBTReturn                 | id             | Always returns the given value
+PBTTuple                  | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+PBTTupleOfGenerators      | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+PBTArray                  | NSArray *      | Generates random variable-sized arrays of generated values.
+PBTArrayOfSize            | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+PBTArrayOfSizeRange       | NSArray *      | Generates random variable-sized arrays of generated values. Array size is within the given range (inclusive).
+PBTDictionary             | NSDictionary * | Generates random dictionries of generated values. Keys are known values ahead of time. Specified in `@{<key>: <generator>}` form.
+PBTSet                    | NSSet *        | Generates random sets of a given generated values.
+PBTCharacter              | NSString *     | Generates random 1-length sized character string. May be an unprintable character.
+PBTAlphabetCharacter      | NSString *     | Generates random 1-length sized character string. Only generates alphabetical letters.
+PBTNumericCharacter       | NSString *     | Generates random 1-length sized character string. Only generates digits.
+PBTAlphanumericCharacter  | NSString *     | Generates random 1-length sized character string. Only generates alphanumeric.
+PBTAsciiCharacter         | NSString *     | Generates random 1-length sized character string. Only generates ascii characters.
+PBTString                 | NSString *     | Generates random variable length strings. May be an unprintable string.
+PBTAsciiString            | NSString *     | Generates random variable length strings. Only generates ascii characters.
+PBTSimpleType             | id             | Generates random simple types. A simple type does not compose with other types. May not be printable.
+PBTPrintableSimpleType    | id             | Generates random simple types. A simple type does not compose with other types. Ensured to be printable.
+PBTCompositeType          | id             | Generates random composite types. A composite type composes with the given generator.
+
+
 Stateful Testing
 ----------------
 
@@ -76,8 +109,8 @@ PBTFiniteStateMachine *stateMachine = [[PBTFiniteStateMachine alloc] initWithIni
                                               nextModelState:^id(NSArray *modelState, id generatedValue) {
     return [modelState arrayByAddingObject:generatedValue];
 }]];
-// Another way of adding a transition (see PBTStateTransition protocol)
-[stateMachine addTransition:[[PBTQueueRemoveTransition alloc] init]];
+// Add a custom transition (see PBTStateTransition protocol)
+[stateMachine addTransition:[[QueueRemoveTransition alloc] init]];
 ```
 
 Now, you can generate tests that exercise an API:
