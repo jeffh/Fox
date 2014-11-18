@@ -5,9 +5,9 @@
 @protocol PBTSequence;
 
 
-PBT_EXPORT id<PBTGenerator> PBTTuple(id<PBTSequence> generators);
+PBT_EXPORT id<PBTGenerator> PBTTupleOfGenerators(id<PBTSequence> generators);
 
-PBT_EXPORT id<PBTGenerator> PBTTupleOfGenerators(NSArray *generators);
+PBT_EXPORT id<PBTGenerator> PBTTuple(NSArray *generators);
 
 PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator);
 

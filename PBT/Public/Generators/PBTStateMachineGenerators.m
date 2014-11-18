@@ -23,7 +23,7 @@ PBT_EXPORT id<PBTGenerator> PBTGenCommands(id<PBTStateMachine> stateMachine) {
             argGenerator = PBTReturn(@[]);
         }
 
-        return PBTMap(PBTTupleOfGenerators(@[PBTReturn(transition), argGenerator]), ^id(NSArray *commandTuple) {
+        return PBTMap(PBTTuple(@[PBTReturn(transition), argGenerator]), ^id(NSArray *commandTuple) {
             return [[PBTCommand alloc] initWithTransition:commandTuple[0] generatedValue:commandTuple[1]];
         });
     });

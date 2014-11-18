@@ -6,11 +6,11 @@
 #import "PBTArrayGenerator.h"
 
 
-PBT_EXPORT id<PBTGenerator> PBTTuple(id<PBTSequence> generators) {
+PBT_EXPORT id<PBTGenerator> PBTTupleOfGenerators(id<PBTSequence> generators) {
     return [[PBTTupleGenerator alloc] initWithGenerators:generators];
 }
 
-PBT_EXPORT id<PBTGenerator> PBTTupleOfGenerators(NSArray *generators) {
+PBT_EXPORT id<PBTGenerator> PBTTuple(NSArray *generators) {
     return [[PBTTupleGenerator alloc] initWithGenerators:[PBTSequence sequenceFromArray:generators]];
 }
 
@@ -28,7 +28,7 @@ PBT_EXPORT id<PBTGenerator> PBTArray(id<PBTGenerator> elementGenerator) {
 PBT_EXPORT id<PBTGenerator> PBTArrayOfSize(id<PBTGenerator> elementGenerator, NSUInteger numberOfElements) {
     id<PBTSequence> generators = [PBTSequence sequenceByRepeatingObject:elementGenerator
                                                                   times:numberOfElements];
-    return PBTTuple(generators);
+    return PBTTupleOfGenerators(generators);
 }
 
 PBT_EXPORT id<PBTGenerator> PBTArrayOfSizeRange(id<PBTGenerator> elementGenerator,
