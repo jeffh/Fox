@@ -61,7 +61,7 @@ Data Generators
 There are many data generators provided:
 
 Function                  | Generates      | Description
-------------------------- | -------------- | ------------
+------------------------- | --------------:| ------------
 PBTInteger                | NSNumber *     | Generates random integers
 PBTPositiveInteger        | NSNumber *     | Generates random zero or positive integers
 PBTNegativeInteger        | NSNumber *     | Generates random zero or negative integers
