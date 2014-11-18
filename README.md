@@ -1,5 +1,5 @@
-PBT
-===
+Property Based Testing
+======================
 
 Property Based Testing for Objective-C. Automatic generation of software tests.
 
