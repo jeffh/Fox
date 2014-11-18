@@ -55,39 +55,6 @@ possible example that also exhibits the same failure:
 result.smallestFailingValue // @[@0, @0]; the smallest example that fails
 ```
 
-Data Generators
----------------
-
-There are many data generators provided:
-
-Function                  | Generates      | Description
-------------------------- | --------------:| ------------
-PBTInteger                | NSNumber *     | Generates random integers
-PBTPositiveInteger        | NSNumber *     | Generates random zero or positive integers
-PBTNegativeInteger        | NSNumber *     | Generates random zero or negative integers
-PBTStrictPositiveInteger  | NSNumber *     | Generates random positive integers (non-zero)
-PBTStrictNegativeInteger  | NSNumber *     | Generates random negative integers (non-zero)
-PBTChoose                 | NSNumber *     | Generates random integers between the given range (inclusive)
-PBTReturn                 | id             | Always returns the given value
-PBTTuple                  | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
-PBTTupleOfGenerators      | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
-PBTArray                  | NSArray *      | Generates random variable-sized arrays of generated values.
-PBTArrayOfSize            | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
-PBTArrayOfSizeRange       | NSArray *      | Generates random variable-sized arrays of generated values. Array size is within the given range (inclusive).
-PBTDictionary             | NSDictionary * | Generates random dictionries of generated values. Keys are known values ahead of time. Specified in `@{<key>: <generator>}` form.
-PBTSet                    | NSSet *        | Generates random sets of a given generated values.
-PBTCharacter              | NSString *     | Generates random 1-length sized character string. May be an unprintable character.
-PBTAlphabetCharacter      | NSString *     | Generates random 1-length sized character string. Only generates alphabetical letters.
-PBTNumericCharacter       | NSString *     | Generates random 1-length sized character string. Only generates digits.
-PBTAlphanumericCharacter  | NSString *     | Generates random 1-length sized character string. Only generates alphanumeric.
-PBTAsciiCharacter         | NSString *     | Generates random 1-length sized character string. Only generates ascii characters.
-PBTString                 | NSString *     | Generates random variable length strings. May be an unprintable string.
-PBTAsciiString            | NSString *     | Generates random variable length strings. Only generates ascii characters.
-PBTSimpleType             | id             | Generates random simple types. A simple type does not compose with other types. May not be printable.
-PBTPrintableSimpleType    | id             | Generates random simple types. A simple type does not compose with other types. Ensured to be printable.
-PBTCompositeType          | id             | Generates random composite types. A composite type composes with the given generator.
-
-
 Stateful Testing
 ----------------
 
@@ -130,4 +97,63 @@ PBTRunnerResult *result = [PBTSpecHelper resultForAll:executedCommands
 // result will shrinking to the small sequence of API calls to trigger the
 // failure if there is one
 ```
+
+Reference
+=========
+
+Data Generators
+---------------
+
+There are many data generators provided for generating data. Most of these
+generators shrink to zero:
+
+ - Numerically zero (or as close as possible)
+ - Empty collection (or at least shrunk items)
+
+Function                  | Generates      | Description
+------------------------- | --------------:| ------------
+PBTInteger                | NSNumber *     | Generates random integers
+PBTPositiveInteger        | NSNumber *     | Generates random zero or positive integers
+PBTNegativeInteger        | NSNumber *     | Generates random zero or negative integers
+PBTStrictPositiveInteger  | NSNumber *     | Generates random positive integers (non-zero)
+PBTStrictNegativeInteger  | NSNumber *     | Generates random negative integers (non-zero)
+PBTChoose                 | NSNumber *     | Generates random integers between the given range (inclusive)
+PBTReturn                 | id             | Always returns the given value. Does not shrink
+PBTTuple                  | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+PBTTupleOfGenerators      | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+PBTArray                  | NSArray *      | Generates random variable-sized arrays of generated values.
+PBTArrayOfSize            | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+PBTArrayOfSizeRange       | NSArray *      | Generates random variable-sized arrays of generated values. Array size is within the given range (inclusive).
+PBTDictionary             | NSDictionary * | Generates random dictionries of generated values. Keys are known values ahead of time. Specified in `@{<key>: <generator>}` form.
+PBTSet                    | NSSet *        | Generates random sets of a given generated values.
+PBTCharacter              | NSString *     | Generates random 1-length sized character string. May be an unprintable character.
+PBTAlphabetCharacter      | NSString *     | Generates random 1-length sized character string. Only generates alphabetical letters.
+PBTNumericCharacter       | NSString *     | Generates random 1-length sized character string. Only generates digits.
+PBTAlphanumericCharacter  | NSString *     | Generates random 1-length sized character string. Only generates alphanumeric.
+PBTAsciiCharacter         | NSString *     | Generates random 1-length sized character string. Only generates ascii characters.
+PBTString                 | NSString *     | Generates random variable length strings. May be an unprintable string.
+PBTAsciiString            | NSString *     | Generates random variable length strings. Only generates ascii characters.
+PBTSimpleType             | id             | Generates random simple types. A simple type does not compose with other types. May not be printable.
+PBTPrintableSimpleType    | id             | Generates random simple types. A simple type does not compose with other types. Ensured to be printable.
+PBTCompositeType          | id             | Generates random composite types. A composite type composes with the given generator.
+
+Computation Generators
+----------------------
+
+Also, you can compose some computation work on top of data generators. The resulting
+generator adopts the same shrinking properties as the original generator.
+
+Function                  | Description
+------------------------- | ------------
+PBTMap                    | Applies a block to each generated value.
+PBTBind                   | Applies a block to the lazy tree that the original generator creates. See Building Generators section for more information.
+PBTSized                  | Encloses the given block to create generator that is dependent on the size hint generators receive when generating values.
+PBTSuchThat               | Returns each generated value iff it satisfies the given block. If the filter excludes more than 10 values in a row, the resulting generator assumes it has reached maximum shrinking.
+PBTSuchThatWithMaxTries   | Returns each generated value iff it satisfies the given block. If the filter excludes more than the given max tries in a row, the resulting generator assumes it has reached maximum shrinking. 
+PBTOneOf                  | Returns generated values by randomly picking from an array of generators. Shrinking will move towards the lower-indexed generators in the array.
+PBTForAll                 | Asserts using the block and a generator and produces test assertion results (PBTPropertyResult). Shrinking tests against smaller values of the given generator.
+PBTForSome                | Like PBTForAll, but allows the assertion block to "skip" potentially invalid test cases.
+PBTCommands               | Generates arrays of PBTCommands that satisfies a given state machine.
+PBTExecuteCommands        | Generates arrays of PBTExecutedCommands that satisfies a given state machine and executed against a subject. Can be passed to PBTExecutedSuccessfully to verify if the subject conforms to the state machine.
+
 
