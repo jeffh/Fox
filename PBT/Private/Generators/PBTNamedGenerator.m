@@ -28,7 +28,7 @@
 
 - (PBTRoseTree *)lazyTreeWithRandom:(id<PBTRandom>)random maximumSize:(NSUInteger)maximumSize
 {
-    return [self.generator lazyTreeWithRandom:random maximumSize:maximumSize];
+    return [_generator lazyTreeWithRandom:random maximumSize:maximumSize];
 }
 
 - (NSString *)description

@@ -2,6 +2,7 @@
 #import "PBTSequence.h"
 #import "PBTDeterministicRandom.h"
 #import "PBTRoseTree.h"
+#import "PBTShrinkingIntegerSequence.h"
 
 
 @interface PBTChooseGenerator ()
@@ -60,20 +61,8 @@
 
 - (id<PBTSequence>)sequenceOfNumbersSmallerThan:(NSNumber *)number
 {
-    id<PBTSequence> halves = [self sequenceOfHalvesOfNumber:number];
-    return [halves sequenceByApplyingBlock:^id(NSNumber *value) {
-        return @([number longLongValue] - [value longLongValue]);
-    }];
+    return [PBTShrinkingIntegerSequence sequenceOfNumbersSmallerThan:number];
 }
 
-- (id<PBTSequence>)sequenceOfHalvesOfNumber:(NSNumber *)number
-{
-    if ([number compare:@0] == NSOrderedSame) {
-        return nil;
-    }
-    id<PBTSequence> remainingSequence = [self sequenceOfHalvesOfNumber:@([number integerValue] / 2)];
-    return [PBTSequence sequenceWithObject:number
-                         remainingSequence:remainingSequence];
-}
 
 @end

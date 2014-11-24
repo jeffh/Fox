@@ -85,8 +85,8 @@
 {
     self = [self init];
     if (self) {
-        self.value = value;
-        self.children = children;
+        _value = value;
+        _children = children ?: [PBTSequence sequence];
     }
     return self;
 }
@@ -107,16 +107,6 @@
     }] sequenceByApplyingBlock:^id(PBTRoseTree *subtree) {
         return [subtree treeFilterChildrenByBlock:block];
     }]];
-}
-
-#pragma mark - Property Overrides
-
-- (id<PBTSequence>)children
-{
-    if (!_children) {
-        _children = [PBTSequence sequence];
-    }
-    return _children;
 }
 
 #pragma mark - NSObject
