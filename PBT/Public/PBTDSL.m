@@ -13,7 +13,10 @@ static void _PBTStringReplace(NSMutableString *str, NSString *original, NSString
 
 PBT_EXPORT PBTRunnerResult *_PBTAssert(id<PBTGenerator> property, NSString *expr, const char *file, int line, PBTOptions options) {
     if (!options.numberOfTests) {
-        options.numberOfTests = 500;
+        options.numberOfTests = PBTDefaultNumberOfTests;
+    }
+    if (!options.maximumSize) {
+        options.maximumSize = PBTDefaultMaximumSize;
     }
     if (!options.seed) {
         options.seed = (uint32_t)time(NULL);

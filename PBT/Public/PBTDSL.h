@@ -16,6 +16,19 @@ typedef struct {
      *  A value of 0 (the default) will cause PBTAssert to test the property 500 times.
      */
     NSUInteger numberOfTests;
+
+    /*! The maximum size factor that generators will generate. A size value is generated
+     *  by PBT as the size the generators in the properties use. The maximum size factor
+     *  indicates a broader range of data values at the potential cost of computation.
+     *
+     *  Two examples: generating integers and arrays. The maximum size value indicates the
+     *  minimum and maximum values the PBTInteger() generator can create. For array generation,
+     *  the size indicates how large each element is (eg - large integers) AND how many
+     *  elements are generated.
+     *
+     *  A value of 0 (the default) will cause PBTAssert to use a maximum size of 200.
+     */
+    NSUInteger maximumSize;
 } PBTOptions;
 
 /*! Tests the given property. If the property does not hold, raises an exception that,

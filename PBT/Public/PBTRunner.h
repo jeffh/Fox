@@ -2,6 +2,22 @@
 #import "PBTPropertyGenerators.h"
 #import "PBTReporter.h"
 
+/*! A constant that indicates the default number of tests (which is 500) */
+FOUNDATION_EXTERN const NSUInteger PBTDefaultNumberOfTests;
+
+/*! A constant that indicates the default maximum size (which is 200).
+ *
+ *  The maximum size factor that generators will generate. A size value is generated
+ *  by PBT as the size the generators in the properties use. The maximum size factor
+ *  indicates a broader range of data values at the potential cost of computation.
+ *
+ *  Two examples: generating integers and arrays. The maximum size value indicates the
+ *  minimum and maximum values the PBTInteger() generator can create. For array generation,
+ *  the size indicates how large each element is (eg - large integers) AND how many
+ *  elements are generated.
+ */
+FOUNDATION_EXTERN const NSUInteger PBTDefaultMaximumSize;
+
 
 @class PBTRunnerResult;
 

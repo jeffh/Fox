@@ -6,6 +6,10 @@
 #import "PBTStandardReporter.h"
 
 
+const NSUInteger PBTDefaultNumberOfTests = 500;
+const NSUInteger PBTDefaultMaximumSize = 200;
+
+
 typedef struct _PBTShrinkReport {
     NSUInteger depth;
     NSUInteger numberOfNodesVisited;
@@ -17,6 +21,7 @@ typedef struct _PBTShrinkReport {
 @interface PBTRunner ()
 
 @property (nonatomic) id <PBTRandom> random;
+@property (nonatomic) id <PBTReporter> reporter;
 
 @end
 
@@ -106,7 +111,7 @@ typedef struct _PBTShrinkReport {
     return [self resultForNumberOfTests:totalNumberOfTests
                                property:property
                                    seed:seed
-                                maxSize:50];
+                                maxSize:PBTDefaultMaximumSize];
 }
 
 - (PBTRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
