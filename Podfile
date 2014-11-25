@@ -1,10 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target "FOXSpecs" do
+target "FoxSpecs" do
   pod 'Cedar'
 end
 
-target "FOXOSXSpecs" do
+target "FoxOSXSpecs" do
   platform :osx, '10.7'
   pod 'Cedar'
 end

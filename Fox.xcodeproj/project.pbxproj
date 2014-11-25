@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C7EC32B90A6D9F3A4EAA608 /* libPods-FoxSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5903B5DF54E3E0FF9054380E /* libPods-FoxSpecs.a */; };
+		19B662A32A9185C2A1D2A177 /* libPods-FoxOSXSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3822E94A3A7CC419B4770D /* libPods-FoxOSXSpecs.a */; };
 		1F2A94F71997383300471B24 /* FOXTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A94F51997383300471B24 /* FOXTransition.m */; };
 		1F3462661924780800AE515C /* FOXConstantRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E4FFE7B868F0EA1A6D3 /* FOXConstantRandom.m */; };
 		1F3462671924780800AE515C /* FOXDeterministicRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7367B3E11AD0DC06F6595 /* FOXDeterministicRandom.mm */; };
@@ -76,7 +78,7 @@
 		1F8FDBFE1989F9DD0059D31A /* FOXSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* FOXSetSpec.mm */; };
 		1F8FDC011989FE530059D31A /* FOXDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* FOXDictionarySpec.mm */; };
 		1F8FDC041989FED70059D31A /* FOXStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* FOXStringSpec.mm */; };
-		1F9BA1931A11CFA90053B3C5 /* libFOX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160C1919DCE0003D8484 /* libFOX.a */; };
+		1F9BA1931A11CFA90053B3C5 /* libFox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160C1919DCE0003D8484 /* libFox.a */; };
 		1F9BA1991A11CFB70053B3C5 /* FOXArraySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B481977B8F100F0966E /* FOXArraySpec.mm */; };
 		1F9BA19A1A11CFB70053B3C5 /* FOXChooseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC30198DF48A00BEA6E1 /* FOXChooseSpec.mm */; };
 		1F9BA19B1A11CFB70053B3C5 /* FOXDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* FOXDictionarySpec.mm */; };
@@ -108,7 +110,6 @@
 		1FA94A3A199609D000803AF3 /* FOXSuchThatGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A39199609D000803AF3 /* FOXSuchThatGenerator.m */; };
 		1FA94A3B199609D000803AF3 /* FOXSuchThatGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A39199609D000803AF3 /* FOXSuchThatGenerator.m */; };
 		1FC3B983191B663600AA359B /* FOXPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* FOXPropertySpec.mm */; };
-		1FE707FE1A246F3400D9E2C6 /* libPods-FOXSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE707FD1A246F3400D9E2C6 /* libPods-FOXSpecs.a */; };
 		1FF5B93719737D4600416383 /* FOXIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* FOXIntegerSpec.mm */; };
 		1FF5B93E1973BD9000416383 /* FOXRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* FOXRoseTree.m */; };
 		1FF5B93F1973BD9000416383 /* FOXRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* FOXRoseTree.m */; };
@@ -140,7 +141,6 @@
 		31B73E318D310CCDB7ADB91C /* FOXStateMachineGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AAAC1A903382CE73DC4 /* FOXStateMachineGenerators.m */; };
 		31B73FA23522FA7FC4604F7C /* FOXNumericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F0233EF475592DC4F26 /* FOXNumericGenerators.m */; };
 		31B73FAD1A10E9E84AD53ECA /* FOXStringGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E288878A28D1FD44435 /* FOXStringGenerators.m */; };
-		5FEBAE5EC4BCB5ADA69EC588 /* libPods-FOXOSXSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C36E3FFA7958E1A1E298EA1 /* libPods-FOXOSXSpecs.a */; };
 		DAF3D37E1A1563A8004498D2 /* FOX.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B732EA700E97A90EFBD56F /* FOX.h */; };
 		DAF3D3811A1563E6004498D2 /* FOXCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73FBA1C97463CD5A8D15D /* FOXCommand.h */; };
 		DAF3D3821A1563E6004498D2 /* FOXExecutedCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F9BDD9519EA501500BAF25E /* FOXExecutedCommand.h */; };
@@ -226,6 +226,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1C3A9E42CD70802A6D4E7DFD /* Pods-FoxOSXSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoxOSXSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoxOSXSpecs/Pods-FoxOSXSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		1F2A94F41997383300471B24 /* FOXTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXTransition.h; sourceTree = "<group>"; };
 		1F2A94F51997383300471B24 /* FOXTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXTransition.m; sourceTree = "<group>"; };
 		1F35BC1D198D824600BEA6E1 /* FOXNamedGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXNamedGenerator.h; sourceTree = "<group>"; };
@@ -274,9 +275,9 @@
 		1F5018941991D708001AB3A9 /* FOXFiniteStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXFiniteStateMachine.m; sourceTree = "<group>"; };
 		1F59A81B196E900B00957FAA /* NSArray+FastEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FastEnumerator.h"; sourceTree = "<group>"; };
 		1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FastEnumerator.m"; sourceTree = "<group>"; };
-		1F60160C1919DCE0003D8484 /* libFOX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFOX.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F60160C1919DCE0003D8484 /* libFox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F60160F1919DCE0003D8484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1F6016131919DCE0003D8484 /* FOX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FOX-Prefix.pch"; sourceTree = "<group>"; };
+		1F6016131919DCE0003D8484 /* Fox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fox-Prefix.pch"; sourceTree = "<group>"; };
 		1F60161D1919DCE0003D8484 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F6016201919DCE0003D8484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		1F6016461919DF90003D8484 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -288,8 +289,8 @@
 		1F6C41241A14736F003B6C83 /* FOXGenericSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXGenericSpec.mm; sourceTree = "<group>"; };
 		1F6C41281A147B3D003B6C83 /* FOXDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXDSL.h; sourceTree = "<group>"; };
 		1F6C41291A147B3D003B6C83 /* FOXDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXDSL.m; sourceTree = "<group>"; };
-		1F7EFA29191B63970074B028 /* FOXOSXSpecs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FOXOSXSpecs; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F7EFA2E191B63970074B028 /* FOXOSXSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FOXOSXSpecs-Prefix.pch"; sourceTree = "<group>"; };
+		1F7EFA29191B63970074B028 /* FoxOSXSpecs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FoxOSXSpecs; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F7EFA2E191B63970074B028 /* FoxOSXSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoxOSXSpecs-Prefix.pch"; sourceTree = "<group>"; };
 		1F7EFA31191B63980074B028 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F848B411977965500F0966E /* FOXPositiveIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXPositiveIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F848B4419779F6600F0966E /* FOXNegativeIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXNegativeIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -306,7 +307,7 @@
 		1F8FDBFC1989F9DD0059D31A /* FOXSetSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXSetSpec.mm; sourceTree = "<group>"; };
 		1F8FDBFF1989FE530059D31A /* FOXDictionarySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXDictionarySpec.mm; sourceTree = "<group>"; };
 		1F8FDC021989FED70059D31A /* FOXStringSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXStringSpec.mm; sourceTree = "<group>"; };
-		1F9BA18D1A11CFA90053B3C5 /* FOXSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FOXSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F9BA18D1A11CFA90053B3C5 /* FoxSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoxSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9BA1901A11CFA90053B3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F9BDD9519EA501500BAF25E /* FOXExecutedCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXExecutedCommand.h; sourceTree = "<group>"; };
 		1F9BDD9619EA501500BAF25E /* FOXExecutedCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXExecutedCommand.m; sourceTree = "<group>"; };
@@ -358,11 +359,12 @@
 		31B73FBA1C97463CD5A8D15D /* FOXCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXCommand.h; sourceTree = "<group>"; };
 		31B73FCF31FFF93B1783938C /* FOXDictionaryGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXDictionaryGenerators.m; sourceTree = "<group>"; };
 		3C36E3FFA7958E1A1E298EA1 /* libPods-FOXOSXSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FOXOSXSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5903B5DF54E3E0FF9054380E /* libPods-FoxSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoxSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B04B5442DB5536F7D8390D2 /* libPods-FOXSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FOXSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		750B2C40C7AE49EB7EDFE754 /* Pods-FOXSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOXSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOXSpecs/Pods-FOXSpecs.release.xcconfig"; sourceTree = "<group>"; };
-		8BFE15A2759D5A16983F0E2B /* Pods-FOXOSXSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOXOSXSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOXOSXSpecs/Pods-FOXOSXSpecs.release.xcconfig"; sourceTree = "<group>"; };
-		DCAB2AD9B3E051C33D91B6EC /* Pods-FOXOSXSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOXOSXSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOXOSXSpecs/Pods-FOXOSXSpecs.debug.xcconfig"; sourceTree = "<group>"; };
-		E0294983ED15E484ABE13866 /* Pods-FOXSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOXSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOXSpecs/Pods-FOXSpecs.debug.xcconfig"; sourceTree = "<group>"; };
+		726AF498048577D18829288C /* Pods-FoxSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoxSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoxSpecs/Pods-FoxSpecs.debug.xcconfig"; sourceTree = "<group>"; };
+		8F3822E94A3A7CC419B4770D /* libPods-FoxOSXSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoxOSXSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0EDE141990837B28F82CE7E /* Pods-FoxSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoxSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoxSpecs/Pods-FoxSpecs.release.xcconfig"; sourceTree = "<group>"; };
+		FAA3A35CD59AEB6BC3BF8735 /* Pods-FoxOSXSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoxOSXSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoxOSXSpecs/Pods-FoxOSXSpecs.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,7 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F7EFA2A191B63970074B028 /* Foundation.framework in Frameworks */,
-				5FEBAE5EC4BCB5ADA69EC588 /* libPods-FOXOSXSpecs.a in Frameworks */,
+				19B662A32A9185C2A1D2A177 /* libPods-FoxOSXSpecs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,8 +389,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FE707FE1A246F3400D9E2C6 /* libPods-FOXSpecs.a in Frameworks */,
-				1F9BA1931A11CFA90053B3C5 /* libFOX.a in Frameworks */,
+				1F9BA1931A11CFA90053B3C5 /* libFox.a in Frameworks */,
+				0C7EC32B90A6D9F3A4EAA608 /* libPods-FoxSpecs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,21 +475,21 @@
 		1F6016031919DCE0003D8484 = {
 			isa = PBXGroup;
 			children = (
-				1F6016111919DCE0003D8484 /* FOX */,
-				1F60164C1919DF90003D8484 /* FOXSpecs */,
-				1F7EFA2B191B63970074B028 /* FOXOSXSpecs */,
+				1F6016111919DCE0003D8484 /* Fox */,
+				1F60164C1919DF90003D8484 /* FoxSpecs */,
+				1F7EFA2B191B63970074B028 /* FoxOSXSpecs */,
 				1F60160E1919DCE0003D8484 /* Frameworks */,
 				1F60160D1919DCE0003D8484 /* Products */,
-				2E40FDFC930C8121762F005F /* Pods */,
+				BCC926133821FDFB416EF592 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		1F60160D1919DCE0003D8484 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F60160C1919DCE0003D8484 /* libFOX.a */,
-				1F7EFA29191B63970074B028 /* FOXOSXSpecs */,
-				1F9BA18D1A11CFA90053B3C5 /* FOXSpecs.xctest */,
+				1F60160C1919DCE0003D8484 /* libFox.a */,
+				1F7EFA29191B63970074B028 /* FoxOSXSpecs */,
+				1F9BA18D1A11CFA90053B3C5 /* FoxSpecs.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -504,24 +506,27 @@
 				1F6016481919DF90003D8484 /* CoreGraphics.framework */,
 				3C36E3FFA7958E1A1E298EA1 /* libPods-FOXOSXSpecs.a */,
 				6B04B5442DB5536F7D8390D2 /* libPods-FOXSpecs.a */,
+				8F3822E94A3A7CC419B4770D /* libPods-FoxOSXSpecs.a */,
+				5903B5DF54E3E0FF9054380E /* libPods-FoxSpecs.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1F6016111919DCE0003D8484 /* FOX */ = {
+		1F6016111919DCE0003D8484 /* Fox */ = {
 			isa = PBXGroup;
 			children = (
 				1F8FDBE6198776FA0059D31A /* Private */,
 				1F6016351919DD35003D8484 /* Public */,
 				1F6016121919DCE0003D8484 /* Supporting Files */,
 			);
+			name = Fox;
 			path = FOX;
 			sourceTree = "<group>";
 		};
 		1F6016121919DCE0003D8484 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1F6016131919DCE0003D8484 /* FOX-Prefix.pch */,
+				1F6016131919DCE0003D8484 /* Fox-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -573,7 +578,7 @@
 			path = Generators;
 			sourceTree = "<group>";
 		};
-		1F60164C1919DF90003D8484 /* FOXSpecs */ = {
+		1F60164C1919DF90003D8484 /* FoxSpecs */ = {
 			isa = PBXGroup;
 			children = (
 				1F59A81A196E8FE300957FAA /* Extensions */,
@@ -581,6 +586,7 @@
 				1F60165B1919E283003D8484 /* Public */,
 				1F9BA18F1A11CFA90053B3C5 /* Supporting Files */,
 			);
+			name = FoxSpecs;
 			path = FOXSpecs;
 			sourceTree = "<group>";
 		};
@@ -625,19 +631,20 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		1F7EFA2B191B63970074B028 /* FOXOSXSpecs */ = {
+		1F7EFA2B191B63970074B028 /* FoxOSXSpecs */ = {
 			isa = PBXGroup;
 			children = (
 				1F7EFA31191B63980074B028 /* main.m */,
 				1F7EFA2D191B63970074B028 /* Supporting Files */,
 			);
+			name = FoxOSXSpecs;
 			path = FOXOSXSpecs;
 			sourceTree = "<group>";
 		};
 		1F7EFA2D191B63970074B028 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1F7EFA2E191B63970074B028 /* FOXOSXSpecs-Prefix.pch */,
+				1F7EFA2E191B63970074B028 /* FoxOSXSpecs-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -678,17 +685,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2E40FDFC930C8121762F005F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DCAB2AD9B3E051C33D91B6EC /* Pods-FOXOSXSpecs.debug.xcconfig */,
-				8BFE15A2759D5A16983F0E2B /* Pods-FOXOSXSpecs.release.xcconfig */,
-				E0294983ED15E484ABE13866 /* Pods-FOXSpecs.debug.xcconfig */,
-				750B2C40C7AE49EB7EDFE754 /* Pods-FOXSpecs.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		31B736A976CDB3B7301033AB /* Random */ = {
 			isa = PBXGroup;
 			children = (
@@ -722,12 +718,23 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		BCC926133821FDFB416EF592 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FAA3A35CD59AEB6BC3BF8735 /* Pods-FoxOSXSpecs.debug.xcconfig */,
+				1C3A9E42CD70802A6D4E7DFD /* Pods-FoxOSXSpecs.release.xcconfig */,
+				726AF498048577D18829288C /* Pods-FoxSpecs.debug.xcconfig */,
+				B0EDE141990837B28F82CE7E /* Pods-FoxSpecs.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1F60160B1919DCE0003D8484 /* FOX */ = {
+		1F60160B1919DCE0003D8484 /* Fox */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F60162F1919DCE0003D8484 /* Build configuration list for PBXNativeTarget "FOX" */;
+			buildConfigurationList = 1F60162F1919DCE0003D8484 /* Build configuration list for PBXNativeTarget "Fox" */;
 			buildPhases = (
 				1F6016081919DCE0003D8484 /* Sources */,
 				1F6016091919DCE0003D8484 /* Frameworks */,
@@ -737,14 +744,14 @@
 			);
 			dependencies = (
 			);
-			name = FOX;
+			name = Fox;
 			productName = PBT;
-			productReference = 1F60160C1919DCE0003D8484 /* libFOX.a */;
+			productReference = 1F60160C1919DCE0003D8484 /* libFox.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		1F7EFA28191B63970074B028 /* FOXOSXSpecs */ = {
+		1F7EFA28191B63970074B028 /* FoxOSXSpecs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F7EFA35191B63980074B028 /* Build configuration list for PBXNativeTarget "FOXOSXSpecs" */;
+			buildConfigurationList = 1F7EFA35191B63980074B028 /* Build configuration list for PBXNativeTarget "FoxOSXSpecs" */;
 			buildPhases = (
 				0A5F33090D0540AB86629CE7 /* Check Pods Manifest.lock */,
 				1F7EFA26191B63970074B028 /* Sources */,
@@ -755,14 +762,14 @@
 			);
 			dependencies = (
 			);
-			name = FOXOSXSpecs;
+			name = FoxOSXSpecs;
 			productName = PBTOSXSpecs;
-			productReference = 1F7EFA29191B63970074B028 /* FOXOSXSpecs */;
+			productReference = 1F7EFA29191B63970074B028 /* FoxOSXSpecs */;
 			productType = "com.apple.product-type.tool";
 		};
-		1F9BA18C1A11CFA90053B3C5 /* FOXSpecs */ = {
+		1F9BA18C1A11CFA90053B3C5 /* FoxSpecs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F9BA1961A11CFA90053B3C5 /* Build configuration list for PBXNativeTarget "FOXSpecs" */;
+			buildConfigurationList = 1F9BA1961A11CFA90053B3C5 /* Build configuration list for PBXNativeTarget "FoxSpecs" */;
 			buildPhases = (
 				94506BF6E52C1CB586E45008 /* Check Pods Manifest.lock */,
 				1F9BA1891A11CFA90053B3C5 /* Sources */,
@@ -775,9 +782,9 @@
 			dependencies = (
 				1F9BA1951A11CFA90053B3C5 /* PBXTargetDependency */,
 			);
-			name = FOXSpecs;
+			name = FoxSpecs;
 			productName = PBTSpecs;
-			productReference = 1F9BA18D1A11CFA90053B3C5 /* FOXSpecs.xctest */;
+			productReference = 1F9BA18D1A11CFA90053B3C5 /* FoxSpecs.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -796,7 +803,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1F6016071919DCE0003D8484 /* Build configuration list for PBXProject "FOX" */;
+			buildConfigurationList = 1F6016071919DCE0003D8484 /* Build configuration list for PBXProject "Fox" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -808,9 +815,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1F60160B1919DCE0003D8484 /* FOX */,
-				1F7EFA28191B63970074B028 /* FOXOSXSpecs */,
-				1F9BA18C1A11CFA90053B3C5 /* FOXSpecs */,
+				1F60160B1919DCE0003D8484 /* Fox */,
+				1F7EFA28191B63970074B028 /* FoxOSXSpecs */,
+				1F9BA18C1A11CFA90053B3C5 /* FoxSpecs */,
 			);
 		};
 /* End PBXProject section */
@@ -853,7 +860,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOXSpecs/Pods-FOXSpecs-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoxSpecs/Pods-FoxSpecs-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		94506BF6E52C1CB586E45008 /* Check Pods Manifest.lock */ = {
@@ -883,7 +890,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOXOSXSpecs/Pods-FOXOSXSpecs-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoxOSXSpecs/Pods-FoxOSXSpecs-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1044,7 +1051,7 @@
 /* Begin PBXTargetDependency section */
 		1F9BA1951A11CFA90053B3C5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1F60160B1919DCE0003D8484 /* FOX */;
+			target = 1F60160B1919DCE0003D8484 /* Fox */;
 			targetProxy = 1F9BA1941A11CFA90053B3C5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1129,11 +1136,11 @@
 			buildSettings = {
 				DSTROOT = /tmp/FOX.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FOX/FOX-Prefix.pch";
+				GCC_PREFIX_HEADER = "FOX/Fox-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_SHADOW = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Fox;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1143,23 +1150,23 @@
 			buildSettings = {
 				DSTROOT = /tmp/FOX.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FOX/FOX-Prefix.pch";
+				GCC_PREFIX_HEADER = "FOX/Fox-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_SHADOW = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Fox;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 		1F7EFA36191B63980074B028 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCAB2AD9B3E051C33D91B6EC /* Pods-FOXOSXSpecs.debug.xcconfig */;
+			baseConfigurationReference = FAA3A35CD59AEB6BC3BF8735 /* Pods-FoxOSXSpecs.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FOXOSXSpecs/FOXOSXSpecs-Prefix.pch";
+				GCC_PREFIX_HEADER = "FOXOSXSpecs/FoxOSXSpecs-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1171,7 +1178,7 @@
 					"-l\"c++\"",
 					"$(inherited)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FoxOSXSpecs;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1179,13 +1186,13 @@
 		};
 		1F7EFA37191B63980074B028 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BFE15A2759D5A16983F0E2B /* Pods-FOXOSXSpecs.release.xcconfig */;
+			baseConfigurationReference = 1C3A9E42CD70802A6D4E7DFD /* Pods-FoxOSXSpecs.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FOXOSXSpecs/FOXOSXSpecs-Prefix.pch";
+				GCC_PREFIX_HEADER = "FOXOSXSpecs/FoxOSXSpecs-Prefix.pch";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = (
@@ -1193,14 +1200,14 @@
 					"-l\"c++\"",
 					"$(inherited)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FoxOSXSpecs;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 		1F9BA1971A11CFA90053B3C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0294983ED15E484ABE13866 /* Pods-FOXSpecs.debug.xcconfig */;
+			baseConfigurationReference = 726AF498048577D18829288C /* Pods-FoxSpecs.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1216,11 +1223,7 @@
 				INFOPLIST_FILE = FOXSpecs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/build/Debug",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1229,14 +1232,14 @@
 					XCTest,
 					"$(inherited)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FoxSpecs;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1F9BA1981A11CFA90053B3C5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 750B2C40C7AE49EB7EDFE754 /* Pods-FOXSpecs.release.xcconfig */;
+			baseConfigurationReference = B0EDE141990837B28F82CE7E /* Pods-FoxSpecs.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1248,11 +1251,7 @@
 				INFOPLIST_FILE = FOXSpecs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/build/Debug",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1261,14 +1260,14 @@
 					XCTest,
 					"$(inherited)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FoxSpecs;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1F6016071919DCE0003D8484 /* Build configuration list for PBXProject "FOX" */ = {
+		1F6016071919DCE0003D8484 /* Build configuration list for PBXProject "Fox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F60162D1919DCE0003D8484 /* Debug */,
@@ -1277,7 +1276,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F60162F1919DCE0003D8484 /* Build configuration list for PBXNativeTarget "FOX" */ = {
+		1F60162F1919DCE0003D8484 /* Build configuration list for PBXNativeTarget "Fox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F6016301919DCE0003D8484 /* Debug */,
@@ -1286,7 +1285,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F7EFA35191B63980074B028 /* Build configuration list for PBXNativeTarget "FOXOSXSpecs" */ = {
+		1F7EFA35191B63980074B028 /* Build configuration list for PBXNativeTarget "FoxOSXSpecs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F7EFA36191B63980074B028 /* Debug */,
@@ -1295,7 +1294,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F9BA1961A11CFA90053B3C5 /* Build configuration list for PBXNativeTarget "FOXSpecs" */ = {
+		1F9BA1961A11CFA90053B3C5 /* Build configuration list for PBXNativeTarget "FoxSpecs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F9BA1971A11CFA90053B3C5 /* Debug */,
