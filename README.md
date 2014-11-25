@@ -6,13 +6,11 @@ Property Based Testing for Objective-C. Automatic generation of software tests.
 You might have heard of this or similar technologies through the various genres
 of testing frameworks and/or libraries:
 
- - [QuickCheck](http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck1)
+ - [Haskell QuickCheck](http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck1)
  - [test.check](https://github.com/clojure/test.check)
+ - Significantly more advanced [Erlang QuickCheck](http://www.quviq.com)
  - Property Based Testing
  - Model Based Testing
- - Fuzzy Testing
- - Black-Box Testing
- - Test Generation
 
 PBT is a port of test.check for Objective-C. Unlike some ports of QuickCheck,
 PBT does implement shrinking (test.check does implement that too).
