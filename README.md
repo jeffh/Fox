@@ -13,7 +13,6 @@ of testing frameworks and/or libraries:
  - Fuzzy Testing
  - Black-Box Testing
  - Test Generation
- - Automatic Testing Tool
 
 PBT is a port of test.check for Objective-C. Unlike some ports of QuickCheck,
 PBT does implement shrinking (test.check does implement that too).
@@ -53,6 +52,16 @@ possible example that also exhibits the same failure:
 
 ```objc
 result.smallestFailingValue // @[@0, @0]; the smallest example that fails
+```
+
+A short-hand way to verify this using the `PBTAssert` macro:
+
+```objc
+PBTAssert(PBTForAll(PBTTuple(PBTInteger(), PBTInteger()), ^BOOL(NSArray *values){
+    NSInteger x = [tuple[0] integerValue];
+    NSInteger y = [tuple[1] integerValue];
+    return x + y > x;
+});
 ```
 
 Stateful Testing
