@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>418DFE29-C02B-4EA5-B607-DC6F9C85A7CA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FOX</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4D8045885AF8CE75E2C66268CAB796EB63C645AB</key>
+		<string>github.com:jeffh/PBT.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FOX.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4D8045885AF8CE75E2C66268CAB796EB63C645AB</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:jeffh/PBT.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4D8045885AF8CE75E2C66268CAB796EB63C645AB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4D8045885AF8CE75E2C66268CAB796EB63C645AB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PBT</string>
+		</dict>
+	</array>
+</dict>
+</plist>
