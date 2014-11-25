@@ -1,5 +1,5 @@
-Property Based Testing
-======================
+Fox
+===
 
 Property Based Testing for Objective-C. Automatic generation of software tests.
 
@@ -12,19 +12,19 @@ of testing frameworks and/or libraries:
  - Property Based Testing
  - Model Based Testing
 
-FOX is a port of test.check for Objective-C. Unlike some ports of QuickCheck,
-FOX does implement shrinking (test.check does implement that too).
+Fox is a port of test.check for Objective-C. Unlike some ports of QuickCheck,
+Fox does implement shrinking (test.check does implement that too).
 
 More thorough than Example-Based Tests
 ======================================
 
 Test generation can provide a better coverage than example-based tests. Instead
-of having to manually code test cases, FOX can generate tests for you.
+of having to manually code test cases, Fox can generate tests for you.
 
 Data Generation
 ---------------
 
-The simpliest of test generation is providing random data.  FOX can generate
+The simpliest of test generation is providing random data.  Fox can generate
 them for use if you can define specifications -- known properties of the
 subject under test:
 
@@ -45,7 +45,7 @@ result.succeeded // => NO; failed
 result.failingValue // => @[-9, @0]; random values generated
 ```
 
-Once a failing example is produced, FOX will attempt to find the smallest
+Once a failing example is produced, Fox will attempt to find the smallest
 possible example that also exhibits the same failure:
 
 ```objc
@@ -71,7 +71,7 @@ for a queue:
 
 ```objc
 // define a state machine. Model state is the state of your application and
-// can be represented with any object you want -- FOX does not interpret it.
+// can be represented with any object you want -- Fox does not interpret it.
 FOXFiniteStateMachine *stateMachine = [[FOXFiniteStateMachine alloc] initWithInitialModelState:@[]];
 
 // Adds a transition to the state machine:
