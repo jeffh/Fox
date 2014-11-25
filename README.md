@@ -32,8 +32,8 @@ subject under test:
 FOXRunner *runner = [[FOXRunner alloc] init];
 // reads: for all integers x, y: x + y > x
 FOXRunnerResult *result = [runner checkWithNumberOfTests:100
-                                                    forAll:FOXTuple(FOXInteger(), FOXInteger())
-                                                    then:^FOXPropertyResult(NSArray *tuple) {
+                                                  forAll:FOXTuple(FOXInteger(), FOXInteger())
+                                                   then:^FOXPropertyResult(NSArray *tuple) {
     NSInteger x = [tuple[0] integerValue];
     NSInteger y = [tuple[1] integerValue];
     // FOXRequire converts bool into the FOXPropertyResult enum for passing or failing
