@@ -12,32 +12,32 @@ of testing frameworks and/or libraries:
  - Property Based Testing
  - Model Based Testing
 
-PBT is a port of test.check for Objective-C. Unlike some ports of QuickCheck,
-PBT does implement shrinking (test.check does implement that too).
+FOX is a port of test.check for Objective-C. Unlike some ports of QuickCheck,
+FOX does implement shrinking (test.check does implement that too).
 
 More thorough than Example-Based Tests
 ======================================
 
 Test generation can provide a better coverage than example-based tests. Instead
-of having to manually code test cases, PBT can generate tests for you.
+of having to manually code test cases, FOX can generate tests for you.
 
 Data Generation
 ---------------
 
-The simpliest of test generation is providing random data.  PBT can generate
+The simpliest of test generation is providing random data.  FOX can generate
 them for use if you can define specifications -- known properties of the
 subject under test:
 
 ```objc
-PBTRunner *runner = [[PBTRunner alloc] init];
+FOXRunner *runner = [[FOXRunner alloc] init];
 // reads: for all integers x, y: x + y > x
-PBTRunnerResult *result = [runner checkWithNumberOfTests:100
-                                                    forAll:PBTTuple(PBTInteger(), PBTInteger())
-                                                    then:^PBTPropertyResult(NSArray *tuple) {
+FOXRunnerResult *result = [runner checkWithNumberOfTests:100
+                                                    forAll:FOXTuple(FOXInteger(), FOXInteger())
+                                                    then:^FOXPropertyResult(NSArray *tuple) {
     NSInteger x = [tuple[0] integerValue];
     NSInteger y = [tuple[1] integerValue];
-    // PBTRequire converts bool into the PBTPropertyResult enum for passing or failing
-    return PBTRequire(x + y > x);
+    // FOXRequire converts bool into the FOXPropertyResult enum for passing or failing
+    return FOXRequire(x + y > x);
 }];
 
 // verify
@@ -45,17 +45,17 @@ result.succeeded // => NO; failed
 result.failingValue // => @[-9, @0]; random values generated
 ```
 
-Once a failing example is produced, PBT will attempt to find the smallest
+Once a failing example is produced, FOX will attempt to find the smallest
 possible example that also exhibits the same failure:
 
 ```objc
 result.smallestFailingValue // @[@0, @0]; the smallest example that fails
 ```
 
-A short-hand way to verify this using the `PBTAssert` macro:
+A short-hand way to verify this using the `FOXAssert` macro:
 
 ```objc
-PBTAssert(PBTForAll(PBTTuple(PBTInteger(), PBTInteger()), ^BOOL(NSArray *values){
+FOXAssert(FOXForAll(FOXTuple(FOXInteger(), FOXInteger()), ^BOOL(NSArray *values){
     NSInteger x = [tuple[0] integerValue];
     NSInteger y = [tuple[1] integerValue];
     return x + y > x;
@@ -71,19 +71,19 @@ for a queue:
 
 ```objc
 // define a state machine. Model state is the state of your application and
-// can be represented with any object you want -- PBT does not interpret it.
-PBTFiniteStateMachine *stateMachine = [[PBTFiniteStateMachine alloc] initWithInitialModelState:@[]];
+// can be represented with any object you want -- FOX does not interpret it.
+FOXFiniteStateMachine *stateMachine = [[FOXFiniteStateMachine alloc] initWithInitialModelState:@[]];
 
 // Adds a transition to the state machine:
 // - The API to test is -[addObject:]
 // - The generator for the argument is a random integer in an NSNumber
 // - A block indicating how to update the model state. This should not mutate the original model state.
-[stateMachine addTransition:[PBTTransition byCallingSelector:@selector(addObject:)
-                                               withGenerator:PBTInteger()
+[stateMachine addTransition:[FOXTransition byCallingSelector:@selector(addObject:)
+                                               withGenerator:FOXInteger()
                                               nextModelState:^id(NSArray *modelState, id generatedValue) {
     return [modelState arrayByAddingObject:generatedValue];
 }]];
-// Add a custom transition (see PBTStateTransition protocol)
+// Add a custom transition (see FOXStateTransition protocol)
 [stateMachine addTransition:[[QueueRemoveTransition alloc] init]];
 ```
 
@@ -92,14 +92,14 @@ Now, you can generate tests that exercise an API:
 ```objc
 // Generate a sequence of commands executed on the given subject. Since
 // this will generate multiple tests, you also give a block of a subject.
-id<PBTGenerator> executedCommands = PBTExecuteCommands(stateMachine, ^id {
-    return [PBTQueue new];
+id<FOXGenerator> executedCommands = FOXExecuteCommands(stateMachine, ^id {
+    return [FOXQueue new];
 });
 
 // Verify if the executed commands validated the API conformed to the state machine.
-PBTRunnerResult *result = [PBTSpecHelper resultForAll:executedCommands
+FOXRunnerResult *result = [FOXSpecHelper resultForAll:executedCommands
                                                  then:^BOOL(NSArray *commands) {
-    return PBTExecutedSuccessfully(commands);
+    return FOXExecutedSuccessfully(commands);
 }];
 // result will shrinking to the small sequence of API calls to trigger the
 // failure if there is one
@@ -119,30 +119,30 @@ generators shrink to zero:
 
 Function                  | Generates      | Description
 ------------------------- | --------------:| ------------
-PBTInteger                | NSNumber *     | Generates random integers
-PBTPositiveInteger        | NSNumber *     | Generates random zero or positive integers
-PBTNegativeInteger        | NSNumber *     | Generates random zero or negative integers
-PBTStrictPositiveInteger  | NSNumber *     | Generates random positive integers (non-zero)
-PBTStrictNegativeInteger  | NSNumber *     | Generates random negative integers (non-zero)
-PBTChoose                 | NSNumber *     | Generates random integers between the given range (inclusive)
-PBTReturn                 | id             | Always returns the given value. Does not shrink
-PBTTuple                  | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
-PBTTupleOfGenerators      | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
-PBTArray                  | NSArray *      | Generates random variable-sized arrays of generated values.
-PBTArrayOfSize            | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
-PBTArrayOfSizeRange       | NSArray *      | Generates random variable-sized arrays of generated values. Array size is within the given range (inclusive).
-PBTDictionary             | NSDictionary * | Generates random dictionries of generated values. Keys are known values ahead of time. Specified in `@{<key>: <generator>}` form.
-PBTSet                    | NSSet *        | Generates random sets of a given generated values.
-PBTCharacter              | NSString *     | Generates random 1-length sized character string. May be an unprintable character.
-PBTAlphabetCharacter      | NSString *     | Generates random 1-length sized character string. Only generates alphabetical letters.
-PBTNumericCharacter       | NSString *     | Generates random 1-length sized character string. Only generates digits.
-PBTAlphanumericCharacter  | NSString *     | Generates random 1-length sized character string. Only generates alphanumeric.
-PBTAsciiCharacter         | NSString *     | Generates random 1-length sized character string. Only generates ascii characters.
-PBTString                 | NSString *     | Generates random variable length strings. May be an unprintable string.
-PBTAsciiString            | NSString *     | Generates random variable length strings. Only generates ascii characters.
-PBTSimpleType             | id             | Generates random simple types. A simple type does not compose with other types. May not be printable.
-PBTPrintableSimpleType    | id             | Generates random simple types. A simple type does not compose with other types. Ensured to be printable.
-PBTCompositeType          | id             | Generates random composite types. A composite type composes with the given generator.
+FOXInteger                | NSNumber *     | Generates random integers
+FOXPositiveInteger        | NSNumber *     | Generates random zero or positive integers
+FOXNegativeInteger        | NSNumber *     | Generates random zero or negative integers
+FOXStrictPositiveInteger  | NSNumber *     | Generates random positive integers (non-zero)
+FOXStrictNegativeInteger  | NSNumber *     | Generates random negative integers (non-zero)
+FOXChoose                 | NSNumber *     | Generates random integers between the given range (inclusive)
+FOXReturn                 | id             | Always returns the given value. Does not shrink
+FOXTuple                  | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+FOXTupleOfGenerators      | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+FOXArray                  | NSArray *      | Generates random variable-sized arrays of generated values.
+FOXArrayOfSize            | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+FOXArrayOfSizeRange       | NSArray *      | Generates random variable-sized arrays of generated values. Array size is within the given range (inclusive).
+FOXDictionary             | NSDictionary * | Generates random dictionries of generated values. Keys are known values ahead of time. Specified in `@{<key>: <generator>}` form.
+FOXSet                    | NSSet *        | Generates random sets of a given generated values.
+FOXCharacter              | NSString *     | Generates random 1-length sized character string. May be an unprintable character.
+FOXAlphabetCharacter      | NSString *     | Generates random 1-length sized character string. Only generates alphabetical letters.
+FOXNumericCharacter       | NSString *     | Generates random 1-length sized character string. Only generates digits.
+FOXAlphanumericCharacter  | NSString *     | Generates random 1-length sized character string. Only generates alphanumeric.
+FOXAsciiCharacter         | NSString *     | Generates random 1-length sized character string. Only generates ascii characters.
+FOXString                 | NSString *     | Generates random variable length strings. May be an unprintable string.
+FOXAsciiString            | NSString *     | Generates random variable length strings. Only generates ascii characters.
+FOXSimpleType             | id             | Generates random simple types. A simple type does not compose with other types. May not be printable.
+FOXPrintableSimpleType    | id             | Generates random simple types. A simple type does not compose with other types. Ensured to be printable.
+FOXCompositeType          | id             | Generates random composite types. A composite type composes with the given generator.
 
 Computation Generators
 ----------------------
@@ -152,15 +152,15 @@ generator adopts the same shrinking properties as the original generator.
 
 Function                  | Description
 ------------------------- | ------------
-PBTMap                    | Applies a block to each generated value.
-PBTBind                   | Applies a block to the lazy tree that the original generator creates. See Building Generators section for more information.
-PBTSized                  | Encloses the given block to create generator that is dependent on the size hint generators receive when generating values.
-PBTSuchThat               | Returns each generated value iff it satisfies the given block. If the filter excludes more than 10 values in a row, the resulting generator assumes it has reached maximum shrinking.
-PBTSuchThatWithMaxTries   | Returns each generated value iff it satisfies the given block. If the filter excludes more than the given max tries in a row, the resulting generator assumes it has reached maximum shrinking. 
-PBTOneOf                  | Returns generated values by randomly picking from an array of generators. Shrinking will move towards the lower-indexed generators in the array.
-PBTForAll                 | Asserts using the block and a generator and produces test assertion results (PBTPropertyResult). Shrinking tests against smaller values of the given generator.
-PBTForSome                | Like PBTForAll, but allows the assertion block to "skip" potentially invalid test cases.
-PBTCommands               | Generates arrays of PBTCommands that satisfies a given state machine.
-PBTExecuteCommands        | Generates arrays of PBTExecutedCommands that satisfies a given state machine and executed against a subject. Can be passed to PBTExecutedSuccessfully to verify if the subject conforms to the state machine.
+FOXMap                    | Applies a block to each generated value.
+FOXBind                   | Applies a block to the lazy tree that the original generator creates. See Building Generators section for more information.
+FOXSized                  | Encloses the given block to create generator that is dependent on the size hint generators receive when generating values.
+FOXSuchThat               | Returns each generated value iff it satisfies the given block. If the filter excludes more than 10 values in a row, the resulting generator assumes it has reached maximum shrinking.
+FOXSuchThatWithMaxTries   | Returns each generated value iff it satisfies the given block. If the filter excludes more than the given max tries in a row, the resulting generator assumes it has reached maximum shrinking. 
+FOXOneOf                  | Returns generated values by randomly picking from an array of generators. Shrinking will move towards the lower-indexed generators in the array.
+FOXForAll                 | Asserts using the block and a generator and produces test assertion results (FOXPropertyResult). Shrinking tests against smaller values of the given generator.
+FOXForSome                | Like FOXForAll, but allows the assertion block to "skip" potentially invalid test cases.
+FOXCommands               | Generates arrays of FOXCommands that satisfies a given state machine.
+FOXExecuteCommands        | Generates arrays of FOXExecutedCommands that satisfies a given state machine and executed against a subject. Can be passed to FOXExecutedSuccessfully to verify if the subject conforms to the state machine.
 
 
