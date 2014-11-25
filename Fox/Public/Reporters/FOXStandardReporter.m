@@ -66,13 +66,13 @@
 
 - (void)runnerDidPassNumberOfTests:(NSUInteger)testNumber withResult:(FOXRunnerResult *)result
 {
-    [self logString:[NSString stringWithFormat:@"\n\n%lu Tests Passed.", testNumber]];
+    [self logString:[NSString stringWithFormat:@"\n\n%lu Tests Passed.", (unsigned long)testNumber]];
 }
 
 - (void)runnerDidFailTestNumber:(NSUInteger)testNumber withResult:(FOXRunnerResult *)result
 {
     [self logString:[NSString stringWithFormat:@"\n\n  %@\n", [[result friendlyDescription] stringByReplacingOccurrencesOfString:@"\n" withString:@"\n  "]]];
-    [self logString:[NSString stringWithFormat:@"\n\nFailure after %lu tests.", testNumber + 1]];
+    [self logString:[NSString stringWithFormat:@"\n\nFailure after %lu tests.", (unsigned long)(testNumber + 1)]];
 }
 
 - (void)runnerDidRunWithResult:(FOXRunnerResult *)result

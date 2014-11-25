@@ -34,7 +34,8 @@
     }
 
     [NSException raise:@"FOXGenerationFailed"
-                format:@"FOXSuchThat generator could failed to satisfy predicate after %lu times", self.maxTries];
+                format:@"FOXSuchThat generator could failed to satisfy predicate after %lu times",
+                       (unsigned long)self.maxTries];
     return nil;
 }
 
