@@ -34,3 +34,11 @@ FOX_EXPORT id<FOXGenerator> FOXString(void) {
 FOX_EXPORT id<FOXGenerator> FOXAsciiString(void) {
     return [[FOXStringGenerator alloc] initWithArrayOfIntegersGenerator:FOXArray(FOXAsciiCharacter()) name:@"Ascii"];
 }
+
+FOX_EXPORT id<FOXGenerator> FOXAlphabeticalString(void) {
+    return [[FOXStringGenerator alloc] initWithArrayOfIntegersGenerator:FOXArray(FOXAlphabetCharacter()) name:@"AlphabeticalString"];
+}
+
+FOX_EXPORT id<FOXGenerator> FOXAlphanumericString(void) {
+    return [[FOXStringGenerator alloc] initWithArrayOfIntegersGenerator:FOXArray(FOXAlphanumericCharacter()) name:@"AlphanumericalString"];
+}

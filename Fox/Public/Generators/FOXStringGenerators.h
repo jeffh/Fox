@@ -17,3 +17,7 @@ FOX_EXPORT id<FOXGenerator> FOXAsciiCharacter(void);
 FOX_EXPORT id<FOXGenerator> FOXString(void);
 
 FOX_EXPORT id<FOXGenerator> FOXAsciiString(void);
+
+FOX_EXPORT id<FOXGenerator> FOXAlphabeticalString(void);
+
+FOX_EXPORT id<FOXGenerator> FOXAlphanumericString(void);

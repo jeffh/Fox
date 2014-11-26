@@ -7,6 +7,15 @@
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
 
+static BOOL stringContainsOnlyCharactersInSet(NSString *string, NSCharacterSet *characterSet) {
+    for (NSUInteger i = 0; i < string.length; i++) {
+        if (![characterSet characterIsMember:[string characterAtIndex:i]]) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
 SPEC_BEGIN(FOXStringSpec)
 
 describe(@"FOXString", ^{
@@ -39,6 +48,20 @@ describe(@"FOXString", ^{
         FOXAssert(FOXForAll(FOXArrayOfSizeRange(FOXInteger(), 5, 10), ^BOOL(id value) {
             NSUInteger count = [value count];
             return count >= 5 && count <= 10;
+        }));
+    });
+
+    it(@"should be able to return alphanumeric strings", ^{
+        FOXAssert(FOXForAll(FOXAlphabeticalString(), ^BOOL(NSString *string) {
+            NSCharacterSet *characterSet = [NSCharacterSet alphanumericCharacterSet];
+            return stringContainsOnlyCharactersInSet(string, characterSet);
+        }));
+    });
+
+    it(@"should be able to return alphabetical strings", ^{
+        FOXAssert(FOXForAll(FOXAlphabeticalString(), ^BOOL(NSString *string) {
+            NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijlkmnopqrstuvwxyz"];
+            return stringContainsOnlyCharactersInSet(string, characterSet);
         }));
     });
 });
