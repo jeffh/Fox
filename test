@@ -7,8 +7,8 @@ BUILD_IOS_SDK_VERSION=${FOX_BUILD_IOS_SDK_VERSION:-$LATEST_IOS_SDK_VERSION}
 RUNTIME_IOS_SDK_VERSION=${FOX_RUNTIME_IOS_SDK_VERSION:-$LATEST_IOS_SDK_VERSION}
 BUILD_OSX_SDK_VERSION=${FOX_BUILD_OSX_SDK_VERSION:-$LATEST_OSX_SDK_VERSION}
 
-PROJECT_NAME='Fox.xcworkspace'
-IOS_SCHEME=Fox
+PROJECT_NAME='Fox.xcodeproj'
+IOS_SCHEME=Fox-iOS
 OSX_SCHEME=Fox-OSX
 
 set -e
@@ -48,11 +48,11 @@ function run {
 
 function test_ios {
     run osascript -e 'tell app "iOS Simulator" to quit'
-    run xcodebuild -workspace "$PROJECT_NAME" -scheme "$IOS_SCHEME" -configuration "Debug" -sdk "iphonesimulator$BUILD_IOS_SDK_VERSION" -destination "name=iPhone 5s,OS=$RUNTIME_IOS_SDK_VERSION" build test
+    run xcodebuild -project "$PROJECT_NAME" -scheme "$IOS_SCHEME" -configuration "Debug" -sdk "iphonesimulator$BUILD_IOS_SDK_VERSION" -destination "name=iPhone 5s,OS=$RUNTIME_IOS_SDK_VERSION" build test
 }
 
 function test_osx {
-    run xcodebuild -workspace "$PROJECT_NAME" -scheme "$OSX_SCHEME" -configuration "Debug" -sdk "macosx$BUILD_OSX_SDK_VERSION" build test
+    run xcodebuild -project "$PROJECT_NAME" -scheme "$OSX_SCHEME" -configuration "Debug" -sdk "macosx$BUILD_OSX_SDK_VERSION" build test
 }
 
 function test() {

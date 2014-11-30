@@ -7,226 +7,353 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C7EC32B90A6D9F3A4EAA608 /* libPods-FoxSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5903B5DF54E3E0FF9054380E /* libPods-FoxSpecs.a */; };
-		19B662A32A9185C2A1D2A177 /* libPods-FoxOSXSpecs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3822E94A3A7CC419B4770D /* libPods-FoxOSXSpecs.a */; };
-		1F2A94F71997383300471B24 /* FOXTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A94F51997383300471B24 /* FOXTransition.m */; };
-		1F3462661924780800AE515C /* FOXConstantRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E4FFE7B868F0EA1A6D3 /* FOXConstantRandom.m */; };
-		1F3462671924780800AE515C /* FOXDeterministicRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7367B3E11AD0DC06F6595 /* FOXDeterministicRandom.mm */; };
-		1F35BC1F198D824600BEA6E1 /* FOXNamedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC1E198D824600BEA6E1 /* FOXNamedGenerator.m */; };
-		1F35BC20198D824A00BEA6E1 /* FOXNamedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC1E198D824600BEA6E1 /* FOXNamedGenerator.m */; };
-		1F35BC23198D838300BEA6E1 /* FOXStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC22198D838300BEA6E1 /* FOXStringGenerator.m */; };
-		1F35BC24198D838300BEA6E1 /* FOXStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC22198D838300BEA6E1 /* FOXStringGenerator.m */; };
-		1F35BC27198D881900BEA6E1 /* FOXArrayGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC26198D881900BEA6E1 /* FOXArrayGenerator.m */; };
-		1F35BC28198D881900BEA6E1 /* FOXArrayGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC26198D881900BEA6E1 /* FOXArrayGenerator.m */; };
-		1F35BC2B198D89DF00BEA6E1 /* FOXTupleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2A198D89DF00BEA6E1 /* FOXTupleGenerator.m */; };
-		1F35BC2C198D89DF00BEA6E1 /* FOXTupleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2A198D89DF00BEA6E1 /* FOXTupleGenerator.m */; };
-		1F35BC2F198DB6AA00BEA6E1 /* FOXTupleGeneratorSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2D198DB6AA00BEA6E1 /* FOXTupleGeneratorSpec.mm */; };
-		1F35BC32198DF48A00BEA6E1 /* FOXChooseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC30198DF48A00BEA6E1 /* FOXChooseSpec.mm */; };
-		1F35BC35198DF77400BEA6E1 /* FOXCharacterSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC33198DF77400BEA6E1 /* FOXCharacterSpec.mm */; };
-		1F35BC38198F78C200BEA6E1 /* FOXRoseTreeSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC36198F78C200BEA6E1 /* FOXRoseTreeSpec.mm */; };
-		1F35BC3B198F7C9A00BEA6E1 /* FOXBlockGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3A198F7C9A00BEA6E1 /* FOXBlockGenerator.m */; };
-		1F35BC3C198F7C9A00BEA6E1 /* FOXBlockGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3A198F7C9A00BEA6E1 /* FOXBlockGenerator.m */; };
-		1F35BC421990CA5600BEA6E1 /* FOXDebugReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3F1990CA5600BEA6E1 /* FOXDebugReporter.m */; };
-		1F35BC431990CA5600BEA6E1 /* FOXDebugReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3F1990CA5600BEA6E1 /* FOXDebugReporter.m */; };
-		1F35BC441990CA5600BEA6E1 /* FOXStandardReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC411990CA5600BEA6E1 /* FOXStandardReporter.m */; };
-		1F35BC451990CA5600BEA6E1 /* FOXStandardReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC411990CA5600BEA6E1 /* FOXStandardReporter.m */; };
-		1F3A71481A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A71471A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m */; };
-		1F3A71491A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A71471A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m */; };
-		1F3A714C1A231AE300AAE47B /* FOXNumericRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A714B1A231AE300AAE47B /* FOXNumericRoseTree.m */; };
-		1F3A714D1A231AE300AAE47B /* FOXNumericRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A714B1A231AE300AAE47B /* FOXNumericRoseTree.m */; };
-		1F4187FB1975108000FEBB8D /* FOXRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* FOXRunner.m */; };
-		1F4187FC1975187000FEBB8D /* FOXRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* FOXRunner.m */; };
-		1F4187FF19751BB700FEBB8D /* FOXRunnerResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FE19751BB700FEBB8D /* FOXRunnerResult.m */; };
-		1F41880019751F0900FEBB8D /* FOXRunnerResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FE19751BB700FEBB8D /* FOXRunnerResult.m */; };
-		1F46E50C198CAFAD00F87028 /* FOXPureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50B198CAFAD00F87028 /* FOXPureGenerator.m */; };
-		1F46E50D198CAFAD00F87028 /* FOXPureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50B198CAFAD00F87028 /* FOXPureGenerator.m */; };
-		1F46E510198CB2E800F87028 /* FOXMapGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50F198CB2E800F87028 /* FOXMapGenerator.m */; };
-		1F46E511198CB2E800F87028 /* FOXMapGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50F198CB2E800F87028 /* FOXMapGenerator.m */; };
-		1F46E514198CB4C000F87028 /* FOXBindGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E513198CB4C000F87028 /* FOXBindGenerator.m */; };
-		1F46E515198CB4C000F87028 /* FOXBindGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E513198CB4C000F87028 /* FOXBindGenerator.m */; };
-		1F46E518198CB63200F87028 /* FOXSizedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E517198CB63200F87028 /* FOXSizedGenerator.m */; };
-		1F46E519198CB63200F87028 /* FOXSizedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E517198CB63200F87028 /* FOXSizedGenerator.m */; };
-		1F46E51C198CB78000F87028 /* FOXChooseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51B198CB78000F87028 /* FOXChooseGenerator.m */; };
-		1F46E51D198CB78000F87028 /* FOXChooseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51B198CB78000F87028 /* FOXChooseGenerator.m */; };
-		1F46E520198CBAF100F87028 /* FOXSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51F198CBAF100F87028 /* FOXSequenceGenerator.m */; };
-		1F46E521198CBAF100F87028 /* FOXSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51F198CBAF100F87028 /* FOXSequenceGenerator.m */; };
-		1F50188B1991D37A001AB3A9 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018891991D37A001AB3A9 /* Queue.m */; };
-		1F50188E1991D406001AB3A9 /* FOXFiniteStateMachineSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F50188C1991D406001AB3A9 /* FOXFiniteStateMachineSpec.mm */; };
-		1F5018951991D708001AB3A9 /* FOXFiniteStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018941991D708001AB3A9 /* FOXFiniteStateMachine.m */; };
-		1F59A81E196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */; };
-		1F6016101919DCE0003D8484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
-		1F61E451196E88A6003EA164 /* FOXReturnSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E44F196E88A6003EA164 /* FOXReturnSpec.mm */; };
-		1F61E457196E8AEF003EA164 /* FOXSequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E455196E8AEF003EA164 /* FOXSequenceSpec.mm */; };
-		1F6C41231A131D56003B6C83 /* FOXGenericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41221A131D56003B6C83 /* FOXGenericGenerators.m */; };
-		1F6C41251A14736F003B6C83 /* FOXGenericSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41241A14736F003B6C83 /* FOXGenericSpec.mm */; };
-		1F6C41261A14736F003B6C83 /* FOXGenericSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41241A14736F003B6C83 /* FOXGenericSpec.mm */; };
-		1F6C41271A147431003B6C83 /* FOXGenericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41221A131D56003B6C83 /* FOXGenericGenerators.m */; };
-		1F6C412A1A147B3D003B6C83 /* FOXDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41291A147B3D003B6C83 /* FOXDSL.m */; };
-		1F6C412B1A147B3D003B6C83 /* FOXDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41291A147B3D003B6C83 /* FOXDSL.m */; };
-		1F7EFA2A191B63970074B028 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160F1919DCE0003D8484 /* Foundation.framework */; };
-		1F7EFA32191B63980074B028 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7EFA31191B63980074B028 /* main.m */; };
-		1F848B431977965500F0966E /* FOXPositiveIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B411977965500F0966E /* FOXPositiveIntegerSpec.mm */; };
-		1F848B4619779F6600F0966E /* FOXNegativeIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B4419779F6600F0966E /* FOXNegativeIntegerSpec.mm */; };
-		1F848B4A1977B8F100F0966E /* FOXArraySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B481977B8F100F0966E /* FOXArraySpec.mm */; };
-		1F8FDBEC1987773F0059D31A /* FOXConcreteSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBE91987773F0059D31A /* FOXConcreteSequence.m */; };
-		1F8FDBED1987773F0059D31A /* FOXConcreteSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBE91987773F0059D31A /* FOXConcreteSequence.m */; };
-		1F8FDBEE1987773F0059D31A /* FOXLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBEB1987773F0059D31A /* FOXLazySequence.m */; };
-		1F8FDBEF1987773F0059D31A /* FOXLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBEB1987773F0059D31A /* FOXLazySequence.m */; };
-		1F8FDBF2198777540059D31A /* FOXSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* FOXSequenceEnumerator.m */; };
-		1F8FDBF3198777540059D31A /* FOXSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* FOXSequenceEnumerator.m */; };
-		1F8FDBFB1988B4BA0059D31A /* FOXSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF91988B4BA0059D31A /* FOXSpecHelper.m */; };
-		1F8FDBFE1989F9DD0059D31A /* FOXSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* FOXSetSpec.mm */; };
-		1F8FDC011989FE530059D31A /* FOXDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* FOXDictionarySpec.mm */; };
-		1F8FDC041989FED70059D31A /* FOXStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* FOXStringSpec.mm */; };
-		1F9BA1931A11CFA90053B3C5 /* libFox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F60160C1919DCE0003D8484 /* libFox.a */; };
-		1F9BA1991A11CFB70053B3C5 /* FOXArraySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B481977B8F100F0966E /* FOXArraySpec.mm */; };
-		1F9BA19A1A11CFB70053B3C5 /* FOXChooseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC30198DF48A00BEA6E1 /* FOXChooseSpec.mm */; };
-		1F9BA19B1A11CFB70053B3C5 /* FOXDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* FOXDictionarySpec.mm */; };
-		1F9BA19C1A11CFB70053B3C5 /* FOXIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* FOXIntegerSpec.mm */; };
-		1F9BA19D1A11CFB70053B3C5 /* FOXNegativeIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B4419779F6600F0966E /* FOXNegativeIntegerSpec.mm */; };
-		1F9BA19E1A11CFB70053B3C5 /* FOXPositiveIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B411977965500F0966E /* FOXPositiveIntegerSpec.mm */; };
-		1F9BA19F1A11CFB70053B3C5 /* FOXReturnSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E44F196E88A6003EA164 /* FOXReturnSpec.mm */; };
-		1F9BA1A01A11CFB70053B3C5 /* FOXSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* FOXSetSpec.mm */; };
-		1F9BA1A11A11CFB70053B3C5 /* FOXStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* FOXStringSpec.mm */; };
-		1F9BA1A21A11CFB70053B3C5 /* FOXTupleGeneratorSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2D198DB6AA00BEA6E1 /* FOXTupleGeneratorSpec.mm */; };
-		1F9BA1A31A11CFB70053B3C5 /* FOXCharacterSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC33198DF77400BEA6E1 /* FOXCharacterSpec.mm */; };
-		1F9BA1A41A11CFB70053B3C5 /* FOXFiniteStateMachineSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F50188C1991D406001AB3A9 /* FOXFiniteStateMachineSpec.mm */; };
-		1F9BA1A51A11CFB70053B3C5 /* FOXSuchThatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A35199606F800803AF3 /* FOXSuchThatSpec.mm */; };
-		1F9BA1A61A11CFB70053B3C5 /* FOXPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* FOXPropertySpec.mm */; };
-		1F9BA1A71A11D0410053B3C5 /* NSArray+FastEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */; };
-		1F9BA1A81A11D0460053B3C5 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018891991D37A001AB3A9 /* Queue.m */; };
-		1F9BA1A91A11D0460053B3C5 /* QueueAddTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73029745CB5B325095CB3 /* QueueAddTransition.m */; };
-		1F9BA1AA1A11D0460053B3C5 /* QueueRemoveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73BE31D123C54907C7EE3 /* QueueRemoveTransition.m */; };
-		1F9BA1AB1A11D0460053B3C5 /* FOXSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF91988B4BA0059D31A /* FOXSpecHelper.m */; };
-		1F9BA1AC1A11D04C0053B3C5 /* FOXRandomSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC471990CB6400BEA6E1 /* FOXRandomSpec.mm */; };
-		1F9BA1AD1A11D04D0053B3C5 /* FOXRandomSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC471990CB6400BEA6E1 /* FOXRandomSpec.mm */; };
-		1F9BA1AE1A11D0520053B3C5 /* FOXSequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E455196E8AEF003EA164 /* FOXSequenceSpec.mm */; };
-		1F9BA1AF1A11D0520053B3C5 /* FOXRoseTreeSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC36198F78C200BEA6E1 /* FOXRoseTreeSpec.mm */; };
-		1F9BA1B01A11D2520053B3C5 /* FOXTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A94F51997383300471B24 /* FOXTransition.m */; };
-		1F9BDD9719EA501500BAF25E /* FOXExecutedCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9BDD9619EA501500BAF25E /* FOXExecutedCommand.m */; };
-		1F9BDD9919EA54F400BAF25E /* FOXFiniteStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018941991D708001AB3A9 /* FOXFiniteStateMachine.m */; };
-		1F9BDD9A19EA54FB00BAF25E /* FOXExecutedCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9BDD9619EA501500BAF25E /* FOXExecutedCommand.m */; };
-		1FA94A37199606F800803AF3 /* FOXSuchThatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A35199606F800803AF3 /* FOXSuchThatSpec.mm */; };
-		1FA94A3A199609D000803AF3 /* FOXSuchThatGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A39199609D000803AF3 /* FOXSuchThatGenerator.m */; };
-		1FA94A3B199609D000803AF3 /* FOXSuchThatGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A39199609D000803AF3 /* FOXSuchThatGenerator.m */; };
-		1FC3B983191B663600AA359B /* FOXPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* FOXPropertySpec.mm */; };
-		1FF5B93719737D4600416383 /* FOXIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* FOXIntegerSpec.mm */; };
-		1FF5B93E1973BD9000416383 /* FOXRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* FOXRoseTree.m */; };
-		1FF5B93F1973BD9000416383 /* FOXRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* FOXRoseTree.m */; };
-		31B7306F3DE18171A4D1A2CE /* FOXSetGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B732DF762CE64B6BE7A599 /* FOXSetGenerators.m */; };
-		31B73119A5F87531FA87A8B0 /* FOXArrayGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F4A43C962308369B5A9 /* FOXArrayGenerators.m */; };
-		31B734BDF31AF37ACAA7EF5A /* FOXPropertyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D791208A96A73A2FB89 /* FOXPropertyResult.m */; };
-		31B734C77CE50AF2827BA35C /* FOXPropertyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D791208A96A73A2FB89 /* FOXPropertyResult.m */; };
-		31B734FE326DCB9B9291BC68 /* FOXPropertyGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73CE3BB0FE0A496DEA102 /* FOXPropertyGenerators.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
-		31B735B7CCFCD90D521378FC /* FOXCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C0260617192E88A3392 /* FOXCommand.m */; };
-		31B7361BAB18DA6C12732177 /* FOXSetGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B732DF762CE64B6BE7A599 /* FOXSetGenerators.m */; };
-		31B7363E1AD3352531CA1171 /* FOXNumericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F0233EF475592DC4F26 /* FOXNumericGenerators.m */; };
-		31B73751373E8DF9C946EFA9 /* FOXStringGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E288878A28D1FD44435 /* FOXStringGenerators.m */; };
-		31B737BB9E0AE122DAE8BF70 /* QueueRemoveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73BE31D123C54907C7EE3 /* QueueRemoveTransition.m */; };
-		31B737D3CDD59A39BFB48F0D /* FOXArrayGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F4A43C962308369B5A9 /* FOXArrayGenerators.m */; };
-		31B738832F7EF34BA848E06B /* FOXArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B736F4E4E7DC1C8ACFC73A /* FOXArray.m */; };
-		31B7391D14C8AD2561D14117 /* FOXSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B733ACE038CF303D9ECC27 /* FOXSequence.m */; };
-		31B73925BF4547CBBA83F14E /* FOXDeterministicRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7367B3E11AD0DC06F6595 /* FOXDeterministicRandom.mm */; };
-		31B739893ED0C6493D0B12C7 /* FOXCoreGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F6A9C93C681CE532804 /* FOXCoreGenerators.m */; };
-		31B739F1774AF3BD251555AE /* FOXDictionaryGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FCF31FFF93B1783938C /* FOXDictionaryGenerators.m */; };
-		31B739F4E96E95DB627EF8C3 /* FOXCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C0260617192E88A3392 /* FOXCommand.m */; };
-		31B73A187530BC9FEB4A3631 /* FOXCoreGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F6A9C93C681CE532804 /* FOXCoreGenerators.m */; };
-		31B73A5F7884A7DC970148D4 /* FOXPropertyGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73CE3BB0FE0A496DEA102 /* FOXPropertyGenerators.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
-		31B73C758B0166BB245A205E /* FOXArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B736F4E4E7DC1C8ACFC73A /* FOXArray.m */; };
-		31B73C87EA2A3923327A60FF /* FOXStateMachineGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AAAC1A903382CE73DC4 /* FOXStateMachineGenerators.m */; };
-		31B73CC8C2DBD8E91FA49880 /* QueueAddTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73029745CB5B325095CB3 /* QueueAddTransition.m */; };
-		31B73CF6F20CF5FF10AADAD4 /* FOXSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B733ACE038CF303D9ECC27 /* FOXSequence.m */; };
-		31B73D53EB506977E8B6D87D /* FOXConstantRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E4FFE7B868F0EA1A6D3 /* FOXConstantRandom.m */; };
-		31B73D9927A4467233CE38CA /* FOXDictionaryGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FCF31FFF93B1783938C /* FOXDictionaryGenerators.m */; };
-		31B73E318D310CCDB7ADB91C /* FOXStateMachineGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AAAC1A903382CE73DC4 /* FOXStateMachineGenerators.m */; };
-		31B73FA23522FA7FC4604F7C /* FOXNumericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F0233EF475592DC4F26 /* FOXNumericGenerators.m */; };
-		31B73FAD1A10E9E84AD53ECA /* FOXStringGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E288878A28D1FD44435 /* FOXStringGenerators.m */; };
-		DAF3D37E1A1563A8004498D2 /* FOX.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B732EA700E97A90EFBD56F /* FOX.h */; };
-		DAF3D3811A1563E6004498D2 /* FOXCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73FBA1C97463CD5A8D15D /* FOXCommand.h */; };
-		DAF3D3821A1563E6004498D2 /* FOXExecutedCommand.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F9BDD9519EA501500BAF25E /* FOXExecutedCommand.h */; };
-		DAF3D3831A1563E6004498D2 /* FOXPropertyResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73AC32A19CA6467FCB298 /* FOXPropertyResult.h */; };
-		DAF3D3841A1563E6004498D2 /* FOXRoseTree.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FF5B93C1973BD9000416383 /* FOXRoseTree.h */; };
-		DAF3D3851A1563E6004498D2 /* FOXRunnerResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F4187FD19751BB700FEBB8D /* FOXRunnerResult.h */; };
-		DAF3D3861A1563E6004498D2 /* FOXSequence.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B730183A626AD19A2B366E /* FOXSequence.h */; };
-		DAF3D3871A1563E6004498D2 /* FOXTransition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2A94F41997383300471B24 /* FOXTransition.h */; };
-		DAF3D3881A1563E6004498D2 /* FOXArrayGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B731E731758B29364363DF /* FOXArrayGenerators.h */; };
-		DAF3D3891A1563E6004498D2 /* FOXCoreGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B736A7992BBD359C72E397 /* FOXCoreGenerators.h */; };
-		DAF3D38A1A1563E6004498D2 /* FOXDictionaryGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B7346B19612B83E717E236 /* FOXDictionaryGenerators.h */; };
-		DAF3D38B1A1563E6004498D2 /* FOXFiniteStateMachine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F5018931991D708001AB3A9 /* FOXFiniteStateMachine.h */; };
-		DAF3D38C1A1563E6004498D2 /* FOXGenerator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B7359D19C07C6410676A13 /* FOXGenerator.h */; };
-		DAF3D38D1A1563E6004498D2 /* FOXNumericGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73D3849E734CA2A32F5D4 /* FOXNumericGenerators.h */; };
-		DAF3D38E1A1563E6004498D2 /* FOXPropertyGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73F732828E21A3B5D4FA3 /* FOXPropertyGenerators.h */; };
-		DAF3D38F1A1563E6004498D2 /* FOXSetGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73FB26FF4BC3AF8F34E33 /* FOXSetGenerators.h */; };
-		DAF3D3901A1563E6004498D2 /* FOXStateMachine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B7303EEEA0827C94541FB4 /* FOXStateMachine.h */; };
-		DAF3D3911A1563E6004498D2 /* FOXStateMachineGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73F20F954586E20BE9329 /* FOXStateMachineGenerators.h */; };
-		DAF3D3921A1563E6004498D2 /* FOXStateTransition.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73E4270D7E9BB43B88512 /* FOXStateTransition.h */; };
-		DAF3D3931A1563E6004498D2 /* FOXStringGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73E65793C9A0F5F12FF3B /* FOXStringGenerators.h */; };
-		DAF3D3941A1563E6004498D2 /* FOXGenericGenerators.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F6C41211A131D56003B6C83 /* FOXGenericGenerators.h */; };
-		DAF3D3951A1563E6004498D2 /* FOXMacros.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F848B471977A75200F0966E /* FOXMacros.h */; };
-		DAF3D3961A1563E6004498D2 /* FOXRunner.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F4187F91975108000FEBB8D /* FOXRunner.h */; };
-		DAF3D3971A1563E6004498D2 /* FOXConstantRandom.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B7304B35C6D552B28742C9 /* FOXConstantRandom.h */; };
-		DAF3D3981A1563E6004498D2 /* FOXDeterministicRandom.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B733656606413AC3D482E3 /* FOXDeterministicRandom.h */; };
-		DAF3D3991A1563E6004498D2 /* FOXRandom.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B73282B254E07DFC8B2073 /* FOXRandom.h */; };
-		DAF3D39A1A1563E6004498D2 /* FOXDebugReporter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F35BC3E1990CA5600BEA6E1 /* FOXDebugReporter.h */; };
-		DAF3D39B1A1563E6004498D2 /* FOXStandardReporter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F35BC401990CA5600BEA6E1 /* FOXStandardReporter.h */; };
-		DAF3D39C1A1563E6004498D2 /* FOXReporter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31B739B35946B2CB1FD5C6DC /* FOXReporter.h */; };
-		DAF3D39D1A1563E6004498D2 /* FOXDSL.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F6C41281A147B3D003B6C83 /* FOXDSL.h */; };
+		1F38B61B1A2ACCA80078FF90 /* FOXBlockGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC39198F7C9A00BEA6E1 /* FOXBlockGenerator.h */; };
+		1F38B61C1A2ACCA80078FF90 /* FOXBlockGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3A198F7C9A00BEA6E1 /* FOXBlockGenerator.m */; };
+		1F38B61D1A2ACCA80078FF90 /* FOXArrayGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC25198D881900BEA6E1 /* FOXArrayGenerator.h */; };
+		1F38B61E1A2ACCA80078FF90 /* FOXArrayGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC26198D881900BEA6E1 /* FOXArrayGenerator.m */; };
+		1F38B61F1A2ACCA80078FF90 /* FOXBindGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E512198CB4C000F87028 /* FOXBindGenerator.h */; };
+		1F38B6201A2ACCA80078FF90 /* FOXBindGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E513198CB4C000F87028 /* FOXBindGenerator.m */; };
+		1F38B6211A2ACCA80078FF90 /* FOXChooseGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E51A198CB78000F87028 /* FOXChooseGenerator.h */; };
+		1F38B6221A2ACCA80078FF90 /* FOXChooseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51B198CB78000F87028 /* FOXChooseGenerator.m */; };
+		1F38B6231A2ACCA80078FF90 /* FOXMapGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E50E198CB2E800F87028 /* FOXMapGenerator.h */; };
+		1F38B6241A2ACCA80078FF90 /* FOXMapGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50F198CB2E800F87028 /* FOXMapGenerator.m */; };
+		1F38B6251A2ACCA80078FF90 /* FOXNamedGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC1D198D824600BEA6E1 /* FOXNamedGenerator.h */; };
+		1F38B6261A2ACCA80078FF90 /* FOXNamedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC1E198D824600BEA6E1 /* FOXNamedGenerator.m */; };
+		1F38B6271A2ACCA80078FF90 /* FOXPureGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E50A198CAFAD00F87028 /* FOXPureGenerator.h */; };
+		1F38B6281A2ACCA80078FF90 /* FOXPureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50B198CAFAD00F87028 /* FOXPureGenerator.m */; };
+		1F38B6291A2ACCA80078FF90 /* FOXSequenceGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E51E198CBAF100F87028 /* FOXSequenceGenerator.h */; };
+		1F38B62A1A2ACCA80078FF90 /* FOXSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51F198CBAF100F87028 /* FOXSequenceGenerator.m */; };
+		1F38B62B1A2ACCA80078FF90 /* FOXSizedGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E516198CB63200F87028 /* FOXSizedGenerator.h */; };
+		1F38B62C1A2ACCA80078FF90 /* FOXSizedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E517198CB63200F87028 /* FOXSizedGenerator.m */; };
+		1F38B62D1A2ACCA80078FF90 /* FOXStringGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC21198D838300BEA6E1 /* FOXStringGenerator.h */; };
+		1F38B62E1A2ACCA80078FF90 /* FOXStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC22198D838300BEA6E1 /* FOXStringGenerator.m */; };
+		1F38B62F1A2ACCA80078FF90 /* FOXTupleGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC29198D89DF00BEA6E1 /* FOXTupleGenerator.h */; };
+		1F38B6301A2ACCA80078FF90 /* FOXTupleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2A198D89DF00BEA6E1 /* FOXTupleGenerator.m */; };
+		1F38B6311A2ACCA80078FF90 /* FOXSuchThatGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA94A38199609D000803AF3 /* FOXSuchThatGenerator.h */; };
+		1F38B6321A2ACCA80078FF90 /* FOXSuchThatGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A39199609D000803AF3 /* FOXSuchThatGenerator.m */; };
+		1F38B6331A2ACCA90078FF90 /* FOXBlockGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC39198F7C9A00BEA6E1 /* FOXBlockGenerator.h */; };
+		1F38B6341A2ACCA90078FF90 /* FOXBlockGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3A198F7C9A00BEA6E1 /* FOXBlockGenerator.m */; };
+		1F38B6351A2ACCA90078FF90 /* FOXArrayGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC25198D881900BEA6E1 /* FOXArrayGenerator.h */; };
+		1F38B6361A2ACCA90078FF90 /* FOXArrayGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC26198D881900BEA6E1 /* FOXArrayGenerator.m */; };
+		1F38B6371A2ACCA90078FF90 /* FOXBindGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E512198CB4C000F87028 /* FOXBindGenerator.h */; };
+		1F38B6381A2ACCA90078FF90 /* FOXBindGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E513198CB4C000F87028 /* FOXBindGenerator.m */; };
+		1F38B6391A2ACCA90078FF90 /* FOXChooseGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E51A198CB78000F87028 /* FOXChooseGenerator.h */; };
+		1F38B63A1A2ACCA90078FF90 /* FOXChooseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51B198CB78000F87028 /* FOXChooseGenerator.m */; };
+		1F38B63B1A2ACCA90078FF90 /* FOXMapGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E50E198CB2E800F87028 /* FOXMapGenerator.h */; };
+		1F38B63C1A2ACCA90078FF90 /* FOXMapGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50F198CB2E800F87028 /* FOXMapGenerator.m */; };
+		1F38B63D1A2ACCA90078FF90 /* FOXNamedGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC1D198D824600BEA6E1 /* FOXNamedGenerator.h */; };
+		1F38B63E1A2ACCA90078FF90 /* FOXNamedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC1E198D824600BEA6E1 /* FOXNamedGenerator.m */; };
+		1F38B63F1A2ACCA90078FF90 /* FOXPureGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E50A198CAFAD00F87028 /* FOXPureGenerator.h */; };
+		1F38B6401A2ACCA90078FF90 /* FOXPureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E50B198CAFAD00F87028 /* FOXPureGenerator.m */; };
+		1F38B6411A2ACCA90078FF90 /* FOXSequenceGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E51E198CBAF100F87028 /* FOXSequenceGenerator.h */; };
+		1F38B6421A2ACCA90078FF90 /* FOXSequenceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E51F198CBAF100F87028 /* FOXSequenceGenerator.m */; };
+		1F38B6431A2ACCA90078FF90 /* FOXSizedGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F46E516198CB63200F87028 /* FOXSizedGenerator.h */; };
+		1F38B6441A2ACCA90078FF90 /* FOXSizedGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F46E517198CB63200F87028 /* FOXSizedGenerator.m */; };
+		1F38B6451A2ACCA90078FF90 /* FOXStringGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC21198D838300BEA6E1 /* FOXStringGenerator.h */; };
+		1F38B6461A2ACCA90078FF90 /* FOXStringGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC22198D838300BEA6E1 /* FOXStringGenerator.m */; };
+		1F38B6471A2ACCA90078FF90 /* FOXTupleGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC29198D89DF00BEA6E1 /* FOXTupleGenerator.h */; };
+		1F38B6481A2ACCA90078FF90 /* FOXTupleGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2A198D89DF00BEA6E1 /* FOXTupleGenerator.m */; };
+		1F38B6491A2ACCA90078FF90 /* FOXSuchThatGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA94A38199609D000803AF3 /* FOXSuchThatGenerator.h */; };
+		1F38B64A1A2ACCA90078FF90 /* FOXSuchThatGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A39199609D000803AF3 /* FOXSuchThatGenerator.m */; };
+		1F38B64B1A2ACCAE0078FF90 /* FOXConcreteSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8FDBE81987773F0059D31A /* FOXConcreteSequence.h */; };
+		1F38B64C1A2ACCAE0078FF90 /* FOXConcreteSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBE91987773F0059D31A /* FOXConcreteSequence.m */; };
+		1F38B64D1A2ACCAE0078FF90 /* FOXLazySequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8FDBEA1987773F0059D31A /* FOXLazySequence.h */; };
+		1F38B64E1A2ACCAE0078FF90 /* FOXLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBEB1987773F0059D31A /* FOXLazySequence.m */; };
+		1F38B64F1A2ACCAE0078FF90 /* FOXSequenceEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8FDBF0198777540059D31A /* FOXSequenceEnumerator.h */; };
+		1F38B6501A2ACCAE0078FF90 /* FOXSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* FOXSequenceEnumerator.m */; };
+		1F38B6511A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3A71461A2313AD00AAE47B /* FOXShrinkingIntegerSequence.h */; };
+		1F38B6521A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A71471A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m */; };
+		1F38B6531A2ACCAE0078FF90 /* FOXNumericRoseTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3A714A1A231AE300AAE47B /* FOXNumericRoseTree.h */; };
+		1F38B6541A2ACCAE0078FF90 /* FOXNumericRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A714B1A231AE300AAE47B /* FOXNumericRoseTree.m */; };
+		1F38B6551A2ACCAE0078FF90 /* FOXArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73986A5F5236203E7B0F4 /* FOXArray.h */; };
+		1F38B6561A2ACCAE0078FF90 /* FOXArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B736F4E4E7DC1C8ACFC73A /* FOXArray.m */; };
+		1F38B6571A2ACCAE0078FF90 /* FOXConcreteSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8FDBE81987773F0059D31A /* FOXConcreteSequence.h */; };
+		1F38B6581A2ACCAE0078FF90 /* FOXConcreteSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBE91987773F0059D31A /* FOXConcreteSequence.m */; };
+		1F38B6591A2ACCAE0078FF90 /* FOXLazySequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8FDBEA1987773F0059D31A /* FOXLazySequence.h */; };
+		1F38B65A1A2ACCAE0078FF90 /* FOXLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBEB1987773F0059D31A /* FOXLazySequence.m */; };
+		1F38B65B1A2ACCAE0078FF90 /* FOXSequenceEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8FDBF0198777540059D31A /* FOXSequenceEnumerator.h */; };
+		1F38B65C1A2ACCAE0078FF90 /* FOXSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* FOXSequenceEnumerator.m */; };
+		1F38B65D1A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3A71461A2313AD00AAE47B /* FOXShrinkingIntegerSequence.h */; };
+		1F38B65E1A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A71471A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m */; };
+		1F38B65F1A2ACCAE0078FF90 /* FOXNumericRoseTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3A714A1A231AE300AAE47B /* FOXNumericRoseTree.h */; };
+		1F38B6601A2ACCAE0078FF90 /* FOXNumericRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A714B1A231AE300AAE47B /* FOXNumericRoseTree.m */; };
+		1F38B6611A2ACCAE0078FF90 /* FOXArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73986A5F5236203E7B0F4 /* FOXArray.h */; };
+		1F38B6621A2ACCAE0078FF90 /* FOXArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B736F4E4E7DC1C8ACFC73A /* FOXArray.m */; };
+		1F38B6631A2ACCC00078FF90 /* FOXCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73FBA1C97463CD5A8D15D /* FOXCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6641A2ACCC00078FF90 /* FOXCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C0260617192E88A3392 /* FOXCommand.m */; };
+		1F38B6651A2ACCC00078FF90 /* FOXExecutedCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F9BDD9519EA501500BAF25E /* FOXExecutedCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6661A2ACCC00078FF90 /* FOXExecutedCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9BDD9619EA501500BAF25E /* FOXExecutedCommand.m */; };
+		1F38B6671A2ACCC00078FF90 /* FOXPropertyResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73AC32A19CA6467FCB298 /* FOXPropertyResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6681A2ACCC00078FF90 /* FOXPropertyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D791208A96A73A2FB89 /* FOXPropertyResult.m */; };
+		1F38B6691A2ACCC00078FF90 /* FOXRoseTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF5B93C1973BD9000416383 /* FOXRoseTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B66A1A2ACCC00078FF90 /* FOXRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* FOXRoseTree.m */; };
+		1F38B66B1A2ACCC00078FF90 /* FOXRunnerResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F4187FD19751BB700FEBB8D /* FOXRunnerResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B66C1A2ACCC00078FF90 /* FOXRunnerResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FE19751BB700FEBB8D /* FOXRunnerResult.m */; };
+		1F38B66D1A2ACCC00078FF90 /* FOXSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B730183A626AD19A2B366E /* FOXSequence.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B66E1A2ACCC00078FF90 /* FOXSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B733ACE038CF303D9ECC27 /* FOXSequence.m */; };
+		1F38B66F1A2ACCC00078FF90 /* FOXTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F2A94F41997383300471B24 /* FOXTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6701A2ACCC00078FF90 /* FOXTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A94F51997383300471B24 /* FOXTransition.m */; };
+		1F38B6711A2ACCC00078FF90 /* FOXArrayGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B731E731758B29364363DF /* FOXArrayGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6721A2ACCC00078FF90 /* FOXArrayGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F4A43C962308369B5A9 /* FOXArrayGenerators.m */; };
+		1F38B6731A2ACCC00078FF90 /* FOXCoreGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B736A7992BBD359C72E397 /* FOXCoreGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6741A2ACCC00078FF90 /* FOXCoreGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F6A9C93C681CE532804 /* FOXCoreGenerators.m */; };
+		1F38B6751A2ACCC00078FF90 /* FOXDictionaryGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B7346B19612B83E717E236 /* FOXDictionaryGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6761A2ACCC00078FF90 /* FOXDictionaryGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FCF31FFF93B1783938C /* FOXDictionaryGenerators.m */; };
+		1F38B6771A2ACCC00078FF90 /* FOXFiniteStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F5018931991D708001AB3A9 /* FOXFiniteStateMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6781A2ACCC00078FF90 /* FOXFiniteStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018941991D708001AB3A9 /* FOXFiniteStateMachine.m */; };
+		1F38B6791A2ACCC00078FF90 /* FOXGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B7359D19C07C6410676A13 /* FOXGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B67A1A2ACCC00078FF90 /* FOXNumericGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73D3849E734CA2A32F5D4 /* FOXNumericGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B67B1A2ACCC00078FF90 /* FOXNumericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F0233EF475592DC4F26 /* FOXNumericGenerators.m */; };
+		1F38B67C1A2ACCC00078FF90 /* FOXPropertyGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73F732828E21A3B5D4FA3 /* FOXPropertyGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B67D1A2ACCC00078FF90 /* FOXPropertyGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73CE3BB0FE0A496DEA102 /* FOXPropertyGenerators.m */; };
+		1F38B67E1A2ACCC00078FF90 /* FOXSetGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73FB26FF4BC3AF8F34E33 /* FOXSetGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B67F1A2ACCC00078FF90 /* FOXSetGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B732DF762CE64B6BE7A599 /* FOXSetGenerators.m */; };
+		1F38B6801A2ACCC00078FF90 /* FOXStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B7303EEEA0827C94541FB4 /* FOXStateMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6811A2ACCC00078FF90 /* FOXStateMachineGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73F20F954586E20BE9329 /* FOXStateMachineGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6821A2ACCC00078FF90 /* FOXStateMachineGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AAAC1A903382CE73DC4 /* FOXStateMachineGenerators.m */; };
+		1F38B6831A2ACCC00078FF90 /* FOXStateTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73E4270D7E9BB43B88512 /* FOXStateTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6841A2ACCC00078FF90 /* FOXStringGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73E65793C9A0F5F12FF3B /* FOXStringGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6851A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E288878A28D1FD44435 /* FOXStringGenerators.m */; };
+		1F38B6861A2ACCC00078FF90 /* FOXGenericGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F6C41211A131D56003B6C83 /* FOXGenericGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6871A2ACCC00078FF90 /* FOXGenericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41221A131D56003B6C83 /* FOXGenericGenerators.m */; };
+		1F38B6881A2ACCC00078FF90 /* FOX.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B732EA700E97A90EFBD56F /* FOX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6891A2ACCC00078FF90 /* FOXMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F848B471977A75200F0966E /* FOXMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B68A1A2ACCC00078FF90 /* FOXRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F4187F91975108000FEBB8D /* FOXRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B68B1A2ACCC00078FF90 /* FOXRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* FOXRunner.m */; };
+		1F38B68C1A2ACCC00078FF90 /* FOXConstantRandom.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B7304B35C6D552B28742C9 /* FOXConstantRandom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B68D1A2ACCC00078FF90 /* FOXConstantRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E4FFE7B868F0EA1A6D3 /* FOXConstantRandom.m */; };
+		1F38B68E1A2ACCC00078FF90 /* FOXDeterministicRandom.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B733656606413AC3D482E3 /* FOXDeterministicRandom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B68F1A2ACCC00078FF90 /* FOXDeterministicRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7367B3E11AD0DC06F6595 /* FOXDeterministicRandom.mm */; };
+		1F38B6901A2ACCC00078FF90 /* FOXRandom.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73282B254E07DFC8B2073 /* FOXRandom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6911A2ACCC00078FF90 /* FOXDebugReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC3E1990CA5600BEA6E1 /* FOXDebugReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6921A2ACCC00078FF90 /* FOXDebugReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3F1990CA5600BEA6E1 /* FOXDebugReporter.m */; };
+		1F38B6931A2ACCC00078FF90 /* FOXStandardReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC401990CA5600BEA6E1 /* FOXStandardReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6941A2ACCC00078FF90 /* FOXStandardReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC411990CA5600BEA6E1 /* FOXStandardReporter.m */; };
+		1F38B6951A2ACCC00078FF90 /* FOXReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B739B35946B2CB1FD5C6DC /* FOXReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6961A2ACCC00078FF90 /* FOXDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F6C41281A147B3D003B6C83 /* FOXDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6971A2ACCC00078FF90 /* FOXDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41291A147B3D003B6C83 /* FOXDSL.m */; };
+		1F38B6981A2ACCC00078FF90 /* FOXCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73FBA1C97463CD5A8D15D /* FOXCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6991A2ACCC00078FF90 /* FOXCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C0260617192E88A3392 /* FOXCommand.m */; };
+		1F38B69A1A2ACCC00078FF90 /* FOXExecutedCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F9BDD9519EA501500BAF25E /* FOXExecutedCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B69B1A2ACCC00078FF90 /* FOXExecutedCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9BDD9619EA501500BAF25E /* FOXExecutedCommand.m */; };
+		1F38B69C1A2ACCC00078FF90 /* FOXPropertyResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73AC32A19CA6467FCB298 /* FOXPropertyResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B69D1A2ACCC00078FF90 /* FOXPropertyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D791208A96A73A2FB89 /* FOXPropertyResult.m */; };
+		1F38B69E1A2ACCC00078FF90 /* FOXRoseTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF5B93C1973BD9000416383 /* FOXRoseTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B69F1A2ACCC00078FF90 /* FOXRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93D1973BD9000416383 /* FOXRoseTree.m */; };
+		1F38B6A01A2ACCC00078FF90 /* FOXRunnerResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F4187FD19751BB700FEBB8D /* FOXRunnerResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6A11A2ACCC00078FF90 /* FOXRunnerResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FE19751BB700FEBB8D /* FOXRunnerResult.m */; };
+		1F38B6A21A2ACCC00078FF90 /* FOXSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B730183A626AD19A2B366E /* FOXSequence.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6A31A2ACCC00078FF90 /* FOXSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B733ACE038CF303D9ECC27 /* FOXSequence.m */; };
+		1F38B6A41A2ACCC00078FF90 /* FOXTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F2A94F41997383300471B24 /* FOXTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6A51A2ACCC00078FF90 /* FOXTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2A94F51997383300471B24 /* FOXTransition.m */; };
+		1F38B6A61A2ACCC00078FF90 /* FOXArrayGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B731E731758B29364363DF /* FOXArrayGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6A71A2ACCC00078FF90 /* FOXArrayGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F4A43C962308369B5A9 /* FOXArrayGenerators.m */; };
+		1F38B6A81A2ACCC00078FF90 /* FOXCoreGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B736A7992BBD359C72E397 /* FOXCoreGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6A91A2ACCC00078FF90 /* FOXCoreGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F6A9C93C681CE532804 /* FOXCoreGenerators.m */; };
+		1F38B6AA1A2ACCC00078FF90 /* FOXDictionaryGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B7346B19612B83E717E236 /* FOXDictionaryGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6AB1A2ACCC00078FF90 /* FOXDictionaryGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FCF31FFF93B1783938C /* FOXDictionaryGenerators.m */; };
+		1F38B6AC1A2ACCC00078FF90 /* FOXFiniteStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F5018931991D708001AB3A9 /* FOXFiniteStateMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6AD1A2ACCC00078FF90 /* FOXFiniteStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018941991D708001AB3A9 /* FOXFiniteStateMachine.m */; };
+		1F38B6AE1A2ACCC00078FF90 /* FOXGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B7359D19C07C6410676A13 /* FOXGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6AF1A2ACCC00078FF90 /* FOXNumericGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73D3849E734CA2A32F5D4 /* FOXNumericGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6B01A2ACCC00078FF90 /* FOXNumericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F0233EF475592DC4F26 /* FOXNumericGenerators.m */; };
+		1F38B6B11A2ACCC00078FF90 /* FOXPropertyGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73F732828E21A3B5D4FA3 /* FOXPropertyGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6B21A2ACCC00078FF90 /* FOXPropertyGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73CE3BB0FE0A496DEA102 /* FOXPropertyGenerators.m */; };
+		1F38B6B31A2ACCC00078FF90 /* FOXSetGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73FB26FF4BC3AF8F34E33 /* FOXSetGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6B41A2ACCC00078FF90 /* FOXSetGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B732DF762CE64B6BE7A599 /* FOXSetGenerators.m */; };
+		1F38B6B51A2ACCC00078FF90 /* FOXStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B7303EEEA0827C94541FB4 /* FOXStateMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6B61A2ACCC00078FF90 /* FOXStateMachineGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73F20F954586E20BE9329 /* FOXStateMachineGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6B71A2ACCC00078FF90 /* FOXStateMachineGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AAAC1A903382CE73DC4 /* FOXStateMachineGenerators.m */; };
+		1F38B6B81A2ACCC00078FF90 /* FOXStateTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73E4270D7E9BB43B88512 /* FOXStateTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6B91A2ACCC00078FF90 /* FOXStringGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73E65793C9A0F5F12FF3B /* FOXStringGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6BA1A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E288878A28D1FD44435 /* FOXStringGenerators.m */; };
+		1F38B6BB1A2ACCC00078FF90 /* FOXGenericGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F6C41211A131D56003B6C83 /* FOXGenericGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6BC1A2ACCC00078FF90 /* FOXGenericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41221A131D56003B6C83 /* FOXGenericGenerators.m */; };
+		1F38B6BD1A2ACCC00078FF90 /* FOX.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B732EA700E97A90EFBD56F /* FOX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6BE1A2ACCC00078FF90 /* FOXMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F848B471977A75200F0966E /* FOXMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6BF1A2ACCC00078FF90 /* FOXRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F4187F91975108000FEBB8D /* FOXRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6C01A2ACCC00078FF90 /* FOXRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* FOXRunner.m */; };
+		1F38B6C11A2ACCC00078FF90 /* FOXConstantRandom.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B7304B35C6D552B28742C9 /* FOXConstantRandom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6C21A2ACCC00078FF90 /* FOXConstantRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E4FFE7B868F0EA1A6D3 /* FOXConstantRandom.m */; };
+		1F38B6C31A2ACCC00078FF90 /* FOXDeterministicRandom.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B733656606413AC3D482E3 /* FOXDeterministicRandom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6C41A2ACCC00078FF90 /* FOXDeterministicRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B7367B3E11AD0DC06F6595 /* FOXDeterministicRandom.mm */; };
+		1F38B6C51A2ACCC00078FF90 /* FOXRandom.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73282B254E07DFC8B2073 /* FOXRandom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6C61A2ACCC00078FF90 /* FOXDebugReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC3E1990CA5600BEA6E1 /* FOXDebugReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6C71A2ACCC00078FF90 /* FOXDebugReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3F1990CA5600BEA6E1 /* FOXDebugReporter.m */; };
+		1F38B6C81A2ACCC00078FF90 /* FOXStandardReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC401990CA5600BEA6E1 /* FOXStandardReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6C91A2ACCC00078FF90 /* FOXStandardReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC411990CA5600BEA6E1 /* FOXStandardReporter.m */; };
+		1F38B6CA1A2ACCC00078FF90 /* FOXReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B739B35946B2CB1FD5C6DC /* FOXReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6CB1A2ACCC00078FF90 /* FOXDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F6C41281A147B3D003B6C83 /* FOXDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6CC1A2ACCC00078FF90 /* FOXDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41291A147B3D003B6C83 /* FOXDSL.m */; };
+		1F38B6CD1A2ACCDF0078FF90 /* NSArray+FastEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */; };
+		1F38B6CE1A2ACCE00078FF90 /* NSArray+FastEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */; };
+		1F38B6CF1A2ACCE70078FF90 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018891991D37A001AB3A9 /* Queue.m */; };
+		1F38B6D01A2ACCE70078FF90 /* QueueAddTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73029745CB5B325095CB3 /* QueueAddTransition.m */; };
+		1F38B6D11A2ACCE70078FF90 /* QueueRemoveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73BE31D123C54907C7EE3 /* QueueRemoveTransition.m */; };
+		1F38B6D21A2ACCE70078FF90 /* FOXSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF91988B4BA0059D31A /* FOXSpecHelper.m */; };
+		1F38B6D31A2ACCE80078FF90 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018891991D37A001AB3A9 /* Queue.m */; };
+		1F38B6D41A2ACCE80078FF90 /* QueueAddTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73029745CB5B325095CB3 /* QueueAddTransition.m */; };
+		1F38B6D51A2ACCE80078FF90 /* QueueRemoveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73BE31D123C54907C7EE3 /* QueueRemoveTransition.m */; };
+		1F38B6D61A2ACCE80078FF90 /* FOXSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF91988B4BA0059D31A /* FOXSpecHelper.m */; };
+		1F38B6D71A2ACCF10078FF90 /* FOXRandomSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC471990CB6400BEA6E1 /* FOXRandomSpec.mm */; };
+		1F38B6D81A2ACCF10078FF90 /* FOXSequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E455196E8AEF003EA164 /* FOXSequenceSpec.mm */; };
+		1F38B6D91A2ACCF10078FF90 /* FOXRoseTreeSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC36198F78C200BEA6E1 /* FOXRoseTreeSpec.mm */; };
+		1F38B6DA1A2ACCF10078FF90 /* FOXArraySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B481977B8F100F0966E /* FOXArraySpec.mm */; };
+		1F38B6DB1A2ACCF10078FF90 /* FOXChooseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC30198DF48A00BEA6E1 /* FOXChooseSpec.mm */; };
+		1F38B6DC1A2ACCF10078FF90 /* FOXDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* FOXDictionarySpec.mm */; };
+		1F38B6DD1A2ACCF10078FF90 /* FOXIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* FOXIntegerSpec.mm */; };
+		1F38B6DE1A2ACCF10078FF90 /* FOXNegativeIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B4419779F6600F0966E /* FOXNegativeIntegerSpec.mm */; };
+		1F38B6DF1A2ACCF10078FF90 /* FOXPositiveIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B411977965500F0966E /* FOXPositiveIntegerSpec.mm */; };
+		1F38B6E01A2ACCF10078FF90 /* FOXReturnSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E44F196E88A6003EA164 /* FOXReturnSpec.mm */; };
+		1F38B6E11A2ACCF10078FF90 /* FOXSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* FOXSetSpec.mm */; };
+		1F38B6E21A2ACCF10078FF90 /* FOXStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* FOXStringSpec.mm */; };
+		1F38B6E31A2ACCF10078FF90 /* FOXTupleGeneratorSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2D198DB6AA00BEA6E1 /* FOXTupleGeneratorSpec.mm */; };
+		1F38B6E41A2ACCF10078FF90 /* FOXCharacterSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC33198DF77400BEA6E1 /* FOXCharacterSpec.mm */; };
+		1F38B6E51A2ACCF10078FF90 /* FOXFiniteStateMachineSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F50188C1991D406001AB3A9 /* FOXFiniteStateMachineSpec.mm */; };
+		1F38B6E61A2ACCF10078FF90 /* FOXSuchThatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A35199606F800803AF3 /* FOXSuchThatSpec.mm */; };
+		1F38B6E71A2ACCF10078FF90 /* FOXGenericSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41241A14736F003B6C83 /* FOXGenericSpec.mm */; };
+		1F38B6E81A2ACCF10078FF90 /* FOXPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* FOXPropertySpec.mm */; };
+		1F38B6E91A2ACCF20078FF90 /* FOXRandomSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC471990CB6400BEA6E1 /* FOXRandomSpec.mm */; };
+		1F38B6EA1A2ACCF20078FF90 /* FOXSequenceSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E455196E8AEF003EA164 /* FOXSequenceSpec.mm */; };
+		1F38B6EB1A2ACCF20078FF90 /* FOXRoseTreeSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC36198F78C200BEA6E1 /* FOXRoseTreeSpec.mm */; };
+		1F38B6EC1A2ACCF20078FF90 /* FOXArraySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B481977B8F100F0966E /* FOXArraySpec.mm */; };
+		1F38B6ED1A2ACCF20078FF90 /* FOXChooseSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC30198DF48A00BEA6E1 /* FOXChooseSpec.mm */; };
+		1F38B6EE1A2ACCF20078FF90 /* FOXDictionarySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFF1989FE530059D31A /* FOXDictionarySpec.mm */; };
+		1F38B6EF1A2ACCF20078FF90 /* FOXIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5B93519737D4600416383 /* FOXIntegerSpec.mm */; };
+		1F38B6F01A2ACCF20078FF90 /* FOXNegativeIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B4419779F6600F0966E /* FOXNegativeIntegerSpec.mm */; };
+		1F38B6F11A2ACCF20078FF90 /* FOXPositiveIntegerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F848B411977965500F0966E /* FOXPositiveIntegerSpec.mm */; };
+		1F38B6F21A2ACCF20078FF90 /* FOXReturnSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F61E44F196E88A6003EA164 /* FOXReturnSpec.mm */; };
+		1F38B6F31A2ACCF20078FF90 /* FOXSetSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBFC1989F9DD0059D31A /* FOXSetSpec.mm */; };
+		1F38B6F41A2ACCF20078FF90 /* FOXStringSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDC021989FED70059D31A /* FOXStringSpec.mm */; };
+		1F38B6F51A2ACCF20078FF90 /* FOXTupleGeneratorSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC2D198DB6AA00BEA6E1 /* FOXTupleGeneratorSpec.mm */; };
+		1F38B6F61A2ACCF20078FF90 /* FOXCharacterSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC33198DF77400BEA6E1 /* FOXCharacterSpec.mm */; };
+		1F38B6F71A2ACCF20078FF90 /* FOXFiniteStateMachineSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F50188C1991D406001AB3A9 /* FOXFiniteStateMachineSpec.mm */; };
+		1F38B6F81A2ACCF20078FF90 /* FOXSuchThatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FA94A35199606F800803AF3 /* FOXSuchThatSpec.mm */; };
+		1F38B6F91A2ACCF20078FF90 /* FOXGenericSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41241A14736F003B6C83 /* FOXGenericSpec.mm */; };
+		1F38B6FA1A2ACCF20078FF90 /* FOXPropertySpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C759823AC30AE97B012 /* FOXPropertySpec.mm */; };
+		1F38B6FB1A2ACF910078FF90 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6737D1A2AC7E200F98D20 /* UIKit.framework */; };
+		1F41BE9B1A2ACB9C00F25A65 /* Fox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41BE901A2ACB9C00F25A65 /* Fox.framework */; };
+		1F41BEB91A2ACBA300F25A65 /* Fox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41BEAE1A2ACBA300F25A65 /* Fox.framework */; };
+		1F41BEC71A2ACBB900F25A65 /* Cedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF673601A2AC2FD00F98D20 /* Cedar.framework */; };
+		1F41BECB1A2ACBC600F25A65 /* libCedar-StaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF673661A2AC2FD00F98D20 /* libCedar-StaticLib.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1F9BA1941A11CFA90053B3C5 /* PBXContainerItemProxy */ = {
+		1F41BE9C1A2ACB9C00F25A65 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1F6016041919DCE0003D8484 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1F60160B1919DCE0003D8484;
-			remoteInfo = PBT;
+			remoteGlobalIDString = 1F41BE8F1A2ACB9C00F25A65;
+			remoteInfo = "Fox-OSX";
+		};
+		1F41BEBA1A2ACBA300F25A65 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F6016041919DCE0003D8484 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F41BEAD1A2ACBA300F25A65;
+			remoteInfo = "Fox-iOS";
+		};
+		1F41BEC81A2ACBBE00F25A65 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AEEE1FB511DC271300029872;
+			remoteInfo = Cedar;
+		};
+		1F41BECC1A2ACBC800F25A65 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AEEE222811DC2B0600029872;
+			remoteInfo = "Cedar-StaticLib";
+		};
+		1FF6735F1A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AEEE1FB611DC271300029872;
+			remoteInfo = Cedar;
+		};
+		1FF673611A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AEEE218611DC28E200029872;
+			remoteInfo = "Cedar OS X Specs";
+		};
+		1FF673631A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 96A07F0813F276640021974D;
+			remoteInfo = "Cedar OS X FocusedSpecs";
+		};
+		1FF673651A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AEEE222911DC2B0600029872;
+			remoteInfo = "Cedar-StaticLib";
+		};
+		1FF673671A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AEEE227611DC2CF900029872;
+			remoteInfo = "Cedar iOS Specs";
+		};
+		1FF673691A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AE02E7E4184EABCD00414F19;
+			remoteInfo = "Cedar iOS FrameworkSpecs";
+		};
+		1FF6736B1A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 96B5F9F6144A81A7000A6A5D;
+			remoteInfo = "Cedar iOS Host App";
+		};
+		1FF6736D1A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 96B5FA11144A81A8000A6A5D;
+			remoteInfo = "Cedar iOS SenTestingKit Tests";
+		};
+		1FF6736F1A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F45A3DD180E4796003C1E36;
+			remoteInfo = "Cedar iOS XCTest Tests";
+		};
+		1FF673711A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AE248F9819DCD52500092C14;
+			remoteInfo = "Cedar OS X Host App";
+		};
+		1FF673731A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AE248FAA19DCD52500092C14;
+			remoteInfo = "Cedar OS X Host AppTests";
+		};
+		1FF673751A2AC2FD00F98D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AEB8818719DCD62D00F081BA;
+			remoteInfo = "Cedar OS X Failing Test Bundle";
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		1F60160A1919DCE0003D8484 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				DAF3D3811A1563E6004498D2 /* FOXCommand.h in CopyFiles */,
-				DAF3D3821A1563E6004498D2 /* FOXExecutedCommand.h in CopyFiles */,
-				DAF3D3831A1563E6004498D2 /* FOXPropertyResult.h in CopyFiles */,
-				DAF3D3841A1563E6004498D2 /* FOXRoseTree.h in CopyFiles */,
-				DAF3D3851A1563E6004498D2 /* FOXRunnerResult.h in CopyFiles */,
-				DAF3D3861A1563E6004498D2 /* FOXSequence.h in CopyFiles */,
-				DAF3D3871A1563E6004498D2 /* FOXTransition.h in CopyFiles */,
-				DAF3D3881A1563E6004498D2 /* FOXArrayGenerators.h in CopyFiles */,
-				DAF3D3891A1563E6004498D2 /* FOXCoreGenerators.h in CopyFiles */,
-				DAF3D38A1A1563E6004498D2 /* FOXDictionaryGenerators.h in CopyFiles */,
-				DAF3D38B1A1563E6004498D2 /* FOXFiniteStateMachine.h in CopyFiles */,
-				DAF3D38C1A1563E6004498D2 /* FOXGenerator.h in CopyFiles */,
-				DAF3D38D1A1563E6004498D2 /* FOXNumericGenerators.h in CopyFiles */,
-				DAF3D38E1A1563E6004498D2 /* FOXPropertyGenerators.h in CopyFiles */,
-				DAF3D38F1A1563E6004498D2 /* FOXSetGenerators.h in CopyFiles */,
-				DAF3D3901A1563E6004498D2 /* FOXStateMachine.h in CopyFiles */,
-				DAF3D3911A1563E6004498D2 /* FOXStateMachineGenerators.h in CopyFiles */,
-				DAF3D3921A1563E6004498D2 /* FOXStateTransition.h in CopyFiles */,
-				DAF3D3931A1563E6004498D2 /* FOXStringGenerators.h in CopyFiles */,
-				DAF3D3941A1563E6004498D2 /* FOXGenericGenerators.h in CopyFiles */,
-				DAF3D3951A1563E6004498D2 /* FOXMacros.h in CopyFiles */,
-				DAF3D3961A1563E6004498D2 /* FOXRunner.h in CopyFiles */,
-				DAF3D3971A1563E6004498D2 /* FOXConstantRandom.h in CopyFiles */,
-				DAF3D3981A1563E6004498D2 /* FOXDeterministicRandom.h in CopyFiles */,
-				DAF3D3991A1563E6004498D2 /* FOXRandom.h in CopyFiles */,
-				DAF3D39A1A1563E6004498D2 /* FOXDebugReporter.h in CopyFiles */,
-				DAF3D39B1A1563E6004498D2 /* FOXStandardReporter.h in CopyFiles */,
-				DAF3D39C1A1563E6004498D2 /* FOXReporter.h in CopyFiles */,
-				DAF3D39D1A1563E6004498D2 /* FOXDSL.h in CopyFiles */,
-				DAF3D37E1A1563A8004498D2 /* FOX.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		1C3A9E42CD70802A6D4E7DFD /* Pods-FoxOSXSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoxOSXSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoxOSXSpecs/Pods-FoxOSXSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		1F2A94F41997383300471B24 /* FOXTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXTransition.h; sourceTree = "<group>"; };
 		1F2A94F51997383300471B24 /* FOXTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXTransition.m; sourceTree = "<group>"; };
 		1F35BC1D198D824600BEA6E1 /* FOXNamedGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXNamedGenerator.h; sourceTree = "<group>"; };
@@ -248,6 +375,7 @@
 		1F35BC401990CA5600BEA6E1 /* FOXStandardReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXStandardReporter.h; sourceTree = "<group>"; };
 		1F35BC411990CA5600BEA6E1 /* FOXStandardReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXStandardReporter.m; sourceTree = "<group>"; };
 		1F35BC471990CB6400BEA6E1 /* FOXRandomSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXRandomSpec.mm; sourceTree = "<group>"; };
+		1F38B6181A2ACC410078FF90 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Fox/Info.plist; sourceTree = SOURCE_ROOT; };
 		1F3A71461A2313AD00AAE47B /* FOXShrinkingIntegerSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXShrinkingIntegerSequence.h; sourceTree = "<group>"; };
 		1F3A71471A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXShrinkingIntegerSequence.m; sourceTree = "<group>"; };
 		1F3A714A1A231AE300AAE47B /* FOXNumericRoseTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXNumericRoseTree.h; sourceTree = "<group>"; };
@@ -256,6 +384,10 @@
 		1F4187FA1975108000FEBB8D /* FOXRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXRunner.m; sourceTree = "<group>"; };
 		1F4187FD19751BB700FEBB8D /* FOXRunnerResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXRunnerResult.h; sourceTree = "<group>"; };
 		1F4187FE19751BB700FEBB8D /* FOXRunnerResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXRunnerResult.m; sourceTree = "<group>"; };
+		1F41BE901A2ACB9C00F25A65 /* Fox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F41BE9A1A2ACB9C00F25A65 /* Fox-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fox-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F41BEAE1A2ACBA300F25A65 /* Fox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F41BEB81A2ACBA300F25A65 /* Fox-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fox-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F46E50A198CAFAD00F87028 /* FOXPureGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXPureGenerator.h; sourceTree = "<group>"; };
 		1F46E50B198CAFAD00F87028 /* FOXPureGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXPureGenerator.m; sourceTree = "<group>"; };
 		1F46E50E198CB2E800F87028 /* FOXMapGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXMapGenerator.h; sourceTree = "<group>"; };
@@ -275,12 +407,9 @@
 		1F5018941991D708001AB3A9 /* FOXFiniteStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXFiniteStateMachine.m; sourceTree = "<group>"; };
 		1F59A81B196E900B00957FAA /* NSArray+FastEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FastEnumerator.h"; sourceTree = "<group>"; };
 		1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FastEnumerator.m"; sourceTree = "<group>"; };
-		1F60160C1919DCE0003D8484 /* libFox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F60160F1919DCE0003D8484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1F6016131919DCE0003D8484 /* Fox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fox-Prefix.pch"; sourceTree = "<group>"; };
 		1F60161D1919DCE0003D8484 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F6016201919DCE0003D8484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		1F6016461919DF90003D8484 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1F6016481919DF90003D8484 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		1F61E44F196E88A6003EA164 /* FOXReturnSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXReturnSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F61E455196E8AEF003EA164 /* FOXSequenceSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXSequenceSpec.mm; sourceTree = "<group>"; };
@@ -289,9 +418,6 @@
 		1F6C41241A14736F003B6C83 /* FOXGenericSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXGenericSpec.mm; sourceTree = "<group>"; };
 		1F6C41281A147B3D003B6C83 /* FOXDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXDSL.h; sourceTree = "<group>"; };
 		1F6C41291A147B3D003B6C83 /* FOXDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXDSL.m; sourceTree = "<group>"; };
-		1F7EFA29191B63970074B028 /* FoxOSXSpecs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FoxOSXSpecs; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F7EFA2E191B63970074B028 /* FoxOSXSpecs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoxOSXSpecs-Prefix.pch"; sourceTree = "<group>"; };
-		1F7EFA31191B63980074B028 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F848B411977965500F0966E /* FOXPositiveIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXPositiveIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F848B4419779F6600F0966E /* FOXNegativeIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXNegativeIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F848B471977A75200F0966E /* FOXMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOXMacros.h; sourceTree = "<group>"; };
@@ -307,18 +433,17 @@
 		1F8FDBFC1989F9DD0059D31A /* FOXSetSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXSetSpec.mm; sourceTree = "<group>"; };
 		1F8FDBFF1989FE530059D31A /* FOXDictionarySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXDictionarySpec.mm; sourceTree = "<group>"; };
 		1F8FDC021989FED70059D31A /* FOXStringSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXStringSpec.mm; sourceTree = "<group>"; };
-		1F9BA18D1A11CFA90053B3C5 /* FoxSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoxSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9BA1901A11CFA90053B3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F9BDD9519EA501500BAF25E /* FOXExecutedCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXExecutedCommand.h; sourceTree = "<group>"; };
 		1F9BDD9619EA501500BAF25E /* FOXExecutedCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXExecutedCommand.m; sourceTree = "<group>"; };
 		1FA94A35199606F800803AF3 /* FOXSuchThatSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXSuchThatSpec.mm; sourceTree = "<group>"; };
 		1FA94A38199609D000803AF3 /* FOXSuchThatGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXSuchThatGenerator.h; sourceTree = "<group>"; };
 		1FA94A39199609D000803AF3 /* FOXSuchThatGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXSuchThatGenerator.m; sourceTree = "<group>"; };
-		1FE707FB1A246F2800D9E2C6 /* libPods-FOXOSXSpecs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FOXOSXSpecs.a"; path = "Pods/build/Debug/libPods-FOXOSXSpecs.a"; sourceTree = "<group>"; };
-		1FE707FD1A246F3400D9E2C6 /* libPods-FOXSpecs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FOXSpecs.a"; path = "Pods/build/Debug-iphoneos/libPods-FOXSpecs.a"; sourceTree = "<group>"; };
 		1FF5B93519737D4600416383 /* FOXIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1FF5B93C1973BD9000416383 /* FOXRoseTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXRoseTree.h; sourceTree = "<group>"; };
 		1FF5B93D1973BD9000416383 /* FOXRoseTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXRoseTree.m; sourceTree = "<group>"; };
+		1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cedar.xcodeproj; path = cedar/Cedar.xcodeproj; sourceTree = "<group>"; };
+		1FF6737D1A2AC7E200F98D20 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		31B730183A626AD19A2B366E /* FOXSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXSequence.h; sourceTree = "<group>"; };
 		31B73029745CB5B325095CB3 /* QueueAddTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueAddTransition.m; sourceTree = "<group>"; };
 		31B7303EEEA0827C94541FB4 /* FOXStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXStateMachine.h; sourceTree = "<group>"; };
@@ -358,39 +483,39 @@
 		31B73FB26FF4BC3AF8F34E33 /* FOXSetGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXSetGenerators.h; sourceTree = "<group>"; };
 		31B73FBA1C97463CD5A8D15D /* FOXCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXCommand.h; sourceTree = "<group>"; };
 		31B73FCF31FFF93B1783938C /* FOXDictionaryGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXDictionaryGenerators.m; sourceTree = "<group>"; };
-		3C36E3FFA7958E1A1E298EA1 /* libPods-FOXOSXSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FOXOSXSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5903B5DF54E3E0FF9054380E /* libPods-FoxSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoxSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B04B5442DB5536F7D8390D2 /* libPods-FOXSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FOXSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		726AF498048577D18829288C /* Pods-FoxSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoxSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoxSpecs/Pods-FoxSpecs.debug.xcconfig"; sourceTree = "<group>"; };
-		8F3822E94A3A7CC419B4770D /* libPods-FoxOSXSpecs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoxOSXSpecs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0EDE141990837B28F82CE7E /* Pods-FoxSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoxSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoxSpecs/Pods-FoxSpecs.release.xcconfig"; sourceTree = "<group>"; };
-		FAA3A35CD59AEB6BC3BF8735 /* Pods-FoxOSXSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoxOSXSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoxOSXSpecs/Pods-FoxOSXSpecs.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1F6016091919DCE0003D8484 /* Frameworks */ = {
+		1F41BE8C1A2ACB9C00F25A65 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F6016101919DCE0003D8484 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F7EFA27191B63970074B028 /* Frameworks */ = {
+		1F41BE971A2ACB9C00F25A65 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F7EFA2A191B63970074B028 /* Foundation.framework in Frameworks */,
-				19B662A32A9185C2A1D2A177 /* libPods-FoxOSXSpecs.a in Frameworks */,
+				1F41BEC71A2ACBB900F25A65 /* Cedar.framework in Frameworks */,
+				1F41BE9B1A2ACB9C00F25A65 /* Fox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F9BA18A1A11CFA90053B3C5 /* Frameworks */ = {
+		1F41BEAA1A2ACBA300F25A65 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F9BA1931A11CFA90053B3C5 /* libFox.a in Frameworks */,
-				0C7EC32B90A6D9F3A4EAA608 /* libPods-FoxSpecs.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F41BEB51A2ACBA300F25A65 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F38B6FB1A2ACF910078FF90 /* UIKit.framework in Frameworks */,
+				1F41BECB1A2ACBC600F25A65 /* libCedar-StaticLib.a in Frameworks */,
+				1F41BEB91A2ACBA300F25A65 /* Fox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,21 +600,21 @@
 		1F6016031919DCE0003D8484 = {
 			isa = PBXGroup;
 			children = (
+				1FF6734E1A2AC2EC00F98D20 /* Externals */,
 				1F6016111919DCE0003D8484 /* Fox */,
 				1F60164C1919DF90003D8484 /* FoxSpecs */,
-				1F7EFA2B191B63970074B028 /* FoxOSXSpecs */,
 				1F60160E1919DCE0003D8484 /* Frameworks */,
 				1F60160D1919DCE0003D8484 /* Products */,
-				BCC926133821FDFB416EF592 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		1F60160D1919DCE0003D8484 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F60160C1919DCE0003D8484 /* libFox.a */,
-				1F7EFA29191B63970074B028 /* FoxOSXSpecs */,
-				1F9BA18D1A11CFA90053B3C5 /* FoxSpecs.xctest */,
+				1F41BE901A2ACB9C00F25A65 /* Fox.framework */,
+				1F41BE9A1A2ACB9C00F25A65 /* Fox-OSXTests.xctest */,
+				1F41BEAE1A2ACBA300F25A65 /* Fox.framework */,
+				1F41BEB81A2ACBA300F25A65 /* Fox-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -497,17 +622,11 @@
 		1F60160E1919DCE0003D8484 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1FE707FD1A246F3400D9E2C6 /* libPods-FOXSpecs.a */,
-				1FE707FB1A246F2800D9E2C6 /* libPods-FOXOSXSpecs.a */,
+				1FF6737D1A2AC7E200F98D20 /* UIKit.framework */,
 				1F60160F1919DCE0003D8484 /* Foundation.framework */,
 				1F60161D1919DCE0003D8484 /* XCTest.framework */,
 				1F6016201919DCE0003D8484 /* UIKit.framework */,
-				1F6016461919DF90003D8484 /* SenTestingKit.framework */,
 				1F6016481919DF90003D8484 /* CoreGraphics.framework */,
-				3C36E3FFA7958E1A1E298EA1 /* libPods-FOXOSXSpecs.a */,
-				6B04B5442DB5536F7D8390D2 /* libPods-FOXSpecs.a */,
-				8F3822E94A3A7CC419B4770D /* libPods-FoxOSXSpecs.a */,
-				5903B5DF54E3E0FF9054380E /* libPods-FoxSpecs.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -515,20 +634,12 @@
 		1F6016111919DCE0003D8484 /* Fox */ = {
 			isa = PBXGroup;
 			children = (
+				1F38B6181A2ACC410078FF90 /* Info.plist */,
 				1F8FDBE6198776FA0059D31A /* Private */,
 				1F6016351919DD35003D8484 /* Public */,
-				1F6016121919DCE0003D8484 /* Supporting Files */,
 			);
 			name = Fox;
 			path = FOX;
-			sourceTree = "<group>";
-		};
-		1F6016121919DCE0003D8484 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1F6016131919DCE0003D8484 /* Fox-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		1F6016351919DD35003D8484 /* Public */ = {
@@ -584,7 +695,7 @@
 				1F59A81A196E8FE300957FAA /* Extensions */,
 				1F59A819196E8FC000957FAA /* Helpers */,
 				1F60165B1919E283003D8484 /* Public */,
-				1F9BA18F1A11CFA90053B3C5 /* Supporting Files */,
+				1F9BA1901A11CFA90053B3C5 /* Info.plist */,
 			);
 			name = FoxSpecs;
 			path = FOXSpecs;
@@ -631,24 +742,6 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		1F7EFA2B191B63970074B028 /* FoxOSXSpecs */ = {
-			isa = PBXGroup;
-			children = (
-				1F7EFA31191B63980074B028 /* main.m */,
-				1F7EFA2D191B63970074B028 /* Supporting Files */,
-			);
-			name = FoxOSXSpecs;
-			path = FOXOSXSpecs;
-			sourceTree = "<group>";
-		};
-		1F7EFA2D191B63970074B028 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1F7EFA2E191B63970074B028 /* FoxOSXSpecs-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		1F8FDBE6198776FA0059D31A /* Private */ = {
 			isa = PBXGroup;
 			children = (
@@ -677,12 +770,31 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		1F9BA18F1A11CFA90053B3C5 /* Supporting Files */ = {
+		1FF6734E1A2AC2EC00F98D20 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
-				1F9BA1901A11CFA90053B3C5 /* Info.plist */,
+				1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */,
 			);
-			name = "Supporting Files";
+			path = Externals;
+			sourceTree = "<group>";
+		};
+		1FF673501A2AC2FC00F98D20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FF673601A2AC2FD00F98D20 /* Cedar.framework */,
+				1FF673621A2AC2FD00F98D20 /* Cedar OS X Specs */,
+				1FF673641A2AC2FD00F98D20 /* Cedar OS X FocusedSpecs */,
+				1FF673661A2AC2FD00F98D20 /* libCedar-StaticLib.a */,
+				1FF673681A2AC2FD00F98D20 /* Cedar iOS Specs.app */,
+				1FF6736A1A2AC2FD00F98D20 /* Cedar iOS FrameworkSpecs.app */,
+				1FF6736C1A2AC2FD00F98D20 /* Cedar iOS Host App.app */,
+				1FF6736E1A2AC2FD00F98D20 /* Cedar iOS SenTestingKit Tests.octest */,
+				1FF673701A2AC2FD00F98D20 /* XCUnitAppTests.xctest */,
+				1FF673721A2AC2FD00F98D20 /* Cedar OS X Host App.app */,
+				1FF673741A2AC2FD00F98D20 /* Cedar OS X Host AppTests.xctest */,
+				1FF673761A2AC2FD00F98D20 /* Cedar OS X Failing Test Bundle.octest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		31B736A976CDB3B7301033AB /* Random */ = {
@@ -718,73 +830,194 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		BCC926133821FDFB416EF592 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FAA3A35CD59AEB6BC3BF8735 /* Pods-FoxOSXSpecs.debug.xcconfig */,
-				1C3A9E42CD70802A6D4E7DFD /* Pods-FoxOSXSpecs.release.xcconfig */,
-				726AF498048577D18829288C /* Pods-FoxSpecs.debug.xcconfig */,
-				B0EDE141990837B28F82CE7E /* Pods-FoxSpecs.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		1F41BE8D1A2ACB9C00F25A65 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F38B6311A2ACCA80078FF90 /* FOXSuchThatGenerator.h in Headers */,
+				1F38B6A81A2ACCC00078FF90 /* FOXCoreGenerators.h in Headers */,
+				1F38B6B51A2ACCC00078FF90 /* FOXStateMachine.h in Headers */,
+				1F38B6A21A2ACCC00078FF90 /* FOXSequence.h in Headers */,
+				1F38B64F1A2ACCAE0078FF90 /* FOXSequenceEnumerator.h in Headers */,
+				1F38B6AC1A2ACCC00078FF90 /* FOXFiniteStateMachine.h in Headers */,
+				1F38B6B31A2ACCC00078FF90 /* FOXSetGenerators.h in Headers */,
+				1F38B64D1A2ACCAE0078FF90 /* FOXLazySequence.h in Headers */,
+				1F38B6271A2ACCA80078FF90 /* FOXPureGenerator.h in Headers */,
+				1F38B6C11A2ACCC00078FF90 /* FOXConstantRandom.h in Headers */,
+				1F38B6511A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.h in Headers */,
+				1F38B62D1A2ACCA80078FF90 /* FOXStringGenerator.h in Headers */,
+				1F38B6C61A2ACCC00078FF90 /* FOXDebugReporter.h in Headers */,
+				1F38B6AA1A2ACCC00078FF90 /* FOXDictionaryGenerators.h in Headers */,
+				1F38B6CB1A2ACCC00078FF90 /* FOXDSL.h in Headers */,
+				1F38B6291A2ACCA80078FF90 /* FOXSequenceGenerator.h in Headers */,
+				1F38B69E1A2ACCC00078FF90 /* FOXRoseTree.h in Headers */,
+				1F38B6CA1A2ACCC00078FF90 /* FOXReporter.h in Headers */,
+				1F38B6AF1A2ACCC00078FF90 /* FOXNumericGenerators.h in Headers */,
+				1F38B6BD1A2ACCC00078FF90 /* FOX.h in Headers */,
+				1F38B6981A2ACCC00078FF90 /* FOXCommand.h in Headers */,
+				1F38B6A61A2ACCC00078FF90 /* FOXArrayGenerators.h in Headers */,
+				1F38B61F1A2ACCA80078FF90 /* FOXBindGenerator.h in Headers */,
+				1F38B62B1A2ACCA80078FF90 /* FOXSizedGenerator.h in Headers */,
+				1F38B6531A2ACCAE0078FF90 /* FOXNumericRoseTree.h in Headers */,
+				1F38B6B61A2ACCC00078FF90 /* FOXStateMachineGenerators.h in Headers */,
+				1F38B69C1A2ACCC00078FF90 /* FOXPropertyResult.h in Headers */,
+				1F38B6BB1A2ACCC00078FF90 /* FOXGenericGenerators.h in Headers */,
+				1F38B61D1A2ACCA80078FF90 /* FOXArrayGenerator.h in Headers */,
+				1F38B6231A2ACCA80078FF90 /* FOXMapGenerator.h in Headers */,
+				1F38B6C51A2ACCC00078FF90 /* FOXRandom.h in Headers */,
+				1F38B69A1A2ACCC00078FF90 /* FOXExecutedCommand.h in Headers */,
+				1F38B6BE1A2ACCC00078FF90 /* FOXMacros.h in Headers */,
+				1F38B61B1A2ACCA80078FF90 /* FOXBlockGenerator.h in Headers */,
+				1F38B6C81A2ACCC00078FF90 /* FOXStandardReporter.h in Headers */,
+				1F38B6A41A2ACCC00078FF90 /* FOXTransition.h in Headers */,
+				1F38B64B1A2ACCAE0078FF90 /* FOXConcreteSequence.h in Headers */,
+				1F38B6B11A2ACCC00078FF90 /* FOXPropertyGenerators.h in Headers */,
+				1F38B6251A2ACCA80078FF90 /* FOXNamedGenerator.h in Headers */,
+				1F38B6BF1A2ACCC00078FF90 /* FOXRunner.h in Headers */,
+				1F38B62F1A2ACCA80078FF90 /* FOXTupleGenerator.h in Headers */,
+				1F38B6B81A2ACCC00078FF90 /* FOXStateTransition.h in Headers */,
+				1F38B6AE1A2ACCC00078FF90 /* FOXGenerator.h in Headers */,
+				1F38B6551A2ACCAE0078FF90 /* FOXArray.h in Headers */,
+				1F38B6211A2ACCA80078FF90 /* FOXChooseGenerator.h in Headers */,
+				1F38B6C31A2ACCC00078FF90 /* FOXDeterministicRandom.h in Headers */,
+				1F38B6A01A2ACCC00078FF90 /* FOXRunnerResult.h in Headers */,
+				1F38B6B91A2ACCC00078FF90 /* FOXStringGenerators.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F41BEAB1A2ACBA300F25A65 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F38B6491A2ACCA90078FF90 /* FOXSuchThatGenerator.h in Headers */,
+				1F38B6731A2ACCC00078FF90 /* FOXCoreGenerators.h in Headers */,
+				1F38B6801A2ACCC00078FF90 /* FOXStateMachine.h in Headers */,
+				1F38B66D1A2ACCC00078FF90 /* FOXSequence.h in Headers */,
+				1F38B65B1A2ACCAE0078FF90 /* FOXSequenceEnumerator.h in Headers */,
+				1F38B6771A2ACCC00078FF90 /* FOXFiniteStateMachine.h in Headers */,
+				1F38B67E1A2ACCC00078FF90 /* FOXSetGenerators.h in Headers */,
+				1F38B6591A2ACCAE0078FF90 /* FOXLazySequence.h in Headers */,
+				1F38B63F1A2ACCA90078FF90 /* FOXPureGenerator.h in Headers */,
+				1F38B68C1A2ACCC00078FF90 /* FOXConstantRandom.h in Headers */,
+				1F38B65D1A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.h in Headers */,
+				1F38B6451A2ACCA90078FF90 /* FOXStringGenerator.h in Headers */,
+				1F38B6911A2ACCC00078FF90 /* FOXDebugReporter.h in Headers */,
+				1F38B6751A2ACCC00078FF90 /* FOXDictionaryGenerators.h in Headers */,
+				1F38B6961A2ACCC00078FF90 /* FOXDSL.h in Headers */,
+				1F38B6411A2ACCA90078FF90 /* FOXSequenceGenerator.h in Headers */,
+				1F38B6691A2ACCC00078FF90 /* FOXRoseTree.h in Headers */,
+				1F38B6951A2ACCC00078FF90 /* FOXReporter.h in Headers */,
+				1F38B67A1A2ACCC00078FF90 /* FOXNumericGenerators.h in Headers */,
+				1F38B6881A2ACCC00078FF90 /* FOX.h in Headers */,
+				1F38B6631A2ACCC00078FF90 /* FOXCommand.h in Headers */,
+				1F38B6711A2ACCC00078FF90 /* FOXArrayGenerators.h in Headers */,
+				1F38B6371A2ACCA90078FF90 /* FOXBindGenerator.h in Headers */,
+				1F38B6431A2ACCA90078FF90 /* FOXSizedGenerator.h in Headers */,
+				1F38B65F1A2ACCAE0078FF90 /* FOXNumericRoseTree.h in Headers */,
+				1F38B6811A2ACCC00078FF90 /* FOXStateMachineGenerators.h in Headers */,
+				1F38B6671A2ACCC00078FF90 /* FOXPropertyResult.h in Headers */,
+				1F38B6861A2ACCC00078FF90 /* FOXGenericGenerators.h in Headers */,
+				1F38B6351A2ACCA90078FF90 /* FOXArrayGenerator.h in Headers */,
+				1F38B63B1A2ACCA90078FF90 /* FOXMapGenerator.h in Headers */,
+				1F38B6901A2ACCC00078FF90 /* FOXRandom.h in Headers */,
+				1F38B6651A2ACCC00078FF90 /* FOXExecutedCommand.h in Headers */,
+				1F38B6891A2ACCC00078FF90 /* FOXMacros.h in Headers */,
+				1F38B6331A2ACCA90078FF90 /* FOXBlockGenerator.h in Headers */,
+				1F38B6931A2ACCC00078FF90 /* FOXStandardReporter.h in Headers */,
+				1F38B66F1A2ACCC00078FF90 /* FOXTransition.h in Headers */,
+				1F38B6571A2ACCAE0078FF90 /* FOXConcreteSequence.h in Headers */,
+				1F38B67C1A2ACCC00078FF90 /* FOXPropertyGenerators.h in Headers */,
+				1F38B63D1A2ACCA90078FF90 /* FOXNamedGenerator.h in Headers */,
+				1F38B68A1A2ACCC00078FF90 /* FOXRunner.h in Headers */,
+				1F38B6471A2ACCA90078FF90 /* FOXTupleGenerator.h in Headers */,
+				1F38B6831A2ACCC00078FF90 /* FOXStateTransition.h in Headers */,
+				1F38B6791A2ACCC00078FF90 /* FOXGenerator.h in Headers */,
+				1F38B6611A2ACCAE0078FF90 /* FOXArray.h in Headers */,
+				1F38B6391A2ACCA90078FF90 /* FOXChooseGenerator.h in Headers */,
+				1F38B68E1A2ACCC00078FF90 /* FOXDeterministicRandom.h in Headers */,
+				1F38B66B1A2ACCC00078FF90 /* FOXRunnerResult.h in Headers */,
+				1F38B6841A2ACCC00078FF90 /* FOXStringGenerators.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		1F60160B1919DCE0003D8484 /* Fox */ = {
+		1F41BE8F1A2ACB9C00F25A65 /* Fox-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F60162F1919DCE0003D8484 /* Build configuration list for PBXNativeTarget "Fox" */;
+			buildConfigurationList = 1F41BEA31A2ACB9C00F25A65 /* Build configuration list for PBXNativeTarget "Fox-OSX" */;
 			buildPhases = (
-				1F6016081919DCE0003D8484 /* Sources */,
-				1F6016091919DCE0003D8484 /* Frameworks */,
-				1F60160A1919DCE0003D8484 /* CopyFiles */,
+				1F41BE8B1A2ACB9C00F25A65 /* Sources */,
+				1F41BE8C1A2ACB9C00F25A65 /* Frameworks */,
+				1F41BE8D1A2ACB9C00F25A65 /* Headers */,
+				1F41BE8E1A2ACB9C00F25A65 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Fox;
-			productName = PBT;
-			productReference = 1F60160C1919DCE0003D8484 /* libFox.a */;
-			productType = "com.apple.product-type.library.static";
+			name = "Fox-OSX";
+			productName = "Fox-OSX";
+			productReference = 1F41BE901A2ACB9C00F25A65 /* Fox.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		1F7EFA28191B63970074B028 /* FoxOSXSpecs */ = {
+		1F41BE991A2ACB9C00F25A65 /* Fox-OSXTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F7EFA35191B63980074B028 /* Build configuration list for PBXNativeTarget "FoxOSXSpecs" */;
+			buildConfigurationList = 1F41BEA61A2ACB9C00F25A65 /* Build configuration list for PBXNativeTarget "Fox-OSXTests" */;
 			buildPhases = (
-				0A5F33090D0540AB86629CE7 /* Check Pods Manifest.lock */,
-				1F7EFA26191B63970074B028 /* Sources */,
-				1F7EFA27191B63970074B028 /* Frameworks */,
-				C4DA064C82114CFEA8755198 /* Copy Pods Resources */,
+				1F41BE961A2ACB9C00F25A65 /* Sources */,
+				1F41BE971A2ACB9C00F25A65 /* Frameworks */,
+				1F41BE981A2ACB9C00F25A65 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1F41BEC91A2ACBBE00F25A65 /* PBXTargetDependency */,
+				1F41BE9D1A2ACB9C00F25A65 /* PBXTargetDependency */,
 			);
-			name = FoxOSXSpecs;
-			productName = PBTOSXSpecs;
-			productReference = 1F7EFA29191B63970074B028 /* FoxOSXSpecs */;
-			productType = "com.apple.product-type.tool";
+			name = "Fox-OSXTests";
+			productName = "Fox-OSXTests";
+			productReference = 1F41BE9A1A2ACB9C00F25A65 /* Fox-OSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1F9BA18C1A11CFA90053B3C5 /* FoxSpecs */ = {
+		1F41BEAD1A2ACBA300F25A65 /* Fox-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F9BA1961A11CFA90053B3C5 /* Build configuration list for PBXNativeTarget "FoxSpecs" */;
+			buildConfigurationList = 1F41BEC11A2ACBA300F25A65 /* Build configuration list for PBXNativeTarget "Fox-iOS" */;
 			buildPhases = (
-				94506BF6E52C1CB586E45008 /* Check Pods Manifest.lock */,
-				1F9BA1891A11CFA90053B3C5 /* Sources */,
-				1F9BA18A1A11CFA90053B3C5 /* Frameworks */,
-				1F9BA18B1A11CFA90053B3C5 /* Resources */,
-				0E26B54CA8BAD61D3228E1AD /* Copy Pods Resources */,
+				1F41BEA91A2ACBA300F25A65 /* Sources */,
+				1F41BEAA1A2ACBA300F25A65 /* Frameworks */,
+				1F41BEAB1A2ACBA300F25A65 /* Headers */,
+				1F41BEAC1A2ACBA300F25A65 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1F9BA1951A11CFA90053B3C5 /* PBXTargetDependency */,
 			);
-			name = FoxSpecs;
-			productName = PBTSpecs;
-			productReference = 1F9BA18D1A11CFA90053B3C5 /* FoxSpecs.xctest */;
+			name = "Fox-iOS";
+			productName = "Fox-iOS";
+			productReference = 1F41BEAE1A2ACBA300F25A65 /* Fox.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1F41BEB71A2ACBA300F25A65 /* Fox-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F41BEC41A2ACBA300F25A65 /* Build configuration list for PBXNativeTarget "Fox-iOSTests" */;
+			buildPhases = (
+				1F41BEB41A2ACBA300F25A65 /* Sources */,
+				1F41BEB51A2ACBA300F25A65 /* Frameworks */,
+				1F41BEB61A2ACBA300F25A65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F41BECD1A2ACBC800F25A65 /* PBXTargetDependency */,
+				1F41BEBB1A2ACBA300F25A65 /* PBXTargetDependency */,
+			);
+			name = "Fox-iOSTests";
+			productName = "Fox-iOSTests";
+			productReference = 1F41BEB81A2ACBA300F25A65 /* Fox-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -798,7 +1031,16 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jeff Hui";
 				TargetAttributes = {
-					1F9BA18C1A11CFA90053B3C5 = {
+					1F41BE8F1A2ACB9C00F25A65 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					1F41BE991A2ACB9C00F25A65 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					1F41BEAD1A2ACBA300F25A65 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					1F41BEB71A2ACBA300F25A65 = {
 						CreatedOnToolsVersion = 6.1;
 					};
 				};
@@ -813,17 +1055,132 @@
 			mainGroup = 1F6016031919DCE0003D8484;
 			productRefGroup = 1F60160D1919DCE0003D8484 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1FF673501A2AC2FC00F98D20 /* Products */;
+					ProjectRef = 1FF6734F1A2AC2FC00F98D20 /* Cedar.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				1F60160B1919DCE0003D8484 /* Fox */,
-				1F7EFA28191B63970074B028 /* FoxOSXSpecs */,
-				1F9BA18C1A11CFA90053B3C5 /* FoxSpecs */,
+				1F41BE8F1A2ACB9C00F25A65 /* Fox-OSX */,
+				1F41BE991A2ACB9C00F25A65 /* Fox-OSXTests */,
+				1F41BEAD1A2ACBA300F25A65 /* Fox-iOS */,
+				1F41BEB71A2ACBA300F25A65 /* Fox-iOSTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		1FF673601A2AC2FD00F98D20 /* Cedar.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cedar.framework;
+			remoteRef = 1FF6735F1A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF673621A2AC2FD00F98D20 /* Cedar OS X Specs */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Cedar OS X Specs";
+			remoteRef = 1FF673611A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF673641A2AC2FD00F98D20 /* Cedar OS X FocusedSpecs */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Cedar OS X FocusedSpecs";
+			remoteRef = 1FF673631A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF673661A2AC2FD00F98D20 /* libCedar-StaticLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCedar-StaticLib.a";
+			remoteRef = 1FF673651A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF673681A2AC2FD00F98D20 /* Cedar iOS Specs.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Cedar iOS Specs.app";
+			remoteRef = 1FF673671A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF6736A1A2AC2FD00F98D20 /* Cedar iOS FrameworkSpecs.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Cedar iOS FrameworkSpecs.app";
+			remoteRef = 1FF673691A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF6736C1A2AC2FD00F98D20 /* Cedar iOS Host App.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Cedar iOS Host App.app";
+			remoteRef = 1FF6736B1A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF6736E1A2AC2FD00F98D20 /* Cedar iOS SenTestingKit Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Cedar iOS SenTestingKit Tests.octest";
+			remoteRef = 1FF6736D1A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF673701A2AC2FD00F98D20 /* XCUnitAppTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = XCUnitAppTests.xctest;
+			remoteRef = 1FF6736F1A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF673721A2AC2FD00F98D20 /* Cedar OS X Host App.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Cedar OS X Host App.app";
+			remoteRef = 1FF673711A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF673741A2AC2FD00F98D20 /* Cedar OS X Host AppTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Cedar OS X Host AppTests.xctest";
+			remoteRef = 1FF673731A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1FF673761A2AC2FD00F98D20 /* Cedar OS X Failing Test Bundle.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Cedar OS X Failing Test Bundle.octest";
+			remoteRef = 1FF673751A2AC2FD00F98D20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
-		1F9BA18B1A11CFA90053B3C5 /* Resources */ = {
+		1F41BE8E1A2ACB9C00F25A65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F41BE981A2ACB9C00F25A65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F41BEAC1A2ACBA300F25A65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F41BEB61A2ACBA300F25A65 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -832,231 +1189,409 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0A5F33090D0540AB86629CE7 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		0E26B54CA8BAD61D3228E1AD /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoxSpecs/Pods-FoxSpecs-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		94506BF6E52C1CB586E45008 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C4DA064C82114CFEA8755198 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoxOSXSpecs/Pods-FoxOSXSpecs-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		1F6016081919DCE0003D8484 /* Sources */ = {
+		1F41BE8B1A2ACB9C00F25A65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31B73925BF4547CBBA83F14E /* FOXDeterministicRandom.mm in Sources */,
-				1F46E51C198CB78000F87028 /* FOXChooseGenerator.m in Sources */,
-				1F9BDD9719EA501500BAF25E /* FOXExecutedCommand.m in Sources */,
-				1F6C412A1A147B3D003B6C83 /* FOXDSL.m in Sources */,
-				1F3A714C1A231AE300AAE47B /* FOXNumericRoseTree.m in Sources */,
-				1F35BC441990CA5600BEA6E1 /* FOXStandardReporter.m in Sources */,
-				1F6C41231A131D56003B6C83 /* FOXGenericGenerators.m in Sources */,
-				1F35BC1F198D824600BEA6E1 /* FOXNamedGenerator.m in Sources */,
-				1F35BC23198D838300BEA6E1 /* FOXStringGenerator.m in Sources */,
-				1F46E520198CBAF100F87028 /* FOXSequenceGenerator.m in Sources */,
-				1F4187FB1975108000FEBB8D /* FOXRunner.m in Sources */,
-				1F46E518198CB63200F87028 /* FOXSizedGenerator.m in Sources */,
-				1F4187FF19751BB700FEBB8D /* FOXRunnerResult.m in Sources */,
-				1F8FDBF2198777540059D31A /* FOXSequenceEnumerator.m in Sources */,
-				1F46E50C198CAFAD00F87028 /* FOXPureGenerator.m in Sources */,
-				1F46E514198CB4C000F87028 /* FOXBindGenerator.m in Sources */,
-				1F46E510198CB2E800F87028 /* FOXMapGenerator.m in Sources */,
-				31B73D53EB506977E8B6D87D /* FOXConstantRandom.m in Sources */,
-				31B7391D14C8AD2561D14117 /* FOXSequence.m in Sources */,
-				1F3A71481A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m in Sources */,
-				1F35BC421990CA5600BEA6E1 /* FOXDebugReporter.m in Sources */,
-				1FA94A3A199609D000803AF3 /* FOXSuchThatGenerator.m in Sources */,
-				1F8FDBEE1987773F0059D31A /* FOXLazySequence.m in Sources */,
-				1F8FDBEC1987773F0059D31A /* FOXConcreteSequence.m in Sources */,
-				1F5018951991D708001AB3A9 /* FOXFiniteStateMachine.m in Sources */,
-				1F35BC2B198D89DF00BEA6E1 /* FOXTupleGenerator.m in Sources */,
-				1F35BC27198D881900BEA6E1 /* FOXArrayGenerator.m in Sources */,
-				1F35BC3B198F7C9A00BEA6E1 /* FOXBlockGenerator.m in Sources */,
-				1F9BA1B01A11D2520053B3C5 /* FOXTransition.m in Sources */,
-				1FF5B93E1973BD9000416383 /* FOXRoseTree.m in Sources */,
-				31B735B7CCFCD90D521378FC /* FOXCommand.m in Sources */,
-				31B73A5F7884A7DC970148D4 /* FOXPropertyGenerators.m in Sources */,
-				31B734C77CE50AF2827BA35C /* FOXPropertyResult.m in Sources */,
-				31B73A187530BC9FEB4A3631 /* FOXCoreGenerators.m in Sources */,
-				31B7363E1AD3352531CA1171 /* FOXNumericGenerators.m in Sources */,
-				31B73FAD1A10E9E84AD53ECA /* FOXStringGenerators.m in Sources */,
-				31B737D3CDD59A39BFB48F0D /* FOXArrayGenerators.m in Sources */,
-				31B7306F3DE18171A4D1A2CE /* FOXSetGenerators.m in Sources */,
-				31B73D9927A4467233CE38CA /* FOXDictionaryGenerators.m in Sources */,
-				31B73E318D310CCDB7ADB91C /* FOXStateMachineGenerators.m in Sources */,
-				31B738832F7EF34BA848E06B /* FOXArray.m in Sources */,
+				1F38B6B41A2ACCC00078FF90 /* FOXSetGenerators.m in Sources */,
+				1F38B6C41A2ACCC00078FF90 /* FOXDeterministicRandom.mm in Sources */,
+				1F38B64C1A2ACCAE0078FF90 /* FOXConcreteSequence.m in Sources */,
+				1F38B6AD1A2ACCC00078FF90 /* FOXFiniteStateMachine.m in Sources */,
+				1F38B6501A2ACCAE0078FF90 /* FOXSequenceEnumerator.m in Sources */,
+				1F38B6A11A2ACCC00078FF90 /* FOXRunnerResult.m in Sources */,
+				1F38B6301A2ACCA80078FF90 /* FOXTupleGenerator.m in Sources */,
+				1F38B6321A2ACCA80078FF90 /* FOXSuchThatGenerator.m in Sources */,
+				1F38B6B21A2ACCC00078FF90 /* FOXPropertyGenerators.m in Sources */,
+				1F38B62C1A2ACCA80078FF90 /* FOXSizedGenerator.m in Sources */,
+				1F38B6C71A2ACCC00078FF90 /* FOXDebugReporter.m in Sources */,
+				1F38B6C01A2ACCC00078FF90 /* FOXRunner.m in Sources */,
+				1F38B69D1A2ACCC00078FF90 /* FOXPropertyResult.m in Sources */,
+				1F38B6221A2ACCA80078FF90 /* FOXChooseGenerator.m in Sources */,
+				1F38B6B01A2ACCC00078FF90 /* FOXNumericGenerators.m in Sources */,
+				1F38B6261A2ACCA80078FF90 /* FOXNamedGenerator.m in Sources */,
+				1F38B6AB1A2ACCC00078FF90 /* FOXDictionaryGenerators.m in Sources */,
+				1F38B6CC1A2ACCC00078FF90 /* FOXDSL.m in Sources */,
+				1F38B69F1A2ACCC00078FF90 /* FOXRoseTree.m in Sources */,
+				1F38B61C1A2ACCA80078FF90 /* FOXBlockGenerator.m in Sources */,
+				1F38B6281A2ACCA80078FF90 /* FOXPureGenerator.m in Sources */,
+				1F38B6541A2ACCAE0078FF90 /* FOXNumericRoseTree.m in Sources */,
+				1F38B6BA1A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */,
+				1F38B6A51A2ACCC00078FF90 /* FOXTransition.m in Sources */,
+				1F38B6991A2ACCC00078FF90 /* FOXCommand.m in Sources */,
+				1F38B6521A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.m in Sources */,
+				1F38B6C91A2ACCC00078FF90 /* FOXStandardReporter.m in Sources */,
+				1F38B6A91A2ACCC00078FF90 /* FOXCoreGenerators.m in Sources */,
+				1F38B6C21A2ACCC00078FF90 /* FOXConstantRandom.m in Sources */,
+				1F38B6561A2ACCAE0078FF90 /* FOXArray.m in Sources */,
+				1F38B6241A2ACCA80078FF90 /* FOXMapGenerator.m in Sources */,
+				1F38B62E1A2ACCA80078FF90 /* FOXStringGenerator.m in Sources */,
+				1F38B6B71A2ACCC00078FF90 /* FOXStateMachineGenerators.m in Sources */,
+				1F38B6BC1A2ACCC00078FF90 /* FOXGenericGenerators.m in Sources */,
+				1F38B6201A2ACCA80078FF90 /* FOXBindGenerator.m in Sources */,
+				1F38B62A1A2ACCA80078FF90 /* FOXSequenceGenerator.m in Sources */,
+				1F38B6A71A2ACCC00078FF90 /* FOXArrayGenerators.m in Sources */,
+				1F38B64E1A2ACCAE0078FF90 /* FOXLazySequence.m in Sources */,
+				1F38B69B1A2ACCC00078FF90 /* FOXExecutedCommand.m in Sources */,
+				1F38B6A31A2ACCC00078FF90 /* FOXSequence.m in Sources */,
+				1F38B61E1A2ACCA80078FF90 /* FOXArrayGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F7EFA26191B63970074B028 /* Sources */ = {
+		1F41BE961A2ACB9C00F25A65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F46E51D198CB78000F87028 /* FOXChooseGenerator.m in Sources */,
-				1F35BC451990CA5600BEA6E1 /* FOXStandardReporter.m in Sources */,
-				1F8FDBED1987773F0059D31A /* FOXConcreteSequence.m in Sources */,
-				1F8FDBFE1989F9DD0059D31A /* FOXSetSpec.mm in Sources */,
-				1F59A81E196E900B00957FAA /* NSArray+FastEnumerator.m in Sources */,
-				1F3462661924780800AE515C /* FOXConstantRandom.m in Sources */,
-				1F6C41271A147431003B6C83 /* FOXGenericGenerators.m in Sources */,
-				1F9BA1AD1A11D04D0053B3C5 /* FOXRandomSpec.mm in Sources */,
-				1FA94A3B199609D000803AF3 /* FOXSuchThatGenerator.m in Sources */,
-				1F8FDBFB1988B4BA0059D31A /* FOXSpecHelper.m in Sources */,
-				1F46E515198CB4C000F87028 /* FOXBindGenerator.m in Sources */,
-				1F35BC20198D824A00BEA6E1 /* FOXNamedGenerator.m in Sources */,
-				1FA94A37199606F800803AF3 /* FOXSuchThatSpec.mm in Sources */,
-				1F8FDC011989FE530059D31A /* FOXDictionarySpec.mm in Sources */,
-				1FC3B983191B663600AA359B /* FOXPropertySpec.mm in Sources */,
-				1F46E511198CB2E800F87028 /* FOXMapGenerator.m in Sources */,
-				1F46E50D198CAFAD00F87028 /* FOXPureGenerator.m in Sources */,
-				1F61E457196E8AEF003EA164 /* FOXSequenceSpec.mm in Sources */,
-				1F3A71491A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m in Sources */,
-				1F6C412B1A147B3D003B6C83 /* FOXDSL.m in Sources */,
-				1F50188B1991D37A001AB3A9 /* Queue.m in Sources */,
-				1F35BC28198D881900BEA6E1 /* FOXArrayGenerator.m in Sources */,
-				1F35BC3C198F7C9A00BEA6E1 /* FOXBlockGenerator.m in Sources */,
-				1F2A94F71997383300471B24 /* FOXTransition.m in Sources */,
-				1F3462671924780800AE515C /* FOXDeterministicRandom.mm in Sources */,
-				1F8FDBEF1987773F0059D31A /* FOXLazySequence.m in Sources */,
-				1F50188E1991D406001AB3A9 /* FOXFiniteStateMachineSpec.mm in Sources */,
-				1F848B4A1977B8F100F0966E /* FOXArraySpec.mm in Sources */,
-				1F9BDD9A19EA54FB00BAF25E /* FOXExecutedCommand.m in Sources */,
-				1F35BC24198D838300BEA6E1 /* FOXStringGenerator.m in Sources */,
-				1F35BC2F198DB6AA00BEA6E1 /* FOXTupleGeneratorSpec.mm in Sources */,
-				1F8FDBF3198777540059D31A /* FOXSequenceEnumerator.m in Sources */,
-				1F35BC431990CA5600BEA6E1 /* FOXDebugReporter.m in Sources */,
-				1FF5B93F1973BD9000416383 /* FOXRoseTree.m in Sources */,
-				1F7EFA32191B63980074B028 /* main.m in Sources */,
-				1F848B431977965500F0966E /* FOXPositiveIntegerSpec.mm in Sources */,
-				1F848B4619779F6600F0966E /* FOXNegativeIntegerSpec.mm in Sources */,
-				1F46E521198CBAF100F87028 /* FOXSequenceGenerator.m in Sources */,
-				1F35BC2C198D89DF00BEA6E1 /* FOXTupleGenerator.m in Sources */,
-				1F41880019751F0900FEBB8D /* FOXRunnerResult.m in Sources */,
-				1F4187FC1975187000FEBB8D /* FOXRunner.m in Sources */,
-				1F6C41251A14736F003B6C83 /* FOXGenericSpec.mm in Sources */,
-				1F46E519198CB63200F87028 /* FOXSizedGenerator.m in Sources */,
-				1F35BC32198DF48A00BEA6E1 /* FOXChooseSpec.mm in Sources */,
-				1F8FDC041989FED70059D31A /* FOXStringSpec.mm in Sources */,
-				1F35BC38198F78C200BEA6E1 /* FOXRoseTreeSpec.mm in Sources */,
-				31B73CF6F20CF5FF10AADAD4 /* FOXSequence.m in Sources */,
-				1F35BC35198DF77400BEA6E1 /* FOXCharacterSpec.mm in Sources */,
-				1F61E451196E88A6003EA164 /* FOXReturnSpec.mm in Sources */,
-				1FF5B93719737D4600416383 /* FOXIntegerSpec.mm in Sources */,
-				31B737BB9E0AE122DAE8BF70 /* QueueRemoveTransition.m in Sources */,
-				31B73CC8C2DBD8E91FA49880 /* QueueAddTransition.m in Sources */,
-				31B739F4E96E95DB627EF8C3 /* FOXCommand.m in Sources */,
-				31B734FE326DCB9B9291BC68 /* FOXPropertyGenerators.m in Sources */,
-				31B734BDF31AF37ACAA7EF5A /* FOXPropertyResult.m in Sources */,
-				1F3A714D1A231AE300AAE47B /* FOXNumericRoseTree.m in Sources */,
-				31B739893ED0C6493D0B12C7 /* FOXCoreGenerators.m in Sources */,
-				31B73FA23522FA7FC4604F7C /* FOXNumericGenerators.m in Sources */,
-				31B73751373E8DF9C946EFA9 /* FOXStringGenerators.m in Sources */,
-				1F9BDD9919EA54F400BAF25E /* FOXFiniteStateMachine.m in Sources */,
-				31B73119A5F87531FA87A8B0 /* FOXArrayGenerators.m in Sources */,
-				31B7361BAB18DA6C12732177 /* FOXSetGenerators.m in Sources */,
-				31B739F1774AF3BD251555AE /* FOXDictionaryGenerators.m in Sources */,
-				31B73C87EA2A3923327A60FF /* FOXStateMachineGenerators.m in Sources */,
-				31B73C758B0166BB245A205E /* FOXArray.m in Sources */,
+				1F38B6E81A2ACCF10078FF90 /* FOXPropertySpec.mm in Sources */,
+				1F38B6E41A2ACCF10078FF90 /* FOXCharacterSpec.mm in Sources */,
+				1F38B6D51A2ACCE80078FF90 /* QueueRemoveTransition.m in Sources */,
+				1F38B6D71A2ACCF10078FF90 /* FOXRandomSpec.mm in Sources */,
+				1F38B6CD1A2ACCDF0078FF90 /* NSArray+FastEnumerator.m in Sources */,
+				1F38B6D91A2ACCF10078FF90 /* FOXRoseTreeSpec.mm in Sources */,
+				1F38B6E61A2ACCF10078FF90 /* FOXSuchThatSpec.mm in Sources */,
+				1F38B6E51A2ACCF10078FF90 /* FOXFiniteStateMachineSpec.mm in Sources */,
+				1F38B6DE1A2ACCF10078FF90 /* FOXNegativeIntegerSpec.mm in Sources */,
+				1F38B6E01A2ACCF10078FF90 /* FOXReturnSpec.mm in Sources */,
+				1F38B6D31A2ACCE80078FF90 /* Queue.m in Sources */,
+				1F38B6E71A2ACCF10078FF90 /* FOXGenericSpec.mm in Sources */,
+				1F38B6DA1A2ACCF10078FF90 /* FOXArraySpec.mm in Sources */,
+				1F38B6D81A2ACCF10078FF90 /* FOXSequenceSpec.mm in Sources */,
+				1F38B6E11A2ACCF10078FF90 /* FOXSetSpec.mm in Sources */,
+				1F38B6DB1A2ACCF10078FF90 /* FOXChooseSpec.mm in Sources */,
+				1F38B6D41A2ACCE80078FF90 /* QueueAddTransition.m in Sources */,
+				1F38B6DF1A2ACCF10078FF90 /* FOXPositiveIntegerSpec.mm in Sources */,
+				1F38B6D61A2ACCE80078FF90 /* FOXSpecHelper.m in Sources */,
+				1F38B6DC1A2ACCF10078FF90 /* FOXDictionarySpec.mm in Sources */,
+				1F38B6E31A2ACCF10078FF90 /* FOXTupleGeneratorSpec.mm in Sources */,
+				1F38B6E21A2ACCF10078FF90 /* FOXStringSpec.mm in Sources */,
+				1F38B6DD1A2ACCF10078FF90 /* FOXIntegerSpec.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F9BA1891A11CFA90053B3C5 /* Sources */ = {
+		1F41BEA91A2ACBA300F25A65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F9BA1A81A11D0460053B3C5 /* Queue.m in Sources */,
-				1F9BA19C1A11CFB70053B3C5 /* FOXIntegerSpec.mm in Sources */,
-				1F9BA19D1A11CFB70053B3C5 /* FOXNegativeIntegerSpec.mm in Sources */,
-				1F9BA1A01A11CFB70053B3C5 /* FOXSetSpec.mm in Sources */,
-				1F9BA1A11A11CFB70053B3C5 /* FOXStringSpec.mm in Sources */,
-				1F9BA19A1A11CFB70053B3C5 /* FOXChooseSpec.mm in Sources */,
-				1F9BA1AC1A11D04C0053B3C5 /* FOXRandomSpec.mm in Sources */,
-				1F9BA1A71A11D0410053B3C5 /* NSArray+FastEnumerator.m in Sources */,
-				1F9BA19E1A11CFB70053B3C5 /* FOXPositiveIntegerSpec.mm in Sources */,
-				1F9BA1A61A11CFB70053B3C5 /* FOXPropertySpec.mm in Sources */,
-				1F9BA1A41A11CFB70053B3C5 /* FOXFiniteStateMachineSpec.mm in Sources */,
-				1F9BA1A91A11D0460053B3C5 /* QueueAddTransition.m in Sources */,
-				1F9BA1AB1A11D0460053B3C5 /* FOXSpecHelper.m in Sources */,
-				1F9BA1AA1A11D0460053B3C5 /* QueueRemoveTransition.m in Sources */,
-				1F9BA1A21A11CFB70053B3C5 /* FOXTupleGeneratorSpec.mm in Sources */,
-				1F9BA19B1A11CFB70053B3C5 /* FOXDictionarySpec.mm in Sources */,
-				1F9BA1A31A11CFB70053B3C5 /* FOXCharacterSpec.mm in Sources */,
-				1F9BA19F1A11CFB70053B3C5 /* FOXReturnSpec.mm in Sources */,
-				1F9BA1AF1A11D0520053B3C5 /* FOXRoseTreeSpec.mm in Sources */,
-				1F9BA1A51A11CFB70053B3C5 /* FOXSuchThatSpec.mm in Sources */,
-				1F9BA1AE1A11D0520053B3C5 /* FOXSequenceSpec.mm in Sources */,
-				1F9BA1991A11CFB70053B3C5 /* FOXArraySpec.mm in Sources */,
-				1F6C41261A14736F003B6C83 /* FOXGenericSpec.mm in Sources */,
+				1F38B67F1A2ACCC00078FF90 /* FOXSetGenerators.m in Sources */,
+				1F38B68F1A2ACCC00078FF90 /* FOXDeterministicRandom.mm in Sources */,
+				1F38B6581A2ACCAE0078FF90 /* FOXConcreteSequence.m in Sources */,
+				1F38B6781A2ACCC00078FF90 /* FOXFiniteStateMachine.m in Sources */,
+				1F38B65C1A2ACCAE0078FF90 /* FOXSequenceEnumerator.m in Sources */,
+				1F38B66C1A2ACCC00078FF90 /* FOXRunnerResult.m in Sources */,
+				1F38B6481A2ACCA90078FF90 /* FOXTupleGenerator.m in Sources */,
+				1F38B64A1A2ACCA90078FF90 /* FOXSuchThatGenerator.m in Sources */,
+				1F38B67D1A2ACCC00078FF90 /* FOXPropertyGenerators.m in Sources */,
+				1F38B6441A2ACCA90078FF90 /* FOXSizedGenerator.m in Sources */,
+				1F38B6921A2ACCC00078FF90 /* FOXDebugReporter.m in Sources */,
+				1F38B68B1A2ACCC00078FF90 /* FOXRunner.m in Sources */,
+				1F38B6681A2ACCC00078FF90 /* FOXPropertyResult.m in Sources */,
+				1F38B63A1A2ACCA90078FF90 /* FOXChooseGenerator.m in Sources */,
+				1F38B67B1A2ACCC00078FF90 /* FOXNumericGenerators.m in Sources */,
+				1F38B63E1A2ACCA90078FF90 /* FOXNamedGenerator.m in Sources */,
+				1F38B6761A2ACCC00078FF90 /* FOXDictionaryGenerators.m in Sources */,
+				1F38B6971A2ACCC00078FF90 /* FOXDSL.m in Sources */,
+				1F38B66A1A2ACCC00078FF90 /* FOXRoseTree.m in Sources */,
+				1F38B6341A2ACCA90078FF90 /* FOXBlockGenerator.m in Sources */,
+				1F38B6401A2ACCA90078FF90 /* FOXPureGenerator.m in Sources */,
+				1F38B6601A2ACCAE0078FF90 /* FOXNumericRoseTree.m in Sources */,
+				1F38B6851A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */,
+				1F38B6701A2ACCC00078FF90 /* FOXTransition.m in Sources */,
+				1F38B6641A2ACCC00078FF90 /* FOXCommand.m in Sources */,
+				1F38B65E1A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.m in Sources */,
+				1F38B6941A2ACCC00078FF90 /* FOXStandardReporter.m in Sources */,
+				1F38B6741A2ACCC00078FF90 /* FOXCoreGenerators.m in Sources */,
+				1F38B68D1A2ACCC00078FF90 /* FOXConstantRandom.m in Sources */,
+				1F38B6621A2ACCAE0078FF90 /* FOXArray.m in Sources */,
+				1F38B63C1A2ACCA90078FF90 /* FOXMapGenerator.m in Sources */,
+				1F38B6461A2ACCA90078FF90 /* FOXStringGenerator.m in Sources */,
+				1F38B6821A2ACCC00078FF90 /* FOXStateMachineGenerators.m in Sources */,
+				1F38B6871A2ACCC00078FF90 /* FOXGenericGenerators.m in Sources */,
+				1F38B6381A2ACCA90078FF90 /* FOXBindGenerator.m in Sources */,
+				1F38B6421A2ACCA90078FF90 /* FOXSequenceGenerator.m in Sources */,
+				1F38B6721A2ACCC00078FF90 /* FOXArrayGenerators.m in Sources */,
+				1F38B65A1A2ACCAE0078FF90 /* FOXLazySequence.m in Sources */,
+				1F38B6661A2ACCC00078FF90 /* FOXExecutedCommand.m in Sources */,
+				1F38B66E1A2ACCC00078FF90 /* FOXSequence.m in Sources */,
+				1F38B6361A2ACCA90078FF90 /* FOXArrayGenerator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F41BEB41A2ACBA300F25A65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F38B6FA1A2ACCF20078FF90 /* FOXPropertySpec.mm in Sources */,
+				1F38B6F61A2ACCF20078FF90 /* FOXCharacterSpec.mm in Sources */,
+				1F38B6D11A2ACCE70078FF90 /* QueueRemoveTransition.m in Sources */,
+				1F38B6E91A2ACCF20078FF90 /* FOXRandomSpec.mm in Sources */,
+				1F38B6CE1A2ACCE00078FF90 /* NSArray+FastEnumerator.m in Sources */,
+				1F38B6EB1A2ACCF20078FF90 /* FOXRoseTreeSpec.mm in Sources */,
+				1F38B6F81A2ACCF20078FF90 /* FOXSuchThatSpec.mm in Sources */,
+				1F38B6F71A2ACCF20078FF90 /* FOXFiniteStateMachineSpec.mm in Sources */,
+				1F38B6F01A2ACCF20078FF90 /* FOXNegativeIntegerSpec.mm in Sources */,
+				1F38B6F21A2ACCF20078FF90 /* FOXReturnSpec.mm in Sources */,
+				1F38B6CF1A2ACCE70078FF90 /* Queue.m in Sources */,
+				1F38B6F91A2ACCF20078FF90 /* FOXGenericSpec.mm in Sources */,
+				1F38B6EC1A2ACCF20078FF90 /* FOXArraySpec.mm in Sources */,
+				1F38B6EA1A2ACCF20078FF90 /* FOXSequenceSpec.mm in Sources */,
+				1F38B6F31A2ACCF20078FF90 /* FOXSetSpec.mm in Sources */,
+				1F38B6ED1A2ACCF20078FF90 /* FOXChooseSpec.mm in Sources */,
+				1F38B6D01A2ACCE70078FF90 /* QueueAddTransition.m in Sources */,
+				1F38B6F11A2ACCF20078FF90 /* FOXPositiveIntegerSpec.mm in Sources */,
+				1F38B6D21A2ACCE70078FF90 /* FOXSpecHelper.m in Sources */,
+				1F38B6EE1A2ACCF20078FF90 /* FOXDictionarySpec.mm in Sources */,
+				1F38B6F51A2ACCF20078FF90 /* FOXTupleGeneratorSpec.mm in Sources */,
+				1F38B6F41A2ACCF20078FF90 /* FOXStringSpec.mm in Sources */,
+				1F38B6EF1A2ACCF20078FF90 /* FOXIntegerSpec.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1F9BA1951A11CFA90053B3C5 /* PBXTargetDependency */ = {
+		1F41BE9D1A2ACB9C00F25A65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1F60160B1919DCE0003D8484 /* Fox */;
-			targetProxy = 1F9BA1941A11CFA90053B3C5 /* PBXContainerItemProxy */;
+			target = 1F41BE8F1A2ACB9C00F25A65 /* Fox-OSX */;
+			targetProxy = 1F41BE9C1A2ACB9C00F25A65 /* PBXContainerItemProxy */;
+		};
+		1F41BEBB1A2ACBA300F25A65 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F41BEAD1A2ACBA300F25A65 /* Fox-iOS */;
+			targetProxy = 1F41BEBA1A2ACBA300F25A65 /* PBXContainerItemProxy */;
+		};
+		1F41BEC91A2ACBBE00F25A65 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Cedar;
+			targetProxy = 1F41BEC81A2ACBBE00F25A65 /* PBXContainerItemProxy */;
+		};
+		1F41BECD1A2ACBC800F25A65 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Cedar-StaticLib";
+			targetProxy = 1F41BECC1A2ACBC800F25A65 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1F41BEA41A2ACB9C00F25A65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Fox/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Fox;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1F41BEA51A2ACB9C00F25A65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Fox/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Fox;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1F41BEA71A2ACB9C00F25A65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Externals/cedar/Source/Headers/**",
+				);
+				INFOPLIST_FILE = FoxSpecs/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1F41BEA81A2ACB9C00F25A65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Externals/cedar/Source/Headers/**",
+				);
+				INFOPLIST_FILE = FoxSpecs/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1F41BEC21A2ACBA300F25A65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Fox/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Fox;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1F41BEC31A2ACBA300F25A65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = Fox/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Fox;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1F41BEC51A2ACBA300F25A65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Externals/cedar/Source/Headers/**",
+				);
+				INFOPLIST_FILE = FoxSpecs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1F41BEC61A2ACBA300F25A65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Externals/cedar/Source/Headers/**",
+				);
+				INFOPLIST_FILE = FoxSpecs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		1F60162D1919DCE0003D8484 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1131,174 +1666,50 @@
 			};
 			name = Release;
 		};
-		1F6016301919DCE0003D8484 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/FOX.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FOX/Fox-Prefix.pch";
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_SHADOW = YES;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = Fox;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		1F6016311919DCE0003D8484 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/FOX.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FOX/Fox-Prefix.pch";
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_SHADOW = YES;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = Fox;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		1F7EFA36191B63980074B028 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAA3A35CD59AEB6BC3BF8735 /* Pods-FoxOSXSpecs.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FOXOSXSpecs/FoxOSXSpecs-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"c++\"",
-					"$(inherited)",
-				);
-				PRODUCT_NAME = FoxOSXSpecs;
-				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		1F7EFA37191B63980074B028 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C3A9E42CD70802A6D4E7DFD /* Pods-FoxOSXSpecs.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FOXOSXSpecs/FoxOSXSpecs-Prefix.pch";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"c++\"",
-					"$(inherited)",
-				);
-				PRODUCT_NAME = FoxOSXSpecs;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		1F9BA1971A11CFA90053B3C5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 726AF498048577D18829288C /* Pods-FoxSpecs.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = FOXSpecs/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"c++\"",
-					"-framework",
-					XCTest,
-					"$(inherited)",
-				);
-				PRODUCT_NAME = FoxSpecs;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		1F9BA1981A11CFA90053B3C5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0EDE141990837B28F82CE7E /* Pods-FoxSpecs.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = FOXSpecs/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"c++\"",
-					"-framework",
-					XCTest,
-					"$(inherited)",
-				);
-				PRODUCT_NAME = FoxSpecs;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1F41BEA31A2ACB9C00F25A65 /* Build configuration list for PBXNativeTarget "Fox-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F41BEA41A2ACB9C00F25A65 /* Debug */,
+				1F41BEA51A2ACB9C00F25A65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F41BEA61A2ACB9C00F25A65 /* Build configuration list for PBXNativeTarget "Fox-OSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F41BEA71A2ACB9C00F25A65 /* Debug */,
+				1F41BEA81A2ACB9C00F25A65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F41BEC11A2ACBA300F25A65 /* Build configuration list for PBXNativeTarget "Fox-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F41BEC21A2ACBA300F25A65 /* Debug */,
+				1F41BEC31A2ACBA300F25A65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F41BEC41A2ACBA300F25A65 /* Build configuration list for PBXNativeTarget "Fox-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F41BEC51A2ACBA300F25A65 /* Debug */,
+				1F41BEC61A2ACBA300F25A65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1F6016071919DCE0003D8484 /* Build configuration list for PBXProject "Fox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F60162D1919DCE0003D8484 /* Debug */,
 				1F60162E1919DCE0003D8484 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1F60162F1919DCE0003D8484 /* Build configuration list for PBXNativeTarget "Fox" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1F6016301919DCE0003D8484 /* Debug */,
-				1F6016311919DCE0003D8484 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1F7EFA35191B63980074B028 /* Build configuration list for PBXNativeTarget "FoxOSXSpecs" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1F7EFA36191B63980074B028 /* Debug */,
-				1F7EFA37191B63980074B028 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1F9BA1961A11CFA90053B3C5 /* Build configuration list for PBXNativeTarget "FoxSpecs" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1F9BA1971A11CFA90053B3C5 /* Debug */,
-				1F9BA1981A11CFA90053B3C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

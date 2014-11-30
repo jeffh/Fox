@@ -1,4 +1,4 @@
-#import <Cedar/Cedar.h>
+#import <Cedar.h>
 #import "FOXRoseTree.h"
 #import "FOXSequence.h"
 

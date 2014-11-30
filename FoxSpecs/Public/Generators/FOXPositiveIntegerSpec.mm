@@ -1,4 +1,4 @@
-#import <Cedar/Cedar.h>
+#import <Cedar.h>
 #import "FOX.h"
 #import "FOXSpecHelper.h"
 #import "FOXNumericGenerators.h"

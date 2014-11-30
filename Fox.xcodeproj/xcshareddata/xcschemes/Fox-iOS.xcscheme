@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0620"
+   LastUpgradeVersion = "0610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1F60160B1919DCE0003D8484"
-               BuildableName = "libFox.a"
-               BlueprintName = "Fox"
+               BlueprintIdentifier = "1F41BEAD1A2ACBA300F25A65"
+               BuildableName = "Fox-iOS.framework"
+               BlueprintName = "Fox-iOS"
                ReferencedContainer = "container:Fox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1F9BA18C1A11CFA90053B3C5"
-               BuildableName = "FoxSpecs.xctest"
-               BlueprintName = "FoxSpecs"
+               BlueprintIdentifier = "1F41BEB71A2ACBA300F25A65"
+               BuildableName = "Fox-iOSTests.xctest"
+               BlueprintName = "Fox-iOSTests"
                ReferencedContainer = "container:Fox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1F9BA18C1A11CFA90053B3C5"
-               BuildableName = "FoxSpecs.xctest"
-               BlueprintName = "FoxSpecs"
+               BlueprintIdentifier = "1F41BEB71A2ACBA300F25A65"
+               BuildableName = "Fox-iOSTests.xctest"
+               BlueprintName = "Fox-iOSTests"
                ReferencedContainer = "container:Fox.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1F60160B1919DCE0003D8484"
-            BuildableName = "libFox.a"
-            BlueprintName = "Fox"
+            BlueprintIdentifier = "1F41BEAD1A2ACBA300F25A65"
+            BuildableName = "Fox-iOS.framework"
+            BlueprintName = "Fox-iOS"
             ReferencedContainer = "container:Fox.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,9 +75,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1F60160B1919DCE0003D8484"
-            BuildableName = "libFox.a"
-            BlueprintName = "Fox"
+            BlueprintIdentifier = "1F41BEAD1A2ACBA300F25A65"
+            BuildableName = "Fox-iOS.framework"
+            BlueprintName = "Fox-iOS"
             ReferencedContainer = "container:Fox.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -93,9 +93,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1F60160B1919DCE0003D8484"
-            BuildableName = "libFox.a"
-            BlueprintName = "Fox"
+            BlueprintIdentifier = "1F41BEAD1A2ACBA300F25A65"
+            BuildableName = "Fox-iOS.framework"
+            BlueprintName = "Fox-iOS"
             ReferencedContainer = "container:Fox.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

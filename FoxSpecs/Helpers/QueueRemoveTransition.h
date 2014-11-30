@@ -1,4 +1,4 @@
-#import "FOXStateTransition.h"
+#import "FOX.h"
 
 
 @interface QueueRemoveTransition : NSObject <FOXStateTransition>

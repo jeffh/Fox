@@ -9,6 +9,7 @@
 #import "FOXRoseTree.h"
 #import "FOXRunnerResult.h"
 #import "FOXCommand.h"
+#import "FOXExecutedCommand.h"
 #import "FOXTransition.h"
 #import "FOXPropertyResult.h"
 

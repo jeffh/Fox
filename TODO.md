@@ -4,8 +4,8 @@ Capabilities.todo
 - Make the Assertion of the data generators easier to use (shorter)
 
 Documentation.todo
-- Generators
-- State Machine Generators
+- Generators @done
+- State Machine Generators @done
 - Defining your own generators
 	- Composing from existing generators
 	- From scratch
