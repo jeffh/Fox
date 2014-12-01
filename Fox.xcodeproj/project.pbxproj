@@ -116,7 +116,7 @@
 		1F38B6851A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E288878A28D1FD44435 /* FOXStringGenerators.m */; };
 		1F38B6861A2ACCC00078FF90 /* FOXGenericGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F6C41211A131D56003B6C83 /* FOXGenericGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F38B6871A2ACCC00078FF90 /* FOXGenericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41221A131D56003B6C83 /* FOXGenericGenerators.m */; };
-		1F38B6881A2ACCC00078FF90 /* FOX.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B732EA700E97A90EFBD56F /* FOX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6881A2ACCC00078FF90 /* FOX_.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B732EA700E97A90EFBD56F /* FOX_.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F38B6891A2ACCC00078FF90 /* FOXMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F848B471977A75200F0966E /* FOXMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F38B68A1A2ACCC00078FF90 /* FOXRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F4187F91975108000FEBB8D /* FOXRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F38B68B1A2ACCC00078FF90 /* FOXRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* FOXRunner.m */; };
@@ -169,7 +169,7 @@
 		1F38B6BA1A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E288878A28D1FD44435 /* FOXStringGenerators.m */; };
 		1F38B6BB1A2ACCC00078FF90 /* FOXGenericGenerators.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F6C41211A131D56003B6C83 /* FOXGenericGenerators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F38B6BC1A2ACCC00078FF90 /* FOXGenericGenerators.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C41221A131D56003B6C83 /* FOXGenericGenerators.m */; };
-		1F38B6BD1A2ACCC00078FF90 /* FOX.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B732EA700E97A90EFBD56F /* FOX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F38B6BD1A2ACCC00078FF90 /* FOX_.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B732EA700E97A90EFBD56F /* FOX_.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F38B6BE1A2ACCC00078FF90 /* FOXMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F848B471977A75200F0966E /* FOXMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F38B6BF1A2ACCC00078FF90 /* FOXRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F4187F91975108000FEBB8D /* FOXRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F38B6C01A2ACCC00078FF90 /* FOXRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4187FA1975108000FEBB8D /* FOXRunner.m */; };
@@ -451,7 +451,7 @@
 		31B731E731758B29364363DF /* FOXArrayGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXArrayGenerators.h; sourceTree = "<group>"; };
 		31B73282B254E07DFC8B2073 /* FOXRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXRandom.h; sourceTree = "<group>"; };
 		31B732DF762CE64B6BE7A599 /* FOXSetGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXSetGenerators.m; sourceTree = "<group>"; };
-		31B732EA700E97A90EFBD56F /* FOX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOX.h; sourceTree = "<group>"; };
+		31B732EA700E97A90EFBD56F /* FOX_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOX_.h; sourceTree = "<group>"; };
 		31B733656606413AC3D482E3 /* FOXDeterministicRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXDeterministicRandom.h; sourceTree = "<group>"; };
 		31B733ACE038CF303D9ECC27 /* FOXSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXSequence.m; sourceTree = "<group>"; };
 		31B7346B19612B83E717E236 /* FOXDictionaryGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXDictionaryGenerators.h; sourceTree = "<group>"; };
@@ -647,7 +647,7 @@
 			children = (
 				31B7376ABDE93DF780F6384A /* Data */,
 				1F6016371919DD40003D8484 /* Generators */,
-				31B732EA700E97A90EFBD56F /* FOX.h */,
+				31B732EA700E97A90EFBD56F /* FOX_.h */,
 				1F848B471977A75200F0966E /* FOXMacros.h */,
 				1F4187F91975108000FEBB8D /* FOXRunner.h */,
 				1F4187FA1975108000FEBB8D /* FOXRunner.m */,
@@ -856,7 +856,7 @@
 				1F38B69E1A2ACCC00078FF90 /* FOXRoseTree.h in Headers */,
 				1F38B6CA1A2ACCC00078FF90 /* FOXReporter.h in Headers */,
 				1F38B6AF1A2ACCC00078FF90 /* FOXNumericGenerators.h in Headers */,
-				1F38B6BD1A2ACCC00078FF90 /* FOX.h in Headers */,
+				1F38B6BD1A2ACCC00078FF90 /* FOX_.h in Headers */,
 				1F38B6981A2ACCC00078FF90 /* FOXCommand.h in Headers */,
 				1F38B6A61A2ACCC00078FF90 /* FOXArrayGenerators.h in Headers */,
 				1F38B61F1A2ACCA80078FF90 /* FOXBindGenerator.h in Headers */,
@@ -911,7 +911,7 @@
 				1F38B6691A2ACCC00078FF90 /* FOXRoseTree.h in Headers */,
 				1F38B6951A2ACCC00078FF90 /* FOXReporter.h in Headers */,
 				1F38B67A1A2ACCC00078FF90 /* FOXNumericGenerators.h in Headers */,
-				1F38B6881A2ACCC00078FF90 /* FOX.h in Headers */,
+				1F38B6881A2ACCC00078FF90 /* FOX_.h in Headers */,
 				1F38B6631A2ACCC00078FF90 /* FOXCommand.h in Headers */,
 				1F38B6711A2ACCC00078FF90 /* FOXArrayGenerators.h in Headers */,
 				1F38B6371A2ACCA90078FF90 /* FOXBindGenerator.h in Headers */,

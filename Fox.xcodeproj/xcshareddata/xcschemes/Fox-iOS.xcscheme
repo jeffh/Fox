@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1F41BEAD1A2ACBA300F25A65"
-               BuildableName = "Fox-iOS.framework"
+               BuildableName = "Fox.framework"
                BlueprintName = "Fox-iOS"
                ReferencedContainer = "container:Fox.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F41BEAD1A2ACBA300F25A65"
-            BuildableName = "Fox-iOS.framework"
+            BuildableName = "Fox.framework"
             BlueprintName = "Fox-iOS"
             ReferencedContainer = "container:Fox.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F41BEAD1A2ACBA300F25A65"
-            BuildableName = "Fox-iOS.framework"
+            BuildableName = "Fox.framework"
             BlueprintName = "Fox-iOS"
             ReferencedContainer = "container:Fox.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F41BEAD1A2ACBA300F25A65"
-            BuildableName = "Fox-iOS.framework"
+            BuildableName = "Fox.framework"
             BlueprintName = "Fox-iOS"
             ReferencedContainer = "container:Fox.xcodeproj">
          </BuildableReference>
