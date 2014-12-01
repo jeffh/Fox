@@ -5,3 +5,4 @@ build/
 DerivedData/
 Pods
 FOX.xcworkspace
+.ropeproject
