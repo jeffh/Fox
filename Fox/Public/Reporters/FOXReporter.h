@@ -32,13 +32,30 @@
 - (void)runnerWillVerifyTestNumber:(NSUInteger)testNumber
                    withMaximumSize:(NSUInteger)maxSize;
 
+/*! A message sent to indicate that Fox skipped an individual test for a property with random data.
+ *  Skipping tests can occur when PBTPropertyStatusSkipped is returned by an assertion.
+ *
+ *  @param testNumber The number of the current test of the property. That is, if the property is verified against
+ *                    random data 300 times, and this message corresponds to the 299th time that property is tested,
+ *                    this parameter will have the value of 298 (not 299 because it is zero-indexed).
+ *  @param result The result of the individual test of the property. The status of that result is (of course) skipped,
+ *                but it also contains information such as the randomly generated value that caused the property to
+ *                skipped.
+ */
+- (void)runnerDidSkipTestNumber:(NSUInteger)testNumber
+                 propertyResult:(FOXPropertyResult *)result;
+
 /*! A message sent to indicate that a property passed an individual test with random data.
  *
  *  @param testNumber The number of the current test of the property. That is, if the property is verified against
  *                    random data 300 times, and this message corresponds to the 299th time that property is tested,
  *                    this parameter will have the value of 298 (not 299 because it is zero-indexed).
+ *  @param result The result of the individual test of the property. The status of that result is (of course) passing,
+ *                but it also contains information such as the randomly generated value that caused the property to
+ *                succeed.
  */
-- (void)runnerDidPassTestNumber:(NSUInteger)testNumber;
+- (void)runnerDidPassTestNumber:(NSUInteger)testNumber
+                 propertyResult:(FOXPropertyResult *)result;
 
 /*! A message sent to indicate that the property being tested failed a test, and is about to be shrunk
  *  in order to find the smallest failing value.

@@ -59,8 +59,12 @@
     }
 }
 
-- (void)runnerDidPassTestNumber:(NSUInteger)testNumber
+- (void)runnerDidSkipTestNumber:(NSUInteger)testNumber propertyResult:(FOXPropertyResult *)result
 {
+    [self logString:@"S"];
+}
+
+- (void)runnerDidPassTestNumber:(NSUInteger)testNumber propertyResult:(FOXPropertyResult *)result {
     [self logString:@"."];
 }
 

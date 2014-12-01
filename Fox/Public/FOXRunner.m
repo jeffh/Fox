@@ -95,8 +95,12 @@ typedef struct _FOXShrinkReport {
                                                 failingSize:size
                                                     maxSize:maxSize
                                                        seed:seed];
+            } else if (result.status == FOXPropertyStatusSkipped) {
+                [self.reporter runnerDidSkipTestNumber:totalNumberOfTests
+                                        propertyResult:result];
             } else {
-                [self.reporter runnerDidPassTestNumber:totalNumberOfTests];
+                [self.reporter runnerDidPassTestNumber:totalNumberOfTests
+                                        propertyResult:result];
             }
         }
     }

@@ -79,4 +79,31 @@ describe(@"FOXProperty", ^{
     });
 });
 
+describe(@"FOXForAll", ^{
+    it(@"should validate all permutations of the data", ^{
+        FOXAssert(FOXForAll(FOXInteger(), ^BOOL(id generatedValue) {
+            return YES;
+        }));
+    });
+});
+
+describe(@"FOXForSome", ^{
+    it(@"should allow skipping of tests", ^{
+        id<FOXReporter> reporter = nice_fake_for(@protocol(FOXReporter));
+        FOXRunner *runner = [[FOXRunner alloc] initWithReporter:reporter];
+        id<FOXGenerator> property = FOXForSome(FOXInteger(), ^FOXPropertyStatus(id generatedValue) {
+            return FOXPropertyStatusSkipped;
+        });
+        FOXRunnerResult *result = [runner resultForNumberOfTests:100 property:property];
+
+        result.succeeded should be_truthy;
+        reporter should have_received(@selector(runnerWillRunWithSeed:));
+        reporter should have_received(@selector(runnerWillVerifyTestNumber:withMaximumSize:));
+        reporter should have_received(@selector(runnerDidSkipTestNumber:propertyResult:));
+        reporter should_not have_received(@selector(runnerDidPassTestNumber:propertyResult:));
+        reporter should have_received(@selector(runnerDidPassNumberOfTests:withResult:));
+        reporter should have_received(@selector(runnerDidRunWithResult:));
+    });
+});
+
 SPEC_END
