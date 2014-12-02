@@ -19,5 +19,6 @@
 @property (nonatomic) NSException *smallestFailingException; // only when exception occurs
 
 - (NSString *)friendlyDescription;
+- (NSString *)singleLineDescriptionOfSmallestValue;
 
 @end

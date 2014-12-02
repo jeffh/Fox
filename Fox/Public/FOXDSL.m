@@ -2,7 +2,6 @@
 #import "FOXRunner.h"
 #import "FOXRunnerResult.h"
 
-
 static void _FOXStringReplace(NSMutableString *str, NSString *original, NSString *replacement) {
     [str replaceOccurrencesOfString:original
                          withString:replacement
@@ -31,15 +30,15 @@ FOX_EXPORT FOXRunnerResult *_FOXAssert(id<FOXGenerator> property, NSString *expr
         _FOXStringReplace(formattedExpression, @"}", @"}\n");
         _FOXStringReplace(formattedExpression, @";", @";\n");
         _FOXStringReplace(formattedExpression, @"\n", @"\n  ");
-        [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithUTF8String:__PRETTY_FUNCTION__]
-                                                                file:[NSString stringWithUTF8String:file] \
-                                                          lineNumber:line
-                                                         description:
-         @"=== Property failed ===\n"
-         @"%@\n"
-         @"%@",
-         formattedExpression,
-         [result friendlyDescription]];
+        NSString *description = [NSString stringWithFormat:
+                                 @"Property failed with: %@\n"
+                                 @"Location: %@\n"
+                                 @"%@",
+                                 [result singleLineDescriptionOfSmallestValue],
+                                 formattedExpression,
+                                 [result friendlyDescription]];
+
+        [NSException raise:@"FOXAssertionFailure" format:@"%@", description];
     }
     return result;
 }

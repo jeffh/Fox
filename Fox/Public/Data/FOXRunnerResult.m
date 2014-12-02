@@ -48,4 +48,16 @@
     return string;
 }
 
+- (NSString *)singleLineDescriptionOfSmallestValue
+{
+    NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSMutableString *result = [NSMutableString string];
+    NSArray *lines = [[self.smallestFailingValue description] componentsSeparatedByString:@"\n"];
+    for (NSString *line in lines) {
+        [result appendString:[line stringByTrimmingCharactersInSet:whitespace]];
+        [result appendString:@" "];
+    }
+    return result;
+}
+
 @end
