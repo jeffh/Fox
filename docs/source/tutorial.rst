@@ -191,38 +191,43 @@ way to zero like the other elements. It's also worth noting that just because a
 value has been shrunk to zero doesn't exclude it's potential significance, but
 it is usually less likely to be significant.
 
+.. warning:: Due to the ``maximum size`` configuration. Fox limits the range
+             of random integers generated. Fox's default maximum size is 200.
+             Observe when you change the failure case to require more than 200
+             elements for the sort example.
 
-Adding More Properties
-----------------------
-
-There are other properties of the code that can be described as properties.
-Let's look a few for illustrative purposes. A simplier property is the number
-of inputs is equal to the number of outputs::
-
-    - (void)testSortMaintainsSize {
-        FOXAssert(FOXForAll(FOXArray(FOXInteger()), ^BOOL(NSArray *integers) {
-            NSArray *sortedNumbers = [MySorter sortNumbers:integers];
-            return integers.count == sortedNumbers.count;
-        }));
-    }
-
-Or all input element appears in the output element::
-
-    - (void)testSortPreservesAllElements {
-        FOXAssert(FOXForAll(FOXArray(FOXInteger()), ^BOOL(NSArray *integers) {
-            NSMutableArray *unseenInputs = [integers mutableCopy];
-            NSArray *sortedNumbers = [MySorter sortNumbers:integers];
-            for (NSNumber *n in sortedNumbers) {
-                if ([unseenInputs containsObject:n]) {
-                    [unseenInputs removeObject:n];
-                } else {
-                    return NO;
-                }
-            }
-            return unseenInputs.count == 0;
-        }));
-    }
-
+.. COMMENT - While interesting, this doesn't seem useful to the tutorial.
+.. Adding More Properties
+.. ----------------------
+.. 
+.. There are other properties of the code that can be described as properties.
+.. Let's look a few for illustrative purposes. A simplier property is the number
+.. of inputs is equal to the number of outputs::
+.. 
+..     - (void)testSortMaintainsSize {
+..         FOXAssert(FOXForAll(FOXArray(FOXInteger()), ^BOOL(NSArray *integers) {
+..             NSArray *sortedNumbers = [MySorter sortNumbers:integers];
+..             return integers.count == sortedNumbers.count;
+..         }));
+..     }
+.. 
+.. Or all input element appears in the output element::
+.. 
+..     - (void)testSortPreservesAllElements {
+..         FOXAssert(FOXForAll(FOXArray(FOXInteger()), ^BOOL(NSArray *integers) {
+..             NSMutableArray *unseenInputs = [integers mutableCopy];
+..             NSArray *sortedNumbers = [MySorter sortNumbers:integers];
+..             for (NSNumber *n in sortedNumbers) {
+..                 if ([unseenInputs containsObject:n]) {
+..                     [unseenInputs removeObject:n];
+..                 } else {
+..                     return NO;
+..                 }
+..             }
+..             return unseenInputs.count == 0;
+..         }));
+..     }
+.. 
 
 Testing Stateful APIs
 ---------------------
@@ -252,9 +257,200 @@ about the API:
 - What assertions should between after any API call?
 
 This is done by describing a `state machine`_. In basic terms, a state machine
-is two parts: state and transitions. State indicates data that persists between
-transitions. It dictates **what transitions are available at any give time**.
+is two parts: state and transitions.
+
+State indicates data that persists between
+transitions. Transitions describe how that state changes over time. Transitions
+can have prerequisites before allowing them to be used.
+
+For this example, we can model the API as a state machine: with transitions for
+each unique API call, and its state representing what we think the queue should
+manage. In this case, we'll naively choose an array of the queue's contents as
+the state.
+
+.. image:: images/queue-sm.png
+
+From there, Fox can **generate a sequence of state transitions** that conform
+to the state machine. This allows Fox to generate valid sequences of API calls.
+
+We can translate the diagram into code by configuring a
+``FOXFiniteStateMachine``::
+
+
+    - (void)testQueueBehavior {
+        // define the state machine with its initial state.
+        FOXFiniteStateMachine *stateMachine = [[FOXFiniteStateMachine alloc] initWithInitialModelState:@[]];
+
+        // define the state transition for -[Queue addObject:]
+        // we'll only be using randomly generated integers as arguments.
+        // note that nextModelState should not mutate the original model state.
+        [stateMachine addTransition:[FOXTransition byCallingSelector:@selector(addObject:)
+                                                    withGenerator:FOXInteger()
+                                                    nextModelState:^id(id modelState, id generatedValue) {
+                                                        return [modelState arrayByAddingObject:generatedValue];
+                                                    }]];
+
+        // define the state machine for -[Queue removeObject]
+        FOXTransition *removeTransition = [FOXTransition byCallingSelector:@selector(removeObject)
+                                                            nextModelState:^id(id modelState, id generatedValue) {
+                                                                return [modelState subarrayWithRange:NSMakeRange(1, [modelState count] - 1)];
+                                                            }];
+        removeTransition.precondition = ^BOOL(id modelState) {
+            return [modelState count] > 0;
+        };
+        removeTransition.postcondition = ^BOOL(id modelState, id previousModelState, id subject, id generatedValue, id returnedObject) {
+            // modelState is the state machine's state after following the transition
+            // previousModelState is the state machine's state before following the transition
+            // subject is the subject under test. You should not provoke any mutation changes here.
+            // generatedValue is the value that the removeTransition generated. We're not using this value here.
+            // returnedObject is the return value of calling [subject removeObject].
+            return [[previousModelState firstObject] isEqual:returnedObject];
+        };
+        [stateMachine addTransition:removeTransition];
+
+        // generate and execute an arbitrary sequence of API calls
+        id<FOXGenerator> executedCommands = FOXExecuteCommands(stateMachine, ^id{
+            return [[Queue alloc] init];
+        });
+        // verify that all the executed commands properly conformed to the state machine.
+        FOXAssert(FOXForAll(executedCommands, ^BOOL(NSArray *commands) {
+            return FOXExecutedSuccessfully(commands);
+        }));
+    }
+
+.. note:: If you prefer to not have inlined transition definitions, you can
+          always choose to conform to ``FOXStateTransition`` protocol instead
+          of using ``FOXTransition``.
+
+We can now run this to verify the behavior of the queue. This does take
+significantly more time that the previous example. But Fox's execution time can
+be tweak if you want faster feedback versus a more thorough test run. See
+:ref:`Configuring Test Generation`.
+
+Just to be on the same page, here's a naive implementation of the queue that
+passes the property we just wrote::
+
+    @interface Queue : NSObject
+    - (void)addObject:(id)object;
+    - (id)removeObject;
+    @end
+
+    @interface Queue ()
+    @property (nonatomic) NSMutableArray *items;
+    @end
+
+    @implementation Queue
+
+    - (instancetype)init {
+        self = [super init];
+        if (self) {
+            self.items = [NSMutableArray array];
+        }
+        return self;
+    }
+
+    - (void)addObject:(id)object {
+        [self.items addObject:object];
+    }
+
+    - (id)removeObject {
+        id object = self.items[0];
+        [self.items removeObjectAtIndex:0];
+        return object;
+    }
+
+    @end
+
+.. note:: Testing a queue with this technique has obvious testing problems
+          (being the test is like the implementation). But for larger
+          integration tests, this can be useful. They just happen to be less to
+          be concise examples.
+
+To break this, let's modify the queue implementation::
+
+    - (void)addObject:(id)object {
+        if (![object isEqual:@4]) {
+            [self.items addObject:object];
+        }
+    }
+
+Running the tests again, Fox shows us a similar failure like sort::
+
+    Property failed with: @[ [subject addObject:4] -> (null), [subject removeObject] -> (null) (Postcondition FAILED) Exception Raised: *** -[__NSArrayM objectAtIndex:]: index 0 beyond bounds for empty array Model before: ( 4 ) Model after: ( ), ] 
+    Location:   // /Users/jeff/workspace/FoxExample/FoxExampleTests/FoxExampleTests.m:68
+    FOXForAll(executedCommands, ^BOOL(NSArray *commands) {
+    return FOXExecutedSuccessfully(commands);
+    }
+    );
+    
+    RESULT: FAILED
+    seed: 1417510193
+    maximum size: 200
+    number of tests before failing: 13
+    size that failed: 12
+    shrink depth: 10
+    shrink nodes walked: 16
+    value that failed: @[
+    [subject addObject:-1] -> (null),
+    [subject addObject:-8] -> (null),
+    [subject addObject:4] -> (null),
+    [subject addObject:12] -> (null),
+    [subject removeObject] -> -1,
+    [subject addObject:4] -> (null),
+    [subject addObject:10] -> (null),
+    [subject removeObject] -> -8,
+    [subject removeObject] -> 12 (Postcondition FAILED)
+        Model before: (
+        4,
+        12,
+        4,
+        10
+    )
+        Model after: (
+        12,
+        4,
+        10
+    ),
+    ]
+    smallest failing value: @[
+    [subject addObject:4] -> (null),
+    [subject removeObject] -> (null) (Postcondition FAILED)
+        Exception Raised: *** -[__NSArrayM objectAtIndex:]: index 0 beyond bounds for empty array
+        Model before: (
+        4
+    )
+        Model after: (
+    ),
+    ]
+
+Here we can see the original generated test that provoked the failure:
+
+- ``[subject addObject:-1]``
+- ``[subject addObject:-8]``
+- ``[subject addObject:4]``
+- ``[subject addObject:12]``
+- ``[subject removeObject] -> -1``
+- ``[subject addObject:4]``
+- ``[subject addObject:10]``
+- ``[subject removeObject] -> -8``
+- ``[subject removeObject] -> 12 (Postcondition FAILED)``
+
+That's not as nice to debug as the test after shrinking:
+
+- ``[subject addObject:4]``
+- ``[subject removeObject] -> (null) (Postcondition FAILED)`` - out of bounds exception raised.
+
+You may be wondering why the ``removeObject`` call is still required. This is
+the only way assertions are made against the queue. Just calling ``addObject:``
+doesn't reveal any issues with an implementation.
+
+And that's most of the power of Fox. You're ready to start writing property tests!
+
+If you want more to read up, check out :ref:`generators`.
+
+If you want explore the API, check the `github README`_ for the API reference.
 
 .. _Queue: http://en.wikipedia.org/wiki/Queue_(abstract_data_type)
 .. _state machine: http://en.wikipedia.org/wiki/Finite-state_machine
+.. _github README: https://github.com/jeffh/Fox#reference
 
