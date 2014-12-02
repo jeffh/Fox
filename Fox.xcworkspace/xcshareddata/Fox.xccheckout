@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3FD8FD1F-1AD4-44FE-8A30-73794475681A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Fox</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4D8045885AF8CE75E2C66268CAB796EB63C645AB</key>
+		<string>github.com:jeffh/Fox.git</string>
+		<key>9C17E6AC4A93E78FE05F88AE0011DD4EAD50139D</key>
+		<string>https://github.com/pivotal/cedar.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Fox.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4D8045885AF8CE75E2C66268CAB796EB63C645AB</key>
+		<string>..</string>
+		<key>9C17E6AC4A93E78FE05F88AE0011DD4EAD50139D</key>
+		<string>../Externals/cedar</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:jeffh/Fox.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4D8045885AF8CE75E2C66268CAB796EB63C645AB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9C17E6AC4A93E78FE05F88AE0011DD4EAD50139D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cedar</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4D8045885AF8CE75E2C66268CAB796EB63C645AB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Fox</string>
+		</dict>
+	</array>
+</dict>
+</plist>
