@@ -1,12 +1,12 @@
 .. highlight:: objective-c
 
-Overview - What is Fox?
-=======================
+What is Fox?
+============
 
 Fox is a port of the property-based testing tool `test.check`_.
 
-Property-based Testing Tools (especially ones inspired from QuickCheck), are
-test generators. Instead of specific test cases, these tools allow you to
+Property-based Testing Tools (especially ones inspired from QuickCheck) are
+test generators. Instead of hand-crafted test cases, these tools allow you to
 describe a property of your program that should always hold true. An example
 pseudo-code would be::
 
@@ -34,10 +34,9 @@ generating a counter-example.
 Shrinking Failures
 ------------------
 
-Part of the benefit of Fox over purely random data generation is Shrinking.
-Instead of purely random data generation, an informed random generation is done
-by size. This allows the tool to reduce the counter-example to a smaller data
-set.
+The benefit of Fox over purely random data generation is Shrinking.  Instead of
+purely random data generation, an informed random generation is done by size.
+This allows the tool to reduce the counter-example to a smaller data set.
 
 For example, if a ``sort()`` implementation failed with an exception when
 reading 9s. Fox might have generated this value that provoked the failure::

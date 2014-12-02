@@ -18,9 +18,9 @@ your test target.
 CocoaPods
 ---------
 
-Add to your Podfile::
+Add to your Podfile for you test target::
 
-    pod 'Fox'
+    pod 'Fox', :git => 'https://github.com/jeffh/Fox'
 
 And then ``pod install``.
 

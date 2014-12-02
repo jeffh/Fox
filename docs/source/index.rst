@@ -12,18 +12,9 @@ Getting Started
 
 New to Fox? Or just wanting to have a taste of it? Start here.
 
-- :doc:`Overview </getting_started>` - What is Fox?
+- :doc:`Overview </what_is_fox>` - What is Fox?
 - :doc:`Installation </installation>` - How to get set up.
 - :doc:`Tutorial </tutorial>` - Get a feel for using Fox.
-
-Property-Based Testing
-----------------------
-
-Learn methods and techniques for creating property tests.
-
-- Comparing with Example-Based Tests
-- Testing Pure Functions
-- Testing Stateful APIs
 
 Generators
 ----------
@@ -31,37 +22,35 @@ Generators
 Generators are semi-random generators that are the core to Fox's capabilities.
 Follow the links below to learn more in detail.
 
-Basics:
-
 - Overview
 - Built-in Generators
 - Building Custom Generators
+- Building Generators with Custom Shrinking
 
-Advanced:
+The Runner
+----------
 
-- Making Generators with Custom Shrinking
-- Producing Custom Shrinking Strategies
+All the guts around configuring and executing Fox's verification of properties.
 
-Supporting Functionality
-------------------------
-
-While generators are core to Fox, there are supporting features to use and
-build Generators. They're useful to know in less-common cases:
-
-Runner:
-
-- Overview
-- Integrating with Other Testing Libraries
-
-Randomization:
-
+- :doc:`Overview </runner>`
+- :ref:`Configuring Test Generation`
 - Built-in Random Number Generators
 - Making a Custom Random Number Generator
-
-Reporters:
-
 - Built-in Reporters
 - Making a Custom Reporter
+
+Other Topics
+------------
+
+Other useful topics of Fox that aren't large enough to be in its own category.
+
+- Integrating Fox into other Testing Libraries
+
+Infrastructure
+--------------
+
+While generators are core to Fox, there's a lot of supporting infrastructure
+for using and building Generators. They're useful to know in less-common cases:
 
 Data Structures:
 
@@ -69,10 +58,19 @@ Data Structures:
 - RoseTree
 - Transition
 
+Internal Design:
+
+- Laziness
+- Generators
+- Shrinking Strategy
+
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Overview of Fox </getting_started>
+   What is Fox? </what_is_fox>
    Installation </installation>
    Tutorial </tutorial>
+
+   The Runner </runner>
+   Configuring Test Generation </configuring test generation>
