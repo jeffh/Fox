@@ -151,6 +151,9 @@ FOXAlphabeticalStringOfSizeRange    | NSString *     | Generates random variable
 FOXAlphanumericalString             | NSString *     | Generates random variable length strings. Only generates alphabetical characters.
 FOXAlphanumericalStringOfSize       | NSString *     | Generates random fixed length strings. Only generates alphanumeric characters.
 FOXAlphanumericalStringOfSizeRange  | NSString *     | Generates random variable length strings within the given range (inclusive). Only generates alphanumeric characters.
+FOXNumericalString                  | NSString *     | Generates random variable length strings. Only generates numeric characters.
+FOXNumericalStringOfSize            | NSString *     | Generates random fixed length strings. Only generates numeric characters.
+FOXNumericalStringOfSizeRange       | NSString *     | Generates random variable length strings within the given range (inclusive). Only generates numeric characters.
 FOXSimpleType                       | id             | Generates random simple types. A simple type does not compose with other types. May not be printable.
 FOXPrintableSimpleType              | id             | Generates random simple types. A simple type does not compose with other types. Ensured to be printable.
 FOXCompositeType                    | id             | Generates random composite types. A composite type composes with the given generator.
