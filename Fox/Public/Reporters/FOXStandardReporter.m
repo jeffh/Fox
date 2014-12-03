@@ -1,5 +1,6 @@
 #import "FOXStandardReporter.h"
 #import "FOXRunnerResult.h"
+#import "FOXPropertyResult.h"
 
 
 @implementation FOXStandardReporter {

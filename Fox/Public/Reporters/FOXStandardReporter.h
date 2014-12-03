@@ -1,4 +1,5 @@
 #import "FOXRunner.h"
+#import "FOXReporter.h"
 
 
 @interface FOXStandardReporter : NSObject <FOXReporter>

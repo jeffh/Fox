@@ -1,12 +1,13 @@
 #import "FOXNumericGenerators.h"
 #import "FOXCoreGenerators.h"
 #import "FOXGenerator.h"
+#import "FOXArrayGenerators.h"
 
 
 FOX_EXPORT id<FOXGenerator> _FOXNaturalInteger(void) {
-    return FOXWithName(@"NaturalInteger", FOXMap(FOXInteger(), ^id(NSNumber *number) {
+    return FOXMap(FOXInteger(), ^id(NSNumber *number) {
         return @(ABS([number integerValue]));
-    }));
+    });
 }
 
 FOX_EXPORT id<FOXGenerator> FOXBoolean(void) {
@@ -32,5 +33,20 @@ FOX_EXPORT id<FOXGenerator> FOXStrictPositiveInteger(void) {
 FOX_EXPORT id<FOXGenerator> FOXStrictNegativeInteger(void) {
     return FOXWithName(@"StrictNegativeInteger", FOXMap(_FOXNaturalInteger(), ^id(NSNumber *number) {
         return @(-([number integerValue] ?: 1));
+    }));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXNonZeroInteger(void) {
+    return FOXWithName(@"NonZeroInteger", FOXMap(FOXInteger(), ^id(NSNumber *number) {
+        return @([number integerValue] ?: 1);
+    }));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXFloat(void) {
+    id<FOXGenerator> generator = FOXTuple(@[FOXInteger(), FOXNonZeroInteger()]);
+    return FOXWithName(@"Float", FOXMap(generator, ^id(NSArray *numbers) {
+        NSInteger dividend = [numbers[0] integerValue];
+        NSInteger divisor = [numbers[1] integerValue];
+        return @((float)(dividend) / divisor);
     }));
 }

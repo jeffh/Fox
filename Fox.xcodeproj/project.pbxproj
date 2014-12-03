@@ -240,6 +240,8 @@
 		1FAE3B5D1A2EC1000011838A /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B5B1A2EC1000011838A /* DSL.swift */; };
 		1FAE3B681A2EC5E60011838A /* SwiftGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B671A2EC5E60011838A /* SwiftGenerators.swift */; };
 		1FAE3B691A2EC5E60011838A /* SwiftGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B671A2EC5E60011838A /* SwiftGenerators.swift */; };
+		1FAE3B6E1A2F10080011838A /* FOXFloatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B6D1A2F10080011838A /* FOXFloatSpec.mm */; };
+		1FAE3B6F1A2F10080011838A /* FOXFloatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B6D1A2F10080011838A /* FOXFloatSpec.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -349,6 +351,7 @@
 		1FA94A39199609D000803AF3 /* FOXSuchThatGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXSuchThatGenerator.m; sourceTree = "<group>"; };
 		1FAE3B5B1A2EC1000011838A /* DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Fox/Public/DSL.swift; sourceTree = SOURCE_ROOT; };
 		1FAE3B671A2EC5E60011838A /* SwiftGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftGenerators.swift; path = Fox/Public/Generators/SwiftGenerators.swift; sourceTree = SOURCE_ROOT; };
+		1FAE3B6D1A2F10080011838A /* FOXFloatSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXFloatSpec.mm; path = FoxSpecs/Public/Generators/FOXFloatSpec.mm; sourceTree = SOURCE_ROOT; };
 		1FF5B93519737D4600416383 /* FOXIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1FF5B93C1973BD9000416383 /* FOXRoseTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXRoseTree.h; sourceTree = "<group>"; };
 		1FF5B93D1973BD9000416383 /* FOXRoseTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXRoseTree.m; sourceTree = "<group>"; };
@@ -641,6 +644,7 @@
 				1F50188C1991D406001AB3A9 /* FOXFiniteStateMachineSpec.mm */,
 				1FA94A35199606F800803AF3 /* FOXSuchThatSpec.mm */,
 				1F6C41241A14736F003B6C83 /* FOXGenericSpec.mm */,
+				1FAE3B6D1A2F10080011838A /* FOXFloatSpec.mm */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
@@ -1047,6 +1051,7 @@
 				1F38B6D31A2ACCE80078FF90 /* Queue.m in Sources */,
 				1F38B6E71A2ACCF10078FF90 /* FOXGenericSpec.mm in Sources */,
 				1F38B6DA1A2ACCF10078FF90 /* FOXArraySpec.mm in Sources */,
+				1FAE3B6E1A2F10080011838A /* FOXFloatSpec.mm in Sources */,
 				1F38B6D81A2ACCF10078FF90 /* FOXSequenceSpec.mm in Sources */,
 				1F38B6E11A2ACCF10078FF90 /* FOXSetSpec.mm in Sources */,
 				1F38B6DB1A2ACCF10078FF90 /* FOXChooseSpec.mm in Sources */,
@@ -1127,6 +1132,7 @@
 				1F38B6CF1A2ACCE70078FF90 /* Queue.m in Sources */,
 				1F38B6F91A2ACCF20078FF90 /* FOXGenericSpec.mm in Sources */,
 				1F38B6EC1A2ACCF20078FF90 /* FOXArraySpec.mm in Sources */,
+				1FAE3B6F1A2F10080011838A /* FOXFloatSpec.mm in Sources */,
 				1F38B6EA1A2ACCF20078FF90 /* FOXSequenceSpec.mm in Sources */,
 				1F38B6F31A2ACCF20078FF90 /* FOXSetSpec.mm in Sources */,
 				1F38B6ED1A2ACCF20078FF90 /* FOXChooseSpec.mm in Sources */,

@@ -1,6 +1,10 @@
-#import "FOXGenerator.h"
-#import "FOXPropertyGenerators.h"
-#import "FOXReporter.h"
+#import "FOXMacros.h"
+
+@class FOXRunnerResult;
+@protocol FOXGenerator;
+@protocol FOXReporter;
+@protocol FOXRandom;
+
 
 /*! A constant that indicates the default number of tests (which is 500) */
 FOUNDATION_EXTERN const NSUInteger FOXDefaultNumberOfTests;
@@ -18,8 +22,16 @@ FOUNDATION_EXTERN const NSUInteger FOXDefaultNumberOfTests;
  */
 FOUNDATION_EXTERN const NSUInteger FOXDefaultMaximumSize;
 
+/*! Samples from a generator to see what values it produces. Useful for debugging.
+ *  @returns an array of 10 items. nils that the generator produces are boxed.
+ */
+FOX_EXPORT NSArray *FOXSample(id<FOXGenerator> generator);
 
-@class FOXRunnerResult;
+
+/*! Samples from a generator to see what values it produces. Useful for debugging.
+ *  @returns an array of size requested. nils that the generator produces are boxed.
+ */
+FOX_EXPORT NSArray *FOXSampleWithCount(id<FOXGenerator> generator, NSUInteger numberOfSamples);
 
 /*! Generates random data and uses it to test properties.
  */
@@ -64,9 +76,6 @@ FOUNDATION_EXTERN const NSUInteger FOXDefaultMaximumSize;
  */
 - (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
                                    property:(id<FOXGenerator>)property;
-- (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
-                                    forSome:(id<FOXGenerator>)values
-                                       then:(FOXPropertyStatus (^)(id generatedValue))then;
 - (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
                                    property:(id<FOXGenerator>)property
                                        seed:(uint32_t)seed;

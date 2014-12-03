@@ -40,10 +40,9 @@ describe(@"FOXProperty", ^{
     it(@"should be shrinkable", ^{
         FOXRunner *quick = [[FOXRunner alloc] initWithReporter:nil];
         FOXRunnerResult *result = [quick resultForNumberOfTests:100
-                                                        forSome:FOXInteger()
-                                                           then:^FOXPropertyStatus(NSNumber *generatedValue) {
+                                                       property:FOXForSome(FOXInteger(), ^FOXPropertyStatus(NSNumber *generatedValue) {
                                                                return FOXRequire([generatedValue integerValue] / 2 <= [generatedValue integerValue]);
-                                                           }];
+                                                           })];
         result.succeeded should be_falsy;
         result.failingValue should be_less_than(@0);
         result.smallestFailingValue should equal(@(-1));

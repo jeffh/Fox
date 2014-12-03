@@ -1,9 +1,13 @@
 #import "FOXRunner.h"
+#import "FOXGenerator.h"
 #import "FOXRoseTree.h"
 #import "FOXDeterministicRandom.h"
 #import "FOXSequence.h"
 #import "FOXRunnerResult.h"
 #import "FOXStandardReporter.h"
+#import "FOXReporter.h"
+#import "FOXPropertyResult.h"
+#import "FOXPropertyGenerators.h"
 
 
 const NSUInteger FOXDefaultNumberOfTests = 500;
@@ -16,6 +20,21 @@ typedef struct _FOXShrinkReport {
     void *smallestArgument;
     void *smallestUncaughtException;
 } FOXShrinkReport;
+
+
+FOX_EXPORT NSArray *FOXSample(id<FOXGenerator> generator) {
+    return FOXSampleWithCount(generator, 10);
+}
+
+FOX_EXPORT NSArray *FOXSampleWithCount(id<FOXGenerator> generator, NSUInteger numberOfSamples) {
+    id<FOXRandom> random = [[FOXDeterministicRandom alloc] init];
+    NSMutableArray *samples = [NSMutableArray array];
+    for (NSUInteger i = 0; i<numberOfSamples; i++) {
+        FOXRoseTree *tree = [generator lazyTreeWithRandom:random maximumSize:50];
+        [samples addObject:tree.value ?: [NSNull null]];
+    }
+    return samples;
+}
 
 
 @interface FOXRunner ()
@@ -124,14 +143,6 @@ typedef struct _FOXShrinkReport {
     return [self resultForNumberOfTests:numberOfTests
                                property:property
                                    seed:(uint32_t) time(NULL)];
-}
-
-- (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
-                                    forSome:(id<FOXGenerator>)values
-                                       then:(FOXPropertyStatus (^)(id generatedValue))then
-{
-    return [self resultForNumberOfTests:numberOfTests
-                               property:FOXForSome(values, then)];
 }
 
 #pragma mark - Private
