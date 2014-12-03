@@ -3,16 +3,19 @@
 What is Fox?
 ============
 
-Fox is a port of the property-based testing tool `test.check`_.
+Fox is a port of the property-based testing tool `test.check`_ (decendant of
+QuickCheck).
 
-Property-based Testing Tools (especially ones inspired from QuickCheck) are
+Property-based Testing Tools, especially ones inspired from QuickCheck, are
 test generators. Instead of hand-crafted test cases, these tools allow you to
 describe a property of your program that should always hold true. An example
 pseudo-code would be::
 
     // pseudocode: A property for the sort() function
     ForAll(xs where xs is an Array of Unsigned Integers){
+        // perform action
         sorted_numbers := sort(xs)
+        // verify that sorted_numbers is in ascending order
         i := 0
         for n in sorted_numbers {
             if i <= n {
@@ -47,8 +50,8 @@ And then proceed to shrink ``xs`` to::
 
     xs = @[@9]
 
-This allows reduces the amount of manual debugging to determine the smallest
-example that provokes the failure.
+This reduces the amount of manual debugging to determine the smallest example
+that provokes the failure.
 
 .. _test.check: https://github.com/clojure/test.check
 .. _Haskell QuickCheck: https://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2
