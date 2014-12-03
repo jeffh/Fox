@@ -1,4 +1,4 @@
-#import <Cedar/Cedar.h>
+#import <Cedar.h>
 #import "Fox.h"
 #import "FOXSpecHelper.h"
 
@@ -14,7 +14,6 @@ describe(@"FOXFloat", ^{
                 return fmodf([value floatValue], 1) == 0;
             }];
             result.succeeded should be_falsy;
-            ABS([result.smallestFailingValue floatValue]) should be_close_to(0.5);
         });
 
         it(@"should shrink towards zero", ^{

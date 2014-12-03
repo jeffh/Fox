@@ -47,6 +47,6 @@ FOX_EXPORT id<FOXGenerator> FOXFloat(void) {
     return FOXWithName(@"Float", FOXMap(generator, ^id(NSArray *numbers) {
         NSInteger dividend = [numbers[0] integerValue];
         NSInteger divisor = [numbers[1] integerValue];
-        return @((float)(dividend / divisor));
+        return @((float)(dividend) / divisor);
     }));
 }
