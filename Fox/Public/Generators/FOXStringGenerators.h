@@ -6,7 +6,7 @@
 
 FOX_EXPORT id<FOXGenerator> FOXCharacter(void);
 
-FOX_EXPORT id<FOXGenerator> FOXAlphabetCharacter(void);
+FOX_EXPORT id<FOXGenerator> FOXAlphabeticalCharacter(void);
 
 FOX_EXPORT id<FOXGenerator> FOXNumericCharacter(void);
 

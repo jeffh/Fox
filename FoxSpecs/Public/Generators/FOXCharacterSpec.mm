@@ -24,7 +24,7 @@ describe(@"FOXCharacter", ^{
     });
 
     it(@"should be able to produce any alpha characters", ^{
-        FOXAssert(FOXForAll(FOXAlphabetCharacter(), ^BOOL(NSNumber *character) {
+        FOXAssert(FOXForAll(FOXAlphabeticalCharacter(), ^BOOL(NSNumber *character) {
             return [[NSCharacterSet letterCharacterSet] characterIsMember:[character charValue]];
         }));
     });
@@ -36,7 +36,7 @@ describe(@"FOXCharacter", ^{
     });
 
     it(@"should be able to produce any alphanumeric characters", ^{
-        FOXAssert(FOXForAll(FOXAlphabetCharacter(), ^BOOL(NSNumber *character) {
+        FOXAssert(FOXForAll(FOXAlphabeticalCharacter(), ^BOOL(NSNumber *character) {
             return [[NSCharacterSet alphanumericCharacterSet] characterIsMember:[character charValue]];
         }));
     });

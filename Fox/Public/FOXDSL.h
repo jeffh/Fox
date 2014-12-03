@@ -41,7 +41,7 @@ typedef struct {
  *  @param options A set of options used to configure the behavior of the assert.
  *  @returns The result of the property tests.
  */
-FOX_EXPORT FOXRunnerResult *_FOXAssert(id<FOXGenerator> property, NSString *expr, const char *file, int line, FOXOptions options);
+FOX_EXPORT FOXRunnerResult *_FOXAssert(id<FOXGenerator> property, NSString *expr, const char *file, unsigned int line, FOXOptions options);
 
 #define FOXAssertWithOptions(PROPERTY, OPTIONS) (_FOXAssert((PROPERTY), @"" # PROPERTY, __FILE__, __LINE__, (OPTIONS)))
 

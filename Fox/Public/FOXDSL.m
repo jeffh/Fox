@@ -10,7 +10,7 @@ static void _FOXStringReplace(NSMutableString *str, NSString *original, NSString
 }
 
 
-FOX_EXPORT FOXRunnerResult *_FOXAssert(id<FOXGenerator> property, NSString *expr, const char *file, int line, FOXOptions options) {
+FOX_EXPORT FOXRunnerResult *_FOXAssert(id<FOXGenerator> property, NSString *expr, const char *file, unsigned int line, FOXOptions options) {
     if (!options.numberOfTests) {
         options.numberOfTests = FOXDefaultNumberOfTests;
     }
@@ -25,7 +25,7 @@ FOX_EXPORT FOXRunnerResult *_FOXAssert(id<FOXGenerator> property, NSString *expr
     FOXRunnerResult *result = [runner resultForNumberOfTests:options.numberOfTests property:property seed:options.seed];
     if (!result.succeeded) {
         NSMutableString *formattedExpression = [NSMutableString stringWithFormat:@"  // %s:%d\n%@;",
-                                                file, line, expr];
+                                                file, line, expr ?: @""];
         _FOXStringReplace(formattedExpression, @"{", @"{\n");
         _FOXStringReplace(formattedExpression, @"}", @"}\n");
         _FOXStringReplace(formattedExpression, @";", @";\n");

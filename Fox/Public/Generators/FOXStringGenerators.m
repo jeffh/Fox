@@ -8,8 +8,8 @@ FOX_EXPORT id<FOXGenerator> FOXCharacter(void) {
     return FOXWithName(@"Character", FOXChoose(@0, @255));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXAlphabetCharacter(void) {
-    return FOXWithName(@"AlphabetCharacter", FOXOneOf(@[FOXChoose(@65, @90),
+FOX_EXPORT id<FOXGenerator> FOXAlphabeticalCharacter(void) {
+    return FOXWithName(@"AlphabeticalCharacter", FOXOneOf(@[FOXChoose(@65, @90),
         FOXChoose(@97, @122)]));
 }
 
@@ -36,7 +36,7 @@ FOX_EXPORT id<FOXGenerator> FOXAsciiString(void) {
 }
 
 FOX_EXPORT id<FOXGenerator> FOXAlphabeticalString(void) {
-    return [[FOXStringGenerator alloc] initWithArrayOfIntegersGenerator:FOXArray(FOXAlphabetCharacter()) name:@"AlphabeticalString"];
+    return [[FOXStringGenerator alloc] initWithArrayOfIntegersGenerator:FOXArray(FOXAlphabeticalCharacter()) name:@"AlphabeticalString"];
 }
 
 FOX_EXPORT id<FOXGenerator> FOXAlphanumericString(void) {
