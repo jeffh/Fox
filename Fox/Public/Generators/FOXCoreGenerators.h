@@ -3,10 +3,13 @@
 
 @class FOXRoseTree;
 @protocol FOXGenerator;
+@protocol FOXRandom;
 
 
-// Boxes the generator with a description that indicates its origin.
+/// Boxes the generator with a description that indicates its origin.
 FOX_EXPORT id<FOXGenerator> FOXWithName(NSString *name, id<FOXGenerator> generator);
+
+FOX_EXPORT id<FOXGenerator> FOXGenerate(FOXRoseTree *(^generator)(id<FOXRandom> random, NSUInteger size));
 
 FOX_EXPORT id<FOXGenerator> FOXGenPure(FOXRoseTree *tree);
 

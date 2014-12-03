@@ -14,6 +14,10 @@ FOX_EXPORT id<FOXGenerator> FOXWithName(NSString *name, id<FOXGenerator> generat
     return [[FOXNamedGenerator alloc] initWithName:name forGenerator:generator];
 }
 
+FOX_EXPORT id<FOXGenerator> FOXGenerate(FOXRoseTree *(^generator)(id<FOXRandom> random, NSUInteger size)) {
+    return [[FOXBlockGenerator alloc] initWithBlock:generator];
+}
+
 FOX_EXPORT id<FOXGenerator> FOXGenPure(FOXRoseTree *tree) {
     return [[FOXPureGenerator alloc] initWithRoseTree:tree];
 }
