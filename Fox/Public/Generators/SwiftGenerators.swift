@@ -85,6 +85,10 @@ public func boolean() -> FOXGenerator {
     return FOXBoolean()
 }
 
+public func integer() -> FOXGenerator {
+    return FOXInteger()
+}
+
 public func positiveInteger() -> FOXGenerator {
     return FOXPositiveInteger()
 }
