@@ -1,3 +1,4 @@
+.. highlight:: objective-c
 
 Runner Overview
 ===============

@@ -446,9 +446,7 @@ doesn't reveal any issues with an implementation.
 
 And that's most of the power of Fox. You're ready to start writing property tests!
 
-If you want more to read up, check out :ref:`generators`.
-
-If you want explore the API, check the `github README`_ for the API reference.
+If you want read on, check out :ref:`generators`.
 
 .. _Queue: http://en.wikipedia.org/wiki/Queue_(abstract_data_type)
 .. _state machine: http://en.wikipedia.org/wiki/Finite-state_machine
