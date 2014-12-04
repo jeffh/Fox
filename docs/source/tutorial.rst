@@ -253,8 +253,8 @@ Removing objects returns the first item in the Queue:
 Just generating a series of API calls isn't enough. Fox needs more information
 about the API:
 
-- What API calls a valid to make at any particular time?
-- What assertions should between after any API call?
+- What API calls are valid to make at any particular time?
+- What assertions should be made before or after any API call?
 
 This is done by describing a `state machine`_. In basic terms, a state machine
 is two parts: state and transitions.
