@@ -2,7 +2,7 @@ import Foundation
 
 public func Assert(
     property: FOXGenerator,
-    seed: UInt32?,
+    seed: UInt32? = nil,
     numberOfTests: UInt = FOXDefaultNumberOfTests,
     maximumSize: UInt = FOXDefaultMaximumSize,
     file: String = __FILE__,
