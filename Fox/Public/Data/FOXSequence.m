@@ -37,45 +37,46 @@
     return [[FOXSequenceEnumerator alloc] initWithSequence:self];
 }
 
-- (id<FOXSequence>)sequenceByApplyingIndexedBlock:(id(^)(NSUInteger index, id item))block
+- (id<FOXSequence>)sequenceByMappingWithIndex:(id(^)(NSUInteger index, id item))block
 {
-    return [self sequenceByApplyingIndexedBlock:block startingIndex:0];
+    return [self sequenceByMappingWithIndex:block startingIndex:0];
 }
 
-- (id<FOXSequence>)sequenceByApplyingIndexedBlock:(id(^)(NSUInteger index, id item))block startingIndex:(NSUInteger)index
+- (id<FOXSequence>)sequenceByMappingWithIndex:(id(^)(NSUInteger index, id item))block startingIndex:(NSUInteger)index
 {
     return [[FOXLazySequence alloc] initWithLazyBlock:^id<FOXSequence>{
         if (![self firstObject]) {
             return [[self class] sequence];
         }
         id transformedFirstObject = block(index, [self firstObject]);
-        id<FOXSequence> transformedRemainingSeq = [[self remainingSequence] sequenceByApplyingIndexedBlock:block startingIndex:index + 1];
+        id<FOXSequence> transformedRemainingSeq = [[self remainingSequence] sequenceByMappingWithIndex:block
+                                                                                         startingIndex:index + 1];
         return [[self class] sequenceWithObject:transformedFirstObject
                               remainingSequence:transformedRemainingSeq];
     }];
 }
 
-- (id<FOXSequence>)sequenceByApplyingBlock:(id (^)(id))block
+- (id<FOXSequence>)sequenceByMapping:(id(^)(id item))block
 {
     return [[FOXLazySequence alloc] initWithLazyBlock:^id<FOXSequence>{
         if (![self firstObject]) {
             return [FOXSequence sequence];
         }
         id transformedFirstObject = block([self firstObject]);
-        id<FOXSequence> transformedRemainingSeq = [[self remainingSequence] sequenceByApplyingBlock:block];
+        id<FOXSequence> transformedRemainingSeq = [[self remainingSequence] sequenceByMapping:block];
         return [[self class] sequenceWithObject:transformedFirstObject
                               remainingSequence:transformedRemainingSeq];
     }];
 }
 
-- (id<FOXSequence>)sequenceFilteredByBlock:(BOOL (^)(id))predicate
+- (id<FOXSequence>)sequenceByFiltering:(BOOL (^)(id item))predicate
 {
     return [[FOXLazySequence alloc] initWithLazyBlock:^id<FOXSequence>{
         if (![self firstObject]) {
             return [[self class] sequence];
         }
 
-        id<FOXSequence> filteredRemainingSeq = [[self remainingSequence] sequenceFilteredByBlock:predicate];
+        id<FOXSequence> filteredRemainingSeq = [[self remainingSequence] sequenceByFiltering:predicate];
         if (predicate([self firstObject])) {
             return [[self class] sequenceWithObject:[self firstObject]
                                   remainingSequence:filteredRemainingSeq];
@@ -85,11 +86,11 @@
     }];
 }
 
-- (id<FOXSequence>)sequenceByConcatenatingSequence:(id<FOXSequence>)sequence
+- (id<FOXSequence>)sequenceByAppending:(id<FOXSequence>)sequence
 {
     return [[FOXLazySequence alloc] initWithLazyBlock:^id<FOXSequence>{
         if ([self firstObject]) {
-            id<FOXSequence> remainingSequence = [[self remainingSequence] sequenceByConcatenatingSequence:sequence];
+            id<FOXSequence> remainingSequence = [[self remainingSequence] sequenceByAppending:sequence];
             if (!remainingSequence) {
                 remainingSequence = sequence;
             }
@@ -101,14 +102,14 @@
     }];
 }
 
-- (id<FOXSequence>)sequenceByExcludingIndex:(NSUInteger)index
+- (id<FOXSequence>)sequenceByDroppingIndex:(NSUInteger)index
 {
     return [FOXSequence lazySequenceFromBlock:^id<FOXSequence> {
         if (index == 0) {
             return [self remainingSequence];
         } else {
             return [[self class] sequenceWithObject:[self firstObject]
-                                  remainingSequence:[[self remainingSequence] sequenceByExcludingIndex:index - 1]];
+                                  remainingSequence:[[self remainingSequence] sequenceByDroppingIndex:index - 1]];
         }
     }];
 }

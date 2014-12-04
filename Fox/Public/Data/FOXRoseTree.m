@@ -29,10 +29,10 @@
 + (instancetype)joinedTreeFromNestedRoseTree:(FOXRoseTree *)roseTree
 {
     FOXRoseTree *rootTree = roseTree.value;
-    id<FOXSequence> children = [rootTree.children sequenceByApplyingBlock:^id(FOXRoseTree *tree) {
+    id<FOXSequence> children = [rootTree.children sequenceByMapping:^id(FOXRoseTree *tree) {
         return [self joinedTreeFromNestedRoseTree:tree];
     }];
-    children = [children sequenceByConcatenatingSequence:roseTree.children];
+    children = [children sequenceByAppending:roseTree.children];
     return [[FOXRoseTree alloc] initWithValue:rootTree.value
                                      children:children];
 }
@@ -42,12 +42,12 @@
     return [FOXSequence lazySequenceFromBlock:^id<FOXSequence> {
         id<FOXSequence> sequence = [FOXSequence sequenceFromArray:roseTrees];
 
-        id<FOXSequence> oneLessTreeSequence = [sequence sequenceByApplyingIndexedBlock:^id(NSUInteger index, FOXRoseTree *_roseTree) {
-            return [[[sequence sequenceByExcludingIndex:index] objectEnumerator] allObjects];
+        id<FOXSequence> oneLessTreeSequence = [sequence sequenceByMappingWithIndex:^id(NSUInteger index, FOXRoseTree *_roseTree) {
+            return [[[sequence sequenceByDroppingIndex:index] objectEnumerator] allObjects];
         }];
 
         id<FOXSequence> permutationSequence = [self permutationsOfRoseTrees:roseTrees];
-        return [oneLessTreeSequence sequenceByConcatenatingSequence:permutationSequence];
+        return [oneLessTreeSequence sequenceByAppending:permutationSequence];
     }];
 }
 
@@ -57,7 +57,7 @@
         return [[FOXRoseTree alloc] initWithValue:@[]];
     }
 
-    id<FOXSequence> children = [[self sequenceByExpandingRoseTrees:roseTrees] sequenceByApplyingBlock:^id(id<FOXSequence> trees) {
+    id<FOXSequence> children = [[self sequenceByExpandingRoseTrees:roseTrees] sequenceByMapping:^id(id<FOXSequence> trees) {
         return [self shrinkTreeFromRoseTrees:[[trees objectEnumerator] allObjects]];
     }];
 
@@ -67,7 +67,7 @@
 
 + (instancetype)zipTreeFromRoseTrees:(NSArray *)roseTrees
 {
-    id<FOXSequence> children = [[self permutationsOfRoseTrees:roseTrees] sequenceByApplyingBlock:^id(NSArray *subtrees) {
+    id<FOXSequence> children = [[self permutationsOfRoseTrees:roseTrees] sequenceByMapping:^id(NSArray *subtrees) {
         return [self zipTreeFromRoseTrees:subtrees];
     }];
 
@@ -94,19 +94,19 @@
 - (FOXRoseTree *)treeByApplyingBlock:(id(^)(id element))block
 {
     return [[FOXRoseTree alloc] initWithValue:block(self.value)
-                                     children:[self.children sequenceByApplyingBlock:^id(FOXRoseTree *subtree) {
-        return [subtree treeByApplyingBlock:block];
-    }]];
+                                     children:[self.children sequenceByMapping:^id(FOXRoseTree *subtree) {
+                                         return [subtree treeByApplyingBlock:block];
+                                     }]];
 }
 
 - (FOXRoseTree *)treeFilterChildrenByBlock:(BOOL(^)(id element))block
 {
     return [[FOXRoseTree alloc] initWithValue:self.value
-                                     children:[[self.children sequenceFilteredByBlock:^BOOL(FOXRoseTree *subtree) {
-        return block(subtree.value);
-    }] sequenceByApplyingBlock:^id(FOXRoseTree *subtree) {
-        return [subtree treeFilterChildrenByBlock:block];
-    }]];
+                                     children:[[self.children sequenceByFiltering:^BOOL(FOXRoseTree *subtree) {
+                                         return block(subtree.value);
+                                     }] sequenceByMapping:^id(FOXRoseTree *subtree) {
+                                         return [subtree treeFilterChildrenByBlock:block];
+                                     }]];
 }
 
 #pragma mark - NSObject

@@ -11,7 +11,7 @@
     }
 
     id<FOXSequence> halves = [self sequenceOfHalvesOfNumber:number];
-    id<FOXSequence> result = [halves sequenceByApplyingBlock:^id(NSNumber *value) {
+    id<FOXSequence> result = [halves sequenceByMapping:^id(NSNumber *value) {
         return @([number longLongValue] - [value longLongValue]);
     }];
     return result;

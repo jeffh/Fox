@@ -9,12 +9,12 @@
 
 - (NSUInteger)count;
 - (NSEnumerator *)objectEnumerator;
-- (id<FOXSequence>)sequenceByApplyingBlock:(id(^)(id item))block;
-- (id<FOXSequence>)sequenceByApplyingIndexedBlock:(id(^)(NSUInteger index, id item))block;
-- (id<FOXSequence>)sequenceByApplyingIndexedBlock:(id(^)(NSUInteger index, id item))block startingIndex:(NSUInteger)index;
-- (id<FOXSequence>)sequenceFilteredByBlock:(BOOL (^)(id item))predicate;
-- (id<FOXSequence>)sequenceByConcatenatingSequence:(id<FOXSequence>)sequence;
-- (id<FOXSequence>)sequenceByExcludingIndex:(NSUInteger)index;
+- (id<FOXSequence>)sequenceByMapping:(id(^)(id item))block;
+- (id<FOXSequence>)sequenceByMappingWithIndex:(id(^)(NSUInteger index, id item))block;
+- (id<FOXSequence>)sequenceByMappingWithIndex:(id(^)(NSUInteger index, id item))block startingIndex:(NSUInteger)index;
+- (id<FOXSequence>)sequenceByFiltering:(BOOL (^)(id item))predicate;
+- (id<FOXSequence>)sequenceByAppending:(id<FOXSequence>)sequence;
+- (id<FOXSequence>)sequenceByDroppingIndex:(NSUInteger)index;
 - (id)objectByReducingWithSeed:(id)seedObject
                        reducer:(id(^)(id accum, id item))reducer;
 

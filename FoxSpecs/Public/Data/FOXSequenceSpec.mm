@@ -191,9 +191,9 @@ describe(@"FOXSequence", ^{
             });
 
             it(@"should allow applying a block", ^{
-                remainingSequence stub_method(@selector(sequenceByApplyingBlock:))
+                remainingSequence stub_method(@selector(sequenceByMapping:))
                 .and_return(remainingSequence);
-                id<FOXSequence> newSeq = [subject sequenceByApplyingBlock:^id(id value) {
+                id<FOXSequence> newSeq = [subject sequenceByMapping:^id(id value) {
                     return @([value integerValue] + 1);
                 }];
                 [[newSeq objectEnumerator] allObjects] should equal(@[@2, @2]);
@@ -204,7 +204,7 @@ describe(@"FOXSequence", ^{
             it(@"should combine two sequences", ^{
                 id<FOXSequence> seq1 = [FOXSequence sequenceWithObject:@1];
                 id<FOXSequence> seq2 = [FOXSequence sequenceWithObject:@2];
-                [seq1 sequenceByConcatenatingSequence:seq2] should equal([FOXSequence sequenceFromArray:@[@1, @2]]);
+                [seq1 sequenceByAppending:seq2] should equal([FOXSequence sequenceFromArray:@[@1, @2]]);
             });
         });
     });

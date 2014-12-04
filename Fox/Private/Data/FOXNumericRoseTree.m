@@ -20,9 +20,9 @@ static NSMutableDictionary *__cache;
     if (!result) {
         id<FOXSequence> children = [FOXShrinkingIntegerSequence sequenceOfNumbersSmallerThan:number];
         result = [[FOXRoseTree alloc] initWithValue:number
-                                         children:[children sequenceByApplyingBlock:^id(NSNumber *value) {
-            return [self roseTreeWithMaxNumber:value];
-        }]];
+                                         children:[children sequenceByMapping:^id(NSNumber *value) {
+                                             return [self roseTreeWithMaxNumber:value];
+                                         }]];
 
         [__cache setObject:result forKey:number];
     }

@@ -23,7 +23,7 @@ describe(@"FOXRoseTree", ^{
                                                     @[@3, @[@[@4, @[]]]]],
                                                   @[@[@1, @[@[@2, @[]]]],
                                                     @[@4, @[]]]];
-            tree should equal([[FOXSequence sequenceFromArray:compressedExpectedResult] sequenceByApplyingBlock:^id(NSArray *item) {
+            tree should equal([[FOXSequence sequenceFromArray:compressedExpectedResult] sequenceByMapping:^id(NSArray *item) {
                 NSMutableArray *subarray = [NSMutableArray array];
                 for (id subtree in item) {
                     [subarray addObject:[FOXRoseTree treeFromArray:subtree]];
