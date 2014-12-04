@@ -22,9 +22,11 @@
     if ([number compare:@0] == NSOrderedSame) {
         return nil;
     }
-    id<FOXSequence> remainingSequence = [self sequenceOfHalvesOfNumber:@([number integerValue] / 2)];
-    return [FOXSequence sequenceWithObject:number
-                         remainingSequence:remainingSequence];
+    return [FOXSequence lazySequenceFromBlock:^id<FOXSequence>{
+        id<FOXSequence> remainingSequence = [self sequenceOfHalvesOfNumber:@([number integerValue] / 2)];
+        return [FOXSequence sequenceWithObject:number
+                             remainingSequence:remainingSequence];
+    }];
 }
 
 @end
