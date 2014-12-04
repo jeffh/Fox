@@ -1,6 +1,7 @@
 #import "FOXDSL.h"
 #import "FOXRunner.h"
 #import "FOXRunnerResult.h"
+#import "FOXEnvironment.h"
 
 static void _FOXStringReplace(NSMutableString *str, NSString *original, NSString *replacement) {
     [str replaceOccurrencesOfString:original
@@ -12,13 +13,13 @@ static void _FOXStringReplace(NSMutableString *str, NSString *original, NSString
 
 FOX_EXPORT FOXRunnerResult *_FOXAssert(id<FOXGenerator> property, NSString *expr, const char *file, unsigned int line, FOXOptions options) {
     if (!options.numberOfTests) {
-        options.numberOfTests = FOXDefaultNumberOfTests;
+        options.numberOfTests = FOXGetNumberOfTests();
     }
     if (!options.maximumSize) {
-        options.maximumSize = FOXDefaultMaximumSize;
+        options.maximumSize = FOXGetMaximumSize();
     }
     if (!options.seed) {
-        options.seed = (uint32_t)time(NULL);
+        options.seed = FOXGetSeed();
     }
 
     FOXRunner *runner = [FOXRunner sharedInstance];

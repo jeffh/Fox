@@ -236,6 +236,14 @@
 		1F41BEB91A2ACBA300F25A65 /* Fox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41BEAE1A2ACBA300F25A65 /* Fox.framework */; };
 		1F4CA2CD1A2D747300989740 /* Cedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4CA2CC1A2D747300989740 /* Cedar.framework */; };
 		1F4CA2CF1A2D747700989740 /* libCedar-StaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4CA2CE1A2D747700989740 /* libCedar-StaticLib.a */; };
+		1F71D4E91A3105050017E81A /* FOXEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F71D4E71A3105050017E81A /* FOXEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F71D4EA1A3105050017E81A /* FOXEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F71D4E71A3105050017E81A /* FOXEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F71D4EB1A3105050017E81A /* FOXEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F71D4E81A3105050017E81A /* FOXEnvironment.m */; };
+		1F71D4EC1A3105050017E81A /* FOXEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F71D4E81A3105050017E81A /* FOXEnvironment.m */; };
+		1F71D4EF1A3105520017E81A /* FOXDebugging.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F71D4ED1A3105520017E81A /* FOXDebugging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F71D4F01A3105520017E81A /* FOXDebugging.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F71D4ED1A3105520017E81A /* FOXDebugging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F71D4F11A3105520017E81A /* FOXDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F71D4EE1A3105520017E81A /* FOXDebugging.m */; };
+		1F71D4F21A3105520017E81A /* FOXDebugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F71D4EE1A3105520017E81A /* FOXDebugging.m */; };
 		1FAE3B5C1A2EC1000011838A /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B5B1A2EC1000011838A /* DSL.swift */; };
 		1FAE3B5D1A2EC1000011838A /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B5B1A2EC1000011838A /* DSL.swift */; };
 		1FAE3B681A2EC5E60011838A /* SwiftGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B671A2EC5E60011838A /* SwiftGenerators.swift */; };
@@ -328,6 +336,10 @@
 		1F6C41241A14736F003B6C83 /* FOXGenericSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXGenericSpec.mm; sourceTree = "<group>"; };
 		1F6C41281A147B3D003B6C83 /* FOXDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXDSL.h; sourceTree = "<group>"; };
 		1F6C41291A147B3D003B6C83 /* FOXDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXDSL.m; sourceTree = "<group>"; };
+		1F71D4E71A3105050017E81A /* FOXEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FOXEnvironment.h; path = Fox/Public/FOXEnvironment.h; sourceTree = SOURCE_ROOT; };
+		1F71D4E81A3105050017E81A /* FOXEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FOXEnvironment.m; path = Fox/Public/FOXEnvironment.m; sourceTree = SOURCE_ROOT; };
+		1F71D4ED1A3105520017E81A /* FOXDebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FOXDebugging.h; path = Fox/Public/FOXDebugging.h; sourceTree = SOURCE_ROOT; };
+		1F71D4EE1A3105520017E81A /* FOXDebugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FOXDebugging.m; path = Fox/Public/FOXDebugging.m; sourceTree = SOURCE_ROOT; };
 		1F848B411977965500F0966E /* FOXPositiveIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXPositiveIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F848B4419779F6600F0966E /* FOXNegativeIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXNegativeIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F848B471977A75200F0966E /* FOXMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOXMacros.h; sourceTree = "<group>"; };
@@ -559,16 +571,20 @@
 			isa = PBXGroup;
 			children = (
 				31B7376ABDE93DF780F6384A /* Data */,
-				1F6016371919DD40003D8484 /* Generators */,
+				1FAE3B5B1A2EC1000011838A /* DSL.swift */,
 				31B732EA700E97A90EFBD56F /* Fox.h */,
+				1F71D4ED1A3105520017E81A /* FOXDebugging.h */,
+				1F71D4EE1A3105520017E81A /* FOXDebugging.m */,
+				1F6C41281A147B3D003B6C83 /* FOXDSL.h */,
+				1F6C41291A147B3D003B6C83 /* FOXDSL.m */,
+				1F71D4E71A3105050017E81A /* FOXEnvironment.h */,
+				1F71D4E81A3105050017E81A /* FOXEnvironment.m */,
 				1F848B471977A75200F0966E /* FOXMacros.h */,
 				1F4187F91975108000FEBB8D /* FOXRunner.h */,
 				1F4187FA1975108000FEBB8D /* FOXRunner.m */,
+				1F6016371919DD40003D8484 /* Generators */,
 				31B736A976CDB3B7301033AB /* Random */,
 				1F35BC3D1990CA3900BEA6E1 /* Reporters */,
-				1F6C41281A147B3D003B6C83 /* FOXDSL.h */,
-				1F6C41291A147B3D003B6C83 /* FOXDSL.m */,
-				1FAE3B5B1A2EC1000011838A /* DSL.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -759,7 +775,9 @@
 				1F38B6C51A2ACCC00078FF90 /* FOXRandom.h in Headers */,
 				1F38B69A1A2ACCC00078FF90 /* FOXExecutedCommand.h in Headers */,
 				1F38B6BE1A2ACCC00078FF90 /* FOXMacros.h in Headers */,
+				1F71D4E91A3105050017E81A /* FOXEnvironment.h in Headers */,
 				1F38B61B1A2ACCA80078FF90 /* FOXBlockGenerator.h in Headers */,
+				1F71D4EF1A3105520017E81A /* FOXDebugging.h in Headers */,
 				1F38B6C81A2ACCC00078FF90 /* FOXStandardReporter.h in Headers */,
 				1F38B6A41A2ACCC00078FF90 /* FOXTransition.h in Headers */,
 				1F38B64B1A2ACCAE0078FF90 /* FOXConcreteSequence.h in Headers */,
@@ -814,7 +832,9 @@
 				1F38B6901A2ACCC00078FF90 /* FOXRandom.h in Headers */,
 				1F38B6651A2ACCC00078FF90 /* FOXExecutedCommand.h in Headers */,
 				1F38B6891A2ACCC00078FF90 /* FOXMacros.h in Headers */,
+				1F71D4EA1A3105050017E81A /* FOXEnvironment.h in Headers */,
 				1F38B6331A2ACCA90078FF90 /* FOXBlockGenerator.h in Headers */,
+				1F71D4F01A3105520017E81A /* FOXDebugging.h in Headers */,
 				1F38B6931A2ACCC00078FF90 /* FOXStandardReporter.h in Headers */,
 				1F38B66F1A2ACCC00078FF90 /* FOXTransition.h in Headers */,
 				1F38B6571A2ACCAE0078FF90 /* FOXConcreteSequence.h in Headers */,
@@ -1007,11 +1027,13 @@
 				1F38B6AB1A2ACCC00078FF90 /* FOXDictionaryGenerators.m in Sources */,
 				1F38B6CC1A2ACCC00078FF90 /* FOXDSL.m in Sources */,
 				1F38B69F1A2ACCC00078FF90 /* FOXRoseTree.m in Sources */,
+				1F71D4EB1A3105050017E81A /* FOXEnvironment.m in Sources */,
 				1F38B61C1A2ACCA80078FF90 /* FOXBlockGenerator.m in Sources */,
 				1F38B6281A2ACCA80078FF90 /* FOXPureGenerator.m in Sources */,
 				1F38B6541A2ACCAE0078FF90 /* FOXNumericRoseTree.m in Sources */,
 				1F38B6BA1A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */,
 				1F38B6A51A2ACCC00078FF90 /* FOXTransition.m in Sources */,
+				1F71D4F11A3105520017E81A /* FOXDebugging.m in Sources */,
 				1F38B6991A2ACCC00078FF90 /* FOXCommand.m in Sources */,
 				1F38B6521A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.m in Sources */,
 				1F38B6C91A2ACCC00078FF90 /* FOXStandardReporter.m in Sources */,
@@ -1088,11 +1110,13 @@
 				1F38B6761A2ACCC00078FF90 /* FOXDictionaryGenerators.m in Sources */,
 				1F38B6971A2ACCC00078FF90 /* FOXDSL.m in Sources */,
 				1F38B66A1A2ACCC00078FF90 /* FOXRoseTree.m in Sources */,
+				1F71D4EC1A3105050017E81A /* FOXEnvironment.m in Sources */,
 				1F38B6341A2ACCA90078FF90 /* FOXBlockGenerator.m in Sources */,
 				1F38B6401A2ACCA90078FF90 /* FOXPureGenerator.m in Sources */,
 				1F38B6601A2ACCAE0078FF90 /* FOXNumericRoseTree.m in Sources */,
 				1F38B6851A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */,
 				1F38B6701A2ACCC00078FF90 /* FOXTransition.m in Sources */,
+				1F71D4F21A3105520017E81A /* FOXDebugging.m in Sources */,
 				1F38B6641A2ACCC00078FF90 /* FOXCommand.m in Sources */,
 				1F38B65E1A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.m in Sources */,
 				1F38B6941A2ACCC00078FF90 /* FOXStandardReporter.m in Sources */,

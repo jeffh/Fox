@@ -8,11 +8,7 @@
 #import "FOXReporter.h"
 #import "FOXPropertyResult.h"
 #import "FOXPropertyGenerators.h"
-
-
-const NSUInteger FOXDefaultNumberOfTests = 500;
-const NSUInteger FOXDefaultMaximumSize = 200;
-
+#import "FOXEnvironment.h"
 
 typedef struct _FOXShrinkReport {
     NSUInteger depth;
@@ -20,42 +16,6 @@ typedef struct _FOXShrinkReport {
     void *smallestArgument;
     void *smallestUncaughtException;
 } FOXShrinkReport;
-
-
-FOX_EXPORT NSArray *FOXSample(id<FOXGenerator> generator) {
-    return FOXSampleWithCount(generator, 10);
-}
-
-FOX_EXPORT NSArray *FOXSampleWithCount(id<FOXGenerator> generator, NSUInteger numberOfSamples) {
-    id<FOXRandom> random = [[FOXDeterministicRandom alloc] init];
-    NSMutableArray *samples = [NSMutableArray array];
-    for (NSUInteger i = 0; i<numberOfSamples; i++) {
-        FOXRoseTree *tree = [generator lazyTreeWithRandom:random maximumSize:FOXDefaultMaximumSize];
-        [samples addObject:tree.value ?: [NSNull null]];
-    }
-    return samples;
-}
-
-
-FOX_EXPORT NSArray *FOXSampleShrinking(id<FOXGenerator> generator) {
-    return FOXSampleShrinkingWithCount(generator, 10);
-}
-
-FOX_EXPORT NSArray *FOXSampleShrinkingWithCount(id<FOXGenerator> generator, NSUInteger numberOfSamples) {
-    id<FOXRandom> random = [[FOXDeterministicRandom alloc] init];
-    FOXRoseTree *tree = [generator lazyTreeWithRandom:random maximumSize:50];
-    NSMutableArray *stack = [NSMutableArray arrayWithObject:tree];
-    NSMutableArray *samples = [NSMutableArray array];
-    while (stack.count && samples.count < numberOfSamples) {
-        tree = stack[0];
-        [stack removeObjectAtIndex:0];
-        [samples addObject:tree.value];
-        [stack addObjectsFromArray:[[tree.children objectEnumerator] allObjects]];
-    }
-
-    return samples;
-}
-
 
 @interface FOXRunner ()
 
@@ -154,7 +114,7 @@ FOX_EXPORT NSArray *FOXSampleShrinkingWithCount(id<FOXGenerator> generator, NSUI
     return [self resultForNumberOfTests:totalNumberOfTests
                                property:property
                                    seed:seed
-                                maxSize:FOXDefaultMaximumSize];
+                                maxSize:FOXGetMaximumSize()];
 }
 
 - (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests

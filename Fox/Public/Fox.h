@@ -33,6 +33,8 @@
 
 // runner
 #import "FOXRunner.h"
+#import "FOXEnvironment.h"
+#import "FOXDebugging.h"
 
 // reporters
 #import "FOXStandardReporter.h"
