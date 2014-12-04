@@ -6,11 +6,12 @@ Property Based Testing for Objective-C. Automatic generation of software tests.
 You might have heard of this or similar technologies through the various genres
 of testing frameworks and/or libraries:
 
- - [Haskell QuickCheck](http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck1)
+ - [Haskell QuickCheck](https://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2)
  - [test.check](https://github.com/clojure/test.check)
- - Significantly more advanced [Erlang QuickCheck](http://www.quviq.com)
+ - [Erlang QuickCheck](http://www.quviq.com) (most advanced but commerical)
  - Property Based Testing
  - Model Based Testing
+ - Simulation Testing
 
 Fox is a port of test.check for Objective-C. Unlike some ports of QuickCheck,
 Fox does implement shrinking (test.check does implement that too).
@@ -18,7 +19,7 @@ Fox does implement shrinking (test.check does implement that too).
 More thorough than Example-Based Tests
 ======================================
 
-Test generation can provide a better coverage than example-based tests. Instead
+Test generation can provide better coverage than example-based tests. Instead
 of having to manually code test cases, Fox can generate tests for you.
 
 Data Generation
