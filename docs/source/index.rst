@@ -23,7 +23,7 @@ Generators are semi-random data producers that are the core to Fox's capabilitie
 Follow the links below to learn more in detail.
 
 - :doc:`Overview </generators>`
-- :ref:`Built-in Generators`
+- :doc:`Built-in Generators Reference </generators_reference>`
 - :ref:`Building Custom Generators`
 - :ref:`Building Generators with Custom Shrinking`
 
@@ -34,10 +34,8 @@ All the guts around configuring and executing Fox's verification of properties.
 
 - :doc:`Overview </runner>`
 - :ref:`Configuring Test Generation`
-- Built-in Random Number Generators
-- Making a Custom Random Number Generator
-- Built-in Reporters
-- Making a Custom Reporter
+- :ref:`Random Number Generators`
+- :ref:`Reporters`
 
 .. TODO - While useful. This is definitely less valuable to write for now.
 .. Other Topics
@@ -46,6 +44,8 @@ All the guts around configuring and executing Fox's verification of properties.
 .. Other useful topics of Fox that aren't large enough to be in its own category.
 ..
 .. - Integrating Fox into other Testing Libraries
+.. - Limitations of Generators
+.. - Interesting videos about generative tests
 ..
 .. Infrastructure
 .. --------------
@@ -57,7 +57,6 @@ All the guts around configuring and executing Fox's verification of properties.
 ..
 .. - Sequence
 .. - RoseTree
-.. - Transition
 
 .. toctree::
    :hidden:
@@ -68,4 +67,5 @@ All the guts around configuring and executing Fox's verification of properties.
    Tutorial </tutorial>
 
    Generators </generators>
+   Built-in Generators Reference </generators_reference>
    The Runner & Test Generation </runner>

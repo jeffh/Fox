@@ -3,7 +3,7 @@
 Installation
 ============
 
-Fox can be installed in multiple ways. If you don't have a preference, see manual.
+Fox can be installed in multiple ways. If you don't have a preference, install via git submodule.
 
 Manually (Git Submodule)
 ------------------------
@@ -12,8 +12,8 @@ Add Fox as a submodule to your project::
 
     git submodule add https://github.com/jeffh/Fox.git Externals/Fox
 
-Add ``Fox.xcodeproj`` to your Xcode project. Then link Fox-iOS or Fox-OSX to
-your test target.
+Add ``Fox.xcodeproj`` to your Xcode project (not the workspace). Then link
+Fox-iOS or Fox-OSX to your test target.
 
 CocoaPods
 ---------

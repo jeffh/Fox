@@ -3,6 +3,8 @@
 Tutorial
 ========
 
+If you haven't installed Fox yet, read up on :doc:`installation`.
+
 Starting with an Example
 ------------------------
 
@@ -196,39 +198,6 @@ it is usually less likely to be significant.
              Observe when you change the failure case to require more than 200
              elements for the sort example.
 
-.. COMMENT - While interesting, this doesn't seem useful to the tutorial.
-.. Adding More Properties
-.. ----------------------
-.. 
-.. There are other properties of the code that can be described as properties.
-.. Let's look a few for illustrative purposes. A simplier property is the number
-.. of inputs is equal to the number of outputs::
-.. 
-..     - (void)testSortMaintainsSize {
-..         FOXAssert(FOXForAll(FOXArray(FOXInteger()), ^BOOL(NSArray *integers) {
-..             NSArray *sortedNumbers = [MySorter sortNumbers:integers];
-..             return integers.count == sortedNumbers.count;
-..         }));
-..     }
-.. 
-.. Or all input element appears in the output element::
-.. 
-..     - (void)testSortPreservesAllElements {
-..         FOXAssert(FOXForAll(FOXArray(FOXInteger()), ^BOOL(NSArray *integers) {
-..             NSMutableArray *unseenInputs = [integers mutableCopy];
-..             NSArray *sortedNumbers = [MySorter sortNumbers:integers];
-..             for (NSNumber *n in sortedNumbers) {
-..                 if ([unseenInputs containsObject:n]) {
-..                     [unseenInputs removeObject:n];
-..                 } else {
-..                     return NO;
-..                 }
-..             }
-..             return unseenInputs.count == 0;
-..         }));
-..     }
-.. 
-
 Testing Stateful APIs
 ---------------------
 
@@ -254,7 +223,7 @@ Just generating a series of API calls isn't enough. Fox needs more information
 about the API:
 
 - What API calls are valid to make at any particular time?
-- What assertions should be made before or after any API call?
+- What assertions should be after any API call?
 
 This is done by describing a `state machine`_. In basic terms, a state machine
 is two parts: state and transitions.
