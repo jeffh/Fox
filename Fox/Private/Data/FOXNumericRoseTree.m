@@ -11,13 +11,12 @@ static NSMutableDictionary *__cache;
 + (void)initialize
 {
     [super initialize];
-    __cache = [NSMutableDictionary dictionaryWithCapacity:50];
+    __cache = [NSMutableDictionary dictionary];
 }
 
 + (FOXRoseTree *)roseTreeWithMaxNumber:(NSNumber *)number
 {
     FOXRoseTree *result = [__cache objectForKey:number];
-
     if (!result) {
         id<FOXSequence> children = [FOXShrinkingIntegerSequence sequenceOfNumbersSmallerThan:number];
         result = [[FOXRoseTree alloc] initWithValue:number

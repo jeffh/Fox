@@ -1,9 +1,15 @@
 #import "FOXDeterministicRandom.h"
 #import <random>
 
+#ifdef __LP64__
+typedef std::mt19937_64 rng_engine;
+#else
+typedef std::mt19937 rng_engine;
+#endif
+
 @implementation FOXDeterministicRandom {
     uint32_t _seed;
-    std::mt19937 _generator;
+    rng_engine _generator;
     std::uniform_int_distribution<NSInteger> _distribution;
 }
 
@@ -31,7 +37,7 @@
 - (void)setSeed:(uint32_t)seed
 {
     _seed = seed;
-    _generator = std::mt19937(seed);
+    _generator = rng_engine(seed);
 }
 
 - (NSInteger)randomInteger

@@ -3,6 +3,7 @@
 #import "FOXDeterministicRandom.h"
 #import "FOXRoseTree.h"
 #import "FOXShrinkingIntegerSequence.h"
+#import "FOXNumericRoseTree.h"
 
 
 @interface FOXChooseGenerator ()
@@ -37,32 +38,11 @@
     NSInteger randomInteger = [random randomIntegerWithinMinimum:lower
                                                       andMaximum:upper];
     NSNumber *randValue = @(randomInteger);
-    id<FOXSequence> seqOfTrees = [self sequenceOfNumbersSmallerThan:randValue];
-    seqOfTrees = [seqOfTrees sequenceByApplyingBlock:^id(NSNumber *value) {
-        return [self roseTreeWithMaxNumber:value];
-    }];
-    FOXRoseTree *tree = [[FOXRoseTree alloc] initWithValue:randValue children:seqOfTrees];
+    FOXRoseTree *tree = [FOXNumericRoseTree roseTreeWithMaxNumber:randValue];
     return [tree treeFilterChildrenByBlock:^BOOL(NSNumber *value) {
         return [value compare:self.lowerNumber] != NSOrderedAscending
-            && [value compare:self.upperNumber] != NSOrderedDescending;
+        && [value compare:self.upperNumber] != NSOrderedDescending;
     }];
 }
-
-#pragma mark - Private
-
-- (FOXRoseTree *)roseTreeWithMaxNumber:(NSNumber *)number
-{
-    id<FOXSequence> children = [self sequenceOfNumbersSmallerThan:number];
-    return [[FOXRoseTree alloc] initWithValue:number
-                              children:[children sequenceByApplyingBlock:^id(NSNumber *value) {
-        return [self roseTreeWithMaxNumber:value];
-    }]];
-}
-
-- (id<FOXSequence>)sequenceOfNumbersSmallerThan:(NSNumber *)number
-{
-    return [FOXShrinkingIntegerSequence sequenceOfNumbersSmallerThan:number];
-}
-
 
 @end
