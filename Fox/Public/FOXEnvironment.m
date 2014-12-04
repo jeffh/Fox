@@ -25,6 +25,6 @@ FOX_EXPORT NSUInteger FOXGetMaximumSize(void) {
     return FOXGetUIntegerFromEnv("FOX_MAX_SIZE", FOXDefaultMaximumSize);
 }
 
-FOX_EXPORT uint32_t FOXGetSeed(void) {
-    return (uint32_t)FOXGetUIntegerFromEnv("FOX_SEED", (uint32_t)time(NULL));
+FOX_EXPORT NSUInteger FOXGetSeed(void) {
+    return FOXGetUIntegerFromEnv("FOX_SEED", (NSUInteger)time(NULL));
 }

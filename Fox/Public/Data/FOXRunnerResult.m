@@ -7,7 +7,7 @@
     NSMutableString *string = [NSMutableString stringWithFormat:@"<%@: ",
                                NSStringFromClass([self class])];
     [string appendString:(self.succeeded ? @"passed" : @"FAILED")];
-    [string appendFormat:@"\n seed: %u", self.seed];
+    [string appendFormat:@"\n seed: %lu", (unsigned long)self.seed];
     [string appendFormat:@"\n maxSize: %lu", (unsigned long)self.maxSize];
     [string appendFormat:@"\n numberOfTests: %lu", (unsigned long)self.numberOfTests];
 
@@ -28,7 +28,7 @@
 {
     NSMutableString *string = [NSMutableString stringWithString:@"RESULT: "];
     [string appendString:(self.succeeded ? @"passed" : @"FAILED")];
-    [string appendFormat:@"\n seed: %u", self.seed];
+    [string appendFormat:@"\n seed: %lu", (unsigned long)self.seed];
     [string appendFormat:@"\n maximum size: %lu", (unsigned long)self.maxSize];
     [string appendFormat:@"\n number of tests before failing: %lu", (unsigned long)self.numberOfTests];
 

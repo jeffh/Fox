@@ -61,7 +61,7 @@ typedef struct _FOXShrinkReport {
 
 - (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
                                    property:(id <FOXGenerator>)property
-                                       seed:(uint32_t)seed
+                                       seed:(NSUInteger)seed
                                     maxSize:(NSUInteger)maxSize
 {
     NSUInteger currentTestNumber = 0;
@@ -109,7 +109,7 @@ typedef struct _FOXShrinkReport {
 
 - (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
                                    property:(id <FOXGenerator>)property
-                                       seed:(uint32_t)seed
+                                       seed:(NSUInteger)seed
 {
     return [self resultForNumberOfTests:totalNumberOfTests
                                property:property
@@ -122,14 +122,14 @@ typedef struct _FOXShrinkReport {
 {
     return [self resultForNumberOfTests:numberOfTests
                                property:property
-                                   seed:(uint32_t) time(NULL)];
+                                   seed:FOXGetSeed()];
 }
 
 #pragma mark - Private
 
 - (FOXRunnerResult *)successfulReportWithNumberOfTests:(NSUInteger)numberOfTests
                                                maxSize:(NSUInteger)maxSize
-                                                  seed:(uint32_t)seed
+                                                  seed:(NSUInteger)seed
 {
     FOXRunnerResult *result = [[FOXRunnerResult alloc] init];
     result.succeeded = YES;
@@ -147,7 +147,7 @@ typedef struct _FOXShrinkReport {
                                     failureRoseTree:(FOXRoseTree *)failureRoseTree
                                         failingSize:(NSUInteger)failingSize
                                             maxSize:(NSUInteger)maxSize
-                                               seed:(uint32_t)seed
+                                               seed:(NSUInteger)seed
 {
     [self.reporter runnerWillShrinkFailingTestNumber:numberOfTests
                             failedWithPropertyResult:failureRoseTree.value];

@@ -30,4 +30,4 @@ FOX_EXPORT NSUInteger FOXGetMaximumSize(void);
  *
  *  @returns the random seed the default runner will use.
  */
-FOX_EXPORT uint32_t FOXGetSeed(void);
+FOX_EXPORT NSUInteger FOXGetSeed(void);

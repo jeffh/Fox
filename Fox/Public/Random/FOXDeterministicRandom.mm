@@ -8,10 +8,12 @@ typedef std::mt19937 rng_engine;
 #endif
 
 @implementation FOXDeterministicRandom {
-    uint32_t _seed;
+    NSUInteger _seed;
     rng_engine _generator;
     std::uniform_int_distribution<NSInteger> _distribution;
 }
+
+@synthesize seed = _seed;
 
 - (instancetype)init
 {
@@ -29,12 +31,7 @@ typedef std::mt19937 rng_engine;
     return self;
 }
 
-- (uint32_t)seed
-{
-    return _seed;
-}
-
-- (void)setSeed:(uint32_t)seed
+- (void)setSeed:(NSUInteger)seed
 {
     _seed = seed;
     _generator = rng_engine(seed);

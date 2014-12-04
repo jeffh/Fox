@@ -54,10 +54,10 @@
                                    property:(id<FOXGenerator>)property;
 - (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
                                    property:(id<FOXGenerator>)property
-                                       seed:(uint32_t)seed;
+                                       seed:(NSUInteger)seed;
 - (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
                                    property:(id<FOXGenerator>)property
-                                       seed:(uint32_t)seed
+                                       seed:(NSUInteger)seed
                                     maxSize:(NSUInteger)maxSize;
 
 @end

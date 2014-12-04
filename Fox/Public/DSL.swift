@@ -2,13 +2,13 @@ import Foundation
 
 public func Assert(
     property: FOXGenerator,
-    seed: UInt32? = nil,
+    seed: UInt? = nil,
     numberOfTests: UInt? = nil,
     maximumSize: UInt? = nil,
     file: String = __FILE__,
     line: UInt = __LINE__) {
 
-        let theSeed = (seed != nil) ? seed! : UInt32(time(nil))
+        let theSeed = (seed != nil) ? seed! : FOXGetSeed()
         let numTests = (numberOfTests != nil) ? numberOfTests! : FOXGetNumberOfTests()
         let maxSize = (maximumSize != nil) ? maximumSize! : FOXGetMaximumSize()
 

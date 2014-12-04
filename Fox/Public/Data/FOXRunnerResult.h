@@ -6,7 +6,7 @@
 @property (nonatomic) BOOL succeeded;
 @property (nonatomic) NSUInteger maxSize;
 @property (nonatomic) NSUInteger numberOfTests;
-@property (nonatomic) uint32_t seed;
+@property (nonatomic) NSUInteger seed;
 
 
 // properties below are only filled when failures occur (succeeded = NO)

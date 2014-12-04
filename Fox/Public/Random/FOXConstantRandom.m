@@ -1,15 +1,9 @@
 #import "FOXConstantRandom.h"
 
 
-@interface FOXConstantRandom ()
-
-@property (nonatomic) NSInteger value;
-@property (nonatomic) uint32_t seed;
-
-@end
-
-
 @implementation FOXConstantRandom
+
+@synthesize seed = _seed;
 
 - (instancetype)init
 {

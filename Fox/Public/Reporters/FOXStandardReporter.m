@@ -21,9 +21,9 @@
     return self;
 }
 
-- (void)runnerWillRunWithSeed:(uint32_t)randomSeed
+- (void)runnerWillRunWithSeed:(NSUInteger)randomSeed
 {
-    [self logString:[NSString stringWithFormat:@"\nChecking with random seed %u\n", randomSeed]];
+    [self logString:[NSString stringWithFormat:@"\nChecking with random seed %lu\n", (unsigned long)randomSeed]];
 }
 
 - (void)runnerWillVerifyTestNumber:(NSUInteger)testNumber withMaximumSize:(NSUInteger)maxSize

@@ -20,7 +20,7 @@
  *  @param randomSeed The seed used to generate random data for the
  *                    run that is about to begin.
  */
-- (void)runnerWillRunWithSeed:(uint32_t)randomSeed;
+- (void)runnerWillRunWithSeed:(NSUInteger)randomSeed;
 
 /*! A message sent to indicate that the runner is about to verify a property.
  *

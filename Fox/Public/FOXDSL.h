@@ -10,7 +10,7 @@ typedef struct {
      *  The same seed will produce the same data.
      *  Set this to 0 (the default value) to generate a random seed.
      */
-    uint32_t seed;
+    NSUInteger seed;
 
     /*! The number of times FOXAssert will generate random data and test the property.
      *  A value of 0 (the default) will cause FOXAssert to test the property 500 times.
