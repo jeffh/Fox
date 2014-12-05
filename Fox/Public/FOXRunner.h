@@ -17,12 +17,23 @@
  *  This reporter receives messages regarding the state of the runner,
  *  and may use these opportunities to print to the console or write to a file.
  *  In the case the runner is not instantiated with a reporter, this is nil.
+ *
+ *  It is not recommended to regularly write to this property. This property is
+ *  writable to allow you to customize the +[assertInstance].
  */
-@property (nonatomic, readonly, strong) id <FOXReporter> reporter;
+@property (nonatomic) id<FOXReporter> reporter;
+
+/*! A runner is instatiated with a random object.
+ *  This randomizer is used for generators to assist in producing arbitrary data.
+ *
+ *  It is not recommended to regularly write to this property. This property is
+ *  writable to allow you to customize the +[assertInstance].
+ */
+@property (nonatomic) id<FOXRandom> random;
 
 /*! Returns the singleton runner used by FOXAssert assertions.
  */
-+ (instancetype)sharedInstance;
++ (instancetype)assertInstance;
 
 /*! Convenience initializer.
  *

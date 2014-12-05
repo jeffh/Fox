@@ -13,21 +13,14 @@
 typedef struct _FOXShrinkReport {
     NSUInteger depth;
     NSUInteger numberOfNodesVisited;
-    void *smallestArgument;
-    void *smallestUncaughtException;
+    CFTypeRef smallestArgument;
+    CFTypeRef smallestUncaughtException;
 } FOXShrinkReport;
-
-@interface FOXRunner ()
-
-@property (nonatomic) id <FOXRandom> random;
-@property (nonatomic) id <FOXReporter> reporter;
-
-@end
 
 
 @implementation FOXRunner
 
-+ (instancetype)sharedInstance
++ (instancetype)assertInstance
 {
     static FOXRunner *__check;
     static dispatch_once_t onceToken;
@@ -42,12 +35,12 @@ typedef struct _FOXShrinkReport {
     return [self initWithReporter:nil];
 }
 
-- (instancetype)initWithReporter:(id <FOXReporter>)reporter
+- (instancetype)initWithReporter:(id<FOXReporter>)reporter
 {
     return [self initWithReporter:reporter random:[[FOXDeterministicRandom alloc] init]];
 }
 
-- (instancetype)initWithReporter:(id <FOXReporter>)reporter random:(id <FOXRandom>)random
+- (instancetype)initWithReporter:(id<FOXReporter>)reporter random:(id<FOXRandom>)random
 {
     self = [super init];
     if (self) {
@@ -60,7 +53,7 @@ typedef struct _FOXShrinkReport {
 #pragma mark - Public
 
 - (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
-                                   property:(id <FOXGenerator>)property
+                                   property:(id<FOXGenerator>)property
                                        seed:(NSUInteger)seed
                                     maxSize:(NSUInteger)maxSize
 {
@@ -108,7 +101,7 @@ typedef struct _FOXShrinkReport {
 #pragma mark - Public Convenience Methods
 
 - (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)totalNumberOfTests
-                                   property:(id <FOXGenerator>)property
+                                   property:(id<FOXGenerator>)property
                                        seed:(NSUInteger)seed
 {
     return [self resultForNumberOfTests:totalNumberOfTests
@@ -118,7 +111,7 @@ typedef struct _FOXShrinkReport {
 }
 
 - (FOXRunnerResult *)resultForNumberOfTests:(NSUInteger)numberOfTests
-                                   property:(id <FOXGenerator>)property
+                                   property:(id<FOXGenerator>)property
 {
     return [self resultForNumberOfTests:numberOfTests
                                property:property
@@ -178,7 +171,7 @@ typedef struct _FOXShrinkReport {
 {
     NSUInteger numberOfNodesVisited = 0;
     NSUInteger depth = 0;
-    id <FOXSequence> shrinkChoices = failureRoseTree.children;
+    id<FOXSequence> shrinkChoices = failureRoseTree.children;
     FOXPropertyResult *currentSmallest = failureRoseTree.value;
 
     while ([shrinkChoices firstObject]) {
@@ -207,8 +200,8 @@ typedef struct _FOXShrinkReport {
     return (FOXShrinkReport) {
         .depth=depth,
         .numberOfNodesVisited=numberOfNodesVisited,
-        .smallestArgument=(void *) CFBridgingRetain(currentSmallest.generatedValue),
-        .smallestUncaughtException=(void *) CFBridgingRetain(currentSmallest.uncaughtException),
+        .smallestArgument=CFBridgingRetain(currentSmallest.generatedValue),
+        .smallestUncaughtException=CFBridgingRetain(currentSmallest.uncaughtException),
     };
 }
 

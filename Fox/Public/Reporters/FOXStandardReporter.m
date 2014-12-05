@@ -23,7 +23,7 @@
 
 - (void)runnerWillRunWithSeed:(NSUInteger)randomSeed
 {
-    [self logString:[NSString stringWithFormat:@"\nChecking with random seed %lu\n", (unsigned long)randomSeed]];
+    [self logFormat:@"\nChecking with random seed %lu\n", (unsigned long)randomSeed];
 }
 
 - (void)runnerWillVerifyTestNumber:(NSUInteger)testNumber withMaximumSize:(NSUInteger)maxSize
@@ -71,13 +71,13 @@
 
 - (void)runnerDidPassNumberOfTests:(NSUInteger)testNumber withResult:(FOXRunnerResult *)result
 {
-    [self logString:[NSString stringWithFormat:@"\n\n%lu Tests Passed.", (unsigned long)testNumber]];
+    [self logFormat:@"\n\n%lu Tests Passed.", (unsigned long)testNumber];
 }
 
 - (void)runnerDidFailTestNumber:(NSUInteger)testNumber withResult:(FOXRunnerResult *)result
 {
-    [self logString:[NSString stringWithFormat:@"\n\n  %@\n", [[result friendlyDescription] stringByReplacingOccurrencesOfString:@"\n" withString:@"\n  "]]];
-    [self logString:[NSString stringWithFormat:@"\n\nFailure after %lu tests.", (unsigned long)(testNumber + 1)]];
+    [self logFormat:@"\n\n  %@\n", [[result friendlyDescription] stringByReplacingOccurrencesOfString:@"\n" withString:@"\n  "]];
+    [self logFormat:@"\n\nFailure after %lu tests.", (unsigned long)(testNumber + 1)];
 }
 
 - (void)runnerDidRunWithResult:(FOXRunnerResult *)result
@@ -86,6 +86,14 @@
 }
 
 #pragma mark - Private
+
+- (void)logFormat:(NSString *)format, ...
+{
+    va_list args;
+    va_start(args, format);
+    [self logString:[[NSString alloc] initWithFormat:format arguments:args]];
+    va_end(args);
+}
 
 - (void)logString:(NSString *)message
 {

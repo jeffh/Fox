@@ -22,7 +22,7 @@ FOX_EXPORT FOXRunnerResult *_FOXAssert(id<FOXGenerator> property, NSString *expr
         options.seed = FOXGetSeed();
     }
 
-    FOXRunner *runner = [FOXRunner sharedInstance];
+    FOXRunner *runner = [FOXRunner assertInstance];
     FOXRunnerResult *result = [runner resultForNumberOfTests:options.numberOfTests property:property seed:options.seed];
     if (!result.succeeded) {
         NSMutableString *formattedExpression = [NSMutableString stringWithFormat:@"  // %s:%d\n%@;",
