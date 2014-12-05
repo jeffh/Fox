@@ -95,3 +95,36 @@ FOX_EXPORT id<FOXGenerator> FOXElements(NSArray *elements) {
         }]);
     });
 }
+
+FOX_EXPORT id<FOXGenerator> FOXFrequency(NSArray *tuples) {
+    NSCAssert(tuples.count, @"FOXFrequency requires an array of (probability_uint, generator) tuples");
+    NSUInteger total = 0;
+    for (NSArray *pair in tuples) {
+        NSCAssert(pair.count == 2, @"FOXFrequency accepts an array of tuples in @[probability_uint, generator] form");
+        NSNumber *probability = pair.firstObject;
+        id<FOXGenerator> generator = pair.lastObject;
+
+        NSCAssert([probability isKindOfClass:[NSNumber class]], @"first element in tuple is not an NSNumber (NSUInteger): %@", probability);
+        NSCAssert([generator conformsToProtocol:@protocol(FOXGenerator)], @"second element in tuple is not an FOXGenerator: %@", generator);
+
+        total += [probability unsignedIntegerValue];
+    }
+
+    return FOXGenBind(FOXChoose(@1, @(total)), ^id<FOXGenerator>(FOXRoseTree *generatedTree) {
+        NSUInteger roll = [generatedTree.value unsignedIntegerValue];
+        NSUInteger rollingSum = 0;
+        for (NSArray *pair in tuples) {
+            NSUInteger probability = [pair.firstObject unsignedIntegerValue];
+            id<FOXGenerator> generator = pair.lastObject;
+
+            if (roll - rollingSum <= probability) {
+                return generator;
+            } else {
+                rollingSum += probability;
+            }
+        }
+        [NSException raise:NSInternalInconsistencyException
+                    format:@"Failed to pick a generator (roll: %lu, tuples: %@)", (unsigned long)roll, tuples];
+        return nil;
+    });
+}

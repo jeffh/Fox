@@ -6,26 +6,35 @@
 #import "FOXSetGenerators.h"
 #import "FOXDictionaryGenerators.h"
 
+
+FOX_EXPORT id<FOXGenerator> FOXOptional(id<FOXGenerator> generator) {
+    return FOXFrequency(@[@[@1, FOXReturn(nil)],
+                          @[@3, generator]]);
+}
+
 FOX_EXPORT id<FOXGenerator> FOXSimpleType(void) {
     return FOXOneOf(@[FOXInteger(),
-        FOXCharacter(),
-        FOXString(),
-        FOXBoolean()]);
+                      FOXFloat(),
+                      FOXCharacter(),
+                      FOXString(),
+                      FOXBoolean()]);
 }
 
 FOX_EXPORT id<FOXGenerator> FOXPrintableSimpleType(void) {
     return FOXOneOf(@[FOXInteger(),
-        FOXAsciiCharacter(),
-        FOXAsciiString(),
-        FOXBoolean()]);
+                      FOXFloat(),
+                      FOXAsciiCharacter(),
+                      FOXAsciiString(),
+                      FOXBoolean()]);
 }
 
 FOX_EXPORT id<FOXGenerator> FOXCompositeType(id<FOXGenerator> itemGenerator) {
     return FOXOneOf(@[FOXArray(itemGenerator),
-        FOXSet(itemGenerator)]);
+                      FOXSet(itemGenerator)]);
 }
 
 FOX_EXPORT id<FOXGenerator> FOXAnyObject(void) {
     NSCAssert(false, @"Not implemented yet");
     return nil;
 }
+
