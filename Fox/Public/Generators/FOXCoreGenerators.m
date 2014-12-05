@@ -102,10 +102,9 @@ FOX_EXPORT id<FOXGenerator> FOXFrequency(NSArray *tuples) {
     for (NSArray *pair in tuples) {
         NSCAssert(pair.count == 2, @"FOXFrequency accepts an array of tuples in @[probability_uint, generator] form");
         NSNumber *probability = pair.firstObject;
-        id<FOXGenerator> generator = pair.lastObject;
 
         NSCAssert([probability isKindOfClass:[NSNumber class]], @"first element in tuple is not an NSNumber (NSUInteger): %@", probability);
-        NSCAssert([generator conformsToProtocol:@protocol(FOXGenerator)], @"second element in tuple is not an FOXGenerator: %@", generator);
+        NSCAssert([pair.lastObject conformsToProtocol:@protocol(FOXGenerator)], @"second element in tuple is not an FOXGenerator: %@", pair.lastObject);
 
         total += [probability unsignedIntegerValue];
     }
