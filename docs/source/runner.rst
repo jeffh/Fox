@@ -51,3 +51,51 @@ This allows you to configure the test generation. In three ways:
 Please note that ``seed``, ``numberOfTests``, and ``maximumSize`` should all be
 recorded to reproduce a failure that Fox may have generated.
 
+FOXRunner
+=========
+
+``FOXRunner`` does support some additional components to replace:
+
+- :ref:`Random number generation <Random Number Generators>` controls how
+  random number generation works in Fox. This is what generators receive as
+  their first argument.
+- :ref:`Runner Reporters <Reporters>` are hooks to observe the runner walking
+  through tests.
+
+.. _Random Number Generators:
+
+Random Number Generators
+------------------------
+
+The runner uses ``FOXDeterministicRandom`` which uses `C++ random`_. This keeps
+randomization state isolate from any other potential system that uses a global
+PRNG.
+
+But you can implement the ``FOXRandom`` protocol to support custom random
+schemes.
+
+Another implementation Fox provides out of the box is
+``FOXConstantRandom``, which always generates a constant number. This can be
+useful for testing generators by example.
+
+.. _C++ random: http://www.cplusplus.com/reference/random/
+
+.. _Reporters:
+
+Reporters
+---------
+
+The runner provides a way to observe its operation via a reporter. Reporters
+are simply a the `delegate`_ to the runner. Reporters are invoked synchronously.
+
+These delegates cannot influence the execution of the runner, but can provide
+useful user-facing output about the progress of Fox's execution.
+
+By default, Fox runners do not have a reporter assigned to it. But Fox does
+provide a couple reporters:
+
+- ``FOXStandardReporter`` reports in a rspec-like dot reporter.
+- ``FOXDebugReporter`` reports more information about the execution.
+
+.. _delegate: https://developer.apple.com/library/ios/documentation/general/conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html
+
