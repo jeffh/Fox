@@ -7,7 +7,7 @@ You might have heard of this or similar technologies through the various genres
 of testing frameworks and/or libraries:
 
  - [Haskell QuickCheck](https://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2)
- - [test.check](https://github.com/clojure/test.check)
+ - [Clojure test.check](https://github.com/clojure/test.check)
  - [Erlang QuickCheck](http://www.quviq.com) (most advanced but commerical)
  - Property Based Testing
  - Model Based Testing

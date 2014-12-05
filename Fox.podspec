@@ -4,6 +4,14 @@ Pod::Spec.new do |s|
   s.summary      = "A property-based testing library"
 
   s.description  = <<-DESC
+    Why write tests when you can generate them? Fox is a port of Clojure's
+    popular test.check.
+
+    Specify your tests in terms of properties your code should hold. Fox's job is
+    to generate tests to find a counter-example that your property does not hold.
+
+    Fox will also shrink the counter-example to the smallest possible example
+    to make it easier to debug failures.
                    DESC
 
   s.homepage     = "https://github.com/jeffh/Fox"
@@ -11,11 +19,10 @@ Pod::Spec.new do |s|
 
 
   s.author             = { "Jeff Hui" => "jeff@jeffhui.net" }
-  s.ios.deployment_target = "7.0"
-  s.osx.deployment_target = "10.10"
+  s.ios.deployment_target = "7.1"
+  s.osx.deployment_target = "10.9"
 
-  #s.source       = { :git => "https://github.com/jeffh/Fox.git", :tag => "0.0.1" }
-  s.source       = { :git => "https://github.com/jeffh/Fox.git", :branch => "master" }
+  s.source       = { :git => "https://github.com/jeffh/Fox.git", :tag => "v1.0.0" }
 
   s.source_files  = "Fox/**/*.{h,m,mm}"
   s.public_header_files = "Fox/Public/**/*.h"
