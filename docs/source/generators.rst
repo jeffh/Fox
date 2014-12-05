@@ -120,7 +120,7 @@ Based on the diagram, the algorithm for shrinking integers prefers:
 - Reducing the value by 1
 
 While this makes it more expensive to find larger integers (because of the
-redundent checking of zero), it is generally more common to immediately shrink
+redundant checking of zero), it is generally more common to immediately shrink
 to the smallest value.
 
 .. _Building Generators with Custom Shrinking:
@@ -134,13 +134,13 @@ Writing Generators with Custom Shrinking
     will also provide shrinking for free.
 
 .. warning::
-    This section assumes function programming concepts. It's worth reading up
-    on function composition, map/reduce, recursion, and lazy computation.
+    This section assumes knowledge functional programming concepts. It's worth
+    reading up on function composition, map/reduce, recursion, and lazy computation.
 
 It is worth reading up on :ref:`How Shrinking Works` before proceeding.
 
 Let's write a custom integer generator that shrinks to ``10`` instead of zero.
-We won't be using any thing built on top of ``FOXChoose`` for demonstrative
+We won't be using anything built on top of ``FOXChoose`` for demonstrative
 purposes, but we will be using Fox's :ref:`debugging functions`.
 
 Step one, we can easily always generate 10 by returning a child-less rose tree::
@@ -152,11 +152,11 @@ Step one, we can easily always generate 10 by returning a child-less rose tree::
     }
 
 ``FOXGenerate`` is an easy way to create a generator without having to create
-an object that conformed to ``FOXGenerator``. The block is the method body of
+an object that conforms to ``FOXGenerator``. The block is the method body of
 the one method that the protocol requires.
 
-This is infact what ``FOXReturn`` does. However, we don't get any
-randominess::
+This is, in fact, what ``FOXReturn`` does. However, we don't get any
+randomness::
 
     // FOXSample generates 10 random values using the given generator.
     FOXSample(MyInteger()); // => @[@3];
@@ -208,7 +208,7 @@ opt-in laziness for Fox's rose tree.
 
 .. _Clojure's sequence abstraction: http://clojure.org/sequences
 
-We'll mimic the behavior of the Fox's algorithm:
+We'll mimic the behavior of Fox's algorithm:
 
 - Shrink to 10.
 - Shrink towards 10 by 50% of its current value.
