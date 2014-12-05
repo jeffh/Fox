@@ -24,12 +24,22 @@ describe(@"FOXFloat", ^{
         result.smallestFailingValue should equal(@0);
     });
 
+    it(@"should never shrink to a value further from zero", ^{
+        NSArray *values = FOXSampleShrinkingWithCount(FOXFloat(), 5000);
+        NSArray *sortedValues = [values sortedArrayUsingSelector:@selector(compare:)];
+        if ([values[0] floatValue] > 0) {
+            [sortedValues.lastObject floatValue] should equal([values[0] floatValue]);
+        } else {
+            [sortedValues.firstObject floatValue] should equal([values[0] floatValue]);
+        }
+    });
+
     it(@"should shrink using smaller divisors and dividends", ^{
         FOXRunnerResult *result = [FOXSpecHelper resultForAll:FOXFloat() then:^BOOL(NSNumber *value) {
             return fmodf([value floatValue], 1) == 0;
         }];
         result.succeeded should be_falsy;
-        ABS([result.smallestFailingValue floatValue]) should be_less_than(2);
+        ABS([result.smallestFailingValue floatValue]) should be_close_to(0.1);
     });
 
     it(@"should shrink negative values to zero", ^{
@@ -38,7 +48,7 @@ describe(@"FOXFloat", ^{
         }];
 
         result.succeeded should be_falsy;
-        result.smallestFailingValue should be_greater_than_or_equal_to(@-2);
+        result.smallestFailingValue should be_close_to(@(-0.1));
     });
 });
 

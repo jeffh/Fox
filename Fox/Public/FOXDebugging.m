@@ -39,4 +39,3 @@ FOX_EXPORT NSArray *FOXSampleShrinkingWithCount(id<FOXGenerator> generator, NSUI
 
     return samples;
 }
-
