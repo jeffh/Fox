@@ -42,3 +42,5 @@ FOX_EXPORT id<FOXGenerator> FOXOneOf(NSArray *generators);
 FOX_EXPORT id<FOXGenerator> FOXElements(NSArray *elements);
 
 FOX_EXPORT id<FOXGenerator> FOXFrequency(NSArray *tuples);
+
+FOX_EXPORT id<FOXGenerator> FOXResize(NSUInteger newSize, id<FOXGenerator> generator);

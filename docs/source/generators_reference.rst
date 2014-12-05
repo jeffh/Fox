@@ -72,6 +72,7 @@ Function                    Description
 =========================   ============
 FOXMap                      Applies a block to each generated value.
 FOXBind                     Applies a block to the lazy tree that the original generator creates. See Building Generators section for more information.
+FOXResize                   Overrides the given generator's size parameter with the specified size. Prevents shrinking.
 FOXOptional                 Creates a new generator that has a 25% chance of returning `nil` instead of the provided generated value.
 FOXFrequency                Dispatches to one of many generators by probability. Takes an array of tuples (2-sized array) - `@[@[@probability_uint, generator]]`. Shrinking follows whatever generator is returned.
 FOXSized                    Encloses the given block to create generator that is dependent on the size hint generators receive when generating values.

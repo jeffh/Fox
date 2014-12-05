@@ -88,12 +88,12 @@ FOX_EXPORT id<FOXGenerator> FOXOneOf(NSArray *generators) {
 
 FOX_EXPORT id<FOXGenerator> FOXElements(NSArray *elements) {
     NSCParameterAssert(elements.count);
-    return FOXGenBind(FOXChoose(@0, @(elements.count - 1)), ^id<FOXGenerator>(FOXRoseTree *generatorTree) {
+    return FOXWithName(@"FOXElements", FOXGenBind(FOXChoose(@0, @(elements.count - 1)), ^id<FOXGenerator>(FOXRoseTree *generatorTree) {
         return FOXGenPure([generatorTree treeByApplyingBlock:^id(NSNumber *number) {
             NSUInteger index = (NSUInteger)[number integerValue];
             return elements[index];
         }]);
-    });
+    }));
 }
 
 FOX_EXPORT id<FOXGenerator> FOXFrequency(NSArray *tuples) {
@@ -110,7 +110,7 @@ FOX_EXPORT id<FOXGenerator> FOXFrequency(NSArray *tuples) {
         total += [probability unsignedIntegerValue];
     }
 
-    return FOXGenBind(FOXChoose(@1, @(total)), ^id<FOXGenerator>(FOXRoseTree *generatedTree) {
+    return FOXWithName(@"FOXFrequency", FOXGenBind(FOXChoose(@1, @(total)), ^id<FOXGenerator>(FOXRoseTree *generatedTree) {
         NSUInteger roll = [generatedTree.value unsignedIntegerValue];
         NSUInteger rollingSum = 0;
         for (NSArray *pair in tuples) {
@@ -126,5 +126,11 @@ FOX_EXPORT id<FOXGenerator> FOXFrequency(NSArray *tuples) {
         [NSException raise:NSInternalInconsistencyException
                     format:@"Failed to pick a generator (roll: %lu, tuples: %@)", (unsigned long)roll, tuples];
         return nil;
-    });
+    }));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXResize(NSUInteger newSize, id<FOXGenerator> generator) {
+    return FOXWithName(@"FOXResize", FOXGenerate(^FOXRoseTree *(id<FOXRandom> random, NSUInteger _) {
+        return [generator lazyTreeWithRandom:random maximumSize:newSize];
+    }));
 }
