@@ -64,13 +64,13 @@ FOX_EXPORT id<FOXGenerator> FOXSuchThatWithMaxTries(id<FOXGenerator> generator, 
     return [[FOXSuchThatGenerator alloc] initWithGenerator:generator predicate:predicate maxTries:maxTries];
 }
 
-FOX_EXPORT id<FOXGenerator> FOXBind(id<FOXGenerator> generator, id<FOXGenerator> (^fn)(FOXRoseTree *generatedTree)) {
+FOX_EXPORT id<FOXGenerator> FOXBind(id<FOXGenerator> generator, id<FOXGenerator> (^fn)(id value)) {
     return FOXGenBind(generator, ^id<FOXGenerator>(FOXRoseTree *generatorTree) {
-        id<FOXGenerator> innerGenerator = [[FOXBlockGenerator alloc] initWithBlock:^FOXRoseTree *(id<FOXRandom> random, NSUInteger size) {
+        id<FOXGenerator> innerGenerator = FOXGenerate(^FOXRoseTree *(id<FOXRandom> random, NSUInteger size) {
             return [[generatorTree treeByApplyingBlock:fn] treeByApplyingBlock:^id(id<FOXGenerator> gen) {
                 return [gen lazyTreeWithRandom:random maximumSize:size];
             }];
-        }];
+        });
         return FOXGenMap(innerGenerator, ^FOXRoseTree *(FOXRoseTree *innerTree) {
             return [FOXRoseTree joinedTreeFromNestedRoseTree:innerTree];
         });

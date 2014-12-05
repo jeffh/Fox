@@ -5,16 +5,13 @@ const NSUInteger FOXDefaultNumberOfTests = 500;
 const NSUInteger FOXDefaultMaximumSize = 200;
 
 static NSUInteger FOXGetUIntegerFromEnv(const char *envname, NSUInteger defaultValue) {
-    const char *envval = getenv("FOX_NUM_TESTS");
+    const char *envval = getenv(envname);
     if (envval == NULL) {
         envval = "";
     }
-    NSString *value = [NSString stringWithCString:envval
-                                         encoding:NSUTF8StringEncoding];
-    if ([value integerValue] > 0) {
-        return [value integerValue];
-    }
-    return defaultValue;
+    NSUInteger number = defaultValue;
+    sscanf(envval, "%lu", &number);
+    return number;
 }
 
 FOX_EXPORT NSUInteger FOXGetNumberOfTests(void) {

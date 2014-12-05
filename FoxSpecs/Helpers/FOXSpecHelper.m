@@ -4,13 +4,27 @@
 
 @implementation FOXSpecHelper
 
+const NSUInteger defaultNumberOfTests = 500;
+static NSUInteger ___numberOfTests;
+
++ (void)initialize
+{
+    const char *envval = getenv("FOX_SPECS_NUM_TESTS");
+    NSUInteger numberOfTests = defaultNumberOfTests;
+    if (envval) {
+        sscanf(envval, "%lu", &numberOfTests);
+    }
+    printf("Fox Seed: %lu\n", numberOfTests);
+    ___numberOfTests = numberOfTests;
+}
+
 + (NSUInteger)numberOfTestsPerProperty
 {
-    return 500;
+    return ___numberOfTests;
 }
 
 + (FOXRunnerResult *)resultForAll:(id<FOXGenerator>)generator
-                                 then:(BOOL(^)(id value))block {
+                             then:(BOOL(^)(id value))block {
     id<FOXGenerator> property = FOXForSome(generator, ^FOXPropertyStatus(id value) {
         return FOXRequire(block(value));
     });
@@ -19,7 +33,7 @@
 }
 
 + (FOXRunnerResult *)debug_resultForAll:(id<FOXGenerator>)generator
-                                       then:(BOOL(^)(id value))block {
+                                   then:(BOOL(^)(id value))block {
     id<FOXGenerator> property = FOXForSome(generator, ^FOXPropertyStatus(id value) {
         return FOXRequire(block(value));
     });

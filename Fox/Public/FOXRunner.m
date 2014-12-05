@@ -182,7 +182,7 @@ typedef struct _FOXShrinkReport {
         if ([smallestCandidate hasFailedOrRaisedException]) {
             currentSmallest = smallestCandidate;
 
-            if ([firstTree.children firstObject] && [firstTree.children firstObject]) {
+            if ([firstTree.children firstObject]) {
                 shrinkChoices = firstTree.children;
                 ++depth;
             } else {

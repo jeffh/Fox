@@ -28,7 +28,7 @@ FOXNegativeInteger                  NSNumber *       Generates random zero or ne
 FOXStrictPositiveInteger            NSNumber *       Generates random positive integers (non-zero).
 FOXStrictNegativeInteger            NSNumber *       Generates random negative integers (non-zero).
 FOXChoose                           NSNumber *       Generates random integers between the given range (inclusive).
-FOXFloat                            NSNumber *       Generates random floats.
+FOXFloat                            NSNumber *       Generates random floats. Generation is done by producing the dividend and divisor. Shrinking is toward zero, but may increase or decrease in value as it shrinks dividend and/or divisor independently.
 FOXReturn                           id               Always returns the given value. Does not shrink.
 FOXTuple                            NSArray *        Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
 FOXTupleOfGenerators                NSArray *        Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.

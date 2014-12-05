@@ -43,9 +43,9 @@ public func map(generator: FOXGenerator, fn: (AnyObject?) -> AnyObject?) -> FOXG
     }
 }
 
-public func bind(generator: FOXGenerator, fn: (FOXRoseTree) -> FOXGenerator) -> FOXGenerator {
-    return FOXBind(generator) { tree in
-        return fn(tree!)
+public func bind(generator: FOXGenerator, fn: (AnyObject?) -> FOXGenerator) -> FOXGenerator {
+    return FOXBind(generator) { value in
+        return fn(value!)
     }
 }
 

@@ -33,13 +33,13 @@
 - (void)runnerWillShrinkFailingTestNumber:(NSUInteger)testNumber
                  failedWithPropertyResult:(FOXPropertyResult *)result
 {
-    [self logFormat:@" [%@] Shrinking", result];
+    [self logFormat:@" %@ - Shrinking", result];
 }
 
 - (void)runnerDidShrinkFailingTestNumber:(NSUInteger)testNumber
                       withPropertyResult:(FOXPropertyResult *)result
 {
-    [self logFormat:@"\n >> %@", result];
+    [self logFormat:@"\n      try: %@", result];
 }
 
 - (void)runnerDidSkipTestNumber:(NSUInteger)testNumber propertyResult:(FOXPropertyResult *)result
@@ -48,7 +48,7 @@
 }
 
 - (void)runnerDidPassTestNumber:(NSUInteger)testNumber propertyResult:(FOXPropertyResult *)result {
-    [self logString:@" [OK]"];
+    [self logFormat:@" %@", result];
 }
 
 - (void)runnerDidPassNumberOfTests:(NSUInteger)testNumber withResult:(FOXRunnerResult *)result

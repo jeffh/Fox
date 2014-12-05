@@ -29,12 +29,18 @@
 + (instancetype)joinedTreeFromNestedRoseTree:(FOXRoseTree *)roseTree
 {
     FOXRoseTree *rootTree = roseTree.value;
-    id<FOXSequence> children = [rootTree.children sequenceByMapping:^id(FOXRoseTree *tree) {
+    if (![rootTree isKindOfClass:[FOXRoseTree class]]) {
+        return roseTree;
+    }
+    id<FOXSequence> rootChildren = [rootTree.children sequenceByMapping:^(FOXRoseTree *tree){
         return [self joinedTreeFromNestedRoseTree:tree];
     }];
-    children = [children sequenceByAppending:roseTree.children];
+    id<FOXSequence> childrenChildren = [roseTree.children sequenceByMapping:^(FOXRoseTree *tree){
+        return [self joinedTreeFromNestedRoseTree:tree];
+    }];
+    id<FOXSequence> mergedChildren = [rootChildren sequenceByAppending:childrenChildren];
     return [[FOXRoseTree alloc] initWithValue:rootTree.value
-                                     children:children];
+                                     children:mergedChildren];
 }
 
 + (id<FOXSequence>)sequenceByExpandingRoseTrees:(NSArray *)roseTrees

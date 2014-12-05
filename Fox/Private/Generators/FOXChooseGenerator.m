@@ -41,7 +41,7 @@
     FOXRoseTree *tree = [FOXNumericRoseTree roseTreeWithMaxNumber:randValue];
     return [tree treeFilterChildrenByBlock:^BOOL(NSNumber *value) {
         return [value compare:self.lowerNumber] != NSOrderedAscending
-        && [value compare:self.upperNumber] != NSOrderedDescending;
+            && [value compare:self.upperNumber] != NSOrderedDescending;
     }];
 }
 

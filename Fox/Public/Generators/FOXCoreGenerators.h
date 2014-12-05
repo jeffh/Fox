@@ -23,7 +23,7 @@ FOX_EXPORT id<FOXGenerator> FOXGenBind(
 
 FOX_EXPORT id<FOXGenerator> FOXMap(id<FOXGenerator> generator, id(^fn)(id generatedValue));
 
-FOX_EXPORT id<FOXGenerator> FOXBind(id<FOXGenerator> generator, id<FOXGenerator> (^fn)(FOXRoseTree *generatedTree));
+FOX_EXPORT id<FOXGenerator> FOXBind(id<FOXGenerator> generator, id<FOXGenerator> (^fn)(id generatedValue));
 
 FOX_EXPORT id<FOXGenerator> FOXChoose(NSNumber *lower, NSNumber *upper);
 

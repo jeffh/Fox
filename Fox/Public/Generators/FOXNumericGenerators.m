@@ -2,6 +2,7 @@
 #import "FOXCoreGenerators.h"
 #import "FOXGenerator.h"
 #import "FOXArrayGenerators.h"
+#import "FOXRoseTree.h"
 
 
 FOX_EXPORT id<FOXGenerator> _FOXNaturalInteger(void) {
@@ -43,10 +44,11 @@ FOX_EXPORT id<FOXGenerator> FOXNonZeroInteger(void) {
 }
 
 FOX_EXPORT id<FOXGenerator> FOXFloat(void) {
-    id<FOXGenerator> generator = FOXTuple(@[FOXInteger(), FOXStrictPositiveInteger()]);
-    return FOXWithName(@"Float", FOXMap(generator, ^id(NSArray *numbers) {
-        NSInteger dividend = [numbers[0] integerValue];
-        NSInteger divisor = [numbers[1] integerValue];
-        return @((float)(dividend) / divisor);
-    }));
+    return FOXSized(^id<FOXGenerator>(NSUInteger size) {
+        return FOXBind(FOXChoose(@1, @(MAX(size, 1))), ^id<FOXGenerator>(NSNumber *divisor) {
+            return FOXBind(FOXChoose(@(-size), @(size)), ^id<FOXGenerator>(NSNumber *dividend) {
+                return FOXReturn(@([dividend floatValue] / [divisor floatValue]));
+            });
+        });
+    });
 }
