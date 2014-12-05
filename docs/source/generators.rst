@@ -10,8 +10,8 @@ Generators are the core of Fox. They specify directed random data creation.
 This means generators know how to create the given data and how to shrink it.
 
 In technical terms, all generators conform to the ``FOXGenerator`` protocol.
-All generators return a lazy :ref:`rose tree` for consumption by the :doc:`Fox
-runner </runner>`.
+All generators return a lazy rose tree for consumption by the :doc:`Fox runner
+</runner>`.
 
 The power of generators are their composability. Shrinking is provided for
 *free* if you compose with Fox's built-in generators. Of course, you can
@@ -96,7 +96,7 @@ How Shrinking Works
 ===================
 
 Generators are just functions that accept a random number generator and a size
-hint and return a :ref:`rose tree` of values.
+hint and return a rose tree of values.
 
 Rose trees sound fancy, but they are generic trees with an arbitrary number of
 branches. Each node in the tree represents a value. Fox generators create rose
