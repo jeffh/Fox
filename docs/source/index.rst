@@ -67,5 +67,6 @@ All the guts around configuring and executing Fox's verification of properties.
    Tutorial </tutorial>
 
    Generators </generators>
-   Built-in Generators Reference </generators_reference>
    The Runner & Test Generation </runner>
+
+   Built-in Generators Reference </generators_reference>

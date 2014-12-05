@@ -5,6 +5,9 @@ Tutorial
 
 If you haven't installed Fox yet, read up on :doc:`installation`.
 
+This tutorial will use the Objective-C API of Fox. While there is a similar
+Swift API, it is considered alpha.
+
 Starting with an Example
 ------------------------
 
@@ -31,8 +34,8 @@ this test and see how Fox rebuilds it up::
 
 Fox takes these parts and separates them.
 
-- Inputs are produced using :ref:`generators`. Generators describe the type of
-  data to generate.
+- Inputs are produced using :ref:`generator <generators>`. Generators describe
+  the type of data to generate.
 - Behavior to test remains the same.
 - The assertion is based on logical statements of the subject and/or based on
   the generated inputs. The assertions as usually describe properties of the
@@ -70,9 +73,9 @@ to the element before it::
 
 Let's break that down:
 
-- ``FOXInteger`` is a :ref:`generator` that describes how to produce random integers
+- ``FOXInteger`` is a :ref:`generator <generators>` that describes how to produce random integers
   (NSNumbers).
-- ``FOXArray`` is a :ref:`generator` that describes how to generate arbitrary arrays.
+- ``FOXArray`` is a :ref:`generator <generators>` that describes how to generate arbitrary arrays.
   It takes another generator as an argument. In this case, we're giving it an
   integer generator so this will generate randomly sized array of random
   integers.
@@ -206,8 +209,8 @@ same input produces the same output. What's more interesting is testing
 stateful APIs.
 
 Before we start, let's talk about the conceptual model Fox uses to verify
-stateful APIs. Using the existing system of :ref:`generators`, we can model
-**API calls as data**.
+stateful APIs. Using the existing system of :ref:`generator <generators>`, we
+can model **API calls as data**.
 
 As a simple case, let's test a `Queue`_. We can add and remove objects to it.
 Removing objects returns the first item in the Queue:
@@ -415,7 +418,7 @@ doesn't reveal any issues with an implementation.
 
 And that's most of the power of Fox. You're ready to start writing property tests!
 
-If you want read on, check out :ref:`generators`.
+If you want read on, read more about :ref:`generators`.
 
 .. _Queue: http://en.wikipedia.org/wiki/Queue_(abstract_data_type)
 .. _state machine: http://en.wikipedia.org/wiki/Finite-state_machine

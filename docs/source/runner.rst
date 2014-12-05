@@ -18,6 +18,33 @@ is normally accepted by the runner.
 Configuring Test Generation
 ---------------------------
 
+The primary operation of Fox's runner is to create and executed tests. There
+are three primary parameters to configure Fox's test generation:
+
+- The **seed** allows you to set the random number generator. This allows you
+  to set the PRNG to help reproduce failures that Fox may have generated during
+  a test run.  Setting this to the default (``0``) will make Fox generate a
+  seed based on the current time.
+- The **number of tests** indicates the number of tests Fox will generate for
+  this particular property. More tests generated will more thoroughly cover the
+  property at the cost of time. Setting this to the default (``0``) will make
+  Fox run ``500`` tests.
+- The **maximum size** indicates the maximum size factor Fox will use when
+  generating tests. Generators use this size factor as a hint to produce data
+  of the appropriate sizes. For example, ``FOXInteger`` will generate integers
+  within the range of 0 to ``maximumSize`` and ``FOXArray`` will generate
+  arrays whose number of elements are in the range of 0 to ``maximumSize``.
+  Setting this to the default (``0``) will make Fox run with a ``maximumSize``
+  of ``200``.  If you know this property's data generation can tolerate larger
+  sizes, feel free to increase this. Large collection generation can be
+  prohibitively expensive.
+
+Please note that **seed**, **number of tests**, and **maximum size** should all
+be recorded to reproduce a failure that Fox may have generated.
+
+Per Assertion Configuration
+---------------------------
+
 By default, Fox will generate **500 tests per assertion** with a **maximum size
 of 200** and a random seed. By changing ``FOXAssert`` to ``FOXAssertWithOptions``
 we can provide optional configuration by using the ``FOXOptions``::
@@ -28,51 +55,32 @@ we can provide optional configuration by using the ``FOXOptions``::
         maximumSize=100,     // default: 200
     });
 
-This allows you to configure the test generation. In three ways:
+Global Configuration
+--------------------
 
-- ``seed`` allows you to set the random number generator. This allows you to
-  set the PRNG to help reproduce failures that Fox may have generated during a
-  test run.  Setting this to the default (``0``) will make Fox generate a seed
-  based on the current time.
-- ``numberOfTests`` indicates the number of tests Fox will generate for this
-  particular property. More tests generated will more thoroughly cover the
-  property at the cost of time. Setting this to the default (``0``) will make Fox
-  run ``500`` tests.
-- ``maximumSize`` indicates the maximum size factor Fox will use when
-  generating tests. Generators use this size factor as a hint to produce data
-  of the appropriate sizes. For example, ``FOXInteger`` will generate integers
-  within the range of 0 to ``maximumSize`` and ``FOXArray`` will generate
-  arrays whose number of elements are in the range of 0 to ``maximumSize``.
-  Setting this to the default (``0``) will make Fox run with a ``maximumSize``
-  of ``200``.  If you know this property's data generation can tolerate larger
-  sizes, feel free to increase this. Large collection generation can be
-  prohibitively expensive.
+Values can be overridden using `environment variables`_ to globally change the
+defaults.
 
-Please note that ``seed``, ``numberOfTests``, and ``maximumSize`` should all be
-recorded to reproduce a failure that Fox may have generated.
+- Setting ``FOX_SEED`` can specify a specific seed to run for all properties.
+- Setting ``FOX_NUM_TESTS`` sets the number of tests to generate for each
+  property.
+- Setting ``FOX_MAX_SIZE`` sets the maximum size factor Fox will use to when
+  generating tests.
 
-FOXRunner
-=========
-
-``FOXRunner`` does support some additional components to replace:
-
-- :ref:`Random number generation <Random Number Generators>` controls how
-  random number generation works in Fox. This is what generators receive as
-  their first argument.
-- :ref:`Runner Reporters <Reporters>` are hooks to observe the runner walking
-  through tests.
+.. _environment variables: http://nshipster.com/launch-arguments-and-environment-variables/
 
 .. _Random Number Generators:
 
 Random Number Generators
 ------------------------
 
-The runner uses ``FOXDeterministicRandom`` which uses `C++ random`_. This keeps
-randomization state isolate from any other potential system that uses a global
-PRNG.
+Random number generation controls how random number generation works in Fox.
+This is what generators receive as their first argument.
 
-But you can implement the ``FOXRandom`` protocol to support custom random
-schemes.
+The runner uses ``FOXDeterministicRandom`` which uses `C++ random`_ by default.
+This keeps randomization state isolate from any other potential system that
+uses a global PRNG. But you can implement the ``FOXRandom`` protocol to support
+custom random schemes.
 
 Another implementation Fox provides out of the box is
 ``FOXConstantRandom``, which always generates a constant number. This can be
@@ -85,8 +93,9 @@ useful for testing generators by example.
 Reporters
 ---------
 
-The runner provides a way to observe its operation via a reporter. Reporters
-are simply a the `delegate`_ to the runner. Reporters are invoked synchronously.
+The runner also provides a way to observe its operation via a reporter.
+Reporters are simply a the `delegate`_ to the runner. Reporters are invoked
+synchronously, so be careful about its performance impact on execution.
 
 These delegates cannot influence the execution of the runner, but can provide
 useful user-facing output about the progress of Fox's execution.

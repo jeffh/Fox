@@ -31,7 +31,7 @@ There are few special cases to this rule. For example, ``FOXAssert`` expects
     For Haskell programmers, Fox is a decendant to Haskell's QuickCheck 2.
     Generators are a monadic type which combine generation and shrinking.
 
-For the list of all generators that Fox provides, read the
+For the list of all generators that Fox provides, read about
 :doc:`generators_reference`.
 
 .. _Building Custom Generators:
