@@ -45,8 +45,8 @@ class::
 
     // value object. Implementation assumed
     @interface Person : NSObject
-    @property (nonatomic) NSString *firstName;
-    @property (nonatomic) NSString *lastName;
+    @property (nonatomic, copy) NSString *firstName;
+    @property (nonatomic, copy) NSString *lastName;
     @end
 
 We can represent this Person data using by generating an array of values or
