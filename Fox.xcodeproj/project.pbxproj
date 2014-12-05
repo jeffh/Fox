@@ -250,6 +250,8 @@
 		1F71D4F81A3140070017E81A /* FOXOptionalSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F71D4F61A3140070017E81A /* FOXOptionalSpec.mm */; };
 		1F71D4FA1A3143A70017E81A /* FOXResizeSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F71D4F91A3143A70017E81A /* FOXResizeSpec.mm */; };
 		1F71D4FB1A3143A70017E81A /* FOXResizeSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F71D4F91A3143A70017E81A /* FOXResizeSpec.mm */; };
+		1F71D4FD1A3147570017E81A /* FOXAnyObjectSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F71D4FC1A3147570017E81A /* FOXAnyObjectSpec.mm */; };
+		1F71D4FE1A3147570017E81A /* FOXAnyObjectSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F71D4FC1A3147570017E81A /* FOXAnyObjectSpec.mm */; };
 		1FAE3B5C1A2EC1000011838A /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B5B1A2EC1000011838A /* DSL.swift */; };
 		1FAE3B5D1A2EC1000011838A /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B5B1A2EC1000011838A /* DSL.swift */; };
 		1FAE3B681A2EC5E60011838A /* SwiftGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B671A2EC5E60011838A /* SwiftGenerators.swift */; };
@@ -349,6 +351,7 @@
 		1F71D4F31A313C720017E81A /* FOXFrequencySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXFrequencySpec.mm; path = FoxSpecs/Public/Generators/FOXFrequencySpec.mm; sourceTree = SOURCE_ROOT; };
 		1F71D4F61A3140070017E81A /* FOXOptionalSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXOptionalSpec.mm; path = FoxSpecs/Public/Generators/FOXOptionalSpec.mm; sourceTree = SOURCE_ROOT; };
 		1F71D4F91A3143A70017E81A /* FOXResizeSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXResizeSpec.mm; path = FoxSpecs/Public/Generators/FOXResizeSpec.mm; sourceTree = SOURCE_ROOT; };
+		1F71D4FC1A3147570017E81A /* FOXAnyObjectSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXAnyObjectSpec.mm; path = FoxSpecs/Public/Generators/FOXAnyObjectSpec.mm; sourceTree = SOURCE_ROOT; };
 		1F848B411977965500F0966E /* FOXPositiveIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXPositiveIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F848B4419779F6600F0966E /* FOXNegativeIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXNegativeIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F848B471977A75200F0966E /* FOXMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOXMacros.h; sourceTree = "<group>"; };
@@ -673,6 +676,7 @@
 				1F71D4F31A313C720017E81A /* FOXFrequencySpec.mm */,
 				1F71D4F61A3140070017E81A /* FOXOptionalSpec.mm */,
 				1F71D4F91A3143A70017E81A /* FOXResizeSpec.mm */,
+				1F71D4FC1A3147570017E81A /* FOXAnyObjectSpec.mm */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
@@ -1086,6 +1090,7 @@
 				1F71D4F71A3140070017E81A /* FOXOptionalSpec.mm in Sources */,
 				1F38B6D31A2ACCE80078FF90 /* Queue.m in Sources */,
 				1F38B6E71A2ACCF10078FF90 /* FOXGenericSpec.mm in Sources */,
+				1F71D4FD1A3147570017E81A /* FOXAnyObjectSpec.mm in Sources */,
 				1F38B6DA1A2ACCF10078FF90 /* FOXArraySpec.mm in Sources */,
 				1FAE3B6E1A2F10080011838A /* FOXFloatSpec.mm in Sources */,
 				1F71D4F41A313C720017E81A /* FOXFrequencySpec.mm in Sources */,
@@ -1172,6 +1177,7 @@
 				1F71D4F81A3140070017E81A /* FOXOptionalSpec.mm in Sources */,
 				1F38B6CF1A2ACCE70078FF90 /* Queue.m in Sources */,
 				1F38B6F91A2ACCF20078FF90 /* FOXGenericSpec.mm in Sources */,
+				1F71D4FE1A3147570017E81A /* FOXAnyObjectSpec.mm in Sources */,
 				1F38B6EC1A2ACCF20078FF90 /* FOXArraySpec.mm in Sources */,
 				1FAE3B6F1A2F10080011838A /* FOXFloatSpec.mm in Sources */,
 				1F71D4F51A313C720017E81A /* FOXFrequencySpec.mm in Sources */,

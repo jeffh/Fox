@@ -34,7 +34,11 @@ FOX_EXPORT id<FOXGenerator> FOXCompositeType(id<FOXGenerator> itemGenerator) {
 }
 
 FOX_EXPORT id<FOXGenerator> FOXAnyObject(void) {
-    NSCAssert(false, @"Not implemented yet");
-    return nil;
+    return FOXOneOf(@[FOXSimpleType(),
+                      FOXCompositeType(FOXSimpleType())]);
 }
 
+FOX_EXPORT id<FOXGenerator> FOXAnyPrintableObject(void) {
+    return FOXOneOf(@[FOXPrintableSimpleType(),
+                      FOXCompositeType(FOXPrintableSimpleType())]);
+}

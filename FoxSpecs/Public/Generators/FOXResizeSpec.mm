@@ -12,13 +12,12 @@ describe(@"FOXResize", ^{
         return [[FOXRoseTree alloc] initWithValue:@(size)];
     });
 
-    context(@"integration", ^{
-        it(@"should not shrink", ^{
-            FOXRunnerResult *result = [FOXSpecHelper shrunkResultForAll:FOXResize(10, generator)];
+    it(@"should not shrink", ^{
+        FOXRunnerResult *result = [FOXSpecHelper shrunkResultForAll:FOXResize(10, generator)];
 
-            result.succeeded should be_falsy;
-            result.smallestFailingValue should equal(@10);
-        });
+        result.succeeded should be_falsy;
+        result.smallestFailingValue should equal(@10);
     });
 });
+
 SPEC_END

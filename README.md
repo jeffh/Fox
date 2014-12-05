@@ -158,6 +158,8 @@ FOXNumericalStringOfSizeRange       | NSString *     | Generates random variable
 FOXSimpleType                       | id             | Generates random simple types. A simple type does not compose with other types. May not be printable.
 FOXPrintableSimpleType              | id             | Generates random simple types. A simple type does not compose with other types. Ensured to be printable.
 FOXCompositeType                    | id             | Generates random composite types. A composite type composes with the given generator.
+FOXAnyObject                        | id             | Generates random simple or composite types.
+FOXAnyPrintableObject               | id             | Generates random printable simple or composite types.
 
 Computation Generators
 ----------------------
@@ -175,7 +177,7 @@ FOXFrequency              | Dispatches to one of many generators by probability.
 FOXSized                  | Encloses the given block to create generator that is dependent on the size hint generators receive when generating values.
 FOXSuchThat               | Returns each generated value iff it satisfies the given block. If the filter excludes more than 10 values in a row, the resulting generator assumes it has reached maximum shrinking.
 FOXSuchThatWithMaxTries   | Returns each generated value iff it satisfies the given block. If the filter excludes more than the given max tries in a row, the resulting generator assumes it has reached maximum shrinking. 
-FOXOneOf                  | Returns generated values by randomly picking from an array of generators. Shrinking will move towards the lower-indexed generators in the array.
+FOXOneOf                  | Returns generated values by randomly picking from an array of generators. Shrinking is dependent on the generator chosen.
 FOXForAll                 | Asserts using the block and a generator and produces test assertion results (FOXPropertyResult). Shrinking tests against smaller values of the given generator.
 FOXForSome                | Like FOXForAll, but allows the assertion block to "skip" potentially invalid test cases.
 FOXCommands               | Generates arrays of FOXCommands that satisfies a given state machine.
