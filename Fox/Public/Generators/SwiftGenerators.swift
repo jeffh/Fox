@@ -21,7 +21,7 @@ public func array(elementGenerator: FOXGenerator, numberOfElements: UInt) -> FOX
     return FOXArrayOfSize(elementGenerator, numberOfElements)
 }
 
-public func array(elementGenerator: FOXGenerator, #minimumSize: UInt, #maximumSize: UInt) -> FOXGenerator {
+public func array(elementGenerator: FOXGenerator, minimumSize: UInt, maximumSize: UInt) -> FOXGenerator {
     return FOXArrayOfSizeRange(elementGenerator, minimumSize, maximumSize)
 }
 
@@ -73,6 +73,22 @@ public func elements(elements: [AnyObject!]) -> FOXGenerator {
     return FOXElements(elements)
 }
 
+public func frequency(pairs: (UInt, FOXGenerator)...) -> FOXGenerator {
+    var objcPairs = NSMutableArray()
+    for (freq, gen) in pairs {
+        objcPairs.addObject([freq, gen] as NSArray)
+    }
+    return FOXFrequency(objcPairs)
+}
+
+public func resize(generator: FOXGenerator, newSize: UInt) -> FOXGenerator {
+    return FOXResize(generator, newSize)
+}
+
+public func resize(generator: FOXGenerator, minimumSize: UInt, maximumSize: UInt) -> FOXGenerator {
+    return FOXResizeRange(generator, minimumSize, maximumSize)
+}
+
 // MARK: Dictionary Generators
 
 public func dictionary(template: NSDictionary) -> FOXGenerator {
@@ -103,6 +119,18 @@ public func strictPositiveInteger() -> FOXGenerator {
 
 public func strictNegativeInteger() -> FOXGenerator {
     return FOXStrictNegativeInteger()
+}
+
+public func float() -> FOXGenerator {
+    return FOXFloat()
+}
+
+public func double() -> FOXGenerator {
+    return FOXDouble()
+}
+
+public func decimalNumber() -> FOXGenerator {
+    return FOXDecimalNumber()
 }
 
 // MARK: Property Generators
@@ -161,16 +189,44 @@ public func string() -> FOXGenerator {
     return FOXString()
 }
 
+public func string(length: UInt) -> FOXGenerator {
+    return FOXStringOfLength(length);
+}
+
+public func string(minimumLength: UInt, maximumLength: UInt) -> FOXGenerator {
+    return FOXStringOfLengthRange(minimumLength, maximumLength);
+}
+
 public func asciiString() -> FOXGenerator {
     return FOXAsciiString()
+}
+
+public func asciiString(length: UInt) -> FOXGenerator {
+    return FOXAsciiStringOfLength(length)
+}
+
+public func asciiString(minimumLength: UInt, maximumLength: UInt) -> FOXGenerator {
+    return FOXAsciiStringOfLengthRange(minimumLength, maximumLength)
 }
 
 public func alphabeticalString() -> FOXGenerator {
     return FOXAlphabeticalString()
 }
 
+public func alphabeticalString(length: UInt) -> FOXGenerator {
+    return FOXAlphabeticalStringOfLength(length)
+}
+
+public func alphabeticalString(minimumLength: UInt, maximumLength: UInt) -> FOXGenerator {
+    return FOXAlphabeticalStringOfLengthRange(minimumLength, maximumLength)
+}
+
 public func alphanumericString() -> FOXGenerator {
     return FOXAlphanumericString()
+}
+
+public func numericString() -> FOXGenerator {
+    return FOXNumericString()
 }
 
 // MARK: Generic Generators
@@ -191,4 +247,7 @@ public func anyObject() -> FOXGenerator {
     return FOXAnyObject()
 }
 
+public func anyPrintableObject() -> FOXGenerator {
+    return FOXAnyPrintableObject()
+}
 

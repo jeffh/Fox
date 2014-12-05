@@ -13,7 +13,7 @@ describe(@"FOXResize", ^{
     });
 
     it(@"should not shrink", ^{
-        FOXRunnerResult *result = [FOXSpecHelper shrunkResultForAll:FOXResize(10, generator)];
+        FOXRunnerResult *result = [FOXSpecHelper shrunkResultForAll:FOXResize(generator, 10)];
 
         result.succeeded should be_falsy;
         result.smallestFailingValue should equal(@10);

@@ -118,50 +118,50 @@ generators shrink to zero:
  - Numerically zero (or as close as possible)
  - Empty collection (or at least shrunk items)
 
-Function                            | Generates      | Description
------------------------------------ |---------------:|-------------
-FOXInteger                          | NSNumber *     | Generates random integers
-FOXPositiveInteger                  | NSNumber *     | Generates random zero or positive integers
-FOXNegativeInteger                  | NSNumber *     | Generates random zero or negative integers
-FOXStrictPositiveInteger            | NSNumber *     | Generates random positive integers (non-zero)
-FOXStrictNegativeInteger            | NSNumber *     | Generates random negative integers (non-zero)
-FOXChoose                           | NSNumber *     | Generates random integers between the given range (inclusive)
-FOXFloat                            | NSNumber *     | Generates random floats.
-FOXDouble                           | NSNumber *     | Generates random doubles.
-FOXDecimalNumber                    | NSNumber *     | Generates random decimal numbers.
-FOXReturn                           | id             | Always returns the given value. Does not shrink
-FOXTuple                            | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
-FOXTupleOfGenerators                | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
-FOXArray                            | NSArray *      | Generates random variable-sized arrays of generated values.
-FOXArrayOfSize                      | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
-FOXArrayOfSizeRange                 | NSArray *      | Generates random variable-sized arrays of generated values. Array size is within the given range (inclusive).
-FOXDictionary                       | NSDictionary * | Generates random dictionries of generated values. Keys are known values ahead of time. Specified in `@{<key>: <generator>}` form.
-FOXSet                              | NSSet *        | Generates random sets of a given generated values.
-FOXCharacter                        | NSString *     | Generates random 1-length sized character string. May be an unprintable character.
-FOXAlphabetCharacter                | NSString *     | Generates random 1-length sized character string. Only generates alphabetical letters.
-FOXNumericCharacter                 | NSString *     | Generates random 1-length sized character string. Only generates digits.
-FOXAlphanumericCharacter            | NSString *     | Generates random 1-length sized character string. Only generates alphanumeric.
-FOXAsciiCharacter                   | NSString *     | Generates random 1-length sized character string. Only generates ascii characters.
-FOXString                           | NSString *     | Generates random variable length strings. May be an unprintable string.
-FOXStringOfSize                     | NSString *     | Generates random fixed length strings. May be an unprintable string.
-FOXStringOfSizeRange                | NSString *     | Generates random length strings within the given range (inclusive). May be an unprintable string.
-FOXAsciiString                      | NSString *     | Generates random variable length strings. Only generates ascii characters.
-FOXAsciiStringOfSize                | NSString *     | Generates random fixed length strings. Only generates ascii characters.
-FOXAsciiStringOfSizeRange           | NSString *     | Generates random variable length strings within the given range (inclusive). Only generates ascii characters.
-FOXAlphabeticalString               | NSString *     | Generates random variable length strings. Only generates alphabetical characters.
-FOXAlphabeticalStringOfSize         | NSString *     | Generates random fixed length strings. Only generates alphabetical characters.
-FOXAlphabeticalStringOfSizeRange    | NSString *     | Generates random variable length strings within the given range (inclusive). Only generates alphabetical characters.
-FOXAlphanumericalString             | NSString *     | Generates random variable length strings. Only generates alphabetical characters.
-FOXAlphanumericalStringOfSize       | NSString *     | Generates random fixed length strings. Only generates alphanumeric characters.
-FOXAlphanumericalStringOfSizeRange  | NSString *     | Generates random variable length strings within the given range (inclusive). Only generates alphanumeric characters.
-FOXNumericalString                  | NSString *     | Generates random variable length strings. Only generates numeric characters.
-FOXNumericalStringOfSize            | NSString *     | Generates random fixed length strings. Only generates numeric characters.
-FOXNumericalStringOfSizeRange       | NSString *     | Generates random variable length strings within the given range (inclusive). Only generates numeric characters.
-FOXSimpleType                       | id             | Generates random simple types. A simple type does not compose with other types. May not be printable.
-FOXPrintableSimpleType              | id             | Generates random simple types. A simple type does not compose with other types. Ensured to be printable.
-FOXCompositeType                    | id             | Generates random composite types. A composite type composes with the given generator.
-FOXAnyObject                        | id             | Generates random simple or composite types.
-FOXAnyPrintableObject               | id             | Generates random printable simple or composite types.
+Function                              | Generates      | Description
+------------------------------------- |---------------:|-------------
+FOXInteger                            | NSNumber *     | Generates random integers
+FOXPositiveInteger                    | NSNumber *     | Generates random zero or positive integers
+FOXNegativeInteger                    | NSNumber *     | Generates random zero or negative integers
+FOXStrictPositiveInteger              | NSNumber *     | Generates random positive integers (non-zero)
+FOXStrictNegativeInteger              | NSNumber *     | Generates random negative integers (non-zero)
+FOXChoose                             | NSNumber *     | Generates random integers between the given range (inclusive)
+FOXFloat                              | NSNumber *     | Generates random floats.
+FOXDouble                             | NSNumber *     | Generates random doubles.
+FOXDecimalNumber                      | NSNumber *     | Generates random decimal numbers.
+FOXReturn                             | id             | Always returns the given value. Does not shrink
+FOXTuple                              | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+FOXTupleOfGenerators                  | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+FOXArray                              | NSArray *      | Generates random variable-sized arrays of generated values.
+FOXArrayOfSize                        | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
+FOXArrayOfSizeRange                   | NSArray *      | Generates random variable-sized arrays of generated values. Array size is within the given range (inclusive).
+FOXDictionary                         | NSDictionary * | Generates random dictionries of generated values. Keys are known values ahead of time. Specified in `@{<key>: <generator>}` form.
+FOXSet                                | NSSet *        | Generates random sets of a given generated values.
+FOXCharacter                          | NSString *     | Generates random 1-length sized character string. May be an unprintable character.
+FOXAlphabetCharacter                  | NSString *     | Generates random 1-length sized character string. Only generates alphabetical letters.
+FOXNumericCharacter                   | NSString *     | Generates random 1-length sized character string. Only generates digits.
+FOXAlphanumericCharacter              | NSString *     | Generates random 1-length sized character string. Only generates alphanumeric.
+FOXAsciiCharacter                     | NSString *     | Generates random 1-length sized character string. Only generates ascii characters.
+FOXString                             | NSString *     | Generates random variable length strings. May be an unprintable string.
+FOXStringOfLength                     | NSString *     | Generates random fixed length strings. May be an unprintable string.
+FOXStringOfLengthRange                | NSString *     | Generates random length strings within the given range (inclusive). May be an unprintable string.
+FOXAsciiString                        | NSString *     | Generates random variable length strings. Only generates ascii characters.
+FOXAsciiStringOfLength                | NSString *     | Generates random fixed length strings. Only generates ascii characters.
+FOXAsciiStringOfLengthRange           | NSString *     | Generates random variable length strings within the given range (inclusive). Only generates ascii characters.
+FOXAlphabeticalString                 | NSString *     | Generates random variable length strings. Only generates alphabetical characters.
+FOXAlphabeticalStringOfLength         | NSString *     | Generates random fixed length strings. Only generates alphabetical characters.
+FOXAlphabeticalStringOfLengthRange    | NSString *     | Generates random variable length strings within the given range (inclusive). Only generates alphabetical characters.
+FOXAlphanumericalString               | NSString *     | Generates random variable length strings. Only generates alphabetical characters.
+FOXAlphanumericalStringOfLength       | NSString *     | Generates random fixed length strings. Only generates alphanumeric characters.
+FOXAlphanumericalStringOfLengthRange  | NSString *     | Generates random variable length strings within the given range (inclusive). Only generates alphanumeric characters.
+FOXNumericalString                    | NSString *     | Generates random variable length strings. Only generates numeric characters.
+FOXNumericalStringOfLength            | NSString *     | Generates random fixed length strings. Only generates numeric characters.
+FOXNumericalStringOfLengthRange       | NSString *     | Generates random variable length strings within the given range (inclusive). Only generates numeric characters.
+FOXSimpleType                         | id             | Generates random simple types. A simple type does not compose with other types. May not be printable.
+FOXPrintableSimpleType                | id             | Generates random simple types. A simple type does not compose with other types. Ensured to be printable.
+FOXCompositeType                      | id             | Generates random composite types. A composite type composes with the given generator.
+FOXAnyObject                          | id             | Generates random simple or composite types.
+FOXAnyPrintableObject                 | id             | Generates random printable simple or composite types.
 
 Computation Generators
 ----------------------

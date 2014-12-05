@@ -15,11 +15,11 @@ FOX_EXPORT id<FOXGenerator> FOXGenPure(FOXRoseTree *tree);
 
 FOX_EXPORT id<FOXGenerator> FOXGenMap(
     id<FOXGenerator> generator,
-    FOXRoseTree *(^mapfn)(FOXRoseTree *generatorTree));
+    FOXRoseTree *(^mapfn)(FOXRoseTree *generatedTree));
 
 FOX_EXPORT id<FOXGenerator> FOXGenBind(
     id<FOXGenerator> generator,
-    id<FOXGenerator> (^generatorFactory)(FOXRoseTree *generatorTree));
+    id<FOXGenerator> (^generatorFactory)(FOXRoseTree *generatedTree));
 
 FOX_EXPORT id<FOXGenerator> FOXMap(id<FOXGenerator> generator, id(^fn)(id generatedValue));
 
@@ -43,4 +43,6 @@ FOX_EXPORT id<FOXGenerator> FOXElements(NSArray *elements);
 
 FOX_EXPORT id<FOXGenerator> FOXFrequency(NSArray *tuples);
 
-FOX_EXPORT id<FOXGenerator> FOXResize(NSUInteger newSize, id<FOXGenerator> generator);
+FOX_EXPORT id<FOXGenerator> FOXResize(id<FOXGenerator> generator, NSUInteger newSize);
+
+FOX_EXPORT id<FOXGenerator> FOXResizeRange(id<FOXGenerator> generator, NSUInteger minRange, NSUInteger maxRange);

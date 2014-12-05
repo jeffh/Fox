@@ -61,6 +61,13 @@ describe(@"FOXArray", ^{
             return count >= 5 && count <= 10;
         }));
     });
+
+    it(@"should be able to shrink arrays of a given size range", ^{
+        id<FOXGenerator> generator = FOXArrayOfSizeRange(FOXInteger(), 5, 10);
+        FOXRunnerResult *result = [FOXSpecHelper shrunkResultForAll:generator];
+        result.succeeded should be_falsy;
+        result.smallestFailingValue should equal(@[@0, @0, @0, @0, @0]);
+    });
 });
 
 SPEC_END

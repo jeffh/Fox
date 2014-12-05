@@ -10,7 +10,7 @@ FOX_EXPORT id<FOXGenerator> FOXCharacter(void) {
 
 FOX_EXPORT id<FOXGenerator> FOXAlphabeticalCharacter(void) {
     return FOXWithName(@"AlphabeticalCharacter", FOXOneOf(@[FOXChoose(@65, @90),
-        FOXChoose(@97, @122)]));
+                                                            FOXChoose(@97, @122)]));
 }
 
 FOX_EXPORT id<FOXGenerator> FOXNumericCharacter(void) {
@@ -19,8 +19,8 @@ FOX_EXPORT id<FOXGenerator> FOXNumericCharacter(void) {
 
 FOX_EXPORT id<FOXGenerator> FOXAlphanumericCharacter(void) {
     return FOXWithName(@"AlphanumericCharacter", FOXOneOf(@[FOXChoose(@48, @57),
-        FOXChoose(@65, @90),
-        FOXChoose(@97, @122)]));
+                                                            FOXChoose(@65, @90),
+                                                            FOXChoose(@97, @122)]));
 }
 
 FOX_EXPORT id<FOXGenerator> FOXAsciiCharacter(void) {
@@ -32,61 +32,61 @@ FOUNDATION_STATIC_INLINE id<FOXGenerator> createStringGenerator(NSString *name, 
 }
 
 FOX_EXPORT id<FOXGenerator> FOXString(void) {
-    return createStringGenerator(@"Any", FOXArray(FOXCharacter()));
+    return createStringGenerator(@"String", FOXArray(FOXCharacter()));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXStringOfSize(NSUInteger size) {
-    return createStringGenerator(@"AnyOfSize", FOXArrayOfSize(FOXCharacter(), size));
+FOX_EXPORT id<FOXGenerator> FOXStringOfLength(NSUInteger length) {
+    return createStringGenerator(@"StringOfLength", FOXArrayOfSize(FOXCharacter(), length));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXStringOfSizeRange(NSUInteger minimumSize, NSUInteger maximumSize) {
-    return createStringGenerator(@"AnyOfSizeRange", FOXArrayOfSizeRange(FOXCharacter(), minimumSize, maximumSize));
+FOX_EXPORT id<FOXGenerator> FOXStringOfLengthRange(NSUInteger minimumLength, NSUInteger maximumLength) {
+    return createStringGenerator(@"StringOfLengthRange", FOXArrayOfSizeRange(FOXCharacter(), minimumLength, maximumLength));
 }
 
 FOX_EXPORT id<FOXGenerator> FOXAsciiString(void) {
-    return createStringGenerator(@"Ascii", FOXArray(FOXAsciiCharacter()));
+    return createStringGenerator(@"AsciiString", FOXArray(FOXAsciiCharacter()));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXAsciiStringOfSize(NSUInteger size) {
-    return createStringGenerator(@"AsciiOfSize", FOXArrayOfSize(FOXAsciiCharacter(), size));
+FOX_EXPORT id<FOXGenerator> FOXAsciiStringOfLength(NSUInteger length) {
+    return createStringGenerator(@"AsciiStringOfLength", FOXArrayOfSize(FOXAsciiCharacter(), length));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXAsciiStringOfSizeRange(NSUInteger minimumSize, NSUInteger maximumSize) {
-    return createStringGenerator(@"AsciiOfSizeRange", FOXArrayOfSizeRange(FOXAsciiCharacter(), minimumSize, maximumSize));
+FOX_EXPORT id<FOXGenerator> FOXAsciiStringOfLengthRange(NSUInteger minimumLength, NSUInteger maximumLength) {
+    return createStringGenerator(@"AsciiStringOfLengthRange", FOXArrayOfSizeRange(FOXAsciiCharacter(), minimumLength, maximumLength));
 }
 
 FOX_EXPORT id<FOXGenerator> FOXAlphabeticalString(void) {
     return createStringGenerator(@"AlphabeticalString", FOXArray(FOXAlphabeticalCharacter()));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXAlphabeticalStringOfSize(NSUInteger size) {
-    return createStringGenerator(@"AlphabeticalStringOfSize", FOXArrayOfSize(FOXAlphabeticalCharacter(), size));
+FOX_EXPORT id<FOXGenerator> FOXAlphabeticalStringOfLength(NSUInteger length) {
+    return createStringGenerator(@"AlphabeticalStringOfLength", FOXArrayOfSize(FOXAlphabeticalCharacter(), length));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXAlphabeticalStringOfSizeRange(NSUInteger minimumSize, NSUInteger maximumSize) {
-    return createStringGenerator(@"AlphabeticalStringOfSizeRange", FOXArrayOfSizeRange(FOXAlphabeticalCharacter(), minimumSize, maximumSize));
+FOX_EXPORT id<FOXGenerator> FOXAlphabeticalStringOfLengthRange(NSUInteger minimumLength, NSUInteger maximumLength) {
+    return createStringGenerator(@"AlphabeticalStringOfLengthRange", FOXArrayOfSizeRange(FOXAlphabeticalCharacter(), minimumLength, maximumLength));
 }
 
 FOX_EXPORT id<FOXGenerator> FOXNumericString(void) {
     return createStringGenerator(@"NumericString", FOXArray(FOXNumericCharacter()));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXNumericStringOfSize(NSUInteger size) {
-    return createStringGenerator(@"NumericStringOfSize", FOXArrayOfSize(FOXNumericCharacter(), size));
+FOX_EXPORT id<FOXGenerator> FOXNumericStringOfLength(NSUInteger length) {
+    return createStringGenerator(@"NumericStringOfLength", FOXArrayOfSize(FOXNumericCharacter(), length));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXNumericStringOfSizeRange(NSUInteger minimumSize, NSUInteger maximumSize) {
-    return createStringGenerator(@"NumericStringOfSizeRange", FOXArrayOfSizeRange(FOXNumericCharacter(), minimumSize, maximumSize));
+FOX_EXPORT id<FOXGenerator> FOXNumericStringOfLengthRange(NSUInteger minimumLength, NSUInteger maximumLength) {
+    return createStringGenerator(@"NumericStringOfLengthRange", FOXArrayOfSizeRange(FOXNumericCharacter(), minimumLength, maximumLength));
 }
 
 FOX_EXPORT id<FOXGenerator> FOXAlphanumericString(void) {
     return createStringGenerator(@"AlphanumericalString", FOXArray(FOXAlphanumericCharacter()));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXAlphanumericStringOfSize(NSUInteger size) {
-    return createStringGenerator(@"AlphanumericalStringOfSize", FOXArrayOfSize(FOXAlphanumericCharacter(), size));
+FOX_EXPORT id<FOXGenerator> FOXAlphanumericStringOfLength(NSUInteger length) {
+    return createStringGenerator(@"AlphanumericalStringOfLength", FOXArrayOfSize(FOXAlphanumericCharacter(), length));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXAlphanumericStringOfSizeRange(NSUInteger minimumSize, NSUInteger maximumSize) {
-    return createStringGenerator(@"AlphanumericalStringOfSizeRange", FOXArrayOfSizeRange(FOXAlphanumericCharacter(), minimumSize, maximumSize));
+FOX_EXPORT id<FOXGenerator> FOXAlphanumericStringOfLengthRange(NSUInteger minimumLength, NSUInteger maximumLength) {
+    return createStringGenerator(@"AlphanumericalStringOfLengthRange", FOXArrayOfSizeRange(FOXAlphanumericCharacter(), minimumLength, maximumLength));
 }

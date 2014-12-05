@@ -23,16 +23,16 @@ FOX_EXPORT id<FOXGenerator> FOXGenPure(FOXRoseTree *tree) {
 }
 
 FOX_EXPORT id<FOXGenerator> FOXGenMap(id<FOXGenerator> generator,
-    FOXRoseTree *(^mapfn)(FOXRoseTree *generatorTree)) {
+    FOXRoseTree *(^mapfn)(FOXRoseTree *generatedTree)) {
     return [[FOXMapGenerator alloc] initWithGenerator:generator map:mapfn];
 }
 
 FOX_EXPORT id<FOXGenerator> FOXGenBind(id<FOXGenerator> generator,
-    id<FOXGenerator> (^factory)(FOXRoseTree *generatorTree)) {
+    id<FOXGenerator> (^factory)(FOXRoseTree *generatedTree)) {
     return [[FOXBindGenerator alloc] initWithGenerator:generator factory:factory];
 }
 
-FOX_EXPORT id<FOXGenerator> FOXMap(id<FOXGenerator> generator, id (^fn)(id value)) {
+FOX_EXPORT id<FOXGenerator> FOXMap(id<FOXGenerator> generator, id (^fn)(id generatedValue)) {
     return FOXGenMap(generator, ^FOXRoseTree *(FOXRoseTree *roseTree) {
         return [roseTree treeByApplyingBlock:fn];
     });
@@ -128,8 +128,19 @@ FOX_EXPORT id<FOXGenerator> FOXFrequency(NSArray *tuples) {
     }));
 }
 
-FOX_EXPORT id<FOXGenerator> FOXResize(NSUInteger newSize, id<FOXGenerator> generator) {
+FOX_EXPORT id<FOXGenerator> FOXResize(id<FOXGenerator> generator, NSUInteger newSize) {
     return FOXWithName(@"FOXResize", FOXGenerate(^FOXRoseTree *(id<FOXRandom> random, NSUInteger _) {
         return [generator lazyTreeWithRandom:random maximumSize:newSize];
+    }));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXResizeRange(id<FOXGenerator> generator, NSUInteger minRange, NSUInteger maxRange) {
+    NSUInteger delta = maxRange - minRange;
+    return FOXWithName(@"ResizeRange", FOXGenerate(^FOXRoseTree *(id<FOXRandom> random, NSUInteger size) {
+        if (delta) {
+            return [generator lazyTreeWithRandom:random maximumSize:(size % delta) + minRange];
+        } else {
+            return [generator lazyTreeWithRandom:random maximumSize:size];
+        }
     }));
 }
