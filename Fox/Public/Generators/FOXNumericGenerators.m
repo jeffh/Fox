@@ -44,23 +44,23 @@ FOX_EXPORT id<FOXGenerator> FOXNonZeroInteger(void) {
 }
 
 FOX_EXPORT id<FOXGenerator> FOXFloat(void) {
-    return FOXGenMap(FOXDecimalNumber(), ^FOXRoseTree *(FOXRoseTree *generatedTree) {
+    return FOXWithName(@"Float", FOXGenMap(FOXDecimalNumber(), ^FOXRoseTree *(FOXRoseTree *generatedTree) {
         return [generatedTree treeByApplyingBlock:^id(NSDecimalNumber *element) {
             return @([element floatValue]);
         }];
-    });
+    }));
 }
 
 FOX_EXPORT id<FOXGenerator> FOXDouble(void) {
-    return FOXGenMap(FOXDecimalNumber(), ^FOXRoseTree *(FOXRoseTree *generatedTree) {
+    return FOXWithName(@"Double", FOXGenMap(FOXDecimalNumber(), ^FOXRoseTree *(FOXRoseTree *generatedTree) {
         return [generatedTree treeByApplyingBlock:^id(NSDecimalNumber *element) {
             return @([element doubleValue]);
         }];
-    });
+    }));
 }
 
 FOX_EXPORT id<FOXGenerator> FOXDecimalNumber(void) {
-    return FOXSized(^id<FOXGenerator>(NSUInteger size) {
+    return FOXWithName(@"DecimalNumber", FOXSized(^id<FOXGenerator>(NSUInteger size) {
         id<FOXGenerator> genShort = FOXChoose(@(MAX(-size, INT16_MIN)), @(MIN(size, INT16_MAX)));
         return FOXBind(genShort, ^id<FOXGenerator>(NSNumber *exponent) {
             return FOXBind(FOXChoose(@0, @(size)), ^id<FOXGenerator>(NSNumber *mantissa) {
@@ -74,5 +74,5 @@ FOX_EXPORT id<FOXGenerator> FOXDecimalNumber(void) {
                 });
             });
         });
-    });
+    }));
 }
