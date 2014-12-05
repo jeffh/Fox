@@ -17,7 +17,7 @@
  *      id<FOXGenerator> generator = [transition generator]
  *      id value = generateRandomValueFromGenerator(generator);
  *      id nextState = [transition nextModelStateForModelState:modelState generatedValue:value];
- *      id result = [transition objectFromAdvancingActualState:actualState generatedValue:value];
+ *      id result = [transition objectReturnedBySubject:actualState generatedValue:value];
  *      assert [transition satisfiesPostconditionInModelState:nextState
  *                                             fromModelState:modelState
  *                                                actualState:actualState
@@ -80,15 +80,15 @@
 
 /*! Advances the state of the SUT. The implementation would mutate the SUT's state to transition its state.
  *
- *  @param actualState The Subject Under Test. This gives you the opportunity to call the API under test. Assumes
- *                     mutation, since the return value of this method is intended for the postcondition.
+ *  @param subject The Subject Under Test. This gives you the opportunity to call the API under test. Assumes
+ *                 mutation, since the return value of this method is intended for the postcondition.
  *  @param generatedValue The generated value from the generated specified in ``-[generator]``.
  *  @returns Any object that might be useful for the postcondition to verify. Typically this is the return value from
  *           calling a method on ``actualState``.
  */
 @required
-- (id)objectFromAdvancingActualState:(id)actualState
-                      generatedValue:(id)generatedValue;
+- (id)objectReturnedByInvokingSubject:(id)subject
+                       generatedValue:(id)generatedValue;
 
 /*! Verifies the state of the model with the actual state of the SUT.
  *
@@ -100,14 +100,14 @@
  *                            ``-[nextModelStateFromModelState:generatedValue:]``
  *  @param actualState The actual state of the SUT after the transition.
  *  @param generatedValue The value generated from ``-[generator]``
- *  @param returnedObjectFromAdvancing The object returned from ``-[objectFromAdvancingActualState:generatedValue:]``
+ *  @param returnedObjectFromAdvancing The object returned from ``-[objectReturnedBySubject:generatedValue:]``
  *  @returns A bool indicates if the model and actual state align. Returning NO fails the test.
  */
 @optional
 - (BOOL)satisfiesPostConditionInModelState:(id)currentModelState
                             fromModelState:(id)previousModelState
-                               actualState:(id)actualState
+                                   subject:(id)subject
                             generatedValue:(id)generatedValue
-               returnedObjectFromAdvancing:(id)actualStateResult;
+                   objectReturnedBySubject:(id)returnedObject;
 
 @end

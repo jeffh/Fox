@@ -21,20 +21,20 @@
     return [previousModelState subarrayWithRange:NSMakeRange(1, previousModelState.count - 1)];
 }
 
-- (id)objectFromAdvancingActualState:(Queue *)actualState
-                      generatedValue:(id)generatedValue
+- (id)objectReturnedByInvokingSubject:(id)subject
+                       generatedValue:(id)generatedValue
 {
-    return [actualState removeObject];
+    return [subject removeObject];
 }
 
-- (BOOL)satisfiesPostConditionInModelState:(NSArray *)currentModalState
-                            fromModelState:(NSArray *)previousModalState
-                               actualState:(Queue *)actualState
+- (BOOL)satisfiesPostConditionInModelState:(id)currentModelState
+                            fromModelState:(id)previousModelState
+                                   subject:(id)subject
                             generatedValue:(id)generatedValue
-               returnedObjectFromAdvancing:(id)actualStateResult
+                   objectReturnedBySubject:(id)returnedObject
 {
-    id expectedObject = [previousModalState firstObject];
-    return [expectedObject isEqual:actualStateResult];
+    id expectedObject = [previousModelState firstObject];
+    return [expectedObject isEqual:returnedObject];
 }
 
 - (NSString *)descriptionWithGeneratedValue:(id)generatedValue

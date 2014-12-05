@@ -3,10 +3,10 @@
 
 @interface FOXTransition : NSObject <FOXStateTransition>
 
-@property (nonatomic, copy) id(^action)(id actualState, id generatedValue);
+@property (nonatomic, copy) id(^action)(id subject, id generatedValue);
 @property (nonatomic, copy) id(^nextState)(id modelState, id generatedValue);
 @property (nonatomic, copy) BOOL(^precondition)(id modelState);
-@property (nonatomic, copy) BOOL(^postcondition)(id modelState, id previousModelState, id actualState, id generatedValue, id returnedObject);
+@property (nonatomic, copy) BOOL(^postcondition)(id modelState, id previousModelState, id subject, id generatedValue, id returnedObject);
 @property (nonatomic) id<FOXGenerator> generator;
 @property (nonatomic, copy) NSString *name;
 
@@ -18,10 +18,10 @@
                    nextModelState:(id (^)(id modelState, id generatedValue))nextState;
 
 - (instancetype)initWithGenerator:(id<FOXGenerator>)generator
-                           action:(id(^)(id actualState, id generatedValue))action
+                           action:(id(^)(id subject, id generatedValue))action
                    nextModelState:(id (^)(id modelState, id generatedValue))nextState;
 
-- (instancetype)initWithAction:(id(^)(id actualState, id generatedValue))advancer
+- (instancetype)initWithAction:(id(^)(id subject, id generatedValue))advancer
                 nextModelState:(id (^)(id modelState, id generatedValue))nextState;
 
 @end

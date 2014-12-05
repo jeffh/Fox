@@ -48,11 +48,10 @@
     return YES;
 }
 
-- (NSArray *)executeCommandSequence:(NSArray *)commands initialActualState:(id)initialActualState
+- (NSArray *)executeCommandSequence:(NSArray *)commands subject:(id)subject
 {
     NSMutableArray *executedCommands = [NSMutableArray array];
     id modelState = self.initialModelState;
-    id actualState = initialActualState;
     for (FOXCommand *command in commands) {
         id<FOXStateTransition> transition = command.transition;
         id generatedValue = command.generatedValue;
@@ -74,26 +73,26 @@
         id resultingValue = nil;
 
         @try {
-            resultingValue = [transition objectFromAdvancingActualState:actualState generatedValue:generatedValue];
+            resultingValue = [transition objectReturnedByInvokingSubject:subject generatedValue:generatedValue];
         }
         @catch (NSException *exception) {
             executedCommand.raisedException = exception;
         }
 
         executedCommand.satisfiesPrecondition = YES;
-        executedCommand.objectFromAdvancingActualState = resultingValue;
+        executedCommand.objectReturnedBySubject = resultingValue;
         executedCommand.modelStateAfterExecution = modelState;
 
         if (executedCommand.raisedException) {
             break;
         }
 
-        if ([transition respondsToSelector:@selector(satisfiesPostConditionInModelState:fromModelState:actualState:generatedValue:returnedObjectFromAdvancing:)]) {
+        if ([transition respondsToSelector:@selector(satisfiesPostConditionInModelState:fromModelState:subject:generatedValue:objectReturnedBySubject:)]) {
             if (![transition satisfiesPostConditionInModelState:modelState
                                                  fromModelState:previousModalState
-                                                    actualState:actualState
+                                                        subject:subject
                                                  generatedValue:generatedValue
-                                    returnedObjectFromAdvancing:resultingValue]) {
+                                        objectReturnedBySubject:resultingValue]) {
                 break;
             }
         }

@@ -6,6 +6,6 @@
 - (id)initialModelState;
 - (NSArray *)allTransitions; // FOXStateTransitions
 - (BOOL)isValidCommandSequence:(NSArray *)commands; // FOXCommands
-- (NSArray *)executeCommandSequence:(NSArray *)commands initialActualState:(id)initialActualState;
+- (NSArray *)executeCommandSequence:(NSArray *)commands subject:(id)subject;
 
 @end

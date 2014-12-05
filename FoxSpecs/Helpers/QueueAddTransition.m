@@ -22,10 +22,10 @@
     return [previousModelState arrayByAddingObject:generatedValue];
 }
 
-- (id)objectFromAdvancingActualState:(id)actualState
-                      generatedValue:(id)generatedValue
+- (id)objectReturnedByInvokingSubject:(id)subject
+                       generatedValue:(id)generatedValue
 {
-    [actualState addObject:generatedValue];
+    [subject addObject:generatedValue];
     return nil;
 }
 

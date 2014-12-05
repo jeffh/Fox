@@ -13,8 +13,8 @@ static id FOXBoxReturnFromInvocation(NSInvocation *invocation);
                     withGenerator:(id<FOXGenerator>)generator
                    nextModelState:(id (^)(id modelState, id generatedValue))nextState
 {
-    FOXTransition *transition = [[FOXTransition alloc] initWithAction:^id(id actualState, id generatedValue) {
-        NSMethodSignature *signature = [actualState methodSignatureForSelector:selector];
+    FOXTransition *transition = [[FOXTransition alloc] initWithAction:^id(id subject, id generatedValue) {
+        NSMethodSignature *signature = [subject methodSignatureForSelector:selector];
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
 
         NSArray *arguments = [NSArray arrayWithObject:generatedValue];
@@ -24,7 +24,7 @@ static id FOXBoxReturnFromInvocation(NSInvocation *invocation);
         FOXPrepareInvocation(invocation, arguments);
 
         invocation.selector = selector;
-        [invocation invokeWithTarget:actualState];
+        [invocation invokeWithTarget:subject];
 
         return FOXBoxReturnFromInvocation(invocation);
     } nextModelState:nextState];
@@ -40,7 +40,7 @@ static id FOXBoxReturnFromInvocation(NSInvocation *invocation);
 }
 
 - (instancetype)initWithGenerator:(id<FOXGenerator>)generator
-                           action:(id(^)(id actualState, id generatedValue))action
+                           action:(id(^)(id subject, id generatedValue))action
                    nextModelState:(id (^)(id modelState, id generatedValue))nextState
 {
     self = [super init];
@@ -52,7 +52,7 @@ static id FOXBoxReturnFromInvocation(NSInvocation *invocation);
     return self;
 }
 
-- (instancetype)initWithAction:(id(^)(id actualState, id generatedValue))action
+- (instancetype)initWithAction:(id(^)(id subject, id generatedValue))action
                 nextModelState:(id (^)(id modelState, id generatedValue))nextState
 {
     return [self initWithGenerator:nil action:action nextModelState:nextState];
@@ -89,19 +89,19 @@ static id FOXBoxReturnFromInvocation(NSInvocation *invocation);
     return self.nextState(previousModelState, generatedValue);
 }
 
-- (id)objectFromAdvancingActualState:(id)actualState generatedValue:(id)generatedValue
+- (id)objectReturnedByInvokingSubject:(id)subject generatedValue:(id)generatedValue
 {
-    return self.action(actualState, generatedValue);
+    return self.action(subject, generatedValue);
 }
 
 - (BOOL)satisfiesPostConditionInModelState:(id)currentModelState
                             fromModelState:(id)previousModelState
-                               actualState:(id)actualState
+                                   subject:(id)subject
                             generatedValue:(id)generatedValue
-               returnedObjectFromAdvancing:(id)actualStateResult
+                   objectReturnedBySubject:(id)objectReturned
 {
     if (self.postcondition) {
-        return self.postcondition(currentModelState, previousModelState, actualState, generatedValue, actualStateResult);
+        return self.postcondition(currentModelState, previousModelState, subject, generatedValue, objectReturned);
     } else {
         return YES;
     }

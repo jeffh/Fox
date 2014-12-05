@@ -41,7 +41,7 @@ FOX_EXPORT id<FOXGenerator> FOXCommands(id<FOXStateMachine> stateMachine) {
  */
 FOX_EXPORT id<FOXGenerator> FOXExecuteCommands(id<FOXStateMachine> stateMachine, id (^subject)(void)) {
     return FOXMap(FOXCommands(stateMachine), ^id(NSArray *commands) {
-        return [stateMachine executeCommandSequence:commands initialActualState:subject()];
+        return [stateMachine executeCommandSequence:commands subject:subject()];
     });
 }
 
