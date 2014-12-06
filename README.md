@@ -1,8 +1,8 @@
 Fox
 ===
 
-[![Latest Documentation Status](https://readthedocs.org/projects/fox-testing/badge/?version=latest)](https://readthedocs.org/projects/fox-testing/?badge=latest)
-[![v1.0.0 Documentation Status](https://readthedocs.org/projects/fox-testing/badge/?version=v1.0.0)](https://readthedocs.org/projects/fox-testing/?badge=v1.0.0)
+[![Latest Documentation Status](https://readthedocs.org/projects/fox-testing/badge/?version=latest)](http://fox-testing.readthedocs.org/en/latest/)
+[![v1.0.0 Documentation Status](https://readthedocs.org/projects/fox-testing/badge/?version=v1.0.0)](http://fox-testing.readthedocs.org/en/v1.0.0/)
 
 Property Based Testing for Objective-C and Swift. Automatic generation of
 software tests.
