@@ -6,11 +6,10 @@ const NSUInteger FOXDefaultMaximumSize = 200;
 
 static NSUInteger FOXGetUIntegerFromEnv(const char *envname, NSUInteger defaultValue) {
     const char *envval = getenv(envname);
-    if (envval == NULL) {
-        envval = "";
-    }
     NSUInteger number = defaultValue;
-    sscanf(envval, "%lu", &number);
+    if (envval != NULL) {
+        sscanf(envval, "%lu", &number);
+    }
     return number;
 }
 
@@ -23,5 +22,9 @@ FOX_EXPORT NSUInteger FOXGetMaximumSize(void) {
 }
 
 FOX_EXPORT NSUInteger FOXGetSeed(void) {
-    return FOXGetUIntegerFromEnv("FOX_SEED", (NSUInteger)time(NULL));
+    static NSUInteger ___seed;
+    if (!___seed) {
+        ___seed = FOXGetUIntegerFromEnv("FOX_SEED", (NSUInteger)time(NULL));
+    }
+    return ___seed;
 }

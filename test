@@ -48,11 +48,23 @@ function run {
 
 function test_ios {
     run osascript -e 'tell app "iOS Simulator" to quit'
-    run xcodebuild -workspace "$PROJECT_NAME" -scheme "$IOS_SCHEME" -configuration "Debug" -sdk "iphonesimulator$BUILD_IOS_SDK_VERSION" -destination "name=iPhone 5s,OS=$RUNTIME_IOS_SDK_VERSION" build test
+    run xcodebuild -workspace "$PROJECT_NAME"\
+        -scheme "$IOS_SCHEME"\
+        -configuration "Debug"\
+        -sdk "iphonesimulator$BUILD_IOS_SDK_VERSION"\
+        -destination "name=iPhone 5s,OS=$RUNTIME_IOS_SDK_VERSION" \
+        build test \
+        FOX_NUM_TESTS=$FOX_NUM_TEST \
+        FOX_SEED=$FOX_SEED \
+        FOX_MAX_SIZE=$FOX_MAX_SIZE
 }
 
 function test_osx {
-    run xcodebuild -workspace "$PROJECT_NAME" -scheme "$OSX_SCHEME" -configuration "Debug" -sdk "macosx$BUILD_OSX_SDK_VERSION" build test
+    run xcodebuild -workspace "$PROJECT_NAME"\
+        -scheme "$OSX_SCHEME"\
+        -configuration "Debug"\
+        -sdk "macosx$BUILD_OSX_SDK_VERSION"\
+        build test
 }
 
 function test() {

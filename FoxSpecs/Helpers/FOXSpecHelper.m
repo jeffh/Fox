@@ -4,23 +4,14 @@
 
 @implementation FOXSpecHelper
 
-const NSUInteger defaultNumberOfTests = 500;
-static NSUInteger ___numberOfTests;
++ (NSUInteger)numberOfTestsPerProperty
+{
+    return FOXGetNumberOfTests();
+}
 
 + (void)initialize
 {
-    const char *envval = getenv("FOX_SPECS_NUM_TESTS");
-    NSUInteger numberOfTests = defaultNumberOfTests;
-    if (envval) {
-        sscanf(envval, "%lu", &numberOfTests);
-    }
-    printf("Fox Seed: %lu\n", numberOfTests);
-    ___numberOfTests = numberOfTests;
-}
-
-+ (NSUInteger)numberOfTestsPerProperty
-{
-    return ___numberOfTests;
+    printf("FOX_NUM_TESTS=%lu, FOX_SEED=%lu, FOX_MAX_SIZE=%lu\n", FOXGetNumberOfTests(), FOXGetSeed(), FOXGetMaximumSize());
 }
 
 + (FOXRunnerResult *)resultForAll:(id<FOXGenerator>)generator

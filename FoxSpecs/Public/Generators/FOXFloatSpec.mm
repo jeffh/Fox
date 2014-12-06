@@ -39,7 +39,7 @@ describe(@"FOXFloat", ^{
             return fmodf([value floatValue], 1) == 0;
         }];
         result.succeeded should be_falsy;
-        ABS([result.smallestFailingValue floatValue]) should be_close_to(0.1);
+        ABS([result.smallestFailingValue floatValue]) should be_less_than_or_equal_to(1);
     });
 
     it(@"should shrink negative values to zero", ^{
@@ -48,7 +48,7 @@ describe(@"FOXFloat", ^{
         }];
 
         result.succeeded should be_falsy;
-        result.smallestFailingValue should be_close_to(@(-0.1));
+        result.smallestFailingValue should be_greater_than_or_equal_to(@(-1));
     });
 });
 
