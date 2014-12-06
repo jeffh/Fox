@@ -50,12 +50,6 @@ FOX_EXPORT id<FOXGenerator> FOXReturn(id value) {
     return FOXGenPure([[FOXRoseTree alloc] initWithValue:value]);
 }
 
-FOX_EXPORT id<FOXGenerator> FOXInteger(void) {
-    return FOXWithName(@"Integer", FOXSized(^(NSUInteger sizeNumber) {
-        return FOXChoose(@(-((NSInteger)sizeNumber)), @(sizeNumber));
-    }));
-}
-
 FOX_EXPORT id<FOXGenerator> FOXSuchThat(id<FOXGenerator> generator, BOOL(^predicate)(id)) {
     return FOXSuchThatWithMaxTries(generator, predicate, 10);
 }

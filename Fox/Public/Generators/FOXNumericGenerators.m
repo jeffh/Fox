@@ -15,6 +15,12 @@ FOX_EXPORT id<FOXGenerator> FOXBoolean(void) {
     return FOXWithName(@"FOXBoolean", FOXChoose(@0, @1));
 }
 
+FOX_EXPORT id<FOXGenerator> FOXInteger(void) {
+    return FOXWithName(@"Integer", FOXSized(^(NSUInteger sizeNumber) {
+        return FOXChoose(@(-((NSInteger)sizeNumber)), @(sizeNumber));
+    }));
+}
+
 FOX_EXPORT id<FOXGenerator> FOXPositiveInteger(void) {
     return FOXWithName(@"PositiveInteger", _FOXNaturalInteger());
 }
