@@ -6,11 +6,11 @@ const NSUInteger FOXDefaultMaximumSize = 200;
 
 static NSUInteger FOXGetUIntegerFromEnv(const char *envname, NSUInteger defaultValue) {
     const char *envval = getenv(envname);
-    NSUInteger number = defaultValue;
+    unsigned long number = defaultValue;
     if (envval != NULL) {
         sscanf(envval, "%lu", &number);
     }
-    return number;
+    return (NSUInteger)number;
 }
 
 FOX_EXPORT NSUInteger FOXGetNumberOfTests(void) {
