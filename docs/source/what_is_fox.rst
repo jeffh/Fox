@@ -3,16 +3,15 @@
 What is Fox?
 ============
 
-Fox is a port of the property-based testing tool `test.check`_ (decendant of
-QuickCheck).
+Fox is a port of the property-based testing tool `test.check`_.
 
-Property-based Testing Tools, especially ones inspired from QuickCheck, are
-test generators. Instead of hand-crafted test cases, these tools allow you to
-describe a property of your program that should always hold true. An example
-pseudo-code would be::
+Property-Based Testing Tools, especially ones inspired from `QuickCheck`_, are
+test generators. These tools allow you to describe a property of your program
+that should always hold true instead of writing hand-crafted test cases. A
+pseudo-code example would be::
 
     // pseudocode: A property for the sort() function
-    ForAll(xs where xs is an Array of Unsigned Integers){
+    property := ForAll(xs where xs is an Array of Unsigned Integers){
         // perform action
         sorted_numbers := sort(xs)
         // verify that sorted_numbers is in ascending order
@@ -21,38 +20,47 @@ pseudo-code would be::
             if i <= n {
                 i = n
             } else {
-                return FAIL
+                return FAILURE
             }
         }
         return SUCCESS
     }
 
-Which tests a sort function. The property testing tool will generate examples
-based on the requirements (of ``xs``) to try and find a failling example.
+This example tests a sort function. Fox will generate tests based on the
+requirements of ``xs`` (any array of unsigned integers) to find a failing
+example that causes a FAILURE.
 
-In the mathematical sense, a property testing tool is a weak proof of a
-property where the tool tries to assert the property is valid by randomly
-generating a counter-example.
+In the mathematical sense, Fox is a weak proof checker of a property where the
+tool tries to assert the property is valid by randomly generating data to find
+a counter-example.
+
+.. _test.check: https://github.com/clojure/test.check
+.. _QuickCheck: https://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2
+
 
 Shrinking Failures
 ------------------
 
-The benefit of Fox over purely random data generation is Shrinking.  Instead of
-purely random data generation, an informed random generation is done by size.
-This allows the tool to reduce the counter-example to a smaller data set.
+The benefit of Fox over purely random data generation is Shrinking.  An
+informed random generation is done by size.  This allows the tool to reduce the
+counter-example to a smaller data set without having a user manually separate
+thes signal from the noise in the randomly generated data.
 
 For example, if a ``sort()`` implementation failed with an exception when
-reading 9s. Fox might have generated this value that provoked the failure::
+reading 9s. Fox could generate this value to provoke the failure::
 
-    xs = @[@1, @5, @9, @3, @5]
+    xs = @[@1, @5, @9, @3, @5] // fails
 
-And then proceed to shrink ``xs`` to::
+And then proceed to shrink ``xs`` by trying smaller permutations::
 
-    xs = @[@9]
+    xs = @[@5, @9, @3, @5] // still fails
+    xs = @[@9, @3, @5] // fails
+    xs = @[@3, @5] // passed
+    xs = @[@9, @5] // fails
+    xs = @[@9] // fails
 
-This reduces the amount of manual debugging to determine the smallest example
-that provokes the failure.
+Fox does this automatically whenever a failure occurs. This is valuable instead
+of having to manually debug a failure when random data generation is used.
 
-.. _test.check: https://github.com/clojure/test.check
-.. _Haskell QuickCheck: https://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2
+Ready to get started? :doc:`Install Fox </installation>`.
 

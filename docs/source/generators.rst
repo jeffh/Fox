@@ -6,20 +6,20 @@
 Generators
 ==========
 
-Generators are the core of Fox. They specify directed random data creation.
-This means generators know how to create the given data and how to shrink it.
+Generators specify directed random data creation.  This means generators know
+how to create the given data and how to shrink it.
 
-In technical terms, all generators conform to the ``FOXGenerator`` protocol.
+Technically, all generators conform to the ``FOXGenerator`` protocol.
 All generators return a lazy rose tree for consumption by the :doc:`Fox runner
 </runner>`.
 
 The power of generators are their composability. Shrinking is provided for
-*free* if you compose with Fox's built-in generators. Of course, you can
-provide custom shrinking strategies as you needed. In fact, most of Fox's
-built-in generators are composed on top of ``FOXChoose``.
+*free* if you compose with Fox's built-in generators. In fact, most of Fox's
+built-in generators are composed on top of ``FOXChoose``. Of course you can
+provide custom shrinking strategies as needed. 
 
-For the typed programming enthusiast, generators are expected to conform to
-this type:
+For the typed programming enthusiast, generators are functions expected to
+conform to this type:
 
     ``(id<FOXRandom>, uint32_t) -> FOXRoseTree<U>`` where ``U`` is an
     Objective-C object.
@@ -39,9 +39,9 @@ For the list of all generators that Fox provides, read about
 Building Custom Generators
 ==========================
 
-It's easy to compose the built-in generator to build generators for custom data
-types we have. Let's say we want to generate random permutations of a Person
-class::
+It's easy to compose the built-in generators to build generators for custom
+data types we have. Let's say we want to generate random permutations of a
+Person class::
 
     // value object. Implementation assumed
     @interface Person : NSObject
@@ -88,7 +88,7 @@ And we can then use is like any other generator::
     }));
 
 You can see the :ref:`reference <Built-in Generators>` for all the generators.
-The most common generators can be creating using the provided mappers.
+Most common generators can be built from the provided mappers.
 
 .. _How Shrinking Works:
 
@@ -96,22 +96,22 @@ How Shrinking Works
 ===================
 
 Generators are just functions that accept a random number generator and a size
-hint and return a rose tree of values.
+hint as arguments and then return a rose tree of values.
 
-Rose trees sound fancy, but they are generic trees with an arbitrary number of
+Rose trees sound fancy, but they're generic trees with an arbitrary number of
 branches. Each node in the tree represents a value. Fox generators create rose
 trees instead of individual values. This allows the :doc:`runner </runner>` to
 shrink the value by traversing through the children of the tree.
 
-The main shrinking implementation Fox uses are for for integers (via
-``FOXChoose``). If a 4 was generated, the rose tree that ``FOXChoose``
-generates would look like this:
+The main shrinking implementation Fox uses are for integers (via
+``FOXChoose``). For example, if a 4 was generated, the rose tree that
+``FOXChoose`` generates would look like this:
 
 .. image:: images/rose-tree-4.png
 
-Where the children of each node represents a smaller value that its parent. Fox
-will walk depth-first search through this tree when a test fails to shrink to
-the smallest value.
+The children of each node represents a smaller value that its parent. Fox will
+walk depth-first through this tree when a test fails to shrink to the smallest
+value.
 
 Based on the diagram, the algorithm for shrinking integers prefers:
 
@@ -119,9 +119,9 @@ Based on the diagram, the algorithm for shrinking integers prefers:
 - Reducing to 50% of the original value
 - Reducing the value by 1
 
-While this makes it more expensive to find larger integers (because of the
-redundant checking of zero), it is generally more common to immediately shrink
-to the smallest value.
+This makes it more expensive to find larger integers (because of the redundant
+checking of zero), but it is generally more common to immediately shrink to the
+smallest value.
 
 .. _Building Generators with Custom Shrinking:
 
@@ -130,8 +130,8 @@ Writing Generators with Custom Shrinking
 
 .. warning::
     **This is significantly more complicated than composing generators**, which
-    is what you want the majority of the time. Composing existing generators
-    will also provide shrinking for free.
+    is probably what you want the majority of the time. Composing existing
+    generators will also provide shrinking for free.
 
 .. warning::
     This section assumes knowledge functional programming concepts. It's worth
@@ -208,7 +208,7 @@ opt-in laziness for Fox's rose tree.
 
 .. _Clojure's sequence abstraction: http://clojure.org/sequences
 
-We'll mimic the behavior of Fox's algorithm:
+We'll mimic the behavior of Fox's integer shrinking algorithm:
 
 - Shrink to 10.
 - Shrink towards 10 by 50% of its current value.
@@ -227,9 +227,8 @@ We'll do this by defining functions to recursively create our rose tree::
     }
 
 ``sequenceOfHalfIntegers`` creates a sequence of integers that are half
-increments from n to 10 starting with n. ``FOXSequence`` accepts ``nil`` as
-remainingSequence to indicate the end of the sequence. Next we define the
-children values::
+increments from n to 10 starting with n. ``nil`` is equivalent to an empty
+sequence. Next we define the children values::
 
     // eg - sequenceOfSmallerIntegers(@14) -> SEQ(@10, @12, @13)
     static id<FOXSequence> sequenceOfSmallerIntegers(NSNumber *n) {
@@ -241,10 +240,9 @@ children values::
         }];
     }
 
-``sequenceOfSmallerIntegers`` creates a lazy sequence of values smaller than n
-and equal to or larger than 10. The default is (n - each half number difference
-to 10). A nil sequence is equal to an empty sequence. Finally, we need to
-convert this sequence into a rose tree::
+``sequenceOfSmallerIntegers`` creates a lazy sequence of values between n and
+10 (including 10). Each element is ``(n - each half number difference to 10)``.
+Finally, we need to convert this sequence into a rose tree::
 
     static FOXRoseTree *roseTreeWithInteger(NSNumber *n) {
         id<FOXSequence> smallerIntegers = sequenceOfSmallerIntegers(n);
@@ -257,7 +255,9 @@ convert this sequence into a rose tree::
 ``sequenceOfSmallerIntegers`` creates a rose tree for a given number. The
 children are values from ``sequenceOfSmallerIntegers(n)``. The rose tree is
 recursively generated until ``sequenceOfSmallerIntegers`` returns an empty
-sequence (if the number is 14). Finally, we wire everything together in our
+sequence (when the number is 10).
+
+Finally, we wire everything together in our function that defines our
 generator::
 
     id<FOXGenerator> MyInteger(void) {
@@ -274,5 +274,5 @@ Conceptually, our data pipeline looks like this:
 
 .. image:: images/shrink-pipeline.png
 
-Now we can generate values that shrink to 10! Obviously this can be applied to
+Now we can generate values that shrink to 10! Obviously, this can be applied to
 more interesting shrinking strategies.

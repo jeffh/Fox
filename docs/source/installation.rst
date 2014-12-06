@@ -3,27 +3,51 @@
 Installation
 ============
 
-Fox can be installed in multiple ways. If you don't have a preference, install via git submodule.
+Fox can be installed in multiple ways. If you don't have a preference, install
+via git submodule.
+
+Fox honors `semantic versioning` as humanly possible. If you're unsure if a
+given update is backwards incompatible with your usage. Check out the
+`releases`_.
+
+.. _semantic versioning: http://semver.org
+.. _releases: https://github.com/jeffh/Fox/releases
 
 Manually (Git Submodule)
 ------------------------
 
 Add Fox as a submodule to your project::
 
-    git submodule add https://github.com/jeffh/Fox.git Externals/Fox
+    $ git submodule add https://github.com/jeffh/Fox.git Externals/Fox
 
-Add ``Fox.xcodeproj`` to your Xcode project (not the workspace). Then link
-Fox-iOS or Fox-OSX to your test target.
+If you don't want bleeding edge, check out the particular tag of the version::
+
+    $ cd Externals/Fox
+    $ git checkout v1.0.0
+
+Add ``Fox.xcodeproj`` to your Xcode project (not ``Fox.xcworkspace``). Then
+link Fox-iOS or Fox-OSX to your test target.
+
+Fox uses C++, so you'll need to tell the linker of your test target (in Build
+Settings):
+
+    Other Linker Flags: -l"c++"
+
+And you're all set up! Dive right in by following the :doc:`tutorial
+</tutorial>`.
 
 CocoaPods
 ---------
 
-Add to your Podfile for you test target::
+Add to your Podfile for you test target to have the latest stable version of
+Fox::
 
-    pod 'Fox', :git => 'https://github.com/jeffh/Fox'
+    pod 'Fox', '~>1.0.0'
 
 And then ``pod install``.
 
+And you're all set up! Dive right in by following the :doc:`tutorial
+</tutorial>`.
 
 Carthage
 --------

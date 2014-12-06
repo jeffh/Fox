@@ -21,7 +21,7 @@ Configuring Test Generation
 The primary operation of Fox's runner is to create and executed tests. There
 are three primary parameters to configure Fox's test generation:
 
-- The **seed** allows you to set the random number generator. This allows you
+- The **seed** allows you to seed the random number generator. This allows you
   to set the PRNG to help reproduce failures that Fox may have generated during
   a test run.  Setting this to the default (``0``) will make Fox generate a
   seed based on the current time.

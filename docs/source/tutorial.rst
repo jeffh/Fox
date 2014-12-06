@@ -3,15 +3,15 @@
 Tutorial
 ========
 
-If you haven't installed Fox yet, read up on :doc:`installation`.
+If you haven't installed Fox yet, read up on :doc:`installation`.  
 
-This tutorial will use the Objective-C API of Fox. While there is a similar
-Swift API, it is considered alpha.
+This tutorial will use the Objective-C API of Fox. There is a similar
+Swift API but that's currently alpha and subject to change.
 
 Starting with an Example
 ------------------------
 
-Throughout this tutorial, we'll cover the basics of writing property tests.  To
+Throughout this tutorial, we'll cover the basics of writing property tests. To
 better understand property tests, let's start with some example-based ones
 first::
 
@@ -43,10 +43,10 @@ Fox takes these parts and separates them.
 
 Let's see how we can convert them to Fox property tests.
 
-Converting to Property Tests
-----------------------------
+Converting to a Property
+------------------------
 
-To convert the sort test into the given property, we can describe the intrinsic
+To convert the sort test into the given property, we describe the intrinsic
 property of the code under test.
 
 For sorting, the resulting output should have the smallest elements in the
@@ -73,30 +73,31 @@ to the element before it::
 
 Let's break that down:
 
-- ``FOXInteger`` is a :ref:`generator <generators>` that describes how to produce random integers
-  (NSNumbers).
-- ``FOXArray`` is a :ref:`generator <generators>` that describes how to generate arbitrary arrays.
-  It takes another generator as an argument. In this case, we're giving it an
-  integer generator so this will generate randomly sized array of random
-  integers.
-- ``FOXForAll`` describes a property that should always hold true. It takes
+- ``FOXInteger`` is a :ref:`generator <generators>` that describes how to
+  produce random integers (NSNumbers).
+- ``FOXArray`` is a :ref:`generator <generators>` that describes how to
+  generate arbitrary arrays.  It takes another generator as an argument. In
+  this case, we're giving it an integer generator to produce randomly sized
+  array of random integers.
+- ``FOXForAll`` defines a property that should always hold true. It takes
   two arguments, the generator to produce and a block on how to assert against
   the given generated input.
 - ``FOXAssert`` is how Fox asserts against properties. It will raise an
-  exception if a property does not hold.
+  exception if a property does not hold. They're part of Fox's :doc:`runner
+  <runner>` infrastructure.
 
 The test can be read as:
 
-    Assert that for all array of integers named ``integer``, sorting
+    Assert that **for all array of integers** named ``integer``, sorting
     ``integers`` should produce ``sortedNumbers``. ``sortedNumbers`` is an
     array where the first number is the smallest and subsequent elements are
     greater than or equal to the element that preceeds it.
 
-Diagnosing Test Failures
-------------------------
+Diagnosing Failures
+-------------------
 
-The interesting feature of Fox occurs only when tests fail. Let's write a code
-that will fail the property we just wrote::
+The interesting feature of Fox occurs only when properties fail. Let's write
+code that will fail the property we just wrote::
 
     + (NSArray *)sortNumbers:(NSArray *)numbers {
         NSMutableArray *sortedNumbers = [[numbers sortedArrayUsingSelector:@selector(compare:)] mutableCopy];
@@ -150,56 +151,61 @@ Some nefarious little code we added there! We run again we get to see Fox work::
         "-1"
     )
 
-The first line describes the smallest failing example that failed. It's placed there for convenience::
+The first line describes the smallest failing example that failed. It's placed
+there for convenience::
 
     Property failed with: ( 0, 0, 0, 0, "-1" ) 
 
-The rest of the first half of the failure describes the location and property that failed.
+The rest of the first half of the failure describes the location and property
+that failed.
 
-The latter half of the failure describes specifics on how the smallest failing example was reached:
+The latter half of the failure describes specifics on how the smallest failing
+example was reached:
 
 - ``seed`` is the random seed that was used to generate the series of tests to
-  run. See :ref:`Configuring Test Generation` for more information
-- ``maximum size`` is the maximum size hint that Fox used. See
-  :ref:`Configuring Test Generation` for more information.
+  run.
+- ``maximum size`` is the maximum size hint that Fox used when generating tests.
+  This is useful for reproducing test failures when pairs with the seed.
 - ``number of tests before failing`` describes how many tests were generated
   before the failing test was generated. Mostly for technical curiosity.
 - ``size that failed`` describes the size that was used to generate the
   original failing test case. The size dicates the general size of the data
   generated (eg - larger numbers and bigger arrays).
-- ``shrink depth`` describes how many "changes" performed to shrink the
+- ``shrink depth`` indicates how many "changes" performed to shrink the
   original failing test to produce the smallest one. Mostly for technical
   curiosity.
-- ``shrink nodes walked`` describes how many variations Fox performed to
-  produce the smallest failing test.
+- ``shrink nodes walked`` indicates how many variations Fox produced to find
+  the smallest failing test. Mostly for technical curiosity.                                         
 - ``value that failed`` the original generated value that failed the property.
-  This is before any shrinking.
+  This is before Fox performed any shrinking.
 - ``smallest failing value`` the smallest generated value that still fails the
-  property. This is identical to the value on the first line of this failure description.
+  property. This is identical to the value on the first line of this failure
+  description.
 
 So what happened? Fox generates random data until a failure occurs. Once a
 failure occurs, Fox starts the shrinking process. The shrinking behavior is
-generator-dependent, but generally alter the data towards the "zero" value:
+generator-dependent, but generally alters the data towards the "zero" value:
 
 - For integers, that means moving towards 0 value.
 - For arrays, each element shrinks as well as the number of elements
   moves towards zero.
 
-Each time the value is shrunk, Fox will verify it against the property to
-ensure the test still fails.  This is a brute-force process of elimination 
-is an effective way to drop irrevelant noise that random data generation
-typically produces.
+Each time the value shrinks, Fox will verify it against the property to ensure
+the test still fails.  This is a brute-force process of elimination is an
+effective way to drop irrevelant noise that random data generation typically
+produces.
 
-Comparing the original failure and the shunk failure we can observe that the
-second-to-last element had some significance since it failed to shrink all the
+Notice that the last element has significance since it failed to shrink all the
 way to zero like the other elements. It's also worth noting that just because a
 value has been shrunk to zero doesn't exclude it's potential significance, but
-it is usually less likely to be significant.
+it is usually less likely to be significant. In this case, the second to last
+element happens to be significant.
 
 .. warning:: Due to the ``maximum size`` configuration. Fox limits the range
              of random integers generated. Fox's default maximum size is 200.
              Observe when you change the failure case to require more than 200
-             elements for the sort example.
+             elements for the sort example. See :ref:`Configuring Test
+             Generation` for more information.
 
 Testing Stateful APIs
 ---------------------
@@ -209,8 +215,8 @@ same input produces the same output. What's more interesting is testing
 stateful APIs.
 
 Before we start, let's talk about the conceptual model Fox uses to verify
-stateful APIs. Using the existing system of :ref:`generator <generators>`, we
-can model **API calls as data**.
+stateful APIs. We can model **API calls as data** using Fox's :ref:`generator
+<generators>` system.
 
 As a simple case, let's test a `Queue`_. We can add and remove objects to it.
 Removing objects returns the first item in the Queue:
@@ -225,8 +231,10 @@ Removing objects returns the first item in the Queue:
 Just generating a series of API calls isn't enough. Fox needs more information
 about the API:
 
-- What API calls are valid to make at any particular time?
-- What assertions should be after any API call?
+- **Which API calls are valid to make at any given point?** This is specified
+  in Fox as *preconditions*.
+- **What assertions should be after any API call?** This is specified in  Fox
+  as *postconditions*.
 
 This is done by describing a `state machine`_. In basic terms, a state machine
 is two parts: state and transitions.
@@ -418,7 +426,7 @@ doesn't reveal any issues with an implementation.
 
 And that's most of the power of Fox. You're ready to start writing property tests!
 
-If you want read on, read more about :ref:`generators`.
+If you want read on, read more about the core of Fox's design: :ref:`generators`.
 
 .. _Queue: http://en.wikipedia.org/wiki/Queue_(abstract_data_type)
 .. _state machine: http://en.wikipedia.org/wiki/Finite-state_machine
