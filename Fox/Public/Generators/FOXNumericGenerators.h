@@ -1,6 +1,5 @@
 #import "FOXMacros.h"
 
-
 @protocol FOXGenerator;
 
 
@@ -63,7 +62,7 @@ FOX_EXPORT id<FOXGenerator> FOXStrictNegativeInteger(void);
 
 
 /*! Creates a generator that produces random floats (boxed as NSNumbers).
- *  Shrinks towards zero.
+ *  Shrinks towards zero. Floats generated conform to IEEE standard.
  *
  *  The size hint dictates the min & max values that can be generated.
  *
@@ -72,7 +71,7 @@ FOX_EXPORT id<FOXGenerator> FOXStrictNegativeInteger(void);
 FOX_EXPORT id<FOXGenerator> FOXFloat(void);
 
 /*! Creates a generator that produces random doubles (boxed as NSNumbers).
- *  Shrinks towards zero.
+ *  Shrinks towards zero. Doubles generated conform to IEEE standard.
  *
  *  The size hint dictates the min & max values that can be generated.
  *

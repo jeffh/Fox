@@ -114,7 +114,6 @@
     }];
 }
 
-
 - (id)objectByReducingWithSeed:(id)seedObject
                        reducer:(id(^)(id accum, id item))reducer
 {
@@ -269,6 +268,19 @@
 + (instancetype)lazySequenceFromBlock:(id<FOXSequence>(^)())block
 {
     return [[FOXLazySequence alloc] initWithLazyBlock:block];
+}
+
++ (instancetype)lazyUniqueSequence:(id<FOXSequence>)sequence
+{
+    NSMutableSet *set = [NSMutableSet set];
+    return [sequence sequenceByFiltering:^BOOL(id item) {
+        if ([set containsObject:item]) {
+            return NO;
+        } else {
+            [set addObject:item ?: [NSNull null]];
+            return YES;
+        }
+    }];
 }
 
 @end

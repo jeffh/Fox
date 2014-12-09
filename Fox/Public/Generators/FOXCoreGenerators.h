@@ -5,6 +5,10 @@
 @protocol FOXGenerator;
 @protocol FOXRandom;
 
+typedef struct {
+    NSInteger start;
+    NSInteger end;
+} FOXRange;
 
 /*! Creates a generator with a -[description] to help debugging.
  */

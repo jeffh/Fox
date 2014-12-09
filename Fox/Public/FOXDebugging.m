@@ -26,7 +26,7 @@ FOX_EXPORT NSArray *FOXSampleShrinking(id<FOXGenerator> generator) {
 }
 
 FOX_EXPORT NSArray *FOXSampleShrinkingWithCount(id<FOXGenerator> generator, NSUInteger numberOfSamples) {
-    id<FOXRandom> random = [[FOXDeterministicRandom alloc] init];
+    id<FOXRandom> random = [[FOXDeterministicRandom alloc] initWithSeed:(uint32_t)FOXGetSeed()];
     FOXRoseTree *tree = [generator lazyTreeWithRandom:random maximumSize:50];
     NSMutableArray *stack = [NSMutableArray arrayWithObject:tree];
     NSMutableArray *samples = [NSMutableArray array];

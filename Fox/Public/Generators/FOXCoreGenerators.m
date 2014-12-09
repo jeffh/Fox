@@ -9,6 +9,8 @@
 #import "FOXSuchThatGenerator.h"
 #import "FOXBlockGenerator.h"
 
+#import "FOXSequence.h"
+
 
 FOX_EXPORT id<FOXGenerator> FOXWithName(NSString *name, id<FOXGenerator> generator) {
     return [[FOXNamedGenerator alloc] initWithName:name forGenerator:generator];
@@ -40,6 +42,10 @@ FOX_EXPORT id<FOXGenerator> FOXMap(id<FOXGenerator> generator, id (^fn)(id gener
 
 FOX_EXPORT id<FOXGenerator> FOXChoose(NSNumber *lower, NSNumber *upper) {
     return [[FOXChooseGenerator alloc] initWithLowerBound:lower upperBound:upper];
+}
+
+FOX_EXPORT id<FOXGenerator> FOXChooseRange(FOXRange range) {
+    return FOXChoose(@(range.start), @(range.end));
 }
 
 FOX_EXPORT id<FOXGenerator> FOXSized(id<FOXGenerator> (^fn)(NSUInteger size)) {

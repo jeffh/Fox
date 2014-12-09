@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2C101C1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */; };
+		1F2C101D1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */; };
 		1F38B61B1A2ACCA80078FF90 /* FOXBlockGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC39198F7C9A00BEA6E1 /* FOXBlockGenerator.h */; };
 		1F38B61C1A2ACCA80078FF90 /* FOXBlockGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35BC3A198F7C9A00BEA6E1 /* FOXBlockGenerator.m */; };
 		1F38B61D1A2ACCA80078FF90 /* FOXArrayGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC25198D881900BEA6E1 /* FOXArrayGenerator.h */; };
@@ -61,10 +63,6 @@
 		1F38B64E1A2ACCAE0078FF90 /* FOXLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBEB1987773F0059D31A /* FOXLazySequence.m */; };
 		1F38B64F1A2ACCAE0078FF90 /* FOXSequenceEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8FDBF0198777540059D31A /* FOXSequenceEnumerator.h */; };
 		1F38B6501A2ACCAE0078FF90 /* FOXSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* FOXSequenceEnumerator.m */; };
-		1F38B6511A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3A71461A2313AD00AAE47B /* FOXShrinkingIntegerSequence.h */; };
-		1F38B6521A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A71471A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m */; };
-		1F38B6531A2ACCAE0078FF90 /* FOXNumericRoseTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3A714A1A231AE300AAE47B /* FOXNumericRoseTree.h */; };
-		1F38B6541A2ACCAE0078FF90 /* FOXNumericRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A714B1A231AE300AAE47B /* FOXNumericRoseTree.m */; };
 		1F38B6551A2ACCAE0078FF90 /* FOXArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73986A5F5236203E7B0F4 /* FOXArray.h */; };
 		1F38B6561A2ACCAE0078FF90 /* FOXArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B736F4E4E7DC1C8ACFC73A /* FOXArray.m */; };
 		1F38B6571A2ACCAE0078FF90 /* FOXConcreteSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8FDBE81987773F0059D31A /* FOXConcreteSequence.h */; };
@@ -73,10 +71,6 @@
 		1F38B65A1A2ACCAE0078FF90 /* FOXLazySequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBEB1987773F0059D31A /* FOXLazySequence.m */; };
 		1F38B65B1A2ACCAE0078FF90 /* FOXSequenceEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8FDBF0198777540059D31A /* FOXSequenceEnumerator.h */; };
 		1F38B65C1A2ACCAE0078FF90 /* FOXSequenceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FDBF1198777540059D31A /* FOXSequenceEnumerator.m */; };
-		1F38B65D1A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3A71461A2313AD00AAE47B /* FOXShrinkingIntegerSequence.h */; };
-		1F38B65E1A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A71471A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m */; };
-		1F38B65F1A2ACCAE0078FF90 /* FOXNumericRoseTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3A714A1A231AE300AAE47B /* FOXNumericRoseTree.h */; };
-		1F38B6601A2ACCAE0078FF90 /* FOXNumericRoseTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A714B1A231AE300AAE47B /* FOXNumericRoseTree.m */; };
 		1F38B6611A2ACCAE0078FF90 /* FOXArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73986A5F5236203E7B0F4 /* FOXArray.h */; };
 		1F38B6621A2ACCAE0078FF90 /* FOXArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B736F4E4E7DC1C8ACFC73A /* FOXArray.m */; };
 		1F38B6631A2ACCC00078FF90 /* FOXCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 31B73FBA1C97463CD5A8D15D /* FOXCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -236,6 +230,8 @@
 		1F41BEB91A2ACBA300F25A65 /* Fox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41BEAE1A2ACBA300F25A65 /* Fox.framework */; };
 		1F4CA2CD1A2D747300989740 /* Cedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4CA2CC1A2D747300989740 /* Cedar.framework */; };
 		1F4CA2CF1A2D747700989740 /* libCedar-StaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4CA2CE1A2D747700989740 /* libCedar-StaticLib.a */; };
+		1F6A7DDA1A35241700EA3482 /* FOXDoubleSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A7DD91A35241700EA3482 /* FOXDoubleSpec.mm */; };
+		1F6A7DDB1A35241700EA3482 /* FOXDoubleSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A7DD91A35241700EA3482 /* FOXDoubleSpec.mm */; };
 		1F71D4E91A3105050017E81A /* FOXEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F71D4E71A3105050017E81A /* FOXEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F71D4EA1A3105050017E81A /* FOXEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F71D4E71A3105050017E81A /* FOXEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F71D4EB1A3105050017E81A /* FOXEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F71D4E81A3105050017E81A /* FOXEnvironment.m */; };
@@ -258,6 +254,8 @@
 		1FAE3B691A2EC5E60011838A /* SwiftGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B671A2EC5E60011838A /* SwiftGenerators.swift */; };
 		1FAE3B6E1A2F10080011838A /* FOXFloatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B6D1A2F10080011838A /* FOXFloatSpec.mm */; };
 		1FAE3B6F1A2F10080011838A /* FOXFloatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B6D1A2F10080011838A /* FOXFloatSpec.mm */; };
+		1FC42D481A34E8E8006455F2 /* FOXBindSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FC42D471A34E8E8006455F2 /* FOXBindSpec.mm */; };
+		1FC42D491A34E8E8006455F2 /* FOXBindSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FC42D471A34E8E8006455F2 /* FOXBindSpec.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +278,7 @@
 /* Begin PBXFileReference section */
 		1F2A94F41997383300471B24 /* FOXTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXTransition.h; sourceTree = "<group>"; };
 		1F2A94F51997383300471B24 /* FOXTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXTransition.m; sourceTree = "<group>"; };
+		1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXDecimalNumberSpec.mm; path = FoxSpecs/Public/Generators/FOXDecimalNumberSpec.mm; sourceTree = SOURCE_ROOT; };
 		1F35BC1D198D824600BEA6E1 /* FOXNamedGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXNamedGenerator.h; sourceTree = "<group>"; };
 		1F35BC1E198D824600BEA6E1 /* FOXNamedGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXNamedGenerator.m; sourceTree = "<group>"; };
 		1F35BC21198D838300BEA6E1 /* FOXStringGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXStringGenerator.h; sourceTree = "<group>"; };
@@ -300,10 +299,6 @@
 		1F35BC411990CA5600BEA6E1 /* FOXStandardReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXStandardReporter.m; sourceTree = "<group>"; };
 		1F35BC471990CB6400BEA6E1 /* FOXRandomSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXRandomSpec.mm; sourceTree = "<group>"; };
 		1F38B6181A2ACC410078FF90 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Fox/Info.plist; sourceTree = SOURCE_ROOT; };
-		1F3A71461A2313AD00AAE47B /* FOXShrinkingIntegerSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXShrinkingIntegerSequence.h; sourceTree = "<group>"; };
-		1F3A71471A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXShrinkingIntegerSequence.m; sourceTree = "<group>"; };
-		1F3A714A1A231AE300AAE47B /* FOXNumericRoseTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXNumericRoseTree.h; sourceTree = "<group>"; };
-		1F3A714B1A231AE300AAE47B /* FOXNumericRoseTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXNumericRoseTree.m; sourceTree = "<group>"; };
 		1F4187F91975108000FEBB8D /* FOXRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXRunner.h; sourceTree = "<group>"; };
 		1F4187FA1975108000FEBB8D /* FOXRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXRunner.m; sourceTree = "<group>"; };
 		1F4187FD19751BB700FEBB8D /* FOXRunnerResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXRunnerResult.h; sourceTree = "<group>"; };
@@ -339,6 +334,7 @@
 		1F6016481919DF90003D8484 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		1F61E44F196E88A6003EA164 /* FOXReturnSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXReturnSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F61E455196E8AEF003EA164 /* FOXSequenceSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXSequenceSpec.mm; sourceTree = "<group>"; };
+		1F6A7DD91A35241700EA3482 /* FOXDoubleSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXDoubleSpec.mm; path = FoxSpecs/Public/Generators/FOXDoubleSpec.mm; sourceTree = SOURCE_ROOT; };
 		1F6C41211A131D56003B6C83 /* FOXGenericGenerators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXGenericGenerators.h; sourceTree = "<group>"; };
 		1F6C41221A131D56003B6C83 /* FOXGenericGenerators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXGenericGenerators.m; sourceTree = "<group>"; };
 		1F6C41241A14736F003B6C83 /* FOXGenericSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXGenericSpec.mm; sourceTree = "<group>"; };
@@ -376,6 +372,7 @@
 		1FAE3B5B1A2EC1000011838A /* DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Fox/Public/DSL.swift; sourceTree = SOURCE_ROOT; };
 		1FAE3B671A2EC5E60011838A /* SwiftGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftGenerators.swift; path = Fox/Public/Generators/SwiftGenerators.swift; sourceTree = SOURCE_ROOT; };
 		1FAE3B6D1A2F10080011838A /* FOXFloatSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXFloatSpec.mm; path = FoxSpecs/Public/Generators/FOXFloatSpec.mm; sourceTree = SOURCE_ROOT; };
+		1FC42D471A34E8E8006455F2 /* FOXBindSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXBindSpec.mm; path = FoxSpecs/Public/Generators/FOXBindSpec.mm; sourceTree = SOURCE_ROOT; };
 		1FF5B93519737D4600416383 /* FOXIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1FF5B93C1973BD9000416383 /* FOXRoseTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXRoseTree.h; sourceTree = "<group>"; };
 		1FF5B93D1973BD9000416383 /* FOXRoseTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXRoseTree.m; sourceTree = "<group>"; };
@@ -677,6 +674,9 @@
 				1F71D4F61A3140070017E81A /* FOXOptionalSpec.mm */,
 				1F71D4F91A3143A70017E81A /* FOXResizeSpec.mm */,
 				1F71D4FC1A3147570017E81A /* FOXAnyObjectSpec.mm */,
+				1FC42D471A34E8E8006455F2 /* FOXBindSpec.mm */,
+				1F6A7DD91A35241700EA3482 /* FOXDoubleSpec.mm */,
+				1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */,
 			);
 			path = Generators;
 			sourceTree = "<group>";
@@ -708,10 +708,6 @@
 				1F8FDBEB1987773F0059D31A /* FOXLazySequence.m */,
 				1F8FDBF0198777540059D31A /* FOXSequenceEnumerator.h */,
 				1F8FDBF1198777540059D31A /* FOXSequenceEnumerator.m */,
-				1F3A71461A2313AD00AAE47B /* FOXShrinkingIntegerSequence.h */,
-				1F3A71471A2313AD00AAE47B /* FOXShrinkingIntegerSequence.m */,
-				1F3A714A1A231AE300AAE47B /* FOXNumericRoseTree.h */,
-				1F3A714B1A231AE300AAE47B /* FOXNumericRoseTree.m */,
 				31B73986A5F5236203E7B0F4 /* FOXArray.h */,
 				31B736F4E4E7DC1C8ACFC73A /* FOXArray.m */,
 			);
@@ -768,7 +764,6 @@
 				1F38B64D1A2ACCAE0078FF90 /* FOXLazySequence.h in Headers */,
 				1F38B6271A2ACCA80078FF90 /* FOXPureGenerator.h in Headers */,
 				1F38B6C11A2ACCC00078FF90 /* FOXConstantRandom.h in Headers */,
-				1F38B6511A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.h in Headers */,
 				1F38B62D1A2ACCA80078FF90 /* FOXStringGenerator.h in Headers */,
 				1F38B6C61A2ACCC00078FF90 /* FOXDebugReporter.h in Headers */,
 				1F38B6AA1A2ACCC00078FF90 /* FOXDictionaryGenerators.h in Headers */,
@@ -782,7 +777,6 @@
 				1F38B6A61A2ACCC00078FF90 /* FOXArrayGenerators.h in Headers */,
 				1F38B61F1A2ACCA80078FF90 /* FOXBindGenerator.h in Headers */,
 				1F38B62B1A2ACCA80078FF90 /* FOXSizedGenerator.h in Headers */,
-				1F38B6531A2ACCAE0078FF90 /* FOXNumericRoseTree.h in Headers */,
 				1F38B6B61A2ACCC00078FF90 /* FOXStateMachineGenerators.h in Headers */,
 				1F38B69C1A2ACCC00078FF90 /* FOXPropertyResult.h in Headers */,
 				1F38B6BB1A2ACCC00078FF90 /* FOXGenericGenerators.h in Headers */,
@@ -825,7 +819,6 @@
 				1F38B6591A2ACCAE0078FF90 /* FOXLazySequence.h in Headers */,
 				1F38B63F1A2ACCA90078FF90 /* FOXPureGenerator.h in Headers */,
 				1F38B68C1A2ACCC00078FF90 /* FOXConstantRandom.h in Headers */,
-				1F38B65D1A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.h in Headers */,
 				1F38B6451A2ACCA90078FF90 /* FOXStringGenerator.h in Headers */,
 				1F38B6911A2ACCC00078FF90 /* FOXDebugReporter.h in Headers */,
 				1F38B6751A2ACCC00078FF90 /* FOXDictionaryGenerators.h in Headers */,
@@ -839,7 +832,6 @@
 				1F38B6711A2ACCC00078FF90 /* FOXArrayGenerators.h in Headers */,
 				1F38B6371A2ACCA90078FF90 /* FOXBindGenerator.h in Headers */,
 				1F38B6431A2ACCA90078FF90 /* FOXSizedGenerator.h in Headers */,
-				1F38B65F1A2ACCAE0078FF90 /* FOXNumericRoseTree.h in Headers */,
 				1F38B6811A2ACCC00078FF90 /* FOXStateMachineGenerators.h in Headers */,
 				1F38B6671A2ACCC00078FF90 /* FOXPropertyResult.h in Headers */,
 				1F38B6861A2ACCC00078FF90 /* FOXGenericGenerators.h in Headers */,
@@ -1046,12 +1038,10 @@
 				1F71D4EB1A3105050017E81A /* FOXEnvironment.m in Sources */,
 				1F38B61C1A2ACCA80078FF90 /* FOXBlockGenerator.m in Sources */,
 				1F38B6281A2ACCA80078FF90 /* FOXPureGenerator.m in Sources */,
-				1F38B6541A2ACCAE0078FF90 /* FOXNumericRoseTree.m in Sources */,
 				1F38B6BA1A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */,
 				1F38B6A51A2ACCC00078FF90 /* FOXTransition.m in Sources */,
 				1F71D4F11A3105520017E81A /* FOXDebugging.m in Sources */,
 				1F38B6991A2ACCC00078FF90 /* FOXCommand.m in Sources */,
-				1F38B6521A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.m in Sources */,
 				1F38B6C91A2ACCC00078FF90 /* FOXStandardReporter.m in Sources */,
 				1F38B6A91A2ACCC00078FF90 /* FOXCoreGenerators.m in Sources */,
 				1F38B6C21A2ACCC00078FF90 /* FOXConstantRandom.m in Sources */,
@@ -1087,11 +1077,14 @@
 				1F38B6E51A2ACCF10078FF90 /* FOXFiniteStateMachineSpec.mm in Sources */,
 				1F38B6DE1A2ACCF10078FF90 /* FOXNegativeIntegerSpec.mm in Sources */,
 				1F38B6E01A2ACCF10078FF90 /* FOXReturnSpec.mm in Sources */,
+				1F6A7DDA1A35241700EA3482 /* FOXDoubleSpec.mm in Sources */,
+				1FC42D481A34E8E8006455F2 /* FOXBindSpec.mm in Sources */,
 				1F71D4F71A3140070017E81A /* FOXOptionalSpec.mm in Sources */,
 				1F38B6D31A2ACCE80078FF90 /* Queue.m in Sources */,
 				1F38B6E71A2ACCF10078FF90 /* FOXGenericSpec.mm in Sources */,
 				1F71D4FD1A3147570017E81A /* FOXAnyObjectSpec.mm in Sources */,
 				1F38B6DA1A2ACCF10078FF90 /* FOXArraySpec.mm in Sources */,
+				1F2C101C1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm in Sources */,
 				1FAE3B6E1A2F10080011838A /* FOXFloatSpec.mm in Sources */,
 				1F71D4F41A313C720017E81A /* FOXFrequencySpec.mm in Sources */,
 				1F38B6D81A2ACCF10078FF90 /* FOXSequenceSpec.mm in Sources */,
@@ -1133,12 +1126,10 @@
 				1F71D4EC1A3105050017E81A /* FOXEnvironment.m in Sources */,
 				1F38B6341A2ACCA90078FF90 /* FOXBlockGenerator.m in Sources */,
 				1F38B6401A2ACCA90078FF90 /* FOXPureGenerator.m in Sources */,
-				1F38B6601A2ACCAE0078FF90 /* FOXNumericRoseTree.m in Sources */,
 				1F38B6851A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */,
 				1F38B6701A2ACCC00078FF90 /* FOXTransition.m in Sources */,
 				1F71D4F21A3105520017E81A /* FOXDebugging.m in Sources */,
 				1F38B6641A2ACCC00078FF90 /* FOXCommand.m in Sources */,
-				1F38B65E1A2ACCAE0078FF90 /* FOXShrinkingIntegerSequence.m in Sources */,
 				1F38B6941A2ACCC00078FF90 /* FOXStandardReporter.m in Sources */,
 				1F38B6741A2ACCC00078FF90 /* FOXCoreGenerators.m in Sources */,
 				1F38B68D1A2ACCC00078FF90 /* FOXConstantRandom.m in Sources */,
@@ -1174,11 +1165,14 @@
 				1F38B6F71A2ACCF20078FF90 /* FOXFiniteStateMachineSpec.mm in Sources */,
 				1F38B6F01A2ACCF20078FF90 /* FOXNegativeIntegerSpec.mm in Sources */,
 				1F38B6F21A2ACCF20078FF90 /* FOXReturnSpec.mm in Sources */,
+				1F6A7DDB1A35241700EA3482 /* FOXDoubleSpec.mm in Sources */,
+				1FC42D491A34E8E8006455F2 /* FOXBindSpec.mm in Sources */,
 				1F71D4F81A3140070017E81A /* FOXOptionalSpec.mm in Sources */,
 				1F38B6CF1A2ACCE70078FF90 /* Queue.m in Sources */,
 				1F38B6F91A2ACCF20078FF90 /* FOXGenericSpec.mm in Sources */,
 				1F71D4FE1A3147570017E81A /* FOXAnyObjectSpec.mm in Sources */,
 				1F38B6EC1A2ACCF20078FF90 /* FOXArraySpec.mm in Sources */,
+				1F2C101D1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm in Sources */,
 				1FAE3B6F1A2F10080011838A /* FOXFloatSpec.mm in Sources */,
 				1F71D4F51A313C720017E81A /* FOXFrequencySpec.mm in Sources */,
 				1F38B6EA1A2ACCF20078FF90 /* FOXSequenceSpec.mm in Sources */,

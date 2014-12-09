@@ -1,7 +1,6 @@
 #import "FOXRoseTree.h"
 #import "FOXSequence.h"
 
-
 @implementation FOXRoseTree
 
 + (id<FOXSequence>)permutationsOfRoseTrees:(NSArray *)roseTrees
@@ -28,18 +27,12 @@
 
 + (instancetype)joinedTreeFromNestedRoseTree:(FOXRoseTree *)roseTree
 {
-    FOXRoseTree *rootTree = roseTree.value;
-    if (![rootTree isKindOfClass:[FOXRoseTree class]]) {
-        return roseTree;
-    }
-    id<FOXSequence> rootChildren = [rootTree.children sequenceByMapping:^(FOXRoseTree *tree){
-        return [self joinedTreeFromNestedRoseTree:tree];
-    }];
+    FOXRoseTree *firstTree = roseTree.value;
     id<FOXSequence> childrenChildren = [roseTree.children sequenceByMapping:^(FOXRoseTree *tree){
         return [self joinedTreeFromNestedRoseTree:tree];
     }];
-    id<FOXSequence> mergedChildren = [rootChildren sequenceByAppending:childrenChildren];
-    return [[FOXRoseTree alloc] initWithValue:rootTree.value
+    id<FOXSequence> mergedChildren = [childrenChildren sequenceByAppending:firstTree.children];
+    return [[FOXRoseTree alloc] initWithValue:firstTree.value
                                      children:mergedChildren];
 }
 
@@ -81,7 +74,6 @@
                                      children:children];
 }
 
-
 - (instancetype)initWithValue:(id)value
 {
     return [self initWithValue:value children:nil];
@@ -101,8 +93,8 @@
 {
     return [[FOXRoseTree alloc] initWithValue:block(self.value)
                                      children:[self.children sequenceByMapping:^id(FOXRoseTree *subtree) {
-                                         return [subtree treeByApplyingBlock:block];
-                                     }]];
+        return [subtree treeByApplyingBlock:block];
+    }]];
 }
 
 - (FOXRoseTree *)treeFilterChildrenByBlock:(BOOL(^)(id element))block
@@ -136,19 +128,24 @@
 
 - (NSString *)description
 {
-    NSMutableString *string = [NSMutableString stringWithFormat:@"<%@: ",
-                               NSStringFromClass([self class])];
-    NSString *valueDesc = [self.value description] ?: @"nil";
-    NSRegularExpression *regexp = [NSRegularExpression regularExpressionWithPattern:@"[\n ]+" options:0 error:nil];
-    valueDesc = [regexp stringByReplacingMatchesInString:valueDesc options:0 range:NSMakeRange(0, valueDesc.length) withTemplate:@" "];
-    [string appendString:valueDesc];
+    NSMutableString *string = [NSMutableString stringWithFormat:@"<%@: %p\n  value=",
+                               NSStringFromClass([self class]),
+                               self];
+    NSString *valueDesc = self.value ? [self.value description] : @"nil";
+
+    NSString *(^indent)(NSString *) = ^NSString *(NSString *s) {
+        return [s stringByReplacingOccurrencesOfString:@"\n" withString:@"\n    "];
+    };
+    [string appendString:indent(indent(valueDesc))];
 
     if ([self.children firstObject]) {
-        [string appendString:@", {\n  "];
-        NSString *desc = [self.children description];
-        NSArray *lines = [[desc substringWithRange:NSMakeRange(@"SEQ(".length, desc.length - @"SEQ()".length)] componentsSeparatedByString:@"\n"];
-        [string appendString:[lines componentsJoinedByString:@"\n  "]];
-        [string appendString:@"\n}"];
+        [string appendString:@",\n  children={\n"];
+        for (FOXRoseTree *tree in self.children) {
+            [string appendString:@"    "];
+            [string appendString:indent(indent([tree description]))];
+            [string appendString:@"\n"];
+        }
+        [string appendString:@"}"];
     }
 
     [string appendString:@">"];

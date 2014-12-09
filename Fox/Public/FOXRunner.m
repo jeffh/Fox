@@ -171,30 +171,32 @@ typedef struct _FOXShrinkReport {
 {
     NSUInteger numberOfNodesVisited = 0;
     NSUInteger depth = 0;
-    id<FOXSequence> shrinkChoices = failureRoseTree.children;
+    id<FOXSequence> shrinkChoicesAtDepth = failureRoseTree.children;
     FOXPropertyResult *currentSmallest = failureRoseTree.value;
 
-    while ([shrinkChoices firstObject]) {
-        FOXRoseTree *firstTree = [shrinkChoices firstObject];
+    while ([shrinkChoicesAtDepth firstObject]) {
+        @autoreleasepool {
+            FOXRoseTree *firstTree = [shrinkChoicesAtDepth firstObject];
 
-        // "try" next smallest permutation
-        FOXPropertyResult *smallestCandidate = firstTree.value;
-        if ([smallestCandidate hasFailedOrRaisedException]) {
-            currentSmallest = smallestCandidate;
+            // "try" next smallest permutation
+            FOXPropertyResult *smallestCandidate = firstTree.value;
+            if ([smallestCandidate hasFailedOrRaisedException]) {
+                currentSmallest = smallestCandidate;
 
-            if ([firstTree.children firstObject]) {
-                shrinkChoices = firstTree.children;
-                ++depth;
+                if ([firstTree.children firstObject]) {
+                    shrinkChoicesAtDepth = firstTree.children;
+                    ++depth;
+                } else {
+                    shrinkChoicesAtDepth = [shrinkChoicesAtDepth remainingSequence];
+                }
             } else {
-                shrinkChoices = [shrinkChoices remainingSequence];
+                shrinkChoicesAtDepth = [shrinkChoicesAtDepth remainingSequence];
             }
-        } else {
-            shrinkChoices = [shrinkChoices remainingSequence];
-        }
 
-        ++numberOfNodesVisited;
-        [self.reporter runnerDidShrinkFailingTestNumber:numberOfTests
-                                     withPropertyResult:smallestCandidate];
+            ++numberOfNodesVisited;
+            [self.reporter runnerDidShrinkFailingTestNumber:numberOfTests
+                                         withPropertyResult:smallestCandidate];
+        }
     }
 
     return (FOXShrinkReport) {
