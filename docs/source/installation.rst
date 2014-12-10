@@ -28,11 +28,6 @@ If you don't want bleeding edge, check out the particular tag of the version::
 Add ``Fox.xcodeproj`` to your Xcode project (not ``Fox.xcworkspace``). Then
 link Fox-iOS or Fox-OSX to your test target.
 
-Fox uses C++, so you'll need to tell the linker of your test target (in Build
-Settings):
-
-    Other Linker Flags: -l"c++"
-
 And you're all set up! Dive right in by following the :doc:`tutorial
 </tutorial>`.
 
