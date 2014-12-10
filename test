@@ -105,7 +105,6 @@ function main {
     done
 
     if [ $# -eq 0 ]; then
-        clean
         test
     fi
 }
