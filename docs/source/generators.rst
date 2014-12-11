@@ -6,12 +6,13 @@
 Generators
 ==========
 
-Generators specify directed random data creation.  This means generators know
-how to create the given data and how to shrink it.
+Generators specify directed, random data creation.  This means generators know
+how to create the given data type and how to shrink it.  For Objective-C
+compatibility, generators are only allowed to produce Objective-C objects
+(``id``).
 
-Technically, all generators conform to the ``FOXGenerator`` protocol.
-All generators return a lazy rose tree for consumption by the :doc:`Fox runner
-</runner>`.
+All generators conform to the ``FOXGenerator`` protocol and are expected to
+return a lazy rose tree for consumption by the :doc:`Fox runner </runner>`.
 
 The power of generators are their composability. Shrinking is provided for
 *free* if you compose with Fox's built-in generators. In fact, most of Fox's
@@ -25,11 +26,12 @@ conform to this type:
     Objective-C object.
 
 There are few special cases to this rule. For example, ``FOXAssert`` expects
-``FOXRoseTree<FOXPropertyResult>`` which ``FORForAll`` produces.
+``FOXRoseTree<FOXPropertyResult>`` which the ``FORForAll`` generator satisfies.
 
 .. note::
     For Haskell programmers, Fox is a decendant to Haskell's QuickCheck 2.
-    Generators are a monadic type which combine generation and shrinking.
+    Generators are a monadic type which generation is done via the protocol
+    and shrinking is specified by the returned lazy rose tree.
 
 For the list of all generators that Fox provides, read about
 :doc:`generators_reference`.
@@ -39,9 +41,9 @@ For the list of all generators that Fox provides, read about
 Building Custom Generators
 ==========================
 
-It's easy to compose the built-in generators to build generators for custom
-data types we have. Let's say we want to generate random permutations of a
-Person class::
+It's easy to compose the built-in generators to produce custom generators for
+any data type. Let's say we want to generate random permutations of a Person
+class::
 
     // value object. Implementation assumed
     @interface Person : NSObject
@@ -65,7 +67,7 @@ assertion::
     }));
 
 But we want this to be reusable. Using ``FOXMap``, we can create a new
-generator that is based on the ``dictionaryGenerator``::
+generator based on the ``dictionaryGenerator``::
 
     // A new generator that creates random person
     id<FOXGenerator> AnyPerson(void) {
@@ -81,7 +83,7 @@ generator that is based on the ``dictionaryGenerator``::
         });
     }
 
-And we can then use is like any other generator::
+And we can use it like any other generator::
 
     FOXAssert(FOXForAll(AnyPerson(), ^BOOL(Person *person) {
         // assert with person
@@ -130,18 +132,21 @@ Writing Generators with Custom Shrinking
 
 .. warning::
     **This is significantly more complicated than composing generators**, which
-    is probably what you want the majority of the time. Composing existing
-    generators will also provide shrinking for free.
+    is what you want the majority of the time. Composing existing generators
+    will also provide shrinking for free.
 
 .. warning::
     This section assumes knowledge functional programming concepts. It's worth
     reading up on function composition, map/reduce, recursion, and lazy computation.
 
-It is worth reading up on :ref:`How Shrinking Works` before proceeding.
+It is worth reading up on :ref:`How Shrinking Works` if you haven't already.
 
 Let's write a custom integer generator that shrinks to ``10`` instead of zero.
 We won't be using anything built on top of ``FOXChoose`` for demonstrative
 purposes, but we will be using Fox's :ref:`debugging functions`.
+
+For the sake of brevity, we'll ignore the problem of maximum storage of integers,
+but when writing your generators this matters.
 
 Step one, we can easily always generate 10 by returning a child-less rose tree::
 
@@ -190,6 +195,8 @@ rose tree we return::
 
     id<FOXGenerator> MyInteger(void) {
         FOXGenerate(^FOXRoseTree *(id<FOXRandom> random, NSUInteger size) {
+            // remember, we don't care about min / max integer boundaries
+            // for this example.
             NSInteger lower = -((NSInteger)size);
             NSInteger upper = (NSInteger)size;
             NSInteger randomInteger = [random randomIntegerWithinMinimum:lower
@@ -262,6 +269,8 @@ generator::
 
     id<FOXGenerator> MyInteger(void) {
         FOXGenerate(^FOXRoseTree *(id<FOXRandom> random, NSUInteger size) {
+            // remember, we don't care about min / max integer boundaries
+            // for this example.
             NSInteger lower = -((NSInteger)size);
             NSInteger upper = (NSInteger)size;
             NSInteger randomInteger = [random randomIntegerWithinMinimum:lower

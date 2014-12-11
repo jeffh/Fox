@@ -3,7 +3,7 @@
 Tutorial
 ========
 
-If you haven't installed Fox yet, read up on :doc:`installation`.  
+If you haven't installed Fox yet, read up on :doc:`installation`.
 
 This tutorial will use the Objective-C API of Fox. There is a similar
 Swift API but that's currently alpha and subject to change.
@@ -12,8 +12,7 @@ Starting with an Example
 ------------------------
 
 Throughout this tutorial, we'll cover the basics of writing property tests. To
-better understand property tests, let's start with some example-based ones
-first::
+better understand property tests, let's start with an example-based one first::
 
     - (void)testSort {
         NSArray *sortedNumbers = [MySorter sortNumbers:@[@5, @2, @1]];
@@ -84,7 +83,7 @@ Let's break that down:
   the given generated input.
 - ``FOXAssert`` is how Fox asserts against properties. It will raise an
   exception if a property does not hold. They're part of Fox's :doc:`runner
-  <runner>` infrastructure.
+  <runner>` infrastructure which actually generates all test cases.
 
 The test can be read as:
 
@@ -111,7 +110,7 @@ code that will fail the property we just wrote::
 
 Some nefarious little code we added there! We run again we get to see Fox work::
 
-    Property failed with: ( 0, 0, 0, 0, "-1" ) 
+    Property failed with: ( 0, 0, 0, 0, "-1" )
     Location:   // /Users/jeff/workspace/FoxExample/FoxExampleTests/FoxExampleTests.m:41
       FOXForAll(arraysOfIntegers, ^BOOL(NSArray *integers) {
        NSArray *sortedNumbers = [self sortNumbers:integers];
@@ -127,7 +126,7 @@ Some nefarious little code we added there! We run again we get to see Fox work::
        return __objc_yes;
        }
       );
-      
+
     RESULT: FAILED
      seed: 1417500369
      maximum size: 200
@@ -154,7 +153,7 @@ Some nefarious little code we added there! We run again we get to see Fox work::
 The first line describes the smallest failing example that failed. It's placed
 there for convenience::
 
-    Property failed with: ( 0, 0, 0, 0, "-1" ) 
+    Property failed with: ( 0, 0, 0, 0, "-1" )
 
 The rest of the first half of the failure describes the location and property
 that failed.
@@ -163,9 +162,10 @@ The latter half of the failure describes specifics on how the smallest failing
 example was reached:
 
 - ``seed`` is the random seed that was used to generate the series of tests to
-  run.
+  run. Along with the maximum size, this can be used to reproduce failures Fox
+  generated.
 - ``maximum size`` is the maximum size hint that Fox used when generating tests.
-  This is useful for reproducing test failures when pairs with the seed.
+  This is useful for reproducing test failures when paired with the seed.
 - ``number of tests before failing`` describes how many tests were generated
   before the failing test was generated. Mostly for technical curiosity.
 - ``size that failed`` describes the size that was used to generate the
@@ -175,7 +175,7 @@ example was reached:
   original failing test to produce the smallest one. Mostly for technical
   curiosity.
 - ``shrink nodes walked`` indicates how many variations Fox produced to find
-  the smallest failing test. Mostly for technical curiosity.                                         
+  the smallest failing test. Mostly for technical curiosity.
 - ``value that failed`` the original generated value that failed the property.
   This is before Fox performed any shrinking.
 - ``smallest failing value`` the smallest generated value that still fails the
@@ -196,10 +196,10 @@ effective way to drop irrevelant noise that random data generation typically
 produces.
 
 Notice that the last element has significance since it failed to shrink all the
-way to zero like the other elements. It's also worth noting that just because a
-value has been shrunk to zero doesn't exclude it's potential significance, but
-it is usually less likely to be significant. In this case, the second to last
-element happens to be significant.
+way to zero like the other elements. Also note that just because a value has
+been shrunk to zero doesn't exclude it's potential significance, but it's
+usually less likely to be significant. In this case, the second to last element
+happens to be significant.
 
 .. warning:: Due to the ``maximum size`` configuration. Fox limits the range
              of random integers generated. Fox's default maximum size is 200.
@@ -233,7 +233,7 @@ about the API:
 
 - **Which API calls are valid to make at any given point?** This is specified
   in Fox as *preconditions*.
-- **What assertions should be after any API call?** This is specified in  Fox
+- **What assertions should be after any API call?** This is specified in Fox
   as *postconditions*.
 
 This is done by describing a `state machine`_. In basic terms, a state machine
@@ -302,10 +302,10 @@ We can translate the diagram into code by configuring a
           always choose to conform to ``FOXStateTransition`` protocol instead
           of using ``FOXTransition``.
 
-We can now run this to verify the behavior of the queue. This does take
-significantly more time that the previous example. But Fox's execution time can
-be tweak if you want faster feedback versus a more thorough test run. See
-:ref:`Configuring Test Generation`.
+We can now run this to verify the behavior of the queue. This takes more time
+that the previous example. But Fox's execution time can be tweak if you want
+faster feedback versus a more thorough test run. See :ref:`Configuring Test
+Generation`.
 
 Just to be on the same page, here's a naive implementation of the queue that
 passes the property we just wrote::
@@ -356,13 +356,13 @@ To break this, let's modify the queue implementation::
 
 Running the tests again, Fox shows us a similar failure like sort::
 
-    Property failed with: @[ [subject addObject:4] -> (null), [subject removeObject] -> (null) (Postcondition FAILED) Exception Raised: *** -[__NSArrayM objectAtIndex:]: index 0 beyond bounds for empty array Model before: ( 4 ) Model after: ( ), ] 
+    Property failed with: @[ [subject addObject:4] -> (null), [subject removeObject] -> (null) (Postcondition FAILED) Exception Raised: *** -[__NSArrayM objectAtIndex:]: index 0 beyond bounds for empty array Model before: ( 4 ) Model after: ( ), ]
     Location:   // /Users/jeff/workspace/FoxExample/FoxExampleTests/FoxExampleTests.m:68
     FOXForAll(executedCommands, ^BOOL(NSArray *commands) {
     return FOXExecutedSuccessfully(commands);
     }
     );
-    
+
     RESULT: FAILED
     seed: 1417510193
     maximum size: 200
@@ -424,9 +424,15 @@ You may be wondering why the ``removeObject`` call is still required. This is
 the only way assertions are made against the queue. Just calling ``addObject:``
 doesn't reveal any issues with an implementation.
 
-And that's most of the power of Fox. You're ready to start writing property tests!
+And that's most of the power of Fox. You're ready to start writing property
+tests! Remember:
 
-If you want read on, read more about the core of Fox's design: :ref:`generators`.
+    "Program testing can at best show the presence of errors, but never their
+    absence."
+
+    -- Dijkstra
+
+If you want read on, continue to the core of Fox's design: :ref:`generators`.
 
 .. _Queue: http://en.wikipedia.org/wiki/Queue_(abstract_data_type)
 .. _state machine: http://en.wikipedia.org/wiki/Finite-state_machine

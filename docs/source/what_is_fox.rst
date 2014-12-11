@@ -3,12 +3,13 @@
 What is Fox?
 ============
 
-Fox is a port of the property-based testing tool `test.check`_.
+Fox is a port of the property-based testing tool `test.check`_ for Objective-C
+and Swift.
 
-Property-Based Testing Tools, especially ones inspired from `QuickCheck`_, are
-test generators. These tools allow you to describe a property of your program
-that should always hold true instead of writing hand-crafted test cases. A
-pseudo-code example would be::
+`QuickCheck`_ inspired Property-Based Testing Tools are test generators. These
+tools allow you to describe a property of your program that should always hold
+true instead of writing hand-crafted test cases. A pseudo-code example would
+be::
 
     // pseudocode: A property for the sort() function
     property := ForAll(xs where xs is an Array of Unsigned Integers){
@@ -41,13 +42,13 @@ a counter-example.
 Shrinking Failures
 ------------------
 
-The benefit of Fox over purely random data generation is Shrinking.  An
-informed random generation is done by size.  This allows the tool to reduce the
+A benefit of Fox over purely random data generation is Shrinking.  An informed
+random generation is done by size.  This allows the tool to reduce the
 counter-example to a smaller data set without having a user manually separate
 thes signal from the noise in the randomly generated data.
 
 For example, if a ``sort()`` implementation failed with an exception when
-reading 9s. Fox could generate this value to provoke the failure::
+reading 9s. Fox might generate this value to provoke the failure::
 
     xs = @[@1, @5, @9, @3, @5] // fails
 
