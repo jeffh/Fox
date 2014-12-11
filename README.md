@@ -35,38 +35,17 @@ them for use if you can define specifications -- known properties of the
 subject under test:
 
 ```objc
-FOXRunner *runner = [[FOXRunner alloc] init];
-// reads: for all integers x, y: x + y > x
-FOXRunnerResult *result = [runner checkWithNumberOfTests:100
-                                                  forAll:FOXTuple(FOXInteger(), FOXInteger())
-                                                   then:^FOXPropertyResult(NSArray *tuple) {
-    NSInteger x = [tuple[0] integerValue];
-    NSInteger y = [tuple[1] integerValue];
-    // FOXRequire converts bool into the FOXPropertyResult enum for passing or failing
-    return FOXRequire(x + y > x);
-}];
-
-// verify
-result.succeeded // => NO; failed
-result.failingValue // => @[-9, @0]; random values generated
-```
-
-Once a failing example is produced, Fox will attempt to find the smallest
-possible example that also exhibits the same failure:
-
-```objc
-result.smallestFailingValue // @[@0, @0]; the smallest example that fails
-```
-
-A short-hand way to verify this using the `FOXAssert` macro:
-
-```objc
 FOXAssert(FOXForAll(FOXTuple(FOXInteger(), FOXInteger()), ^BOOL(NSArray *values){
     NSInteger x = [tuple[0] integerValue];
     NSInteger y = [tuple[1] integerValue];
     return x + y > x;
 });
 ```
+
+Once a failing example is produced, Fox will attempt to find the smallest
+possible example that also exhibits the same failure:
+
+    Property failed with: @[@0, @0].
 
 Stateful Testing
 ----------------
