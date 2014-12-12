@@ -3,7 +3,7 @@ Fox
 
 [![Build Status](https://travis-ci.org/jeffh/Fox.svg?branch=master)](https://travis-ci.org/jeffh/Fox)
 [![Latest Documentation Status](https://readthedocs.org/projects/fox-testing/badge/?version=latest)](http://fox-testing.readthedocs.org/en/latest/)
-[![v1.0.1 Documentation Status](https://readthedocs.org/projects/fox-testing/badge/?version=v1.0.0)](http://fox-testing.readthedocs.org/en/v1.0.1/)
+[![v1.0.1 Documentation Status](https://readthedocs.org/projects/fox-testing/badge/?version=v1.0.1)](http://fox-testing.readthedocs.org/en/v1.0.1/)
 
 Property Based Testing for Objective-C and Swift. Automatic generation of
 software tests.
@@ -91,8 +91,7 @@ FOXRunnerResult *result = [FOXSpecHelper resultForAll:executedCommands
 ```
 
 Read more at the [latest
-documentation](http://fox-testing.readthedocs.org/en/latest/), or the [stable
-documentation](http://fox-testing.readthedocs.org/en/v1.0.0/).
+documentation](http://fox-testing.readthedocs.org/en/latest/).
 
 Installation
 ============
@@ -130,7 +129,7 @@ CocoaPods
 Add to your Podfile for you test target to have the latest stable version of
 Fox:
 
-    pod 'Fox', '~>1.0.1'
+    pod 'Fox', '~>1.0.0'
 
 And then `pod install`.
 
