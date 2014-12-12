@@ -3,9 +3,9 @@
 
 @interface FOXConstantRandom : NSObject <FOXRandom>
 
-@property (nonatomic) NSInteger value;
+@property (nonatomic) long long value;
 
 - (instancetype)init;
-- (instancetype)initWithValue:(NSInteger)value;
+- (instancetype)initWithValue:(long long)value;
 
 @end

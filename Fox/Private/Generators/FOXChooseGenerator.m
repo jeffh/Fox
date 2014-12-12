@@ -43,7 +43,7 @@ static NSMutableDictionary *__cache;
 {
     long long lower = [self.lowerNumber longLongValue];
     long long upper = [self.upperNumber longLongValue];
-    NSInteger randomInteger = [random randomIntegerWithinMinimum:lower
+    long long randomInteger = [random randomIntegerWithinMinimum:lower
                                                       andMaximum:upper];
     NSNumber *randValue = @(randomInteger);
     FOXRoseTree *tree = [self roseTreeWithMaxNumber:randValue];

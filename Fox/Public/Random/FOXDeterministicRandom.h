@@ -4,6 +4,6 @@
 @interface FOXDeterministicRandom : NSObject <FOXRandom>
 
 - (instancetype)init;
-- (instancetype)initWithSeed:(uint32_t)seed;
+- (instancetype)initWithSeed:(unsigned long long)seed;
 
 @end

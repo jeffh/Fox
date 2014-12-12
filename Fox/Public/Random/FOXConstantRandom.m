@@ -10,7 +10,7 @@
     return [self initWithValue:0];
 }
 
-- (instancetype)initWithValue:(NSInteger)value
+- (instancetype)initWithValue:(long long)value
 {
     self = [super init];
     if (self) {
@@ -19,12 +19,12 @@
     return self;
 }
 
-- (NSInteger)randomInteger
+- (long long)randomInteger
 {
     return self.value;
 }
 
-- (NSInteger)randomIntegerWithinMinimum:(NSInteger)minimumNumber andMaximum:(NSInteger)maximumNumber
+- (long long)randomIntegerWithinMinimum:(long long)minimumNumber andMaximum:(long long)maximumNumber
 {
     return MAX(MIN(self.value, maximumNumber), minimumNumber);
 }

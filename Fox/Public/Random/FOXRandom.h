@@ -15,17 +15,17 @@
  *  the runner if the user wants to set the seed for reproducing a
  *  generated test failure.
  */
-@property (nonatomic) NSUInteger seed;
+@property (nonatomic) unsigned long long seed;
 
 /*! Generates a random integer from within range of minimum and
  *  maximum range of NSInteger.
  */
-- (NSInteger)randomInteger;
+- (long long)randomInteger;
 
 /*! Generates a random integer from within the given range (inclusive).
  */
-- (NSInteger)randomIntegerWithinMinimum:(NSInteger)minimumNumber
-                             andMaximum:(NSInteger)maximumNumber;
+- (long long)randomIntegerWithinMinimum:(long long)minimumNumber
+                             andMaximum:(long long)maximumNumber;
 
 @end
 

@@ -1,15 +1,9 @@
 #import "FOXDeterministicRandom.h"
 #import <random>
 
-#ifdef __LP64__
-typedef std::mt19937_64 rng_engine;
-#else
-typedef std::mt19937 rng_engine;
-#endif
-
 @implementation FOXDeterministicRandom {
-    NSUInteger _seed;
-    rng_engine _generator;
+    unsigned long long _seed;
+    std::mt19937_64 _generator;
     std::uniform_int_distribution<NSInteger> _distribution;
 }
 
@@ -17,10 +11,10 @@ typedef std::mt19937 rng_engine;
 
 - (instancetype)init
 {
-    return [self initWithSeed:(uint32_t)time(NULL)];
+    return [self initWithSeed:(long long)time(NULL)];
 }
 
-- (instancetype)initWithSeed:(uint32_t)seed
+- (instancetype)initWithSeed:(unsigned long long)seed
 {
     self = [super init];
     if (self) {
@@ -31,18 +25,18 @@ typedef std::mt19937 rng_engine;
     return self;
 }
 
-- (void)setSeed:(NSUInteger)seed
+- (void)setSeed:(unsigned long long)seed
 {
     _seed = seed;
-    _generator = rng_engine(seed);
+    _generator = std::mt19937_64(seed);
 }
 
-- (NSInteger)randomInteger
+- (long long)randomInteger
 {
     return _distribution(_generator);
 }
 
-- (NSInteger)randomIntegerWithinMinimum:(NSInteger)minimumNumber andMaximum:(NSInteger)maximumNumber
+- (long long)randomIntegerWithinMinimum:(long long)minimumNumber andMaximum:(long long)maximumNumber
 {
     NSInteger difference = maximumNumber - minimumNumber;
     std::uniform_int_distribution<NSInteger> distributionRange(0, difference);
