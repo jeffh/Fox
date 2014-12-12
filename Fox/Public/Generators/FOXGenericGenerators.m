@@ -14,16 +14,14 @@ FOX_EXPORT id<FOXGenerator> FOXOptional(id<FOXGenerator> generator) {
 
 FOX_EXPORT id<FOXGenerator> FOXSimpleType(void) {
     return FOXOneOf(@[FOXInteger(),
-                      FOXFloat(),
-                      FOXCharacter(),
+                      FOXDouble(),
                       FOXString(),
                       FOXBoolean()]);
 }
 
 FOX_EXPORT id<FOXGenerator> FOXPrintableSimpleType(void) {
     return FOXOneOf(@[FOXInteger(),
-                      FOXFloat(),
-                      FOXAsciiCharacter(),
+                      FOXDouble(),
                       FOXAsciiString(),
                       FOXBoolean()]);
 }

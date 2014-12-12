@@ -140,6 +140,9 @@ And you're all set up! Dive right in by following the
 Reference
 =========
 
+If you want to see examples of usages, see the [full
+reference](http://fox-testing.readthedocs.org/en/latest/generators_reference.html).
+
 Data Generators
 ---------------
 
@@ -166,7 +169,7 @@ FOXTupleOfGenerators                  | NSArray *      | Generates random fixed-
 FOXArray                              | NSArray *      | Generates random variable-sized arrays of generated values.
 FOXArrayOfSize                        | NSArray *      | Generates random fixed-sized arrays of generated values. Values generated are in the same order as the generators provided.
 FOXArrayOfSizeRange                   | NSArray *      | Generates random variable-sized arrays of generated values. Array size is within the given range (inclusive).
-FOXDictionary                         | NSDictionary * | Generates random dictionries of generated values. Keys are known values ahead of time. Specified in `@{<key>: <generator>}` form.
+FOXDictionary                         | NSDictionary * | Generates random dictionaries of generated values. Keys are known values ahead of time. Specified in `@{<key>: <generator>}` form.
 FOXSet                                | NSSet *        | Generates random sets of a given generated values.
 FOXCharacter                          | NSString *     | Generates random 1-length sized character string. May be an unprintable character.
 FOXAlphabetCharacter                  | NSString *     | Generates random 1-length sized character string. Only generates alphabetical letters.
@@ -203,7 +206,7 @@ generator adopts the same shrinking properties as the original generator.
 Function                  | Description
 ------------------------- | ------------
 FOXMap                    | Applies a block to each generated value.
-FOXBind                   | Applies a block to the lazy tree that the original generator creates. See Building Generators section for more information.
+FOXBind                   | Applies a block to the value that the original generator generates.
 FOXResize                 | Overrides the given generator's size parameter with the specified size. Prevents shrinking.
 FOXOptional               | Creates a new generator that has a 25% chance of returning `nil` instead of the provided generated value.
 FOXFrequency              | Dispatches to one of many generators by probability. Takes an array of tuples (2-sized array) - `@[@[@probability_uint, generator]]`. Shrinking follows whatever generator is returned.

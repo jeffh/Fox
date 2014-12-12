@@ -5,6 +5,9 @@
 + (NSUInteger)numberOfTestsPerProperty;
 + (FOXRunnerResult *)resultForAll:(id<FOXGenerator>)generator
                              then:(BOOL(^)(id value))block;
++ (FOXRunnerResult *)resultForAll:(id<FOXGenerator>)generator
+                             then:(BOOL(^)(id value))block
+                    numberOfTests:(NSUInteger)numberOfTests;
 + (FOXRunnerResult *)debug_resultForAll:(id<FOXGenerator>)generator
                                    then:(BOOL(^)(id value))block;
 + (FOXRunnerResult *)resultForAll:(id<FOXGenerator>)generator

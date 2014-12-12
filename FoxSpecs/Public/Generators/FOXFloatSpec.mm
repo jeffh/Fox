@@ -24,6 +24,13 @@ describe(@"FOXFloat", ^{
         result.smallestFailingValue should equal(@0);
     });
 
+    it(@"should generate NaN", ^{
+        FOXRunnerResult *result = [FOXSpecHelper resultForAll:FOXResize(FOXFloat(), UINT64_MAX) then:^BOOL(NSNumber *generatedValue) {
+            return !isnan([generatedValue floatValue]);
+        } numberOfTests:10000];
+        result.succeeded should be_falsy;
+    });
+
     it(@"should never shrink to a value further from zero", ^{
         NSArray *values = FOXSampleShrinkingWithCount(FOXFloat(), 100);
         float originalValue = [values[0] floatValue];
