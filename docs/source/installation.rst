@@ -23,7 +23,7 @@ Add Fox as a submodule to your project::
 If you don't want bleeding edge, check out the particular tag of the version::
 
     $ cd Externals/Fox
-    $ git checkout v1.0.0
+    $ git checkout v1.0.1
 
 Add ``Fox.xcodeproj`` to your Xcode project (not ``Fox.xcworkspace``). Then
 link Fox-iOS or Fox-OSX to your test target.
@@ -37,7 +37,7 @@ CocoaPods
 Add to your Podfile for you test target to have the latest stable version of
 Fox::
 
-    pod 'Fox', '~>1.0.0'
+    pod 'Fox', '~>1.0.1'
 
 And then ``pod install``.
 
