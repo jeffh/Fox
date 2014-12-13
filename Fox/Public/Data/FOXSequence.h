@@ -15,6 +15,7 @@
 - (id<FOXSequence>)sequenceByFiltering:(BOOL (^)(id item))predicate;
 - (id<FOXSequence>)sequenceByAppending:(id<FOXSequence>)sequence;
 - (id<FOXSequence>)sequenceByDroppingIndex:(NSUInteger)index;
+- (id<FOXSequence>)sequenceByMapcatting:(id<FOXSequence>(^)(id item))block;
 - (id)objectByReducingWithSeed:(id)seedObject
                        reducer:(id(^)(id accum, id item))reducer;
 
@@ -60,5 +61,8 @@
 
 + (instancetype)lazySequenceFromBlock:(id<FOXSequence>(^)())block;
 + (instancetype)lazyUniqueSequence:(id<FOXSequence>)sequence;
++ (instancetype)lazyRangeStartingAt:(NSInteger)startIndex endingBefore:(NSUInteger)endIndex;
++ (instancetype)subsetsOfSequence:(id<FOXSequence>)sequence;
++ (instancetype)combinationsOfSequence:(id<FOXSequence>)sequence size:(NSUInteger)size;
 
 @end

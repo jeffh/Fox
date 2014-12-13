@@ -7,7 +7,7 @@
  * It must also support the concept of "seeds"--that is, a randomness
  * provider, given the same seed, must produce the same data.
  */
-@protocol FOXRandom <NSObject>
+@protocol FOXRandom <NSObject, NSCopying>
 
 /*! Represent the seed of the random number generator.
  *
@@ -26,6 +26,10 @@
  */
 - (long long)randomIntegerWithinMinimum:(long long)minimumNumber
                              andMaximum:(long long)maximumNumber;
+
+/*! Copies the PRNG.
+ */
+- (id)copy;
 
 @end
 

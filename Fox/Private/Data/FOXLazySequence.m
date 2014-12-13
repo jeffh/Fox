@@ -11,7 +11,9 @@
 @end
 
 
-@implementation FOXLazySequence
+@implementation FOXLazySequence {
+    OSSpinLock _lock;
+}
 
 - (instancetype)init
 {
@@ -25,6 +27,14 @@
         self.block = block;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    OSSpinLockLock(&_lock);
+    self.block = nil;
+    self.blockValue = nil;
+    self.sequenceValue = nil;
 }
 
 #pragma mark - FOXSequence
@@ -73,18 +83,17 @@
 #pragma mark - Private
 
 - (id)evaluateBlock {
-    @synchronized (self) {
-        if (self.block) {
-            self.blockValue = self.block();
-            self.block = nil;
-        }
-        return self.blockValue;
+    if (self.block) {
+        self.blockValue = self.block();
+        self.block = nil;
     }
+    return self.blockValue;
 }
 
 - (id<FOXSequence>)evaluateSequence {
-    [self evaluateBlock];
-    @synchronized (self) {
+    OSSpinLockLock(&_lock);
+    @try {
+        [self evaluateBlock];
         if (self.blockValue) {
             id value = self.blockValue;
             self.blockValue = nil;
@@ -94,6 +103,9 @@
             self.sequenceValue = value;
         }
         return self.sequenceValue;
+    }
+    @finally {
+        OSSpinLockUnlock(&_lock);
     }
 }
 

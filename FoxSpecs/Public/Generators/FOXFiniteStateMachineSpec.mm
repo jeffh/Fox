@@ -1,9 +1,11 @@
 #import <Cedar.h>
-#import "FOX.h"
+#import "Fox.h"
 #import "QueueRemoveTransition.h"
 #import "QueueAddTransition.h"
 #import "FOXSpecHelper.h"
 #import "Queue.h"
+
+#import "FOXScheduler.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;

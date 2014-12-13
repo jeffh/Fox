@@ -44,4 +44,11 @@
     return randomNumber + minimumNumber;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    FOXDeterministicRandom *r = [[[self class] allocWithZone:zone] initWithSeed:self.seed];
+    r->_generator = _generator;
+    return r;
+}
+
 @end

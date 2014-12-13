@@ -1,4 +1,5 @@
 #import "FOXRunnerResult.h"
+#import "FOXStringUtil.h"
 
 @implementation FOXRunnerResult
 
@@ -36,11 +37,11 @@
         [string appendFormat:@"\n size that failed: %lu", (unsigned long)self.failingSize];
         [string appendFormat:@"\n shrink depth: %lu", (unsigned long)self.shrinkDepth];
         [string appendFormat:@"\n shrink nodes walked: %lu", (unsigned long)self.shrinkNodeWalkCount];
-        [string appendFormat:@"\n value that failed: %@", self.failingValue];
+        [string appendFormat:@"\n value that failed: %@", FOXTrim(FOXDescription(self.failingValue, 1))];
         if (self.failingException) {
             [string appendFormat:@"\n   -> raised %@", self.failingException];
         }
-        [string appendFormat:@"\n smallest failing value: %@", self.smallestFailingValue];
+        [string appendFormat:@"\n smallest failing value: %@", FOXTrim(FOXDescription(self.smallestFailingValue, 1))];
         if (self.failingException) {
             [string appendFormat:@"\n   -> raised %@", self.smallestFailingException];
         }

@@ -28,12 +28,14 @@
 
 - (FOXRoseTree *)lazyTreeWithRandom:(id<FOXRandom>)random maximumSize:(NSUInteger)maximumSize
 {
-    FOXRoseTree *innerTree = [self.generator lazyTreeWithRandom:random
-                                                    maximumSize:maximumSize];
-    id<FOXGenerator> resultingGenerator = self.factory(innerTree);
-    return [resultingGenerator lazyTreeWithRandom:random
-                                      maximumSize:maximumSize];
+    @autoreleasepool {
+        FOXRoseTree *innerTree = [self.generator lazyTreeWithRandom:random
+                                                        maximumSize:maximumSize];
+        id<FOXGenerator> resultingGenerator = self.factory(innerTree);
+        return [resultingGenerator lazyTreeWithRandom:random
+                                          maximumSize:maximumSize];
 
+    }
 }
 
 @end

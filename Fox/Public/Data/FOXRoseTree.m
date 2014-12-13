@@ -66,12 +66,14 @@
 
 + (instancetype)zipTreeFromRoseTrees:(NSArray *)roseTrees
 {
-    id<FOXSequence> children = [[self permutationsOfRoseTrees:roseTrees] sequenceByMapping:^id(NSArray *subtrees) {
-        return [self zipTreeFromRoseTrees:subtrees];
-    }];
+    @autoreleasepool {
+        id<FOXSequence> children = [[self permutationsOfRoseTrees:roseTrees] sequenceByMapping:^id(NSArray *subtrees) {
+            return [self zipTreeFromRoseTrees:subtrees];
+        }];
 
-    return [[FOXRoseTree alloc] initWithValue:[roseTrees valueForKey:@"value"]
-                                     children:children];
+        return [[FOXRoseTree alloc] initWithValue:[roseTrees valueForKey:@"value"]
+                                         children:children];
+    }
 }
 
 - (instancetype)initWithValue:(id)value

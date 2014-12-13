@@ -6,7 +6,6 @@
 static void FOXPrepareInvocation(NSInvocation *invocation, NSArray *values);
 static id FOXBoxReturnFromInvocation(NSInvocation *invocation);
 
-
 @implementation FOXTransition
 
 + (instancetype)byCallingSelector:(SEL)selector
@@ -14,19 +13,21 @@ static id FOXBoxReturnFromInvocation(NSInvocation *invocation);
                    nextModelState:(id (^)(id modelState, id generatedValue))nextState
 {
     FOXTransition *transition = [[FOXTransition alloc] initWithAction:^id(id subject, id generatedValue) {
-        NSMethodSignature *signature = [subject methodSignatureForSelector:selector];
-        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+        @autoreleasepool {
+            NSMethodSignature *signature = [subject methodSignatureForSelector:selector];
+            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
 
-        NSArray *arguments = [NSArray arrayWithObject:generatedValue];
-        if ([generatedValue isKindOfClass:[NSArray class]]) {
-            arguments = generatedValue;
+            NSArray *arguments = [NSArray arrayWithObject:generatedValue];
+            if ([generatedValue isKindOfClass:[NSArray class]]) {
+                arguments = generatedValue;
+            }
+            FOXPrepareInvocation(invocation, arguments);
+
+            invocation.selector = selector;
+            [invocation invokeWithTarget:subject];
+            
+            return FOXBoxReturnFromInvocation(invocation);
         }
-        FOXPrepareInvocation(invocation, arguments);
-
-        invocation.selector = selector;
-        [invocation invokeWithTarget:subject];
-
-        return FOXBoxReturnFromInvocation(invocation);
     } nextModelState:nextState];
     transition.name = NSStringFromSelector(selector);
     transition.generator = generator;
@@ -48,6 +49,7 @@ static id FOXBoxReturnFromInvocation(NSInvocation *invocation);
         self.generator = generator;
         self.action = action;
         self.nextState = nextState;
+        self.frequency = 1;
     }
     return self;
 }
@@ -162,14 +164,39 @@ static id FOXBoxReturnFromInvocation(NSInvocation *invocation)
     NSMethodSignature *signature = invocation.methodSignature;
 
     __autoreleasing id returnedObject = nil;
+#define IS_TYPE_OR_CONST(returnType, type) (IS_TYPE(returnType, @encode(type)) || IS_TYPE(returnType, @encode(const type)))
+#define SET_RETURN(type) \
+type value = 0; \
+[invocation getReturnValue:&value]; \
+returnedObject = @(value);
 
     if (signature.methodReturnLength > 0) {
         const char *returnType = signature.methodReturnType;
         if (IS_TYPE(returnType, @encode(id)) || IS_TYPE(returnType, "#") || IS_TYPE(returnType, "^")) {
             [invocation getReturnValue:&returnedObject];
+        } else if (IS_TYPE_OR_CONST(returnType, long)) {
+            SET_RETURN(long);
+        } else if (IS_TYPE_OR_CONST(returnType, long long)) {
+            SET_RETURN(long long);
+        } else if (IS_TYPE_OR_CONST(returnType, short)) {
+            SET_RETURN(short);
+        } else if (IS_TYPE_OR_CONST(returnType, char)) {
+            SET_RETURN(char);
+        } else if (IS_TYPE_OR_CONST(returnType, unsigned long)) {
+            SET_RETURN(unsigned long);
+        } else if (IS_TYPE_OR_CONST(returnType, unsigned long long)) {
+            SET_RETURN(unsigned long long);
+        } else if (IS_TYPE_OR_CONST(returnType, unsigned short)) {
+            SET_RETURN(unsigned short);
+        } else if (IS_TYPE_OR_CONST(returnType, unsigned char)) {
+            SET_RETURN(unsigned char);
+        } else if (IS_TYPE_OR_CONST(returnType, float)) {
+            SET_RETURN(float);
+        } else if (IS_TYPE_OR_CONST(returnType, double)) {
+            SET_RETURN(double);
         } else {
             void *buffer = (void *)alloca(signature.methodReturnLength);
-            [invocation getReturnValue:&buffer];
+            [invocation getReturnValue:buffer];
             returnedObject = [NSValue value:buffer withObjCType:returnType];
         }
     }
