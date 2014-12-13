@@ -14,6 +14,18 @@
     printf("FOX_NUM_TESTS=%lu, FOX_SEED=%lu, FOX_MAX_SIZE=%lu\n", (unsigned long)FOXGetNumberOfTests(), (unsigned long)FOXGetSeed(), (unsigned long)FOXGetMaximumSize());
 }
 
++ (FOXRunnerResult *)resultForProperty:(id<FOXGenerator>)propertyGenerator
+{
+    FOXRunner *quick = [[FOXRunner alloc] initWithReporter:nil];
+    return [quick resultForNumberOfTests:[self numberOfTestsPerProperty] property:propertyGenerator];
+}
+
++ (FOXRunnerResult *)resultForProperty:(id<FOXGenerator>)propertyGenerator numberOfTests:(NSUInteger)numberOfTests
+{
+    FOXRunner *quick = [[FOXRunner alloc] initWithReporter:nil];
+    return [quick resultForNumberOfTests:numberOfTests property:propertyGenerator];
+}
+
 + (FOXRunnerResult *)resultForAll:(id<FOXGenerator>)generator
                              then:(BOOL(^)(id value))block
 {
@@ -23,7 +35,6 @@
     FOXRunner *quick = [[FOXRunner alloc] initWithReporter:nil];
     return [quick resultForNumberOfTests:[self numberOfTestsPerProperty] property:property];
 }
-
 
 + (FOXRunnerResult *)resultForAll:(id<FOXGenerator>)generator
                              then:(BOOL(^)(id value))block

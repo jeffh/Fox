@@ -34,9 +34,18 @@ FOX_EXPORT id<FOXGenerator> FOXArrayOfSize(id<FOXGenerator> elementGenerator, NS
 FOX_EXPORT id<FOXGenerator> FOXArrayOfSizeRange(id<FOXGenerator> elementGenerator,
                                                 NSUInteger minimumNumberOfElements,
                                                 NSUInteger maximumNumberOfElements) {
-    id<FOXGenerator> sizedArrayGenerator = FOXGenerate(^FOXRoseTree *(id<FOXRandom> random, NSUInteger size) {
-        return [FOXArrayOfSize(elementGenerator, size) lazyTreeWithRandom:random maximumSize:size];
+    id<FOXGenerator> sizeGenerator = FOXChoose(@(minimumNumberOfElements),
+                                               @(maximumNumberOfElements));
+    return FOXGenBind(sizeGenerator, ^id<FOXGenerator>(FOXRoseTree *sizeTree) {
+        id<FOXSequence> generators = [FOXSequence sequenceByRepeatingObject:elementGenerator
+                                                                      times:[sizeTree.value integerValue]];
+        id<FOXGenerator> arrayGenerator = [[FOXArrayGenerator alloc] initWithGenerators:generators];
+        return FOXGenBind(arrayGenerator, ^id<FOXGenerator>(FOXRoseTree *generatorTree) {
+            return FOXGenPure([generatorTree treeFilterChildrenByBlock:^BOOL(NSArray *elements) {
+                NSUInteger count = [elements count];
+                return count >= minimumNumberOfElements && count <= maximumNumberOfElements;
+            }]);
+        });
     });
-    sizedArrayGenerator = FOXWithName(@"ArrayOfSizeRange", sizedArrayGenerator);
-    return FOXResizeRange(sizedArrayGenerator, minimumNumberOfElements, maximumNumberOfElements);
 }
+

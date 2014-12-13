@@ -21,7 +21,12 @@
     self = [super init];
     if (self) {
         self.name = name;
-        self.generator = generator;
+
+        if ([generator isKindOfClass:[FOXNamedGenerator class]]) {
+            self.generator = [(FOXNamedGenerator *)generator generator];
+        } else {
+            self.generator = generator;
+        }
     }
     return self;
 }

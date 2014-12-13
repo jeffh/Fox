@@ -23,6 +23,7 @@
 #import "FOXPropertyGenerators.h"
 #import "FOXStateMachineGenerators.h"
 #import "FOXGenericGenerators.h"
+#import "FOXParallelGenerators.h"
 
 // stateful testers
 #import "FOXFiniteStateMachine.h"

@@ -6,6 +6,7 @@
 #import "FOXChooseGenerator.h"
 #import "FOXLimits.h"
 #import <float.h>
+#import "FOXDeterministicRandom.h"
 
 FOX_EXPORT id<FOXGenerator> _FOXNaturalInteger(void) {
     return FOXMap(FOXInteger(), ^id(NSNumber *number) {
@@ -153,7 +154,6 @@ FOX_EXPORT id<FOXGenerator> FOXDecimalNumber(void) {
     return FOXWithName(@"DecimalNumber", gen);
 }
 
-
 #pragma mark - Famous Generators
 
 FOX_EXPORT id<FOXGenerator> FOXFamousInteger(void) {
@@ -222,4 +222,10 @@ FOX_EXPORT id<FOXGenerator> FOXFamousDecimalNumber(void) {
                                       @[@1, FOXReturn([NSDecimalNumber minimumDecimalNumber])],
                                       @[@1, FOXReturn([NSDecimalNumber maximumDecimalNumber])],
                                       @[@1, FOXReturn([NSDecimalNumber notANumber])]]));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXSeed(void) {
+    return FOXBind(FOXPositiveInteger(), ^id<FOXGenerator>(NSNumber *value) {
+        return FOXReturn([[FOXDeterministicRandom alloc] initWithSeed:[value unsignedIntegerValue]]);
+    });
 }

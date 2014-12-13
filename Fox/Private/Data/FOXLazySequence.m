@@ -1,5 +1,6 @@
 #import "FOXLazySequence.h"
 #import "FOXConcreteSequence.h"
+#import <libkern/OSAtomic.h>
 
 
 @interface FOXLazySequence ()
@@ -11,7 +12,9 @@
 @end
 
 
-@implementation FOXLazySequence
+@implementation FOXLazySequence {
+    OSSpinLock _lock;
+}
 
 - (instancetype)init
 {
@@ -73,28 +76,27 @@
 #pragma mark - Private
 
 - (id)evaluateBlock {
-    @synchronized (self) {
-        if (self.block) {
-            self.blockValue = self.block();
-            self.block = nil;
-        }
-        return self.blockValue;
+    if (self.block) {
+        self.blockValue = self.block();
+        self.block = nil;
     }
+    return self.blockValue;
 }
 
 - (id<FOXSequence>)evaluateSequence {
+    OSSpinLockLock(&_lock);
     [self evaluateBlock];
-    @synchronized (self) {
-        if (self.blockValue) {
-            id value = self.blockValue;
-            self.blockValue = nil;
-            while ([self.block isKindOfClass:[FOXLazySequence class]]) {
-                value = [value evaluateBlock];
-            }
-            self.sequenceValue = value;
+    if (self.blockValue) {
+        id value = self.blockValue;
+        self.blockValue = nil;
+        while ([self.block isKindOfClass:[FOXLazySequence class]]) {
+            value = [value evaluateBlock];
         }
-        return self.sequenceValue;
+        self.sequenceValue = value;
     }
+    id value = self.sequenceValue;
+    OSSpinLockUnlock(&_lock);
+    return value;
 }
 
 @end

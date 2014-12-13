@@ -22,6 +22,8 @@ FOX_EXPORT id<FOXGenerator> FOXForAll(id<FOXGenerator> generator, BOOL (^then)(i
  */
 FOX_EXPORT id<FOXGenerator> FOXForSome(id<FOXGenerator> generator, FOXPropertyStatus (^then)(id generatedValue));
 
+FOX_EXPORT id<FOXGenerator> FOXAlways(NSUInteger times, id<FOXGenerator> property);
+
 #if !defined(FOX_DISABLE_SHORTHAND)
 /*! Creates a generator that maps an assertion block against input from a
  *  generator.

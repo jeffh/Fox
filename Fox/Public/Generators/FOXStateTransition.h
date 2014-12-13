@@ -110,4 +110,7 @@
                             generatedValue:(id)generatedValue
                    objectReturnedBySubject:(id)returnedObject;
 
+@optional
+- (NSUInteger)frequency;
+
 @end

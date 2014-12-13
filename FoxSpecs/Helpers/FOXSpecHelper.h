@@ -3,6 +3,9 @@
 @interface FOXSpecHelper : NSObject
 
 + (NSUInteger)numberOfTestsPerProperty;
++ (FOXRunnerResult *)resultForProperty:(id<FOXGenerator>)propertyGenerator;
++ (FOXRunnerResult *)resultForProperty:(id<FOXGenerator>)propertyGenerator
+                         numberOfTests:(NSUInteger)numberOfTests;
 + (FOXRunnerResult *)resultForAll:(id<FOXGenerator>)generator
                              then:(BOOL(^)(id value))block;
 + (FOXRunnerResult *)resultForAll:(id<FOXGenerator>)generator

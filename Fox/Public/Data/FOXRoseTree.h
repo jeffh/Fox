@@ -20,6 +20,7 @@
  */
 @property (nonatomic) id<FOXSequence> children; // of FOXRoseTrees
 
+
 /*! Generates a lazy sequence of rose tree permutations. A permutation is where one of the given
  *  rose trees is replaced by one of its children.
  *

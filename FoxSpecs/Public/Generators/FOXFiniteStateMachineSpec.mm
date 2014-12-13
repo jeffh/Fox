@@ -1,5 +1,5 @@
 #import <Cedar.h>
-#import "FOX.h"
+#import "Fox.h"
 #import "QueueRemoveTransition.h"
 #import "QueueAddTransition.h"
 #import "FOXSpecHelper.h"

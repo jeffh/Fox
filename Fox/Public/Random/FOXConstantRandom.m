@@ -29,4 +29,9 @@
     return MAX(MIN(self.value, maximumNumber), minimumNumber);
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    return [[[self class] allocWithZone:zone] initWithValue:self.value];
+}
+
 @end

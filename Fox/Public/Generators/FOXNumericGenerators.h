@@ -102,7 +102,6 @@ FOX_EXPORT id<FOXGenerator> FOXDouble(void);
  */
 FOX_EXPORT id<FOXGenerator> FOXDecimalNumber(void);
 
-
 /*! Creates a generator that produces random NSIntegers with an increased
  *  probability of picking INT_MAX and INT_MIN. Shrinks towards 0.
  *
@@ -218,3 +217,5 @@ FOX_EXPORT id<FOXGenerator> FOXFamousDouble(void);
  *  @returns a generator that produces NSDecimalNumbers.
  */
 FOX_EXPORT id<FOXGenerator> FOXFamousDecimalNumber(void);
+
+FOX_EXPORT id<FOXGenerator> FOXSeed(void);

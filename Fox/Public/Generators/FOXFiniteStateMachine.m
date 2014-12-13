@@ -2,7 +2,7 @@
 #import "FOXStateTransition.h"
 #import "FOXCommand.h"
 #import "FOXExecutedCommand.h"
-#import "FOXArray.h"
+#import "FOXPrettyArray.h"
 
 
 @interface FOXFiniteStateMachine ()
@@ -23,6 +23,8 @@
     return self;
 }
 
+#pragma mark - FOXStateMachine
+
 - (void)addTransition:(id<FOXStateTransition>)transition
 {
     NSParameterAssert([transition conformsToProtocol:@protocol(FOXStateTransition)]);
@@ -34,32 +36,40 @@
     return self.transitions;
 }
 
-- (BOOL)isValidCommandSequence:(NSArray *)commands
+- (id)modelStateFromCommandSequence:(NSArray *)commands
 {
-    id modelState = self.initialModelState;
+    return [self modelStateFromCommandSequence:commands startingModelState:self.initialModelState];
+}
+
+- (id)modelStateFromCommandSequence:(NSArray *)commands startingModelState:(id)modelState
+{
     for (FOXCommand *command in commands) {
         id<FOXStateTransition> transition = command.transition;
         id generatedValue = command.generatedValue;
         if (![transition satisfiesPreConditionForModelState:modelState]) {
-            return NO;
+            return nil;
         }
         modelState = [transition nextModelStateFromModelState:modelState generatedValue:generatedValue];
     }
-    return YES;
+    return modelState;
 }
 
 - (NSArray *)executeCommandSequence:(NSArray *)commands subject:(id)subject
 {
+    return [self executeCommandSequence:commands subject:subject startingModelState:self.initialModelState];
+}
+
+- (NSArray *)executeCommandSequence:(NSArray *)commands subject:(id)subject startingModelState:(id)modelState
+{
     NSMutableArray *executedCommands = [NSMutableArray array];
-    id modelState = self.initialModelState;
     for (FOXCommand *command in commands) {
         id<FOXStateTransition> transition = command.transition;
         id generatedValue = command.generatedValue;
         id previousModalState = modelState;
 
         FOXExecutedCommand *executedCommand = [[FOXExecutedCommand alloc] init];
+        executedCommand.timeExecuted = CFAbsoluteTimeGetCurrent();
         executedCommand.command = command;
-        executedCommand.dateExecuted = [NSDate date];
         executedCommand.modelStateBeforeExecution = modelState;
         [executedCommands addObject:executedCommand];
 
@@ -99,8 +109,7 @@
 
         executedCommand.satisfiesPostcondition = YES;
     }
-    FOXArray *prettyExecutedCommands = [[FOXArray alloc] initWithArray:executedCommands];
-    return prettyExecutedCommands;
+    return [FOXPrettyArray arrayWithArray:executedCommands];
 }
 
 @end

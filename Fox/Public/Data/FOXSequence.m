@@ -2,6 +2,7 @@
 #import "FOXLazySequence.h"
 #import "FOXConcreteSequence.h"
 #import "FOXSequenceEnumerator.h"
+#import "FOXMath.h"
 
 
 @implementation FOXSequence
@@ -114,6 +115,13 @@
     }];
 }
 
+- (id<FOXSequence>)sequenceByMapcatting:(id<FOXSequence>(^)(id item))block
+{
+    return [[self sequenceByMapping:block] objectByReducingWithSeed:[FOXSequence sequence] reducer:^id(id<FOXSequence> accum, id<FOXSequence> subsequence) {
+        return [accum sequenceByAppending:subsequence];
+    }];
+}
+
 - (id)objectByReducingWithSeed:(id)seedObject
                        reducer:(id(^)(id accum, id item))reducer
 {
@@ -205,6 +213,20 @@
     return description;
 }
 
+- (id)valueForKey:(NSString *)key
+{
+    return [self sequenceByMapping:^id(id item) {
+        return [item valueForKey:key];
+    }];
+}
+
+- (id)valueForKeyPath:(NSString *)keyPath
+{
+    return [self sequenceByMapping:^id(id item) {
+        return [item valueForKeyPath:keyPath];
+    }];
+}
+
 #pragma mark - Abstract FOXSequence
 
 - (id<FOXSequence>)remainingSequence
@@ -229,7 +251,12 @@
 
 + (instancetype)sequence
 {
-    return [[FOXConcreteSequence alloc] init];
+    static FOXSequence *emptySequence;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        emptySequence = [[FOXConcreteSequence alloc] init];
+    });
+    return emptySequence;
 }
 
 + (instancetype)sequenceWithObject:(id)firstObject
@@ -281,6 +308,64 @@
             return YES;
         }
     }];
+}
+
++ (instancetype)lazyRangeStartingAt:(NSInteger)startIndex endingBefore:(NSUInteger)endIndex
+{
+    if (startIndex == endIndex) {
+        return nil;
+    }
+    NSInteger incrementAmount = (startIndex > endIndex) ? -1 : 1;
+    return [self lazySequenceFromBlock:^id<FOXSequence>{
+        return [self sequenceWithObject:@(startIndex)
+                      remainingSequence:[self lazyRangeStartingAt:startIndex + incrementAmount
+                                                     endingBefore:endIndex]];
+    }];
+}
+
++ (instancetype)subsetsOfSequence:(id<FOXSequence>)sequence
+{
+    id<FOXSequence> s = [self lazyRangeStartingAt:0 endingBefore:[sequence count] + 1];
+    return [s sequenceByMapcatting:^id<FOXSequence>(id item) {
+        return [self combinationsOfSequence:sequence size:[item integerValue]];
+    }];
+}
+
++ (instancetype)combinationsOfSequence:(id<FOXSequence>)sequence size:(NSUInteger)size
+{
+    if (size == 0) {
+        return [self sequenceWithObject:[self sequence]];
+    }
+    if ([sequence count] < size) {
+        return [self sequence];
+    }
+    if ([sequence count] == size) {
+        return [self sequenceWithObject:sequence];
+    }
+    NSArray *seqValues = [[sequence objectEnumerator] allObjects];
+    id<FOXSequence> seqOfIndicies = [self indexCombinationsOfSize:size collectionSize:[sequence count]];
+    return [seqOfIndicies sequenceByMapping:^id(NSArray *indicies) {
+        NSMutableArray *values = [NSMutableArray array];
+        for (NSNumber *index in indicies) {
+            [values addObject:seqValues[index.integerValue]];
+        }
+        return [self sequenceFromArray:values];
+    }];
+}
+
++ (instancetype)indexCombinationsOfSize:(NSUInteger)size collectionSize:(NSUInteger)collectionSize
+{
+    NSAssert(size <= collectionSize, @"combinations size (%lu) is greater than collection size (%lu)",
+             size, collectionSize);
+    NSMutableArray *result = [NSMutableArray array];
+    eachCombination(collectionSize, size, ^(NSUInteger *values, NSUInteger numValues) {
+        NSMutableArray *combination = [NSMutableArray array];
+        for (NSUInteger i = 0; i < numValues; i++) {
+            [combination addObject:@((NSInteger)values[i])];
+        }
+        [result addObject:[self sequenceFromArray:combination]];
+    });
+    return [self sequenceFromArray:result];
 }
 
 @end

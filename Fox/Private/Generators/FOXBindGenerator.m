@@ -1,4 +1,5 @@
 #import "FOXBindGenerator.h"
+#import "FOXCoreGenerators.h"
 
 
 @interface FOXBindGenerator ()
@@ -33,7 +34,6 @@
     id<FOXGenerator> resultingGenerator = self.factory(innerTree);
     return [resultingGenerator lazyTreeWithRandom:random
                                       maximumSize:maximumSize];
-
 }
 
 @end

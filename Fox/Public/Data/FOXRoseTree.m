@@ -21,8 +21,8 @@
     for (id subtree in roseTreeLiteral[1]) {
         [subtrees addObject:[self treeFromArray:subtree]];
     }
-    return [[FOXRoseTree alloc] initWithValue:[roseTreeLiteral firstObject]
-                                     children:[FOXSequence sequenceFromArray:subtrees]];
+    return [[[self class] alloc] initWithValue:[roseTreeLiteral firstObject]
+                                      children:[FOXSequence sequenceFromArray:subtrees]];
 }
 
 + (instancetype)joinedTreeFromNestedRoseTree:(FOXRoseTree *)roseTree
@@ -32,8 +32,8 @@
         return [self joinedTreeFromNestedRoseTree:tree];
     }];
     id<FOXSequence> mergedChildren = [childrenChildren sequenceByAppending:firstTree.children];
-    return [[FOXRoseTree alloc] initWithValue:firstTree.value
-                                     children:mergedChildren];
+    return [[[self class] alloc] initWithValue:firstTree.value
+                                      children:mergedChildren];
 }
 
 + (id<FOXSequence>)sequenceByExpandingRoseTrees:(NSArray *)roseTrees
@@ -53,14 +53,14 @@
 + (instancetype)shrinkTreeFromRoseTrees:(NSArray *)roseTrees
 {
     if (!roseTrees.count) {
-        return [[FOXRoseTree alloc] initWithValue:@[]];
+        return [[[self class] alloc] initWithValue:@[]];
     }
 
     id<FOXSequence> children = [[self sequenceByExpandingRoseTrees:roseTrees] sequenceByMapping:^id(id<FOXSequence> trees) {
         return [self shrinkTreeFromRoseTrees:[[trees objectEnumerator] allObjects]];
     }];
 
-    return [[FOXRoseTree alloc] initWithValue:[roseTrees valueForKey:@"value"]
+    return [[[self class] alloc] initWithValue:[roseTrees valueForKey:@"value"]
                                      children:children];
 }
 
@@ -89,22 +89,37 @@
     return self;
 }
 
-- (FOXRoseTree *)treeByApplyingBlock:(id(^)(id element))block
+- (void)freeInternals
 {
-    return [[FOXRoseTree alloc] initWithValue:block(self.value)
-                                     children:[self.children sequenceByMapping:^id(FOXRoseTree *subtree) {
+    _value = nil;
+    _children = nil;
+}
+
+- (void)mutateTreeByApplyingBlock:(id(^)(id element))block
+{
+    self.value = block(self.value);
+    self.children = [self.children sequenceByMapping:^id(FOXRoseTree *subtree) {
+        [subtree mutateTreeByApplyingBlock:block];
+        return subtree;
+    }];
+}
+
+- (instancetype)treeByApplyingBlock:(id(^)(id element))block
+{
+    return [[[self class] alloc] initWithValue:block(self.value)
+                                      children:[self.children sequenceByMapping:^id(FOXRoseTree *subtree) {
         return [subtree treeByApplyingBlock:block];
     }]];
 }
 
-- (FOXRoseTree *)treeFilterChildrenByBlock:(BOOL(^)(id element))block
+- (instancetype)treeFilterChildrenByBlock:(BOOL(^)(id element))block
 {
-    return [[FOXRoseTree alloc] initWithValue:self.value
-                                     children:[[self.children sequenceByFiltering:^BOOL(FOXRoseTree *subtree) {
-                                         return block(subtree.value);
-                                     }] sequenceByMapping:^id(FOXRoseTree *subtree) {
-                                         return [subtree treeFilterChildrenByBlock:block];
-                                     }]];
+    return [[[self class] alloc] initWithValue:self.value
+                                      children:[[self.children sequenceByFiltering:^BOOL(FOXRoseTree *subtree) {
+        return block(subtree.value);
+    }] sequenceByMapping:^id(FOXRoseTree *subtree) {
+        return [subtree treeFilterChildrenByBlock:block];
+    }]];
 }
 
 #pragma mark - NSObject

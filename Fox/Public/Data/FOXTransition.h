@@ -9,6 +9,7 @@
 @property (nonatomic, copy) BOOL(^postcondition)(id modelState, id previousModelState, id subject, id generatedValue, id returnedObject);
 @property (nonatomic) id<FOXGenerator> generator;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic) NSUInteger frequency;
 
 + (instancetype)byCallingSelector:(SEL)selector
                     withGenerator:(id<FOXGenerator>)generator

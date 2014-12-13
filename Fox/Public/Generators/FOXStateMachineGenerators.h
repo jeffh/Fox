@@ -38,3 +38,8 @@ FOX_EXPORT id<FOXGenerator> FOXExecuteCommands(id<FOXStateMachine> stateMachine,
  *           that produces them. Returns NO otherwise.
  */
 FOX_EXPORT BOOL FOXExecutedSuccessfully(NSArray *executedCommands);
+
+FOX_EXPORT id<FOXGenerator> FOXParallelCommands(id<FOXStateMachine> stateMachine);
+
+//FOX_EXPORT id<FOXGenerator> FOXExecuteParallelCommands(id<FOXStateMachine> stateMachine, id (^subject)(void));
+FOX_EXPORT BOOL FOXExecutedSuccessfullyInParallel(NSDictionary *parallelCommands, id<FOXStateMachine> stateMachine, id(^subjectFactory)());

@@ -207,6 +207,30 @@ describe(@"FOXSequence", ^{
                 [seq1 sequenceByAppending:seq2] should equal([FOXSequence sequenceFromArray:@[@1, @2]]);
             });
         });
+
+        describe(@"subset", ^{
+            it(@"should generate all subsets of sequences for two elements", ^{
+                id<FOXSequence> s = [FOXSequence sequenceFromArray:@[@1, @2]];
+                id<FOXSequence> expectedSeq = [FOXSequence sequenceFromArray:@[[FOXSequence sequence],
+                                                                               [FOXSequence sequenceFromArray:@[@1]],
+                                                                               [FOXSequence sequenceFromArray:@[@2]],
+                                                                               [FOXSequence sequenceFromArray:@[@1, @2]]]];
+                [FOXSequence subsetsOfSequence:s] should equal(expectedSeq);
+            });
+
+            it(@"should generate all subsets of sequences", ^{
+                id<FOXSequence> s = [FOXSequence sequenceFromArray:@[@1, @2, @3]];
+                id<FOXSequence> expectedSeq = [FOXSequence sequenceFromArray:@[[FOXSequence sequence],
+                                                                               [FOXSequence sequenceFromArray:@[@1]],
+                                                                               [FOXSequence sequenceFromArray:@[@2]],
+                                                                               [FOXSequence sequenceFromArray:@[@3]],
+                                                                               [FOXSequence sequenceFromArray:@[@1, @2]],
+                                                                               [FOXSequence sequenceFromArray:@[@1, @3]],
+                                                                               [FOXSequence sequenceFromArray:@[@2, @3]],
+                                                                               [FOXSequence sequenceFromArray:@[@1, @2, @3]]]];
+                [FOXSequence subsetsOfSequence:s] should equal(expectedSeq);
+            });
+        });
     });
 });
 
