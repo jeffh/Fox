@@ -40,6 +40,7 @@
     if (self) {
         self.stateMachine = stateMachine;
         self.initialModelState = modelState;
+        self.minSize = minSize;
         self.maxSize = maxSize;
     }
     return self;
@@ -80,7 +81,11 @@
 {
     NSMutableArray *frequencies = [NSMutableArray array];
     for (id<FOXStateTransition> transition in [self.stateMachine allTransitions]) {
-        [frequencies addObject:@[@([transition frequency]), FOXReturn(transition)]];
+        NSUInteger freq = 1;
+        if ([transition respondsToSelector:@selector(frequency)]) {
+            freq = [transition frequency];
+        }
+        [frequencies addObject:@[@(freq), FOXReturn(transition)]];
     }
     id<FOXGenerator> transitionsGenerator = FOXFrequency(frequencies);
     return FOXGenBind(transitionsGenerator, ^id<FOXGenerator>(FOXRoseTree *generatorTree) {

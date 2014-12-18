@@ -133,7 +133,7 @@ FOX_EXPORT void FOXSchedulerYieldOnQueue(FOXSchedulerPtr s, dispatch_queue_t que
     });
 }
 
-void _FOXSchedulerMsgSendHandler(NSInvocation *invocation) {
+void _FOXSchedulerMsgSendHandler(id target, SEL selector) {
     FOXSchedulerYield();
 }
 

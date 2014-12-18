@@ -1,0 +1,2 @@
+set CC_FOR_TARGET "xcrun -sdk macosx clang -arch x86_64"
+set CXX_FOR_TARGET "g++"

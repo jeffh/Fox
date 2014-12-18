@@ -5,14 +5,17 @@
 #import "QueueAddTransition.h"
 #import "Queue.h"
 #import "Ticker.h"
+#import "FOXInstrumentation.h"
+#import <objc/runtime.h>
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
 
+
 SPEC_BEGIN(FOXParallelStateMachineSpec)
 
 describe(@"FOXParallelStateMachine", ^{
-    it(@"should fail if the ticker does not support atomic methods", ^{
+    fit(@"should fail if the ticker does not support atomic methods", ^{
         FOXFiniteStateMachine *stateMachine = [[FOXFiniteStateMachine alloc] initWithInitialModelState:@0];
 
         FOXTransition *incrTransition = [FOXTransition byCallingSelector:@selector(increment)
@@ -29,14 +32,18 @@ describe(@"FOXParallelStateMachine", ^{
         [stateMachine addTransition:incrTransition];
         [stateMachine addTransition:resetTransition];
 
+        FOXOverrideMsgSend(&logger);
+        NSArray *_ = [[NSArray alloc] init];
+        [_ description];
         id<FOXGenerator> executedCommands = FOXRunParallelCommands(stateMachine, ^id{
             return [Ticker new];
         });
-        id<FOXGenerator> property = FOXAlways(10, FOXForAll(executedCommands, ^BOOL(NSDictionary *pcommands) {
+        id<FOXGenerator> property = FOXAlways(1, FOXForAll(executedCommands, ^BOOL(NSDictionary *pcommands) {
             return FOXExecutedSuccessfullyInParallel(pcommands, stateMachine,  ^id{
                 return [Ticker new];
             });
         }));
+        FOXRestoreMsgSend();
 
         FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
         result.succeeded should be_falsy;

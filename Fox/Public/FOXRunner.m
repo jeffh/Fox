@@ -1,6 +1,6 @@
 #import "FOXRunner.h"
 #import "FOXGenerator.h"
-#import "FOXRoseTree.h"
+#import "FOXRoseTree+Protected.h"
 #import "FOXDeterministicRandom.h"
 #import "FOXSequence.h"
 #import "FOXRunnerResult.h"
@@ -9,6 +9,7 @@
 #import "FOXPropertyResult.h"
 #import "FOXPropertyGenerators.h"
 #import "FOXEnvironment.h"
+#import <dispatch/dispatch.h>
 
 typedef struct _FOXShrinkReport {
     NSUInteger depth;
@@ -63,36 +64,38 @@ typedef struct _FOXShrinkReport {
 
     while (true) {
         for (NSUInteger size = 0; size < maxSize; size++) {
-            if (currentTestNumber == totalNumberOfTests) {
-                return [self successfulReportWithNumberOfTests:totalNumberOfTests
-                                                       maxSize:maxSize
-                                                          seed:seed];
-            }
+            @autoreleasepool {
+                if (currentTestNumber == totalNumberOfTests) {
+                    return [self successfulReportWithNumberOfTests:totalNumberOfTests
+                                                           maxSize:maxSize
+                                                              seed:seed];
+                }
 
-            ++currentTestNumber;
+                ++currentTestNumber;
 
-            FOXRoseTree *tree = [property lazyTreeWithRandom:self.random maximumSize:size];
-            FOXPropertyResult *result = tree.value;
-            NSAssert([result isKindOfClass:[FOXPropertyResult class]],
-                     @"Expected property generator to return FOXPropertyResult, got %@",
-                     NSStringFromClass([result class]));
+                FOXRoseTree *tree = [property lazyTreeWithRandom:self.random maximumSize:size];
+                FOXPropertyResult *result = tree.value;
+                NSAssert([result isKindOfClass:[FOXPropertyResult class]],
+                         @"Expected property generator to return FOXPropertyResult, got %@",
+                         NSStringFromClass([result class]));
 
 
-            [self.reporter runnerWillVerifyTestNumber:currentTestNumber
-                                      withMaximumSize:size];
+                [self.reporter runnerWillVerifyTestNumber:currentTestNumber
+                                          withMaximumSize:size];
 
-            if ([result hasFailedOrRaisedException]) {
-                return [self failureReportWithNumberOfTests:currentTestNumber
-                                            failureRoseTree:tree
-                                                failingSize:size
-                                                    maxSize:maxSize
-                                                       seed:seed];
-            } else if (result.status == FOXPropertyStatusSkipped) {
-                [self.reporter runnerDidSkipTestNumber:totalNumberOfTests
-                                        propertyResult:result];
-            } else {
-                [self.reporter runnerDidPassTestNumber:totalNumberOfTests
-                                        propertyResult:result];
+                if ([result hasFailedOrRaisedException]) {
+                    return [self failureReportWithNumberOfTests:currentTestNumber
+                                                failureRoseTree:tree
+                                                    failingSize:size
+                                                        maxSize:maxSize
+                                                           seed:seed];
+                } else if (result.status == FOXPropertyStatusSkipped) {
+                    [self.reporter runnerDidSkipTestNumber:totalNumberOfTests
+                                            propertyResult:result];
+                } else {
+                    [self.reporter runnerDidPassTestNumber:totalNumberOfTests
+                                            propertyResult:result];
+                }
             }
         }
     }
@@ -173,30 +176,30 @@ typedef struct _FOXShrinkReport {
     NSUInteger depth = 0;
     id<FOXSequence> shrinkChoicesAtDepth = failureRoseTree.children;
     FOXPropertyResult *currentSmallest = failureRoseTree.value;
+    [failureRoseTree freeInternals];
 
     while ([shrinkChoicesAtDepth firstObject]) {
-        @autoreleasepool {
-            FOXRoseTree *firstTree = [shrinkChoicesAtDepth firstObject];
+        FOXRoseTree *firstTree = [shrinkChoicesAtDepth firstObject];
 
-            // "try" next smallest permutation
-            FOXPropertyResult *smallestCandidate = firstTree.value;
-            if ([smallestCandidate hasFailedOrRaisedException]) {
-                currentSmallest = smallestCandidate;
+        // "try" next smallest permutation
+        FOXPropertyResult *smallestCandidate = firstTree.value;
+        if ([smallestCandidate hasFailedOrRaisedException]) {
+            currentSmallest = smallestCandidate;
 
-                if ([firstTree.children firstObject]) {
-                    shrinkChoicesAtDepth = firstTree.children;
-                    ++depth;
-                } else {
-                    shrinkChoicesAtDepth = [shrinkChoicesAtDepth remainingSequence];
-                }
+            if ([firstTree.children firstObject]) {
+                shrinkChoicesAtDepth = firstTree.children;
+                ++depth;
             } else {
                 shrinkChoicesAtDepth = [shrinkChoicesAtDepth remainingSequence];
             }
-
-            ++numberOfNodesVisited;
-            [self.reporter runnerDidShrinkFailingTestNumber:numberOfTests
-                                         withPropertyResult:smallestCandidate];
+        } else {
+            shrinkChoicesAtDepth = [shrinkChoicesAtDepth remainingSequence];
         }
+
+        ++numberOfNodesVisited;
+        [self.reporter runnerDidShrinkFailingTestNumber:numberOfTests
+                                     withPropertyResult:smallestCandidate];
+        [firstTree freeInternals];
     }
 
     return (FOXShrinkReport) {

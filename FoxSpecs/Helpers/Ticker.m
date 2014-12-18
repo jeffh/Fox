@@ -1,4 +1,5 @@
 #import "Ticker.h"
+#import <libkern/OSAtomic.h>
 
 @interface Ticker ()
 @property (nonatomic) NSInteger count;

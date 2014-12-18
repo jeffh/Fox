@@ -1,4 +1,5 @@
 #import "FOXMacros.h"
 
-FOX_EXTERN kern_return_t FOXOverrideMsgSend(void (*handler)(NSInvocation *invocation));
-FOX_EXTERN kern_return_t FOXRestoreMsgSend(void);
+FOX_EXPORT void logger(id target, SEL selector);
+FOX_EXPORT BOOL FOXOverrideMsgSend(void (*handler)(id, SEL));
+FOX_EXPORT BOOL FOXRestoreMsgSend(void);

@@ -6,28 +6,38 @@
 static void FOXPrepareInvocation(NSInvocation *invocation, NSArray *values);
 static id FOXBoxReturnFromInvocation(NSInvocation *invocation);
 
+
 @implementation FOXTransition
+
+static NSCache *cache;
+
++ (void)initialize
+{
+    cache = [[NSCache alloc] init];
+}
 
 + (instancetype)byCallingSelector:(SEL)selector
                     withGenerator:(id<FOXGenerator>)generator
                    nextModelState:(id (^)(id modelState, id generatedValue))nextState
 {
     FOXTransition *transition = [[FOXTransition alloc] initWithAction:^id(id subject, id generatedValue) {
-        @autoreleasepool {
-            NSMethodSignature *signature = [subject methodSignatureForSelector:selector];
-            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-
-            NSArray *arguments = [NSArray arrayWithObject:generatedValue];
-            if ([generatedValue isKindOfClass:[NSArray class]]) {
-                arguments = generatedValue;
-            }
-            FOXPrepareInvocation(invocation, arguments);
-
-            invocation.selector = selector;
-            [invocation invokeWithTarget:subject];
-            
-            return FOXBoxReturnFromInvocation(invocation);
+        NSMethodSignature *signature = [cache objectForKey:[subject class]];
+        if (!signature) {
+            signature = [subject methodSignatureForSelector:selector];
+            [cache setObject:signature forKey:[subject class]];
         }
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+
+        NSArray *arguments = [NSArray arrayWithObject:generatedValue];
+        if ([generatedValue isKindOfClass:[NSArray class]]) {
+            arguments = generatedValue;
+        }
+        FOXPrepareInvocation(invocation, arguments);
+
+        invocation.selector = selector;
+        [invocation invokeWithTarget:subject];
+
+        return FOXBoxReturnFromInvocation(invocation);
     } nextModelState:nextState];
     transition.name = NSStringFromSelector(selector);
     transition.generator = generator;

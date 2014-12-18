@@ -361,6 +361,8 @@
 		1F8728DC1A3EBDCD002D3E8A /* FOXLogicalProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8728D81A3EBDCD002D3E8A /* FOXLogicalProcess.m */; };
 		1F8FC8641A3C153600184EB7 /* FOXSchedulerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FC8631A3C153600184EB7 /* FOXSchedulerSpec.mm */; };
 		1F8FC8651A3C153600184EB7 /* FOXSchedulerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FC8631A3C153600184EB7 /* FOXSchedulerSpec.mm */; };
+		1F992ED91A41592F009840BF /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F992ECF1A415745009840BF /* libffi.a */; };
+		1F992EDA1A415937009840BF /* ffi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F992ED11A415745009840BF /* ffi.dylib */; };
 		1FAE3B5C1A2EC1000011838A /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B5B1A2EC1000011838A /* DSL.swift */; };
 		1FAE3B5D1A2EC1000011838A /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B5B1A2EC1000011838A /* DSL.swift */; };
 		1FAE3B681A2EC5E60011838A /* SwiftGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B671A2EC5E60011838A /* SwiftGenerators.swift */; };
@@ -398,6 +400,34 @@
 			remoteGlobalIDString = 1F41BE8F1A2ACB9C00F25A65;
 			remoteInfo = "Fox-OSX";
 		};
+		1F992ECE1A415745009840BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F992CB71A415744009840BF /* libffi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB13B1661849DF1E0010F42D;
+			remoteInfo = "libffi-iOS";
+		};
+		1F992ED01A415745009840BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F992CB71A415744009840BF /* libffi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB13B1911849DF510010F42D;
+			remoteInfo = "libffi-Mac";
+		};
+		1F992ED41A415773009840BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F992CB71A415744009840BF /* libffi.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DB13B1651849DF1E0010F42D;
+			remoteInfo = "libffi-iOS";
+		};
+		1F992ED61A415777009840BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F992CB71A415744009840BF /* libffi.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DB13B1901849DF510010F42D;
+			remoteInfo = "libffi-Mac";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -417,6 +447,7 @@
 		1F17D5461A3BF17D00E1BB60 /* FOXInstrumentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXInstrumentation.m; sourceTree = "<group>"; };
 		1F17D54B1A3C0A3E00E1BB60 /* FOXSchedulerThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXSchedulerThread.h; sourceTree = "<group>"; };
 		1F17D54C1A3C0A3E00E1BB60 /* FOXSchedulerThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXSchedulerThread.m; sourceTree = "<group>"; };
+		1F18C08F1A403836000C7EA6 /* FOXRoseTree+Protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FOXRoseTree+Protected.h"; path = "Fox/Private/Data/FOXRoseTree+Protected.h"; sourceTree = SOURCE_ROOT; };
 		1F2A94F41997383300471B24 /* FOXTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXTransition.h; sourceTree = "<group>"; };
 		1F2A94F51997383300471B24 /* FOXTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXTransition.m; sourceTree = "<group>"; };
 		1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXDecimalNumberSpec.mm; path = FoxSpecs/Public/Generators/FOXDecimalNumberSpec.mm; sourceTree = SOURCE_ROOT; };
@@ -539,6 +570,8 @@
 		1F8FDBFC1989F9DD0059D31A /* FOXSetSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXSetSpec.mm; sourceTree = "<group>"; };
 		1F8FDBFF1989FE530059D31A /* FOXDictionarySpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXDictionarySpec.mm; sourceTree = "<group>"; };
 		1F8FDC021989FED70059D31A /* FOXStringSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FOXStringSpec.mm; sourceTree = "<group>"; };
+		1F9926981A410A9A009840BF /* libffi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libffi.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libffi.dylib; sourceTree = DEVELOPER_DIR; };
+		1F992CB71A415744009840BF /* libffi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = libffi.xcodeproj; sourceTree = "<group>"; };
 		1F9BA1901A11CFA90053B3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F9BDD9519EA501500BAF25E /* FOXExecutedCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXExecutedCommand.h; sourceTree = "<group>"; };
 		1F9BDD9619EA501500BAF25E /* FOXExecutedCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXExecutedCommand.m; sourceTree = "<group>"; };
@@ -605,6 +638,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F992EDA1A415937009840BF /* ffi.dylib in Frameworks */,
 				1F4A57221A3BB73C009E1637 /* CoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,6 +656,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F992ED91A41592F009840BF /* libffi.a in Frameworks */,
 				1F4A57241A3BB742009E1637 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,6 +845,7 @@
 		1F60160E1919DCE0003D8484 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F9926981A410A9A009840BF /* libffi.dylib */,
 				1FF4AA871A3FD6AA0000E69E /* Cedar.framework */,
 				1F4A57231A3BB742009E1637 /* MobileCoreServices.framework */,
 				1F4A57211A3BB73C009E1637 /* CoreServices.framework */,
@@ -974,6 +1010,7 @@
 			children = (
 				1F2F021C1A3E418E0039D3B3 /* Linearizer */,
 				1F4A56B21A3BB698009E1637 /* mach_override */,
+				1F992C9B1A415744009840BF /* libffi */,
 				1F4A56AB1A3BAE79009E1637 /* Scheduler */,
 				1F46E505198CAE6400F87028 /* Generators */,
 				1F8FDBE7198777080059D31A /* Data */,
@@ -1000,8 +1037,26 @@
 				1F8728D81A3EBDCD002D3E8A /* FOXLogicalProcess.m */,
 				1F7CF6AB1A3FF146005C86A5 /* FOXDictionary.h */,
 				1F7CF6AC1A3FF146005C86A5 /* FOXDictionary.m */,
+				1F18C08F1A403836000C7EA6 /* FOXRoseTree+Protected.h */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		1F992C9B1A415744009840BF /* libffi */ = {
+			isa = PBXGroup;
+			children = (
+				1F992CB71A415744009840BF /* libffi.xcodeproj */,
+			);
+			path = libffi;
+			sourceTree = "<group>";
+		};
+		1F992CB81A415744009840BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F992ECF1A415745009840BF /* libffi.a */,
+				1F992ED11A415745009840BF /* ffi.dylib */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		1FF4AAB11A3FD7C10000E69E /* Fox-OSX-Specs */ = {
@@ -1209,6 +1264,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1F992ED71A415777009840BF /* PBXTargetDependency */,
 			);
 			name = "Fox-OSX";
 			productName = "Fox-OSX";
@@ -1245,6 +1301,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1F992ED51A415773009840BF /* PBXTargetDependency */,
 			);
 			name = "Fox-iOS";
 			productName = "Fox-iOS";
@@ -1325,6 +1382,12 @@
 			mainGroup = 1F6016031919DCE0003D8484;
 			productRefGroup = 1F60160D1919DCE0003D8484 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1F992CB81A415744009840BF /* Products */;
+					ProjectRef = 1F992CB71A415744009840BF /* libffi.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1F41BE8F1A2ACB9C00F25A65 /* Fox-OSX */,
@@ -1335,6 +1398,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1F992ECF1A415745009840BF /* libffi.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libffi.a;
+			remoteRef = 1F992ECE1A415745009840BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F992ED11A415745009840BF /* ffi.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = ffi.dylib;
+			remoteRef = 1F992ED01A415745009840BF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1F41BE8E1A2ACB9C00F25A65 /* Resources */ = {
@@ -1647,6 +1727,16 @@
 			target = 1F41BE8F1A2ACB9C00F25A65 /* Fox-OSX */;
 			targetProxy = 1F7CF6601A3FD7EC005C86A5 /* PBXContainerItemProxy */;
 		};
+		1F992ED51A415773009840BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libffi-iOS";
+			targetProxy = 1F992ED41A415773009840BF /* PBXContainerItemProxy */;
+		};
+		1F992ED71A415777009840BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libffi-Mac";
+			targetProxy = 1F992ED61A415777009840BF /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -1667,9 +1757,18 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Fox/Private/libffi/public_include",
+				);
 				INFOPLIST_FILE = Fox/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FOX/Private/libffi-3.2.1/x86_64-apple-darwin14.1.0/.libs",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = Fox;
@@ -1696,9 +1795,18 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Fox/Private/libffi/public_include",
+				);
 				INFOPLIST_FILE = Fox/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FOX/Private/libffi-3.2.1/x86_64-apple-darwin14.1.0/.libs",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = Fox;
@@ -1779,10 +1887,19 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Fox/Private/libffi/public_include",
+				);
 				INFOPLIST_FILE = Fox/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FOX/Private/libffi-3.2.1/x86_64-apple-darwin14.1.0/.libs",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = Fox;
 				SKIP_INSTALL = YES;
@@ -1805,10 +1922,19 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Fox/Private/libffi/public_include",
+				);
 				INFOPLIST_FILE = Fox/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FOX/Private/libffi-3.2.1/x86_64-apple-darwin14.1.0/.libs",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = Fox;
 				SKIP_INSTALL = YES;

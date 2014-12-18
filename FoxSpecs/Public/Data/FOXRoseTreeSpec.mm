@@ -18,12 +18,12 @@ describe(@"FOXRoseTree", ^{
 
     describe(@"permutations", ^{
         it(@"should generate permutations by replacing children as given tree, for each tree in the array", ^{
-            FOXRoseTree *tree = [FOXRoseTree permutationsOfRoseTrees:@[inputTree1, inputTree2]];
+            id<FOXSequence> trees = [FOXRoseTree permutationsOfRoseTrees:@[inputTree1, inputTree2]];
             NSArray *compressedExpectedResult = @[@[@[@2, @[]],
                                                     @[@3, @[@[@4, @[]]]]],
                                                   @[@[@1, @[@[@2, @[]]]],
                                                     @[@4, @[]]]];
-            tree should equal([[FOXSequence sequenceFromArray:compressedExpectedResult] sequenceByMapping:^id(NSArray *item) {
+            trees should equal([[FOXSequence sequenceFromArray:compressedExpectedResult] sequenceByMapping:^id(NSArray *item) {
                 NSMutableArray *subarray = [NSMutableArray array];
                 for (id subtree in item) {
                     [subarray addObject:[FOXRoseTree treeFromArray:subtree]];

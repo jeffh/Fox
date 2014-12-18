@@ -20,6 +20,11 @@
     return [quick resultForNumberOfTests:[self numberOfTestsPerProperty] property:propertyGenerator];
 }
 
++ (FOXRunnerResult *)resultForProperty:(id<FOXGenerator>)propertyGenerator numberOfTests:(NSUInteger)numberOfTests
+{
+    FOXRunner *quick = [[FOXRunner alloc] initWithReporter:nil];
+    return [quick resultForNumberOfTests:numberOfTests property:propertyGenerator];
+}
 
 + (FOXRunnerResult *)resultForAll:(id<FOXGenerator>)generator
                              then:(BOOL(^)(id value))block

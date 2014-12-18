@@ -1,4 +1,5 @@
 #import "FOXBindGenerator.h"
+#import "FOXCoreGenerators.h"
 
 
 @interface FOXBindGenerator ()
@@ -28,14 +29,11 @@
 
 - (FOXRoseTree *)lazyTreeWithRandom:(id<FOXRandom>)random maximumSize:(NSUInteger)maximumSize
 {
-    @autoreleasepool {
-        FOXRoseTree *innerTree = [self.generator lazyTreeWithRandom:random
-                                                        maximumSize:maximumSize];
-        id<FOXGenerator> resultingGenerator = self.factory(innerTree);
-        return [resultingGenerator lazyTreeWithRandom:random
-                                          maximumSize:maximumSize];
-
-    }
+    FOXRoseTree *innerTree = [self.generator lazyTreeWithRandom:random
+                                                    maximumSize:maximumSize];
+    id<FOXGenerator> resultingGenerator = self.factory(innerTree);
+    return [resultingGenerator lazyTreeWithRandom:random
+                                      maximumSize:maximumSize];
 }
 
 @end

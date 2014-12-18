@@ -99,7 +99,7 @@ FOX_EXPORT id<FOXGenerator> FOXParallelCommands(id<FOXStateMachine> stateMachine
         //          So each failing parallel test will spawn 720 more
         //          serialized tests to run. Remember that every shrink attempt
         //          counts as a failing test too.
-        NSNumber *minCommandsPerThread = @1;
+        NSNumber *minCommandsPerThread = @2;
         NSNumber *maxCommandsPerThread = @2;
         const NSUInteger minNumOfThreads = 2;
         const NSUInteger maxNumOfThreads = 3;
@@ -120,38 +120,36 @@ FOX_EXPORT id<FOXGenerator> FOXParallelCommands(id<FOXStateMachine> stateMachine
 
 FOX_EXPORT id<FOXGenerator> FOXRunParallelCommands(id<FOXStateMachine> stateMachine, id (^subjectFactory)(void)) {
     return FOXMap(FOXParallelCommands(stateMachine), ^id(NSDictionary *parallelCommands) {
-        @autoreleasepool {
-            NSArray *prefixCommands = parallelCommands[@"command prefix"];
-            NSArray *processCommands = parallelCommands[@"processes"];
-            id subject = subjectFactory();
-            id prefixModelState = [stateMachine modelStateFromCommandSequence:prefixCommands];
-            NSArray *executedPrefix = [stateMachine executeCommandSequence:prefixCommands subject:subject];
-            NSMutableArray *processes = [NSMutableArray array];
-            NSMutableArray *threads = [NSMutableArray array];
-            dispatch_group_t group = dispatch_group_create();
-            dispatch_group_t startGroup = dispatch_group_create();
-            dispatch_group_enter(startGroup);
-            for (NSArray *commands in processCommands) {
-                dispatch_group_enter(group);
-                FOXLogicalProcess *process = [[FOXLogicalProcess alloc] initWithStartingModelState:prefixModelState
-                                                                                      stateMachine:stateMachine
-                                                                                          commands:commands
-                                                                                           subject:subject
-                                                                                             group:group
-                                                                                        startGroup:startGroup];
-                [processes addObject:process];
-                [threads addObject:[[NSThread alloc] initWithTarget:process
-                                                           selector:@selector(run)
-                                                             object:nil]];
-            }
-            [threads makeObjectsPerformSelector:@selector(start)];
-            dispatch_group_leave(startGroup);
-            dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-            NSArray *executedCommands = [processes valueForKey:NSStringFromSelector(@selector(result))];
-            executedCommands = [FOXPrettyArray arrayWithArray:executedCommands];
-            return [FOXDictionary dictionaryWithDictionary:@{@"command prefix": executedPrefix,
-                                                             @"processes": executedCommands}];
+        NSArray *prefixCommands = parallelCommands[@"command prefix"];
+        NSArray *processCommands = parallelCommands[@"processes"];
+        id subject = subjectFactory();
+        id prefixModelState = [stateMachine modelStateFromCommandSequence:prefixCommands];
+        NSArray *executedPrefix = [stateMachine executeCommandSequence:prefixCommands subject:subject];
+        NSMutableArray *processes = [NSMutableArray array];
+        NSMutableArray *threads = [NSMutableArray array];
+        dispatch_group_t group = dispatch_group_create();
+        dispatch_group_t startGroup = dispatch_group_create();
+        dispatch_group_enter(startGroup);
+        for (NSArray *commands in processCommands) {
+            dispatch_group_enter(group);
+            FOXLogicalProcess *process = [[FOXLogicalProcess alloc] initWithStartingModelState:prefixModelState
+                                                                                  stateMachine:stateMachine
+                                                                                      commands:commands
+                                                                                       subject:subject
+                                                                                         group:group
+                                                                                    startGroup:startGroup];
+            [processes addObject:process];
+            [threads addObject:[[NSThread alloc] initWithTarget:process
+                                                       selector:@selector(run)
+                                                         object:nil]];
         }
+        [threads makeObjectsPerformSelector:@selector(start)];
+        dispatch_group_leave(startGroup);
+        dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+        NSArray *executedCommands = [processes valueForKey:NSStringFromSelector(@selector(result))];
+        executedCommands = [FOXPrettyArray arrayWithArray:executedCommands];
+        return [FOXDictionary dictionaryWithDictionary:@{@"command prefix": executedPrefix,
+                                                         @"processes": executedCommands}];
     });
 }
 

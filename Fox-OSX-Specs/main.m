@@ -1,4 +1,4 @@
-#import <Cedar/Cedar.h>
+#import <Cedar.h>
 #import <Foundation/Foundation.h>
 
 // Compiling tests as an executable allows for easy

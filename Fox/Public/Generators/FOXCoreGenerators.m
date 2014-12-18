@@ -1,6 +1,6 @@
 #import "FOXCoreGenerators.h"
 #import "FOXNamedGenerator.h"
-#import "FOXRoseTree.h"
+#import "FOXRoseTree+Protected.h"
 #import "FOXPureGenerator.h"
 #import "FOXMapGenerator.h"
 #import "FOXBindGenerator.h"
@@ -29,8 +29,7 @@ FOX_EXPORT id<FOXGenerator> FOXGenMap(id<FOXGenerator> generator,
     return [[FOXMapGenerator alloc] initWithGenerator:generator map:mapfn];
 }
 
-FOX_EXPORT id<FOXGenerator> FOXGenBind(id<FOXGenerator> generator,
-    id<FOXGenerator> (^factory)(FOXRoseTree *generatedTree)) {
+FOX_EXPORT id<FOXGenerator> FOXGenBind(id<FOXGenerator> generator, id<FOXGenerator> (^factory)(FOXRoseTree *generatedTree)) {
     return [[FOXBindGenerator alloc] initWithGenerator:generator factory:factory];
 }
 
@@ -67,9 +66,11 @@ FOX_EXPORT id<FOXGenerator> FOXSuchThatWithMaxTries(id<FOXGenerator> generator, 
 FOX_EXPORT id<FOXGenerator> FOXBind(id<FOXGenerator> generator, id<FOXGenerator> (^fn)(id value)) {
     return FOXGenBind(generator, ^id<FOXGenerator>(FOXRoseTree *generatorTree) {
         id<FOXGenerator> innerGenerator = FOXGenerate(^FOXRoseTree *(id<FOXRandom> random, NSUInteger size) {
-            return [[generatorTree treeByApplyingBlock:fn] treeByApplyingBlock:^id(id<FOXGenerator> gen) {
+            FOXRoseTree *mTree = [generatorTree treeByApplyingBlock:fn];
+            [mTree mutateTreeByApplyingBlock:^id(id<FOXGenerator> gen) {
                 return [gen lazyTreeWithRandom:random maximumSize:size];
             }];
+            return mTree;
         });
         return FOXGenMap(innerGenerator, ^FOXRoseTree *(FOXRoseTree *innerTree) {
             return [FOXRoseTree joinedTreeFromNestedRoseTree:innerTree];
