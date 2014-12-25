@@ -14,7 +14,7 @@ using namespace Cedar::Doubles;
 SPEC_BEGIN(FOXParallelStateMachineSpec)
 
 describe(@"FOXParallelStateMachine", ^{
-    xit(@"should fail if the ticker does not support atomic methods", ^{
+    xit(@"should fail if the ticker does not support atomic methods (implicit yielding)", ^{
         FOXFiniteStateMachine *stateMachine = [[FOXFiniteStateMachine alloc] initWithInitialModelState:@0];
 
         FOXTransition *incrTransition = [FOXTransition byCallingSelector:@selector(increment)
@@ -45,7 +45,7 @@ describe(@"FOXParallelStateMachine", ^{
         // shrinking not reliable due to OS-level concurrency
     });
 
-    xit(@"should shrink if the ticker does not support atomic tests, but uses the Fox scheduler", ^{
+    it(@"should pass if the subject has an atomic API", ^{
         FOXFiniteStateMachine *stateMachine = [[FOXFiniteStateMachine alloc] initWithInitialModelState:@0];
 
         FOXTransition *incrTransition = [FOXTransition byCallingSelector:@selector(atomicIncrement)
@@ -65,11 +65,11 @@ describe(@"FOXParallelStateMachine", ^{
         id<FOXGenerator> executedCommands = FOXExecuteParallelCommands(stateMachine, ^id{
             return [Ticker new];
         });
-        id<FOXGenerator> property = FOXAlways(10, FOXForAll(executedCommands, ^BOOL(NSDictionary *pcommands) {
+        id<FOXGenerator> property = FOXForAll(executedCommands, ^BOOL(NSDictionary *pcommands) {
             return FOXExecutedSuccessfullyInParallel(pcommands, stateMachine,  ^id{
                 return [Ticker new];
             });
-        }));
+        });
 
         FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
         result.succeeded should be_truthy;

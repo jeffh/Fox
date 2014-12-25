@@ -5,6 +5,9 @@
       location = "group:Fox.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Foxling/Foxling.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Externals/cedar/Cedar.xcodeproj">
    </FileRef>
 </Workspace>

@@ -1,6 +1,7 @@
 #import "Ticker.h"
 #import <libkern/OSAtomic.h>
-#import "FOXFiber.h"
+//#import "FOXFiber.h"
+#import "FOXThread.h"
 
 @interface Ticker ()
 @property (nonatomic) NSInteger count;
@@ -23,7 +24,7 @@
 - (NSInteger)atomicIncrement
 {
     OSSpinLockLock(&_lock);
-    NSInteger result = [self increment];
+    NSInteger result = [self incrementWithManualInstrumentation];
     OSSpinLockUnlock(&_lock);
     return result;
 }
@@ -31,25 +32,25 @@
 - (void)atomicReset
 {
     OSSpinLockLock(&_lock);
-    [self reset];
+    [self resetWithManualInstrumentation];
     OSSpinLockUnlock(&_lock);
 }
 
 - (NSInteger)incrementWithManualInstrumentation
 {
-    FOXFiberYield(NULL);
+    fthread_yield();
     NSInteger count = self.count;
-    FOXFiberYield(NULL);
+    fthread_yield();
     count++;
-    FOXFiberYield(NULL);
+    fthread_yield();
     self.count = count;
-    FOXFiberYield(NULL);
+    fthread_yield();
     return count;
 }
 
 - (void)resetWithManualInstrumentation
 {
-    FOXFiberYield(NULL);
+    fthread_yield();
     self.count = 0;
 }
 

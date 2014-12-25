@@ -1,6 +1,7 @@
 #import <Cedar.h>
 #import "FOX.h"
 #import "NSArray+FastEnumerator.h"
+#import <stdio.h>
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;

@@ -1,4 +1,5 @@
 #import "FOXInstrumentation.h"
+#import <libkern/OSAtomic.h>
 
 static struct {
     OSSpinLock lock;

@@ -76,16 +76,19 @@
 #pragma mark - Private
 
 - (id)evaluateBlock {
+    OSSpinLockLock(&_lock);
     if (self.block) {
         self.blockValue = self.block();
         self.block = nil;
     }
-    return self.blockValue;
+    id result = self.blockValue;
+    OSSpinLockUnlock(&_lock);
+    return result;
 }
 
 - (id<FOXSequence>)evaluateSequence {
-    OSSpinLockLock(&_lock);
     [self evaluateBlock];
+    OSSpinLockLock(&_lock);
     if (self.blockValue) {
         id value = self.blockValue;
         self.blockValue = nil;

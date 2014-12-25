@@ -8,6 +8,7 @@
 #import <unistd.h>
 #import "FOXInstrumentation.h"
 #import "FOXRandom.h"
+#import "FOXMemory.h"
 
 const unsigned int FIBER_STACK_SIZE = SIGSTKSZ;
 const unsigned int RIP_INDEX = 10;
@@ -17,6 +18,9 @@ typedef struct _FOXFiber {
     void (*fiberMain)(void *);
     void *fiberData;
 
+    pthread_t thread;
+    pthread_mutex_t pauseMutex;
+    
     sigjmp_buf context;
     sigjmp_buf *contextToYieldTo;
     void *stack;
@@ -39,44 +43,16 @@ static FOXFiberSchedulerPtr runningScheduler;
 
 void _FOXFiberSchedulerYieldCooperatively(FOXFiberSchedulerPtr s, FOXFiberPtr f);
 
-void *_FOXCalloc(size_t size1, size_t size2) {
-    void *ptr = calloc(size1, size2);
-    if (ptr == NULL) {
-        fprintf(stderr, "calloc(%lu, %lu) failed\n", size1, size2);
-        exit(1);
-    }
-    return ptr;
-}
-
-void *_FOXMalloc(size_t size) {
-    void *ptr = malloc(size);
-    if (ptr == NULL) {
-        fprintf(stderr, "malloc(%lu) failed\n", size);
-        exit(1);
-    }
-    return ptr;
-}
-
-void *_FOXRealloc(void *oldPtr, size_t size) {
-    void *ptr = realloc(oldPtr, size);
-    if (ptr == NULL) {
-        fprintf(stderr, "realloc(%p, %lu) failed\n", oldPtr, size);
-        exit(1);
-    }
-    return ptr;
-}
-
-
 FOXFiberPtr FOXFiberCreate(char *name,
                            void (*fiberMain)(void *),
                            void *fiberData) {
-    FOXFiberPtr f = (FOXFiberPtr)_FOXCalloc(sizeof(struct _FOXFiber), 1);
+    FOXFiberPtr f = (FOXFiberPtr)FOXCalloc(sizeof(struct _FOXFiber), 1);
     size_t len = strlen(name);
-    f->name = _FOXCalloc(sizeof(char), len);
+    f->name = FOXCalloc(sizeof(char), len);
     strncpy(f->name, name, len);
     f->fiberMain = fiberMain;
     f->fiberData = fiberData;
-    f->stack = _FOXMalloc(FIBER_STACK_SIZE);
+    f->stack = FOXMalloc(FIBER_STACK_SIZE);
     return f;
 }
 
@@ -120,7 +96,7 @@ void _FOXFiberRun(void *fiber) {
 
 FOXFiberSchedulerPtr FOXFiberSchedulerCreate(FOXSchedulingAlgorithm algorithm,
                                              void *algorithmData) {
-    FOXFiberSchedulerPtr s = _FOXCalloc(sizeof(FOXFiberScheduler), 1);
+    FOXFiberSchedulerPtr s = FOXCalloc(sizeof(FOXFiberScheduler), 1);
     s->fiberRunner = &_FOXFiberSchedulerYieldCooperatively;
     s->scheduler = algorithm;
     s->schedulerData = algorithmData;
@@ -141,7 +117,7 @@ void FOXFiberSchedulerFree(FOXFiberSchedulerPtr s) {
 void FOXFiberSchedulerAdd(FOXFiberSchedulerPtr s, FOXFiberPtr f) {
     if (s->capacity == s->count) {
         size_t newCapacity = s->capacity * 2 + 1;
-        s->fibers = _FOXRealloc(s->fibers, sizeof(FOXFiberPtr) * newCapacity);
+        s->fibers = FOXRealloc(s->fibers, sizeof(FOXFiberPtr) * newCapacity);
         s->capacity = newCapacity;
     }
     s->fibers[s->count] = f;
@@ -255,7 +231,7 @@ void _FOXFiberSchedulerRandom(FOXFiberSchedulerPtr s) {
 
     const size_t elementSize = sizeof(FOXFiberPtr);
     size_t count = s->count;
-    FOXFiberPtr *runningFibers = _FOXMalloc(elementSize * s->count);
+    FOXFiberPtr *runningFibers = FOXMalloc(elementSize * s->count);
     memcpy(runningFibers, s->fibers, s->count * elementSize);
     while (count > 0) {
         size_t index = [random randomIntegerWithinMinimum:0 andMaximum:count - 1];
