@@ -14,7 +14,6 @@
 #import "FOXPrettyArray.h"
 #import "FOXNumericGenerators.h"
 #import "FOXRandom.h"
-#import "FOXFiber.h"
 
 
 FOX_EXPORT id<FOXGenerator> FOXNextGenCommand(id<FOXStateMachine> stateMachine, id modelState) {

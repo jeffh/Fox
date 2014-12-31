@@ -1,6 +1,5 @@
 #import "Ticker.h"
 #import <libkern/OSAtomic.h>
-//#import "FOXFiber.h"
 #import "FOXThread.h"
 
 @interface Ticker ()

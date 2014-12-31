@@ -382,10 +382,6 @@
 		1FCE1B261A4570D500902226 /* FOXLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FCE1B231A4570D500902226 /* FOXLogging.h */; };
 		1FCE1B271A4570D500902226 /* FOXLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCE1B241A4570D500902226 /* FOXLogging.m */; };
 		1FCE1B281A4570D500902226 /* FOXLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCE1B241A4570D500902226 /* FOXLogging.m */; };
-		1FCE1B2B1A458BF600902226 /* FOXFiber.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FCE1B291A458BF600902226 /* FOXFiber.h */; };
-		1FCE1B2C1A458BF600902226 /* FOXFiber.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FCE1B291A458BF600902226 /* FOXFiber.h */; };
-		1FCE1B2D1A458BF600902226 /* FOXFiber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCE1B2A1A458BF600902226 /* FOXFiber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1FCE1B2E1A458BF600902226 /* FOXFiber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCE1B2A1A458BF600902226 /* FOXFiber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1FF4AA6F1A3EC8480000E69E /* Ticker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4AA6E1A3EC8480000E69E /* Ticker.m */; };
 		1FF4AA701A3EC8480000E69E /* Ticker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4AA6E1A3EC8480000E69E /* Ticker.m */; };
 		1FF4AA721A3F97650000E69E /* FOXAlwaysSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4AA711A3F97650000E69E /* FOXAlwaysSpec.mm */; };
@@ -571,8 +567,6 @@
 		1FC42D471A34E8E8006455F2 /* FOXBindSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXBindSpec.mm; path = FoxSpecs/Public/Generators/FOXBindSpec.mm; sourceTree = SOURCE_ROOT; };
 		1FCE1B231A4570D500902226 /* FOXLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FOXLogging.h; path = Fox/Private/FOXLogging.h; sourceTree = SOURCE_ROOT; };
 		1FCE1B241A4570D500902226 /* FOXLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FOXLogging.m; path = Fox/Private/FOXLogging.m; sourceTree = SOURCE_ROOT; };
-		1FCE1B291A458BF600902226 /* FOXFiber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXFiber.h; sourceTree = "<group>"; };
-		1FCE1B2A1A458BF600902226 /* FOXFiber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXFiber.m; sourceTree = "<group>"; };
 		1FF011E91A48AAAC001BC70F /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Kernel.framework; sourceTree = DEVELOPER_DIR; };
 		1FF011EB1A48AB32001BC70F /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 		1FF4AA6D1A3EC8480000E69E /* Ticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ticker.h; path = FoxSpecs/Helpers/Ticker.h; sourceTree = SOURCE_ROOT; };
@@ -746,8 +740,6 @@
 			children = (
 				1F17D5451A3BF17D00E1BB60 /* FOXInstrumentation.h */,
 				1F17D5461A3BF17D00E1BB60 /* FOXInstrumentation.m */,
-				1FCE1B291A458BF600902226 /* FOXFiber.h */,
-				1FCE1B2A1A458BF600902226 /* FOXFiber.m */,
 				1F7B0A9C1A4C9160003BDF21 /* FOXThread.h */,
 				1F7B0A9D1A4C9160003BDF21 /* FOXThread.m */,
 				1F97E1CA1A53C1DB00CE7EA4 /* FOXThreadMachine.h */,
@@ -1120,7 +1112,6 @@
 				1F38B61D1A2ACCA80078FF90 /* FOXArrayGenerator.h in Headers */,
 				1F38B6231A2ACCA80078FF90 /* FOXMapGenerator.h in Headers */,
 				1F6DE1781A4F66F900C93B28 /* extern.h in Headers */,
-				1FCE1B2B1A458BF600902226 /* FOXFiber.h in Headers */,
 				1F38B6C51A2ACCC00078FF90 /* FOXRandom.h in Headers */,
 				1F6DE1761A4F66F900C93B28 /* decode.h in Headers */,
 				1F38B69A1A2ACCC00078FF90 /* FOXExecutedCommand.h in Headers */,
@@ -1197,7 +1188,6 @@
 				1F38B6351A2ACCA90078FF90 /* FOXArrayGenerator.h in Headers */,
 				1F38B63B1A2ACCA90078FF90 /* FOXMapGenerator.h in Headers */,
 				1F6DE1791A4F66F900C93B28 /* extern.h in Headers */,
-				1FCE1B2C1A458BF600902226 /* FOXFiber.h in Headers */,
 				1F38B6901A2ACCC00078FF90 /* FOXRandom.h in Headers */,
 				1F6DE1771A4F66F900C93B28 /* decode.h in Headers */,
 				1F38B6651A2ACCC00078FF90 /* FOXExecutedCommand.h in Headers */,
@@ -1407,7 +1397,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F38B6B41A2ACCC00078FF90 /* FOXSetGenerators.m in Sources */,
-				1FCE1B2D1A458BF600902226 /* FOXFiber.m in Sources */,
 				1F7B0AA61A4CC797003BDF21 /* FOXMemory.m in Sources */,
 				1F38B6C41A2ACCC00078FF90 /* FOXDeterministicRandom.mm in Sources */,
 				1F38B64C1A2ACCAE0078FF90 /* FOXConcreteSequence.m in Sources */,
@@ -1521,7 +1510,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F38B67F1A2ACCC00078FF90 /* FOXSetGenerators.m in Sources */,
-				1FCE1B2E1A458BF600902226 /* FOXFiber.m in Sources */,
 				1F7B0AA71A4CC797003BDF21 /* FOXMemory.m in Sources */,
 				1F38B68F1A2ACCC00078FF90 /* FOXDeterministicRandom.mm in Sources */,
 				1F38B6581A2ACCAE0078FF90 /* FOXConcreteSequence.m in Sources */,

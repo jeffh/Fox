@@ -4,7 +4,6 @@
 #import "FOXCoreGenerators.h"
 #import "FOXNumericGenerators.h"
 #import "FOXStateMachine.h"
-#import "FOXFiber.h"
 #import "FOXStateMachineGenerators.h"
 #import "FOXDictionary.h"
 #import "FOXPrettyArray.h"
