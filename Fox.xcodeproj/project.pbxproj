@@ -13,10 +13,6 @@
 		1F17D54A1A3BF17D00E1BB60 /* FOXInstrumentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F17D5461A3BF17D00E1BB60 /* FOXInstrumentation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1F2C101C1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */; };
 		1F2C101D1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */; };
-		1F2F021F1A3E42350039D3B3 /* FOXLinearizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F2F021D1A3E42350039D3B3 /* FOXLinearizer.h */; };
-		1F2F02201A3E42350039D3B3 /* FOXLinearizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F2F021D1A3E42350039D3B3 /* FOXLinearizer.h */; };
-		1F2F02211A3E42350039D3B3 /* FOXLinearizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F021E1A3E42350039D3B3 /* FOXLinearizer.m */; };
-		1F2F02221A3E42350039D3B3 /* FOXLinearizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F021E1A3E42350039D3B3 /* FOXLinearizer.m */; };
 		1F2F02251A3E8C090039D3B3 /* FOXMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F2F02231A3E8C090039D3B3 /* FOXMath.h */; };
 		1F2F02261A3E8C090039D3B3 /* FOXMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F2F02231A3E8C090039D3B3 /* FOXMath.h */; };
 		1F2F02271A3E8C090039D3B3 /* FOXMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2F02241A3E8C090039D3B3 /* FOXMath.m */; };
@@ -432,8 +428,6 @@
 		1F2A94F41997383300471B24 /* FOXTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXTransition.h; sourceTree = "<group>"; };
 		1F2A94F51997383300471B24 /* FOXTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXTransition.m; sourceTree = "<group>"; };
 		1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXDecimalNumberSpec.mm; path = FoxSpecs/Public/Generators/FOXDecimalNumberSpec.mm; sourceTree = SOURCE_ROOT; };
-		1F2F021D1A3E42350039D3B3 /* FOXLinearizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXLinearizer.h; sourceTree = "<group>"; };
-		1F2F021E1A3E42350039D3B3 /* FOXLinearizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXLinearizer.m; sourceTree = "<group>"; };
 		1F2F02231A3E8C090039D3B3 /* FOXMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FOXMath.h; path = Fox/Private/FOXMath.h; sourceTree = SOURCE_ROOT; };
 		1F2F02241A3E8C090039D3B3 /* FOXMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FOXMath.m; path = Fox/Private/FOXMath.m; sourceTree = SOURCE_ROOT; };
 		1F35BC1D198D824600BEA6E1 /* FOXNamedGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXNamedGenerator.h; sourceTree = "<group>"; };
@@ -672,16 +666,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F2F021C1A3E418E0039D3B3 /* Linearizer */ = {
-			isa = PBXGroup;
-			children = (
-				1F2F021D1A3E42350039D3B3 /* FOXLinearizer.h */,
-				1F2F021E1A3E42350039D3B3 /* FOXLinearizer.m */,
-			);
-			name = Linearizer;
-			path = ../../Fox/Private/Linearizer;
-			sourceTree = "<group>";
-		};
 		1F35BC3D1990CA3900BEA6E1 /* Reporters */ = {
 			isa = PBXGroup;
 			children = (
@@ -988,7 +972,6 @@
 				1FFCE5651A80B90700A427AA /* FOXLimits.h */,
 				1FFCE5661A80B90700A427AA /* FOXLimits.mm */,
 				1F6DE1611A4F66B200C93B28 /* mach_override */,
-				1F2F021C1A3E418E0039D3B3 /* Linearizer */,
 				1F4A56AB1A3BAE79009E1637 /* Scheduler */,
 				1F46E505198CAE6400F87028 /* Generators */,
 				1F8FDBE7198777080059D31A /* Data */,
@@ -1071,7 +1054,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F38B6311A2ACCA80078FF90 /* FOXSuchThatGenerator.h in Headers */,
-				1F2F021F1A3E42350039D3B3 /* FOXLinearizer.h in Headers */,
 				1F9E645A1A46F2C000651A95 /* FOXParallelGenerators.h in Headers */,
 				1F38B6A81A2ACCC00078FF90 /* FOXCoreGenerators.h in Headers */,
 				1F38B6B51A2ACCC00078FF90 /* FOXStateMachine.h in Headers */,
@@ -1147,7 +1129,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F38B6491A2ACCA90078FF90 /* FOXSuchThatGenerator.h in Headers */,
-				1F2F02201A3E42350039D3B3 /* FOXLinearizer.h in Headers */,
 				1F9E645B1A46F2C000651A95 /* FOXParallelGenerators.h in Headers */,
 				1F38B6731A2ACCC00078FF90 /* FOXCoreGenerators.h in Headers */,
 				1F38B6801A2ACCC00078FF90 /* FOXStateMachine.h in Headers */,
@@ -1445,7 +1426,6 @@
 				1F38B62E1A2ACCA80078FF90 /* FOXStringGenerator.m in Sources */,
 				1F38B6B71A2ACCC00078FF90 /* FOXStateMachineGenerators.m in Sources */,
 				1FFCE5691A80B90700A427AA /* FOXLimits.mm in Sources */,
-				1F2F02211A3E42350039D3B3 /* FOXLinearizer.m in Sources */,
 				1F38B6BC1A2ACCC00078FF90 /* FOXGenericGenerators.m in Sources */,
 				1FAE3B681A2EC5E60011838A /* SwiftGenerators.swift in Sources */,
 				1F38B6201A2ACCA80078FF90 /* FOXBindGenerator.m in Sources */,
@@ -1558,7 +1538,6 @@
 				1F38B6461A2ACCA90078FF90 /* FOXStringGenerator.m in Sources */,
 				1F38B6821A2ACCC00078FF90 /* FOXStateMachineGenerators.m in Sources */,
 				1FFCE56A1A80B90700A427AA /* FOXLimits.mm in Sources */,
-				1F2F02221A3E42350039D3B3 /* FOXLinearizer.m in Sources */,
 				1F38B6871A2ACCC00078FF90 /* FOXGenericGenerators.m in Sources */,
 				1FAE3B691A2EC5E60011838A /* SwiftGenerators.swift in Sources */,
 				1F38B6381A2ACCA90078FF90 /* FOXBindGenerator.m in Sources */,
