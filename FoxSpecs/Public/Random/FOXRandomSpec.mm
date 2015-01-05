@@ -13,7 +13,7 @@ describe(@"FOXDeterministicRandom", ^{
             FOXDeterministicRandom *random1 = [[FOXDeterministicRandom alloc] initWithSeed:(uint32_t)[value integerValue]];
             FOXDeterministicRandom *random2 = [[FOXDeterministicRandom alloc] initWithSeed:(uint32_t)[value integerValue]];
             BOOL equalRandInts = [random1 randomInteger] == [random2 randomInteger];
-            NSUInteger actual = [random1 randomIntegerWithinMinimum:5 andMaximum:1000];
+            long long actual = [random1 randomIntegerWithinMinimum:5 andMaximum:1000];
             return equalRandInts && (actual == [random2 randomIntegerWithinMinimum:5 andMaximum:1000]);
         }];
         result should be_truthy;
@@ -24,7 +24,7 @@ describe(@"FOXDeterministicRandom", ^{
             FOXDeterministicRandom *random1 = [[FOXDeterministicRandom alloc] init];
             FOXDeterministicRandom *random2 = [[FOXDeterministicRandom alloc] init];
             BOOL equalRandInts = [random1 randomInteger] != [random2 randomInteger];
-            NSUInteger actual = [random1 randomIntegerWithinMinimum:5 andMaximum:1000];
+            long long actual = [random1 randomIntegerWithinMinimum:5 andMaximum:1000];
             return equalRandInts || (actual != [random2 randomIntegerWithinMinimum:5 andMaximum:1000]);
         }];
         result should be_truthy;

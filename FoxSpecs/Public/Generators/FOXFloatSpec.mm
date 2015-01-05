@@ -25,7 +25,7 @@ describe(@"FOXFloat", ^{
     });
 
     it(@"should generate NaN", ^{
-        FOXRunnerResult *result = [FOXSpecHelper resultForAll:FOXResize(FOXFloat(), UINT64_MAX) then:^BOOL(NSNumber *generatedValue) {
+        FOXRunnerResult *result = [FOXSpecHelper resultForAll:FOXResize(FOXFloat(), NSUIntegerMax) then:^BOOL(NSNumber *generatedValue) {
             return !isnan([generatedValue floatValue]);
         } numberOfTests:10000];
         result.succeeded should be_falsy;
