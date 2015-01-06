@@ -11,7 +11,7 @@
 
 + (void)initialize
 {
-    printf("FOX_NUM_TESTS=%lu, FOX_SEED=%lu, FOX_MAX_SIZE=%lu\n", FOXGetNumberOfTests(), FOXGetSeed(), FOXGetMaximumSize());
+    printf("FOX_NUM_TESTS=%lu, FOX_SEED=%lu, FOX_MAX_SIZE=%lu\n", (unsigned long)FOXGetNumberOfTests(), (unsigned long)FOXGetSeed(), (unsigned long)FOXGetMaximumSize());
 }
 
 + (FOXRunnerResult *)resultForAll:(id<FOXGenerator>)generator

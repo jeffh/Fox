@@ -38,9 +38,9 @@
 
 - (long long)randomIntegerWithinMinimum:(long long)minimumNumber andMaximum:(long long)maximumNumber
 {
-    NSInteger difference = maximumNumber - minimumNumber;
-    std::uniform_int_distribution<NSInteger> distributionRange(0, difference);
-    NSInteger randomNumber = distributionRange(_generator);
+    long long difference = maximumNumber - minimumNumber;
+    std::uniform_int_distribution<long long> distributionRange(0, difference);
+    long long randomNumber = distributionRange(_generator);
     return randomNumber + minimumNumber;
 }
 
