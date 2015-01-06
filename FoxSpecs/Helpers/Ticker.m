@@ -20,6 +20,28 @@
     self.count = 0;
 }
 
+- (NSInteger)incrementWithInstanceVariable
+{
+    return ++_count;
+}
+
+- (void)resetWithInstanceVariable
+{
+    _count = 0;
+}
+
+- (NSInteger)incrementMoreComplicatedThanNeeded
+{
+#define NEW(A) [[A alloc] init]
+    NSMutableArray *numbers = NEW(NSMutableArray);
+    for (NSInteger i = 0; i < self.count; i++) {
+        [numbers addObject:@(self.count - i)];
+    }
+    [numbers insertObject:@([numbers[0] integerValue] + 1) atIndex:0];
+    return [numbers.lastObject integerValue];
+#undef NEW
+}
+
 - (NSInteger)atomicIncrement
 {
     OSSpinLockLock(&_lock);

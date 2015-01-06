@@ -4,7 +4,7 @@ void *FOXCalloc(size_t size1, size_t size2) {
     void *ptr = calloc(size1, size2);
     if (ptr == NULL) {
         fprintf(stderr, "calloc(%lu, %lu) failed\n", size1, size2);
-        exit(1);
+        abort();
     }
     return ptr;
 }
@@ -13,7 +13,7 @@ void *FOXMalloc(size_t size) {
     void *ptr = malloc(size);
     if (ptr == NULL) {
         fprintf(stderr, "malloc(%lu) failed\n", size);
-        exit(1);
+        abort();
     }
     return ptr;
 }
@@ -22,7 +22,7 @@ void *FOXRealloc(void *oldPtr, size_t size) {
     void *ptr = realloc(oldPtr, size);
     if (ptr == NULL) {
         fprintf(stderr, "realloc(%p, %lu) failed\n", oldPtr, size);
-        exit(1);
+        abort();
     }
     return ptr;
 }
