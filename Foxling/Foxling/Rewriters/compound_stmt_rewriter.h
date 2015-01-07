@@ -35,12 +35,14 @@ namespace Foxling {
     ///
     class CompoundStmtRewriter : public MatchFinder::MatchCallback {
     public:
-        CompoundStmtRewriter(SourceRewriter &r, std::string inject) : Rewrite(r), Inject(inject) {}
+        CompoundStmtRewriter(SourceRewriter &r, std::string inject, std::string key)
+        : Rewrite(r), Inject(inject), BindKey(key) {}
 
         void run(const MatchFinder::MatchResult &Result);
     private:
-        std::string Inject;
         SourceRewriter &Rewrite;
+        std::string Inject;
+        std::string BindKey;
     };
 }
 

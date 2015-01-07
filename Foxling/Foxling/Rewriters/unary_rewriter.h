@@ -29,16 +29,17 @@ namespace Foxling {
     /// If the unary is overloaded, we'll have problems...
     class UnaryRewriter : public MatchFinder::MatchCallback {
     public:
-        UnaryRewriter(SourceRewriter &r, std::string code, ASTContext &c)
-        : Rewrite(r), InjectCode(code), Context(c) {}
+        UnaryRewriter(SourceRewriter &r, ASTContext &c, std::string code, std::string key)
+        : Rewrite(r), Context(c), InjectCode(code), BindKey(key) {}
 
         void run(const MatchFinder::MatchResult &Result);
     protected:
         bool shouldEmitResult(const UnaryOperator *op) const;
     private:
+        SourceRewriter &Rewrite;
         ASTContext &Context;
         std::string InjectCode;
-        SourceRewriter &Rewrite;
+        std::string BindKey;
     };
 }
 

@@ -194,7 +194,8 @@ std::string Foxling::Rewriter::getRewrittenText(SourceRange Range, int StartDelt
     // start of the last token.
     EndOff += Lexer::MeasureTokenLength(Range.getEnd(), *SourceMgr, *LangOpts);
     StartOff += StartDelta;
-    EndOff   += EndDelta;
+    EndOff += EndDelta;
+    EndOff = std::max(StartOff, EndOff);
 
     // Advance the iterators to the right spot, yay for linear time algorithms.
     RewriteBuffer::iterator Start = RB.begin();

@@ -1,0 +1,46 @@
+#!/usr/bin/python
+
+# Wrapper to the Foxling executable to make it a clang-compatible compiler.
+# This script assumes it is in the same directory as the Foxling executable.
+
+import sys
+import os
+
+COMPILE_EXTS = [
+    'c', 'cc',
+    'cpp', 'cp',
+    'cx', 'cxx',
+    'c++', 'hpp'
+    'm',
+    'mm',
+]
+CLANG = ['/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++']
+
+def run(cmd):
+    assert os.system(' '.join(cmd)) == 0, 'Failed to run "' + ' '.join(cmd) + '"'
+
+args = sys.argv[1:]
+
+compiling_file = None
+intermediate_file = None
+index = -1
+
+for i, arg in enumerate(args):
+    if os.path.isfile(arg) and arg.split('.')[-1].lower() in COMPILE_EXTS:
+        compiling_file = arg
+        index = i
+        break
+
+if compiling_file:
+    dirname, filename = os.path.split(compiling_file)
+    intermediate_file = os.path.join(dirname, 'foxling_', filename)
+    run([os.path.abspath(os.path.join(os.path.dirname(__file__), './Foxling'))] + [compiling_file] + ['--'] + CLANG + args + ['>', intermediate_file])
+    args[index] = intermediate_file
+else:
+    print "FoxlingCompiler cannot preprocess: ", compiling_file
+    print "Skipping for direct clang processing."
+
+try:
+    run(CLANG + args)
+finally:
+    os.unlink(intermediate_file)

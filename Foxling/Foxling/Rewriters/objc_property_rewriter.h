@@ -32,12 +32,14 @@ namespace Foxling {
 
     class ObjCPropertyRewriter : public MatchFinder::MatchCallback {
     public:
-        ObjCPropertyRewriter(SourceRewriter &r, std::string code) : Rewrite(r), InjectCode(code) {}
+        ObjCPropertyRewriter(SourceRewriter &r, std::string code, std::string key)
+        : Rewrite(r), InjectCode(code), BindKey(key) {}
 
         void run(const MatchFinder::MatchResult &Result);
     private:
-        std::string InjectCode;
         SourceRewriter &Rewrite;
+        std::string InjectCode;
+        std::string BindKey;
     };
     
 }

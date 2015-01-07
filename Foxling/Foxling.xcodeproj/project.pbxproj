@@ -145,61 +145,54 @@
 		1F2610ED1A57DEE000970A48 /* libLLVMXCoreDesc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2610631A57DEDF00970A48 /* libLLVMXCoreDesc.a */; };
 		1F2610EE1A57DEE000970A48 /* libLLVMXCoreDisassembler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2610641A57DEDF00970A48 /* libLLVMXCoreDisassembler.a */; };
 		1F2610EF1A57DEE000970A48 /* libLLVMXCoreInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2610651A57DEDF00970A48 /* libLLVMXCoreInfo.a */; };
-		1F2611991A57ED0200970A48 /* __wmmintrin_aes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611611A57ECE900970A48 /* __wmmintrin_aes.h */; };
-		1F26119A1A57ED0200970A48 /* __wmmintrin_pclmul.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611621A57ECE900970A48 /* __wmmintrin_pclmul.h */; };
-		1F26119B1A57ED0200970A48 /* altivec.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611631A57ECE900970A48 /* altivec.h */; };
-		1F26119C1A57ED0200970A48 /* ammintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611641A57ECE900970A48 /* ammintrin.h */; };
-		1F26119D1A57ED0200970A48 /* arm64_neon_internal.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611651A57ECE900970A48 /* arm64_neon_internal.h */; };
-		1F26119E1A57ED0200970A48 /* arm_neon.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611661A57ECE900970A48 /* arm_neon.h */; };
-		1F26119F1A57ED0200970A48 /* avx2intrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611671A57ECE900970A48 /* avx2intrin.h */; };
-		1F2611A01A57ED0200970A48 /* avxintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611681A57ECE900970A48 /* avxintrin.h */; };
-		1F2611A11A57ED0200970A48 /* bmi2intrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611691A57ECE900970A48 /* bmi2intrin.h */; };
-		1F2611A21A57ED0200970A48 /* bmiintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26116A1A57ECE900970A48 /* bmiintrin.h */; };
-		1F2611A31A57ED0200970A48 /* cpuid.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26116B1A57ECE900970A48 /* cpuid.h */; };
-		1F2611A41A57ED0200970A48 /* emmintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26116C1A57ECE900970A48 /* emmintrin.h */; };
-		1F2611A51A57ED0200970A48 /* f16cintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26116D1A57ECE900970A48 /* f16cintrin.h */; };
-		1F2611A61A57ED0200970A48 /* float.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26116E1A57ECE900970A48 /* float.h */; };
-		1F2611A71A57ED0200970A48 /* fma4intrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26116F1A57ECE900970A48 /* fma4intrin.h */; };
-		1F2611A81A57ED0200970A48 /* fmaintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611701A57ECE900970A48 /* fmaintrin.h */; };
-		1F2611A91A57ED0200970A48 /* immintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611711A57ECE900970A48 /* immintrin.h */; };
-		1F2611AA1A57ED0200970A48 /* Intrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611721A57ECE900970A48 /* Intrin.h */; };
-		1F2611AB1A57ED0200970A48 /* iso646.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611731A57ECE900970A48 /* iso646.h */; };
-		1F2611AC1A57ED0200970A48 /* limits.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611741A57ECE900970A48 /* limits.h */; };
-		1F2611AD1A57ED0200970A48 /* lzcntintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611751A57ECE900970A48 /* lzcntintrin.h */; };
-		1F2611AE1A57ED0200970A48 /* mm3dnow.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611761A57ECE900970A48 /* mm3dnow.h */; };
-		1F2611AF1A57ED0200970A48 /* mm_malloc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611771A57ECE900970A48 /* mm_malloc.h */; };
-		1F2611B01A57ED0200970A48 /* mmintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611781A57ECE900970A48 /* mmintrin.h */; };
-		1F2611B11A57ED0200970A48 /* module.map in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611791A57ECE900970A48 /* module.map */; };
-		1F2611B21A57ED0200970A48 /* nmmintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26117A1A57ECE900970A48 /* nmmintrin.h */; };
-		1F2611B31A57ED0200970A48 /* pmmintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26117B1A57ECE900970A48 /* pmmintrin.h */; };
-		1F2611B41A57ED0200970A48 /* popcntintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26117C1A57ECE900970A48 /* popcntintrin.h */; };
-		1F2611B51A57ED0200970A48 /* prfchwintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26117D1A57ECE900970A48 /* prfchwintrin.h */; };
-		1F2611B61A57ED0200970A48 /* rdseedintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26117E1A57ECE900970A48 /* rdseedintrin.h */; };
-		1F2611B71A57ED0200970A48 /* rtmintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26117F1A57ECE900970A48 /* rtmintrin.h */; };
-		1F2611B81A57ED0200970A48 /* asan_interface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611811A57ECE900970A48 /* asan_interface.h */; };
-		1F2611B91A57ED0200970A48 /* common_interface_defs.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611821A57ECE900970A48 /* common_interface_defs.h */; };
-		1F2611BA1A57ED0200970A48 /* dfsan_interface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611831A57ECE900970A48 /* dfsan_interface.h */; };
-		1F2611BB1A57ED0200970A48 /* linux_syscall_hooks.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611841A57ECE900970A48 /* linux_syscall_hooks.h */; };
-		1F2611BC1A57ED0200970A48 /* lsan_interface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611851A57ECE900970A48 /* lsan_interface.h */; };
-		1F2611BD1A57ED0200970A48 /* msan_interface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611861A57ECE900970A48 /* msan_interface.h */; };
-		1F2611BE1A57ED0200970A48 /* tsan_interface_atomic.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611871A57ECE900970A48 /* tsan_interface_atomic.h */; };
-		1F2611BF1A57ED0200970A48 /* shaintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611881A57ECE900970A48 /* shaintrin.h */; };
-		1F2611C01A57ED0200970A48 /* smmintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611891A57ECE900970A48 /* smmintrin.h */; };
-		1F2611C11A57ED0200970A48 /* stdalign.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26118A1A57ECE900970A48 /* stdalign.h */; };
-		1F2611C21A57ED0200970A48 /* stdarg.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26118B1A57ECE900970A48 /* stdarg.h */; };
-		1F2611C31A57ED0300970A48 /* stdbool.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26118C1A57ECE900970A48 /* stdbool.h */; };
-		1F2611C41A57ED0300970A48 /* stddef.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26118D1A57ECE900970A48 /* stddef.h */; };
-		1F2611C51A57ED0300970A48 /* stdint.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26118E1A57ECE900970A48 /* stdint.h */; };
-		1F2611C61A57ED0300970A48 /* stdnoreturn.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F26118F1A57ECE900970A48 /* stdnoreturn.h */; };
-		1F2611C71A57ED0300970A48 /* tbmintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611901A57ECE900970A48 /* tbmintrin.h */; };
-		1F2611C81A57ED0300970A48 /* tgmath.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611911A57ECE900970A48 /* tgmath.h */; };
-		1F2611C91A57ED0300970A48 /* tmmintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611921A57ECE900970A48 /* tmmintrin.h */; };
-		1F2611CA1A57ED0300970A48 /* unwind.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611931A57ECE900970A48 /* unwind.h */; };
-		1F2611CB1A57ED0300970A48 /* varargs.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611941A57ECE900970A48 /* varargs.h */; };
-		1F2611CC1A57ED0300970A48 /* wmmintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611951A57ECE900970A48 /* wmmintrin.h */; };
-		1F2611CD1A57ED0300970A48 /* x86intrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611961A57ECE900970A48 /* x86intrin.h */; };
-		1F2611CE1A57ED0300970A48 /* xmmintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611971A57ECE900970A48 /* xmmintrin.h */; };
-		1F2611CF1A57ED0300970A48 /* xopintrin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2611981A57ECE900970A48 /* xopintrin.h */; };
+		1F2611991A57ED0200970A48 /* __wmmintrin_aes.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611611A57ECE900970A48 /* __wmmintrin_aes.h */; };
+		1F26119A1A57ED0200970A48 /* __wmmintrin_pclmul.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611621A57ECE900970A48 /* __wmmintrin_pclmul.h */; };
+		1F26119B1A57ED0200970A48 /* altivec.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611631A57ECE900970A48 /* altivec.h */; };
+		1F26119C1A57ED0200970A48 /* ammintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611641A57ECE900970A48 /* ammintrin.h */; };
+		1F26119D1A57ED0200970A48 /* arm64_neon_internal.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611651A57ECE900970A48 /* arm64_neon_internal.h */; };
+		1F26119E1A57ED0200970A48 /* arm_neon.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611661A57ECE900970A48 /* arm_neon.h */; };
+		1F26119F1A57ED0200970A48 /* avx2intrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611671A57ECE900970A48 /* avx2intrin.h */; };
+		1F2611A01A57ED0200970A48 /* avxintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611681A57ECE900970A48 /* avxintrin.h */; };
+		1F2611A11A57ED0200970A48 /* bmi2intrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611691A57ECE900970A48 /* bmi2intrin.h */; };
+		1F2611A21A57ED0200970A48 /* bmiintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26116A1A57ECE900970A48 /* bmiintrin.h */; };
+		1F2611A31A57ED0200970A48 /* cpuid.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26116B1A57ECE900970A48 /* cpuid.h */; };
+		1F2611A41A57ED0200970A48 /* emmintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26116C1A57ECE900970A48 /* emmintrin.h */; };
+		1F2611A51A57ED0200970A48 /* f16cintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26116D1A57ECE900970A48 /* f16cintrin.h */; };
+		1F2611A61A57ED0200970A48 /* float.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26116E1A57ECE900970A48 /* float.h */; };
+		1F2611A71A57ED0200970A48 /* fma4intrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26116F1A57ECE900970A48 /* fma4intrin.h */; };
+		1F2611A81A57ED0200970A48 /* fmaintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611701A57ECE900970A48 /* fmaintrin.h */; };
+		1F2611A91A57ED0200970A48 /* immintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611711A57ECE900970A48 /* immintrin.h */; };
+		1F2611AA1A57ED0200970A48 /* Intrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611721A57ECE900970A48 /* Intrin.h */; };
+		1F2611AB1A57ED0200970A48 /* iso646.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611731A57ECE900970A48 /* iso646.h */; };
+		1F2611AC1A57ED0200970A48 /* limits.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611741A57ECE900970A48 /* limits.h */; };
+		1F2611AD1A57ED0200970A48 /* lzcntintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611751A57ECE900970A48 /* lzcntintrin.h */; };
+		1F2611AE1A57ED0200970A48 /* mm3dnow.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611761A57ECE900970A48 /* mm3dnow.h */; };
+		1F2611AF1A57ED0200970A48 /* mm_malloc.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611771A57ECE900970A48 /* mm_malloc.h */; };
+		1F2611B01A57ED0200970A48 /* mmintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611781A57ECE900970A48 /* mmintrin.h */; };
+		1F2611B11A57ED0200970A48 /* module.map in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611791A57ECE900970A48 /* module.map */; };
+		1F2611B21A57ED0200970A48 /* nmmintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26117A1A57ECE900970A48 /* nmmintrin.h */; };
+		1F2611B31A57ED0200970A48 /* pmmintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26117B1A57ECE900970A48 /* pmmintrin.h */; };
+		1F2611B41A57ED0200970A48 /* popcntintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26117C1A57ECE900970A48 /* popcntintrin.h */; };
+		1F2611B51A57ED0200970A48 /* prfchwintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26117D1A57ECE900970A48 /* prfchwintrin.h */; };
+		1F2611B61A57ED0200970A48 /* rdseedintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26117E1A57ECE900970A48 /* rdseedintrin.h */; };
+		1F2611B71A57ED0200970A48 /* rtmintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26117F1A57ECE900970A48 /* rtmintrin.h */; };
+		1F2611BF1A57ED0200970A48 /* shaintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611881A57ECE900970A48 /* shaintrin.h */; };
+		1F2611C01A57ED0200970A48 /* smmintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611891A57ECE900970A48 /* smmintrin.h */; };
+		1F2611C11A57ED0200970A48 /* stdalign.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26118A1A57ECE900970A48 /* stdalign.h */; };
+		1F2611C21A57ED0200970A48 /* stdarg.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26118B1A57ECE900970A48 /* stdarg.h */; };
+		1F2611C31A57ED0300970A48 /* stdbool.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26118C1A57ECE900970A48 /* stdbool.h */; };
+		1F2611C41A57ED0300970A48 /* stddef.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26118D1A57ECE900970A48 /* stddef.h */; };
+		1F2611C51A57ED0300970A48 /* stdint.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26118E1A57ECE900970A48 /* stdint.h */; };
+		1F2611C61A57ED0300970A48 /* stdnoreturn.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F26118F1A57ECE900970A48 /* stdnoreturn.h */; };
+		1F2611C71A57ED0300970A48 /* tbmintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611901A57ECE900970A48 /* tbmintrin.h */; };
+		1F2611C81A57ED0300970A48 /* tgmath.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611911A57ECE900970A48 /* tgmath.h */; };
+		1F2611C91A57ED0300970A48 /* tmmintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611921A57ECE900970A48 /* tmmintrin.h */; };
+		1F2611CA1A57ED0300970A48 /* unwind.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611931A57ECE900970A48 /* unwind.h */; };
+		1F2611CB1A57ED0300970A48 /* varargs.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611941A57ECE900970A48 /* varargs.h */; };
+		1F2611CC1A57ED0300970A48 /* wmmintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611951A57ECE900970A48 /* wmmintrin.h */; };
+		1F2611CD1A57ED0300970A48 /* x86intrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611961A57ECE900970A48 /* x86intrin.h */; };
+		1F2611CE1A57ED0300970A48 /* xmmintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611971A57ECE900970A48 /* xmmintrin.h */; };
+		1F2611CF1A57ED0300970A48 /* xopintrin.h in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1F2611981A57ECE900970A48 /* xopintrin.h */; };
 		1F2611D61A58EEF600970A48 /* objc_property_rewriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F2611D41A58EEF600970A48 /* objc_property_rewriter.cpp */; };
 		1F2611D91A58F0C700970A48 /* objc_message_rewriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F2611D71A58F0C700970A48 /* objc_message_rewriter.cpp */; };
 		1F2611DC1A58F15800970A48 /* unary_rewriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F2611DA1A58F15800970A48 /* unary_rewriter.cpp */; };
@@ -208,71 +201,93 @@
 		1F97E2F11A55E75A00CE7EA4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F97E2F01A55E75A00CE7EA4 /* main.cpp */; };
 		1FDD0F071A5A79A80035D578 /* Rewriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD0F061A5A79A80035D578 /* Rewriter.cpp */; };
 		1FF678AC1A5BCB1D004F54DA /* compound_stmt_rewriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF678AA1A5BCB1D004F54DA /* compound_stmt_rewriter.cpp */; };
+		1FF678B11A5CC19B004F54DA /* FoxlingCompiler in Copy Binary Files */ = {isa = PBXBuildFile; fileRef = 1FF678AF1A5C8E10004F54DA /* FoxlingCompiler */; };
+		1FF6791E1A5CC7B6004F54DA /* FlexLexer.h in Copy C++ Headers */ = {isa = PBXBuildFile; fileRef = 1FF6791C1A5CC788004F54DA /* FlexLexer.h */; };
+		1FF679211A5CC7EC004F54DA /* sanitizer in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1FF679201A5CC7E6004F54DA /* sanitizer */; };
+		1FF679221A5CC7F3004F54DA /* c++ in Copy C++ Headers */ = {isa = PBXBuildFile; fileRef = 1FF6791F1A5CC7D4004F54DA /* c++ */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1F97E2EC1A55E75A00CE7EA4 /* CopyFiles */ = {
+		1F97E2EC1A55E75A00CE7EA4 /* Copy Clang Header */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = ../lib/clang/3.6.0/include;
 			dstSubfolderSpec = 16;
 			files = (
-				1F2611991A57ED0200970A48 /* __wmmintrin_aes.h in CopyFiles */,
-				1F26119A1A57ED0200970A48 /* __wmmintrin_pclmul.h in CopyFiles */,
-				1F26119B1A57ED0200970A48 /* altivec.h in CopyFiles */,
-				1F26119C1A57ED0200970A48 /* ammintrin.h in CopyFiles */,
-				1F26119D1A57ED0200970A48 /* arm64_neon_internal.h in CopyFiles */,
-				1F26119E1A57ED0200970A48 /* arm_neon.h in CopyFiles */,
-				1F26119F1A57ED0200970A48 /* avx2intrin.h in CopyFiles */,
-				1F2611A01A57ED0200970A48 /* avxintrin.h in CopyFiles */,
-				1F2611A11A57ED0200970A48 /* bmi2intrin.h in CopyFiles */,
-				1F2611A21A57ED0200970A48 /* bmiintrin.h in CopyFiles */,
-				1F2611A31A57ED0200970A48 /* cpuid.h in CopyFiles */,
-				1F2611A41A57ED0200970A48 /* emmintrin.h in CopyFiles */,
-				1F2611A51A57ED0200970A48 /* f16cintrin.h in CopyFiles */,
-				1F2611A61A57ED0200970A48 /* float.h in CopyFiles */,
-				1F2611A71A57ED0200970A48 /* fma4intrin.h in CopyFiles */,
-				1F2611A81A57ED0200970A48 /* fmaintrin.h in CopyFiles */,
-				1F2611A91A57ED0200970A48 /* immintrin.h in CopyFiles */,
-				1F2611AA1A57ED0200970A48 /* Intrin.h in CopyFiles */,
-				1F2611AB1A57ED0200970A48 /* iso646.h in CopyFiles */,
-				1F2611AC1A57ED0200970A48 /* limits.h in CopyFiles */,
-				1F2611AD1A57ED0200970A48 /* lzcntintrin.h in CopyFiles */,
-				1F2611AE1A57ED0200970A48 /* mm3dnow.h in CopyFiles */,
-				1F2611AF1A57ED0200970A48 /* mm_malloc.h in CopyFiles */,
-				1F2611B01A57ED0200970A48 /* mmintrin.h in CopyFiles */,
-				1F2611B11A57ED0200970A48 /* module.map in CopyFiles */,
-				1F2611B21A57ED0200970A48 /* nmmintrin.h in CopyFiles */,
-				1F2611B31A57ED0200970A48 /* pmmintrin.h in CopyFiles */,
-				1F2611B41A57ED0200970A48 /* popcntintrin.h in CopyFiles */,
-				1F2611B51A57ED0200970A48 /* prfchwintrin.h in CopyFiles */,
-				1F2611B61A57ED0200970A48 /* rdseedintrin.h in CopyFiles */,
-				1F2611B71A57ED0200970A48 /* rtmintrin.h in CopyFiles */,
-				1F2611B81A57ED0200970A48 /* asan_interface.h in CopyFiles */,
-				1F2611B91A57ED0200970A48 /* common_interface_defs.h in CopyFiles */,
-				1F2611BA1A57ED0200970A48 /* dfsan_interface.h in CopyFiles */,
-				1F2611BB1A57ED0200970A48 /* linux_syscall_hooks.h in CopyFiles */,
-				1F2611BC1A57ED0200970A48 /* lsan_interface.h in CopyFiles */,
-				1F2611BD1A57ED0200970A48 /* msan_interface.h in CopyFiles */,
-				1F2611BE1A57ED0200970A48 /* tsan_interface_atomic.h in CopyFiles */,
-				1F2611BF1A57ED0200970A48 /* shaintrin.h in CopyFiles */,
-				1F2611C01A57ED0200970A48 /* smmintrin.h in CopyFiles */,
-				1F2611C11A57ED0200970A48 /* stdalign.h in CopyFiles */,
-				1F2611C21A57ED0200970A48 /* stdarg.h in CopyFiles */,
-				1F2611C31A57ED0300970A48 /* stdbool.h in CopyFiles */,
-				1F2611C41A57ED0300970A48 /* stddef.h in CopyFiles */,
-				1F2611C51A57ED0300970A48 /* stdint.h in CopyFiles */,
-				1F2611C61A57ED0300970A48 /* stdnoreturn.h in CopyFiles */,
-				1F2611C71A57ED0300970A48 /* tbmintrin.h in CopyFiles */,
-				1F2611C81A57ED0300970A48 /* tgmath.h in CopyFiles */,
-				1F2611C91A57ED0300970A48 /* tmmintrin.h in CopyFiles */,
-				1F2611CA1A57ED0300970A48 /* unwind.h in CopyFiles */,
-				1F2611CB1A57ED0300970A48 /* varargs.h in CopyFiles */,
-				1F2611CC1A57ED0300970A48 /* wmmintrin.h in CopyFiles */,
-				1F2611CD1A57ED0300970A48 /* x86intrin.h in CopyFiles */,
-				1F2611CE1A57ED0300970A48 /* xmmintrin.h in CopyFiles */,
-				1F2611CF1A57ED0300970A48 /* xopintrin.h in CopyFiles */,
+				1FF679211A5CC7EC004F54DA /* sanitizer in Copy Clang Header */,
+				1F2611991A57ED0200970A48 /* __wmmintrin_aes.h in Copy Clang Header */,
+				1F26119A1A57ED0200970A48 /* __wmmintrin_pclmul.h in Copy Clang Header */,
+				1F26119B1A57ED0200970A48 /* altivec.h in Copy Clang Header */,
+				1F26119C1A57ED0200970A48 /* ammintrin.h in Copy Clang Header */,
+				1F26119D1A57ED0200970A48 /* arm64_neon_internal.h in Copy Clang Header */,
+				1F26119E1A57ED0200970A48 /* arm_neon.h in Copy Clang Header */,
+				1F26119F1A57ED0200970A48 /* avx2intrin.h in Copy Clang Header */,
+				1F2611A01A57ED0200970A48 /* avxintrin.h in Copy Clang Header */,
+				1F2611A11A57ED0200970A48 /* bmi2intrin.h in Copy Clang Header */,
+				1F2611A21A57ED0200970A48 /* bmiintrin.h in Copy Clang Header */,
+				1F2611A31A57ED0200970A48 /* cpuid.h in Copy Clang Header */,
+				1F2611A41A57ED0200970A48 /* emmintrin.h in Copy Clang Header */,
+				1F2611A51A57ED0200970A48 /* f16cintrin.h in Copy Clang Header */,
+				1F2611A61A57ED0200970A48 /* float.h in Copy Clang Header */,
+				1F2611A71A57ED0200970A48 /* fma4intrin.h in Copy Clang Header */,
+				1F2611A81A57ED0200970A48 /* fmaintrin.h in Copy Clang Header */,
+				1F2611A91A57ED0200970A48 /* immintrin.h in Copy Clang Header */,
+				1F2611AA1A57ED0200970A48 /* Intrin.h in Copy Clang Header */,
+				1F2611AB1A57ED0200970A48 /* iso646.h in Copy Clang Header */,
+				1F2611AC1A57ED0200970A48 /* limits.h in Copy Clang Header */,
+				1F2611AD1A57ED0200970A48 /* lzcntintrin.h in Copy Clang Header */,
+				1F2611AE1A57ED0200970A48 /* mm3dnow.h in Copy Clang Header */,
+				1F2611AF1A57ED0200970A48 /* mm_malloc.h in Copy Clang Header */,
+				1F2611B01A57ED0200970A48 /* mmintrin.h in Copy Clang Header */,
+				1F2611B11A57ED0200970A48 /* module.map in Copy Clang Header */,
+				1F2611B21A57ED0200970A48 /* nmmintrin.h in Copy Clang Header */,
+				1F2611B31A57ED0200970A48 /* pmmintrin.h in Copy Clang Header */,
+				1F2611B41A57ED0200970A48 /* popcntintrin.h in Copy Clang Header */,
+				1F2611B51A57ED0200970A48 /* prfchwintrin.h in Copy Clang Header */,
+				1F2611B61A57ED0200970A48 /* rdseedintrin.h in Copy Clang Header */,
+				1F2611B71A57ED0200970A48 /* rtmintrin.h in Copy Clang Header */,
+				1F2611BF1A57ED0200970A48 /* shaintrin.h in Copy Clang Header */,
+				1F2611C01A57ED0200970A48 /* smmintrin.h in Copy Clang Header */,
+				1F2611C11A57ED0200970A48 /* stdalign.h in Copy Clang Header */,
+				1F2611C21A57ED0200970A48 /* stdarg.h in Copy Clang Header */,
+				1F2611C31A57ED0300970A48 /* stdbool.h in Copy Clang Header */,
+				1F2611C41A57ED0300970A48 /* stddef.h in Copy Clang Header */,
+				1F2611C51A57ED0300970A48 /* stdint.h in Copy Clang Header */,
+				1F2611C61A57ED0300970A48 /* stdnoreturn.h in Copy Clang Header */,
+				1F2611C71A57ED0300970A48 /* tbmintrin.h in Copy Clang Header */,
+				1F2611C81A57ED0300970A48 /* tgmath.h in Copy Clang Header */,
+				1F2611C91A57ED0300970A48 /* tmmintrin.h in Copy Clang Header */,
+				1F2611CA1A57ED0300970A48 /* unwind.h in Copy Clang Header */,
+				1F2611CB1A57ED0300970A48 /* varargs.h in Copy Clang Header */,
+				1F2611CC1A57ED0300970A48 /* wmmintrin.h in Copy Clang Header */,
+				1F2611CD1A57ED0300970A48 /* x86intrin.h in Copy Clang Header */,
+				1F2611CE1A57ED0300970A48 /* xmmintrin.h in Copy Clang Header */,
+				1F2611CF1A57ED0300970A48 /* xopintrin.h in Copy Clang Header */,
 			);
+			name = "Copy Clang Header";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FF678B01A5CC195004F54DA /* Copy Binary Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				1FF678B11A5CC19B004F54DA /* FoxlingCompiler in Copy Binary Files */,
+			);
+			name = "Copy Binary Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FF6791D1A5CC79A004F54DA /* Copy C++ Headers */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = ../include;
+			dstSubfolderSpec = 16;
+			files = (
+				1FF6791E1A5CC7B6004F54DA /* FlexLexer.h in Copy C++ Headers */,
+				1FF679221A5CC7F3004F54DA /* c++ in Copy C++ Headers */,
+			);
+			name = "Copy C++ Headers";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -447,13 +462,6 @@
 		1F26117D1A57ECE900970A48 /* prfchwintrin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prfchwintrin.h; sourceTree = "<group>"; };
 		1F26117E1A57ECE900970A48 /* rdseedintrin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rdseedintrin.h; sourceTree = "<group>"; };
 		1F26117F1A57ECE900970A48 /* rtmintrin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rtmintrin.h; sourceTree = "<group>"; };
-		1F2611811A57ECE900970A48 /* asan_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = asan_interface.h; sourceTree = "<group>"; };
-		1F2611821A57ECE900970A48 /* common_interface_defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common_interface_defs.h; sourceTree = "<group>"; };
-		1F2611831A57ECE900970A48 /* dfsan_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dfsan_interface.h; sourceTree = "<group>"; };
-		1F2611841A57ECE900970A48 /* linux_syscall_hooks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = linux_syscall_hooks.h; sourceTree = "<group>"; };
-		1F2611851A57ECE900970A48 /* lsan_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lsan_interface.h; sourceTree = "<group>"; };
-		1F2611861A57ECE900970A48 /* msan_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = msan_interface.h; sourceTree = "<group>"; };
-		1F2611871A57ECE900970A48 /* tsan_interface_atomic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tsan_interface_atomic.h; sourceTree = "<group>"; };
 		1F2611881A57ECE900970A48 /* shaintrin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shaintrin.h; sourceTree = "<group>"; };
 		1F2611891A57ECE900970A48 /* smmintrin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smmintrin.h; sourceTree = "<group>"; };
 		1F26118A1A57ECE900970A48 /* stdalign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stdalign.h; sourceTree = "<group>"; };
@@ -490,6 +498,10 @@
 		1FDD0F081A5A79C40035D578 /* Rewriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rewriter.h; sourceTree = "<group>"; };
 		1FF678AA1A5BCB1D004F54DA /* compound_stmt_rewriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = compound_stmt_rewriter.cpp; sourceTree = "<group>"; };
 		1FF678AB1A5BCB1D004F54DA /* compound_stmt_rewriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compound_stmt_rewriter.h; sourceTree = "<group>"; };
+		1FF678AF1A5C8E10004F54DA /* FoxlingCompiler */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = FoxlingCompiler; sourceTree = "<group>"; };
+		1FF6791C1A5CC788004F54DA /* FlexLexer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlexLexer.h; sourceTree = "<group>"; };
+		1FF6791F1A5CC7D4004F54DA /* c++ */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "c++"; sourceTree = "<group>"; };
+		1FF679201A5CC7E6004F54DA /* sanitizer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sanitizer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -658,6 +670,7 @@
 				1F26116C1A57ECE900970A48 /* emmintrin.h */,
 				1F26116D1A57ECE900970A48 /* f16cintrin.h */,
 				1F26116E1A57ECE900970A48 /* float.h */,
+				1FF679201A5CC7E6004F54DA /* sanitizer */,
 				1F26116F1A57ECE900970A48 /* fma4intrin.h */,
 				1F2611701A57ECE900970A48 /* fmaintrin.h */,
 				1F2611711A57ECE900970A48 /* immintrin.h */,
@@ -675,7 +688,6 @@
 				1F26117D1A57ECE900970A48 /* prfchwintrin.h */,
 				1F26117E1A57ECE900970A48 /* rdseedintrin.h */,
 				1F26117F1A57ECE900970A48 /* rtmintrin.h */,
-				1F2611801A57ECE900970A48 /* sanitizer */,
 				1F2611881A57ECE900970A48 /* shaintrin.h */,
 				1F2611891A57ECE900970A48 /* smmintrin.h */,
 				1F26118A1A57ECE900970A48 /* stdalign.h */,
@@ -697,20 +709,6 @@
 			name = "Clang Headers";
 			path = Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/include;
 			sourceTree = DEVELOPER_DIR;
-		};
-		1F2611801A57ECE900970A48 /* sanitizer */ = {
-			isa = PBXGroup;
-			children = (
-				1F2611811A57ECE900970A48 /* asan_interface.h */,
-				1F2611821A57ECE900970A48 /* common_interface_defs.h */,
-				1F2611831A57ECE900970A48 /* dfsan_interface.h */,
-				1F2611841A57ECE900970A48 /* linux_syscall_hooks.h */,
-				1F2611851A57ECE900970A48 /* lsan_interface.h */,
-				1F2611861A57ECE900970A48 /* msan_interface.h */,
-				1F2611871A57ECE900970A48 /* tsan_interface_atomic.h */,
-			);
-			path = sanitizer;
-			sourceTree = "<group>";
 		};
 		1F2611D31A58EE2800970A48 /* Rewriters */ = {
 			isa = PBXGroup;
@@ -746,7 +744,9 @@
 		1F9A97EB1A49550000C3BB26 = {
 			isa = PBXGroup;
 			children = (
+				1FF678AE1A5C8DF4004F54DA /* bin */,
 				1F97E2EF1A55E75A00CE7EA4 /* Foxling */,
+				1FF678B21A5CC788004F54DA /* C++ Headers */,
 				1F2611601A57ECE900970A48 /* Clang Headers */,
 				1F9A97F51A49550000C3BB26 /* Products */,
 				1F9A991A1A49608E00C3BB26 /* LLVM & Clang */,
@@ -908,6 +908,24 @@
 			name = "LLVM & Clang";
 			sourceTree = "<group>";
 		};
+		1FF678AE1A5C8DF4004F54DA /* bin */ = {
+			isa = PBXGroup;
+			children = (
+				1FF678AF1A5C8E10004F54DA /* FoxlingCompiler */,
+			);
+			path = bin;
+			sourceTree = "<group>";
+		};
+		1FF678B21A5CC788004F54DA /* C++ Headers */ = {
+			isa = PBXGroup;
+			children = (
+				1FF6791F1A5CC7D4004F54DA /* c++ */,
+				1FF6791C1A5CC788004F54DA /* FlexLexer.h */,
+			);
+			name = "C++ Headers";
+			path = Toolchains/XcodeDefault.xctoolchain/usr/include;
+			sourceTree = DEVELOPER_DIR;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -917,7 +935,9 @@
 			buildPhases = (
 				1F97E2EA1A55E75A00CE7EA4 /* Sources */,
 				1F97E2EB1A55E75A00CE7EA4 /* Frameworks */,
-				1F97E2EC1A55E75A00CE7EA4 /* CopyFiles */,
+				1FF6791D1A5CC79A004F54DA /* Copy C++ Headers */,
+				1F97E2EC1A55E75A00CE7EA4 /* Copy Clang Header */,
+				1FF678B01A5CC195004F54DA /* Copy Binary Files */,
 			);
 			buildRules = (
 			);

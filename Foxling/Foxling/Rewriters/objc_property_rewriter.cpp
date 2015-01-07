@@ -1,7 +1,7 @@
 #include "objc_property_rewriter.h"
 
 void Foxling::ObjCPropertyRewriter::run(const MatchFinder::MatchResult &Result) {
-    if (const ObjCPropertyRefExpr *propertyExpr = Result.Nodes.getNodeAs<ObjCPropertyRefExpr>("expr")) {
+    if (const ObjCPropertyRefExpr *propertyExpr = Result.Nodes.getNodeAs<ObjCPropertyRefExpr>(BindKey)) {
         if (propertyExpr->isMessagingGetter()) {
 //            llvm::outs() << "OriGet: " << Rewrite.getUnderlyingRewrittenText(propertyExpr->getSourceRange()) << "\n";
             auto baseExprType = propertyExpr->getBase()->getType().getAsString();

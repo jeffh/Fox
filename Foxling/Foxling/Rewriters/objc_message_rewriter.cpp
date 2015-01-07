@@ -1,7 +1,7 @@
 #include "objc_message_rewriter.h"
 
 void Foxling::ObjCMessageRewriter::run(const MatchFinder::MatchResult &Result) {
-    if (const ObjCMessageExpr *msgExpr = Result.Nodes.getNodeAs<ObjCMessageExpr>("msgExpr")) {
+    if (const ObjCMessageExpr *msgExpr = Result.Nodes.getNodeAs<ObjCMessageExpr>(BindKey)) {
         // don't insert for property accesses that are zero-sized expressions.
         SourceRange receiverRange = msgExpr->getReceiverRange();
         if (receiverRange.getBegin() != receiverRange.getEnd()) {

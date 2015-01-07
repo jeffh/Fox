@@ -17,7 +17,7 @@ bool Foxling::UnaryRewriter::shouldEmitResult(const UnaryOperator *op) const {
 }
 
 void Foxling::UnaryRewriter::run(const MatchFinder::MatchResult &Result) {
-    if (const UnaryOperator *op = Result.Nodes.getNodeAs<UnaryOperator>("op")) {
+    if (const UnaryOperator *op = Result.Nodes.getNodeAs<UnaryOperator>(BindKey)) {
         // only ++ and -- operators allowed
         if (op->getOpcode() != UO_PreInc &&
             op->getOpcode() != UO_PreDec &&

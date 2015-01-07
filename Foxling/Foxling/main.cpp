@@ -32,40 +32,68 @@ static Foxling::Rewriter rewriter;
 
 namespace Foxling {
 
+    class PrefixDeclRewriter : public MatchFinder::MatchCallback {
+    public:
+        PrefixDeclRewriter(SourceRewriter &r, std::string prefix, std::string key)
+        : Rewrite(r), Prefix(prefix), BindKey(key) {}
+
+        void run(const MatchFinder::MatchResult &Result) {
+            if (const Decl *decl = Result.Nodes.getNodeAs<Decl>(BindKey)) {
+                if (decl->getSourceRange().isValid()) {
+                    Rewrite.InsertText(decl->getLocStart(), Prefix);
+                }
+            }
+        }
+    private:
+        SourceRewriter &Rewrite;
+        std::string Prefix;
+        std::string BindKey;
+    };
+
     /// "Main" entrypoint for all refactoring operations
     /// All the rewriters are wired together here.
-    class ASTConsumer : public ASTConsumer {
+    class FoxlingASTConsumer : public ASTConsumer {
     public:
-        ASTConsumer(Rewriter &r) : Rewrite(r) {}
+        FoxlingASTConsumer(Rewriter &r) : Rewrite(r) {}
 
         void HandleTranslationUnit(ASTContext &Context);
     private:
         Rewriter &Rewrite;
     };
 
-    void ASTConsumer::HandleTranslationUnit(ASTContext &Context) {
+    void FoxlingASTConsumer::HandleTranslationUnit(ASTContext &Context) {
         MatchFinder Finder;
 
         std::string injectCode = "fthread_yield();";
+        std::string bindKey = "element";
 
         SourceRewriter SourceRewrite(Rewrite);
 
         // Note about rewriters listed here:
-        //   Completely replacing the original AST text will most likely
-        //   cause corruption of the source for the final output since the
-        //   SourceRewriter can not correctly keep track of changes.
+        //   Completely replacing the original AST text for a node will most
+        //   likely cause corruption of the final source output since the
+        //   SourceRewriter can not correctly keep track of changes if an entire
+        //   AST node is removed.
 
-        CompoundStmtRewriter RewriteCompoundStmt(SourceRewrite, injectCode);
-        Finder.addMatcher(compoundStmt().bind("stmts"), &RewriteCompoundStmt);
+        CompoundStmtRewriter RewriteCompoundStmt(SourceRewrite, injectCode, bindKey);
+        Finder.addMatcher(compoundStmt().bind(bindKey), &RewriteCompoundStmt);
 
-        ObjCMessageRewriter RewriteObjCMessage(SourceRewrite, injectCode);
-        Finder.addMatcher(objCMessageExpr().bind("msgExpr"), &RewriteObjCMessage);
+        // not as nice as prefixing one protocol definition, but this ensures
+        // we don't add a new line
+//        PrefixDeclRewriter PrefixDecl(SourceRewrite, "void fthread_yield(void); ", bindKey);
+//        Finder.addMatcher(functionDecl().bind(bindKey), &PrefixDecl);
+//        Finder.addMatcher(recordDecl().bind(bindKey), &PrefixDecl);
+//        Finder.addMatcher(objCImplDecl().bind(bindKey), &PrefixDecl);
+//        Finder.addMatcher(objCCategoryImplDecl().bind(bindKey), &PrefixDecl);
 
-        ObjCPropertyRewriter RewriteObjCProperty(SourceRewrite, injectCode);
-        Finder.addMatcher(objCPropertyRefExpr().bind("expr"), &RewriteObjCProperty);
+        ObjCMessageRewriter RewriteObjCMessage(SourceRewrite, injectCode, bindKey);
+        Finder.addMatcher(objCMessageExpr().bind(bindKey), &RewriteObjCMessage);
 
-        UnaryRewriter RewriteUnary(SourceRewrite, injectCode, Context);
-        Finder.addMatcher(unaryOperator().bind("op"), &RewriteUnary);
+        ObjCPropertyRewriter RewriteObjCProperty(SourceRewrite, injectCode, bindKey);
+        Finder.addMatcher(objCPropertyRefExpr().bind(bindKey), &RewriteObjCProperty);
+
+        UnaryRewriter RewriteUnary(SourceRewrite, Context, injectCode, bindKey);
+        Finder.addMatcher(unaryOperator().bind(bindKey), &RewriteUnary);
 
         Finder.matchAST(Context);
 
@@ -78,7 +106,7 @@ namespace Foxling {
         virtual std::unique_ptr<ASTConsumer> CreateASTConsumer(CompilerInstance &CI,
                                                                StringRef InFile) {
             rewriter.setSourceMgr(CI.getSourceManager(), CI.getLangOpts());
-            return std::unique_ptr<ASTConsumer>(new ASTConsumer(rewriter));
+            return std::unique_ptr<FoxlingASTConsumer>(new FoxlingASTConsumer(rewriter));
         }
     };
     
@@ -87,7 +115,7 @@ namespace Foxling {
 int main(int argc, const char * argv[]) {
     CommonOptionsParser op(argc, argv, llvm::cl::GeneralCategory, NULL);
     ClangTool Tool(op.getCompilations(), op.getSourcePathList());
-    
+
     int result = Tool.run(newFrontendActionFactory<Foxling::FrontendAction>().get());
     if (result) {
         return result;
