@@ -6,3 +6,6 @@ DerivedData/
 Pods
 .ropeproject
 docs/build
+Foxling/LLVM/llvm
+Foxling/LLVM/llvm_build
+Foxling/LLVM/llvm_output

@@ -29,6 +29,31 @@ import sys
 import os
 from distutils.util import strtobool
 from subprocess import Popen, PIPE
+from argparse import ArgumentParser
+
+parser = ArgumentParser(description='Wrapping compiler interface to Foxling and Clang')
+parser.add_argument('--foxling-compiler-print-source',
+                    dest='DEBUG',
+                    action='store_true',
+                    default=False)
+parser.add_argument('--foxling-compiler-clang',
+                    dest='CLANG_EXEC',
+                    action='store',
+                    default='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang')
+parser.add_argument('--foxling-compiler-cpp',
+                    dest='IS_CPP',
+                    action='store_true',
+                    default=False)
+
+foxling_args, args = parser.parse_known_args(sys.argv)
+
+for arg in args:
+    if '-stdlib' in arg and 'c++' in arg:
+        foxling_args.IS_CPP = True
+
+if foxling_args.IS_CPP:
+    foxling_args.CLANG_EXEC += '++'
+
 
 # Environment variable indication if we should restore the source file
 # to its original source after we preprocess it and compile it.
@@ -36,8 +61,8 @@ from subprocess import Popen, PIPE
 # WARNING: Setting this to false will permanently change the original file.
 #          But can be useful for debugging generated source.
 CLEANUP = strtobool(os.environ.get('FOXLING_CLEANUP', 'true').lower())
-DEBUG = True# strtobool(os.environ.get('FOXLING_DEBUG', 'true').lower())
-CLANG_EXEC = os.environ.get('FOXLING_CLANG', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++')
+DEBUG = foxling_args.DEBUG
+CLANG_EXEC = foxling_args.CLANG_EXEC
 
 # File extensions that generally indicates a source file
 COMPILE_EXTS = [
@@ -95,9 +120,9 @@ def preprocess_and_compile(source_file, clang_args):
                        + CLANG + clang_args)
 
         if DEBUG:
-            print '====== Preprocessed Source ======'
-            print out
-            print '========= End of Source ========='
+            print >>sys.stderr, '====== Preprocessed Source ======'
+            print >>sys.stderr, out
+            print >>sys.stderr, '========= End of Source ========='
 
         with open(source_file, 'w') as handle:
             handle.write(out)
@@ -107,8 +132,7 @@ def preprocess_and_compile(source_file, clang_args):
             with open(source_file, 'w') as handle:
                 handle.write(original_contents)
 
-
-args = sys.argv[1:]
+args = args[1:] # remove progname
 compiling_file = find_file_being_compiled(args)
 
 if compiling_file:

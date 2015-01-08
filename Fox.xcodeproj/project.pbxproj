@@ -2017,7 +2017,7 @@
 					"$(inherited)",
 					"FOXSPECS_INSTRUMENTED=1",
 				);
-				GCC_VERSION = com.xenonium.compilers.llvm.clang.nightly;
+				GCC_VERSION = net.jeffhui.foxling.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -2047,7 +2047,7 @@
 					"_XOPEN_SOURCE=1",
 					"FOXSPECS_INSTRUMENTED=1",
 				);
-				GCC_VERSION = com.xenonium.compilers.llvm.clang.nightly;
+				GCC_VERSION = net.jeffhui.foxling.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
