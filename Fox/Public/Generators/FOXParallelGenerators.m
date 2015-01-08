@@ -8,36 +8,47 @@
 #import "FOXDictionary.h"
 #import "FOXPrettyArray.h"
 #import "FOXThread.h"
+#import "FOXStateMachineGenerator.h"
+#import "FOXArrayGenerators.h"
+#import "FOXBlock.h"
+#import "FOXMath.h"
 
 
-@interface FOXBlock : NSObject
-@property (nonatomic) dispatch_group_t group;
-@property (atomic, copy) id(^block)();
-@property (atomic) id result;
-@end
+FOX_EXPORT id<FOXGenerator> FOXParallelCommands(id<FOXStateMachine> stateMachine) {
+    id<FOXGenerator> prefixGen = FOXCommands(stateMachine);
+    return FOXBind(prefixGen, ^id<FOXGenerator>(NSArray *prefixCommands) {
+        // "Private" parameters for parallel test generation.
+        //
+        // WARNING: these parameters tweak the problem space of linearizability
+        //          checking which is NP-Complete (roughly O(N!) where N=total
+        //          number of commands). Also, Fox's currently checker is
+        //          the most naive solver - brute-force.
+        //
+        //          These variables are not exposed as tweakable parameters
+        //          for those reasons.
+        //
+        //          Current worse case: (2*3)! = 720 possible linearizations.
+        //          So each failing parallel test will spawn 720 more
+        //          serialized tests to run. Remember that every shrink attempt
+        //          counts as a failing test too.
+        NSNumber *minCommandsPerThread = @1;
+        NSNumber *maxCommandsPerThread = @2;
+        const NSUInteger minNumOfThreads = 2;
+        const NSUInteger maxNumOfThreads = 3;
 
-@implementation FOXBlock
-
-- (instancetype)initWithGroup:(dispatch_group_t)group block:(id(^)())block
-{
-    self = [super init];
-    if (self) {
-        self.group = group;
-        self.block = block;
-    }
-    return self;
+        id prefixState = [stateMachine modelStateFromCommandSequence:prefixCommands];
+        id<FOXGenerator> process = [[FOXStateMachineGenerator alloc] initWithStateMachine:stateMachine
+                                                                        initialModelState:prefixState
+                                                                                  minSize:minCommandsPerThread
+                                                                                  maxSize:maxCommandsPerThread];
+        id<FOXGenerator> processesGenerator = FOXArrayOfSizeRange(process, minNumOfThreads, maxNumOfThreads);
+        return FOXBind(processesGenerator, ^id<FOXGenerator>(NSArray *processCommands) {
+            FOXDictionary *dictionary = [FOXDictionary dictionaryWithDictionary:@{@"command prefix": prefixCommands,
+                                                                                  @"processes": processCommands}];
+            return FOXReturn(dictionary);
+        });
+    });
 }
-
-- (void)run
-{
-    @autoreleasepool {
-        fthread_yield();
-        self.result = self.block();
-        dispatch_group_leave(self.group);
-    }
-}
-
-@end
 
 FOX_EXPORT id<FOXGenerator> FOXExecuteParallelCommands(id<FOXStateMachine> stateMachine, id (^subjectFactory)(void)) {
     return FOXBind(FOXSeed(), ^id<FOXGenerator>(id<FOXRandom> prng) {
@@ -71,20 +82,54 @@ FOX_EXPORT id<FOXGenerator> FOXExecuteParallelCommands(id<FOXStateMachine> state
                     numThreads++;
                 }
                 [threads makeObjectsPerformSelector:@selector(start)];
-                fthread_run_and_wait();
+                fthread_run_and_wait(fthread_random, (__bridge void *)(prng));
                 fthread_override(false);
 
                 [threads makeObjectsPerformSelector:@selector(cancel)];
                 threads = nil;
 
                 NSMutableArray *results = [blocks valueForKey:NSStringFromSelector(@selector(result))];
-                for (id obj in results) {
-                    NSCAssert(![obj isKindOfClass:[NSNull class]], @"Bad NULL");
-                }
                 NSArray *executedCommands = [FOXPrettyArray arrayWithArray:results];
                 return [FOXDictionary dictionaryWithDictionary:@{@"command prefix": executedPrefix,
                                                                  @"processes": executedCommands}];
             }
         });
     });
+}
+
+// AKA - the linearizability checker
+FOX_EXPORT BOOL FOXExecutedSuccessfullyInParallel(NSDictionary *parallelCommands, id<FOXStateMachine> stateMachine, id(^subjectFactory)()) {
+    NSArray *executedPrefix = parallelCommands[@"command prefix"];
+    if (!FOXExecutedSuccessfully(executedPrefix)) {
+        return NO;
+    }
+    NSArray *executedProcesses = parallelCommands[@"processes"];
+    NSMutableArray *commands = [NSMutableArray array];
+    for (NSArray *clientCmds in executedProcesses) {
+        [commands addObjectsFromArray:clientCmds];
+    }
+    if ([commands count] == 0) {
+        return YES;
+    }
+
+    NSArray *prefix = [executedPrefix valueForKey:@"command"];
+
+    // There can be lots of permutations which can aggressively expand
+    // our memory heap. Keeping memory allocations can quickly become
+    // the bottleneck.
+    __block BOOL executedSuccessfully = NO;
+    eachPermutation(commands, ^BOOL(NSArray *permutation) {
+        @autoreleasepool {
+            if (executedSuccessfully) {
+                return NO;
+            }
+            NSArray *cmds = [permutation valueForKey:@"command"];
+            id subject = subjectFactory();
+            [stateMachine executeCommandSequence:prefix subject:subject];
+            NSArray *ecmds = [stateMachine executeCommandSequence:cmds subject:subject];
+            executedSuccessfully = [ecmds isEqual:permutation];
+            return !executedSuccessfully;
+        }
+    });
+    return executedSuccessfully;
 }

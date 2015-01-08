@@ -17,6 +17,8 @@ namespace Foxling {
     const internal::VariadicDynCastAllOfMatcher<Stmt, ObjCAutoreleasePoolStmt> objCAutoreleasePoolStmt;
     const internal::VariadicDynCastAllOfMatcher<Decl, ObjCImplDecl> objCImplDecl;
     const internal::VariadicDynCastAllOfMatcher<Decl, ObjCCategoryImplDecl> objCCategoryImplDecl;
+    const internal::VariadicDynCastAllOfMatcher<Decl, ObjCInterfaceDecl> objCInterfaceDecl;
+    const internal::VariadicDynCastAllOfMatcher<Decl, ObjCCategoryDecl> objCCategoryDecl;
 }
 
 #endif /* defined(__Foxling__objc_matchers__) */

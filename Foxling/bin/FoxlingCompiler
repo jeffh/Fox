@@ -2,45 +2,118 @@
 
 # Wrapper to the Foxling executable to make it a clang-compatible compiler.
 # This script assumes it is in the same directory as the Foxling executable.
+#
+# Since this is argument-compatible to clang. Arguments specific to the
+# FoxlingCompiler are given via environment variable.
+#
+# - FOXLING_CLEANUP: Whether or not the FoxlingCompiler should restore
+#                    The compiled source file to its original contents After
+#                    preprocessing has been done. Defaults to true.
+#
+#                    WARNING: Setting this to false will permanently change the
+#                    original file. But this can be useful for debugging the
+#                    generated source.
+# - FOXLING_CLANG: The path of the underlying clang compiler to use. Defaults
+#                  to the clang compiler inside /Applications/Xcode.app's in
+#                  XcodeDefault.xctoolchain.
+#
+# Internals:
+#   The goal roughly this pseudo-bash code:
+#
+#     #!/bin/bash
+#     ./Foxling $source_file -- $@ > $source_file
+#     clang $@
+#     restore_contents $source_file
 
 import sys
 import os
+from distutils.util import strtobool
+from subprocess import Popen, PIPE
 
+# Environment variable indication if we should restore the source file
+# to its original source after we preprocess it and compile it.
+#
+# WARNING: Setting this to false will permanently change the original file.
+#          But can be useful for debugging generated source.
+CLEANUP = strtobool(os.environ.get('FOXLING_CLEANUP', 'true').lower())
+DEBUG = True# strtobool(os.environ.get('FOXLING_DEBUG', 'true').lower())
+CLANG_EXEC = os.environ.get('FOXLING_CLANG', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++')
+
+# File extensions that generally indicates a source file
 COMPILE_EXTS = [
-    'c', 'cc',
-    'cpp', 'cp',
-    'cx', 'cxx',
-    'c++', 'hpp'
-    'm',
-    'mm',
+    'c', 'cc', 'cpp', 'cp', 'cx', 'cxx', 'c++', 'hpp', 'm', 'mm',
 ]
-CLANG = ['/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++']
+# Path to clang executable
+CLANG = [CLANG_EXEC]
+
 
 def run(cmd):
-    assert os.system(' '.join(cmd)) == 0, 'Failed to run "' + ' '.join(cmd) + '"'
+    """Runs a given command. Fails immediately if it returns a non-zero exit
+    code.
+
+    Returns a tuple of standard (out, err) of the command executed.
+    """
+    proc = Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=PIPE)
+    out, err = proc.communicate()
+    if proc.returncode == 0:
+        return out, err
+    assert False, ('Failed to run "' + ' '.join(cmd) + '"\n\n Output:\n' +
+                   out + '\n\n Error:\n' + err)
+
+
+def find_file_being_compiled(args):
+    """Returns the file being compiled from the argument list for clang.
+    """
+    for i, arg in enumerate(args):
+        if os.path.isfile(arg) and arg.split('.')[-1].lower() in COMPILE_EXTS:
+            return arg
+    return None
+
+
+def compile(clang_args):
+    """Runs clang compiler with the given arguments.
+    """
+    run(CLANG + clang_args)
+
+
+def preprocess_and_compile(source_file, clang_args):
+    """Uses Foxling to preprocess the source before compiling the given file
+    with clang.
+
+    Properly restores the preprocessed file after compilation completes - even
+    if it fails.
+    """
+    assert source_file
+    try:
+        with open(source_file, 'r') as handle:
+            original_contents = handle.read()
+
+        foxling_compiler_dir = os.path.dirname(__file__)
+        foxling_executable = os.path.abspath(os.path.join(foxling_compiler_dir,
+                                                          './Foxling'))
+        out, err = run([foxling_executable, source_file, '--']
+                       + CLANG + clang_args)
+
+        if DEBUG:
+            print '====== Preprocessed Source ======'
+            print out
+            print '========= End of Source ========='
+
+        with open(source_file, 'w') as handle:
+            handle.write(out)
+        compile(clang_args)
+    finally:
+        if CLEANUP:
+            with open(source_file, 'w') as handle:
+                handle.write(original_contents)
+
 
 args = sys.argv[1:]
-
-compiling_file = None
-intermediate_file = None
-index = -1
-
-for i, arg in enumerate(args):
-    if os.path.isfile(arg) and arg.split('.')[-1].lower() in COMPILE_EXTS:
-        compiling_file = arg
-        index = i
-        break
+compiling_file = find_file_being_compiled(args)
 
 if compiling_file:
-    dirname, filename = os.path.split(compiling_file)
-    intermediate_file = os.path.join(dirname, 'foxling_', filename)
-    run([os.path.abspath(os.path.join(os.path.dirname(__file__), './Foxling'))] + [compiling_file] + ['--'] + CLANG + args + ['>', intermediate_file])
-    args[index] = intermediate_file
+    preprocess_and_compile(compiling_file, args)
 else:
-    print "FoxlingCompiler cannot preprocess: ", compiling_file
-    print "Skipping for direct clang processing."
+    print "Not preprocessing"
+    compile(args)
 
-try:
-    run(CLANG + args)
-finally:
-    os.unlink(intermediate_file)

@@ -34,18 +34,25 @@ namespace Foxling {
 
     class PrefixDeclRewriter : public MatchFinder::MatchCallback {
     public:
-        PrefixDeclRewriter(SourceRewriter &r, std::string prefix, std::string key)
-        : Rewrite(r), Prefix(prefix), BindKey(key) {}
+        PrefixDeclRewriter(SourceRewriter &r, FileID fileID, int times, std::string prefix, std::string key)
+        : Rewrite(r), RestrictToFileID(fileID), MaxTimes(times), Count(0), Prefix(prefix), BindKey(key) {}
 
         void run(const MatchFinder::MatchResult &Result) {
             if (const Decl *decl = Result.Nodes.getNodeAs<Decl>(BindKey)) {
-                if (decl->getSourceRange().isValid()) {
-                    Rewrite.InsertText(decl->getLocStart(), Prefix);
+                FileID declFileID = Rewrite.getSourceMgr().getFileID(decl->getLocation());
+                if (decl->getSourceRange().isValid() && declFileID == RestrictToFileID) {
+                    if (Count < MaxTimes) {
+                        Rewrite.InsertText(decl->getLocStart(), Prefix);
+                        ++Count;
+                    }
                 }
             }
         }
     private:
         SourceRewriter &Rewrite;
+        FileID RestrictToFileID;
+        int MaxTimes;
+        int Count;
         std::string Prefix;
         std::string BindKey;
     };
@@ -74,17 +81,38 @@ namespace Foxling {
         //   likely cause corruption of the final source output since the
         //   SourceRewriter can not correctly keep track of changes if an entire
         //   AST node is removed.
+        //
+        //   Rewriters should avoid adding new lines whenever possible,
+        //   because it risks confusing users since breakpoints and stacktraces
+        //   will not match the given line.
 
         CompoundStmtRewriter RewriteCompoundStmt(SourceRewrite, injectCode, bindKey);
         Finder.addMatcher(compoundStmt().bind(bindKey), &RewriteCompoundStmt);
 
-        // not as nice as prefixing one protocol definition, but this ensures
-        // we don't add a new line
-//        PrefixDeclRewriter PrefixDecl(SourceRewrite, "void fthread_yield(void); ", bindKey);
-//        Finder.addMatcher(functionDecl().bind(bindKey), &PrefixDecl);
-//        Finder.addMatcher(recordDecl().bind(bindKey), &PrefixDecl);
-//        Finder.addMatcher(objCImplDecl().bind(bindKey), &PrefixDecl);
-//        Finder.addMatcher(objCCategoryImplDecl().bind(bindKey), &PrefixDecl);
+        // not as nice as prefixing one protocol definition at the top of the
+        // file, but this ensures we don't add a new line.
+        //
+        // Compiler directives (eg - #import, #include) must start on a line.
+        std::string functionPrototype = "void fthread_yield(void); ";
+        if (Context.getLangOpts().CPlusPlus) {
+            functionPrototype = "extern \"C\" void fthread_yield(void); ";
+        }
+        FileID fileID = Rewrite.getSourceMgr().getMainFileID();
+        PrefixDeclRewriter PrefixDecl(SourceRewrite,
+                                      fileID,
+                                      /*times=*/1,
+                                      functionPrototype,
+                                      bindKey);
+        Finder.addMatcher(linkageSpecDecl().bind(bindKey), &PrefixDecl);
+        Finder.addMatcher(classTemplateSpecializationDecl().bind(bindKey), &PrefixDecl);
+        Finder.addMatcher(namespaceDecl().bind(bindKey), &PrefixDecl);
+        Finder.addMatcher(usingDirectiveDecl().bind(bindKey), &PrefixDecl);
+        Finder.addMatcher(functionDecl().bind(bindKey), &PrefixDecl);
+        Finder.addMatcher(recordDecl().bind(bindKey), &PrefixDecl);
+        Finder.addMatcher(objCInterfaceDecl().bind(bindKey), &PrefixDecl);
+        Finder.addMatcher(objCImplDecl().bind(bindKey), &PrefixDecl);
+        Finder.addMatcher(objCCategoryImplDecl().bind(bindKey), &PrefixDecl);
+        Finder.addMatcher(objCCategoryDecl().bind(bindKey), &PrefixDecl);
 
         ObjCMessageRewriter RewriteObjCMessage(SourceRewrite, injectCode, bindKey);
         Finder.addMatcher(objCMessageExpr().bind(bindKey), &RewriteObjCMessage);
@@ -96,9 +124,6 @@ namespace Foxling {
         Finder.addMatcher(unaryOperator().bind(bindKey), &RewriteUnary);
 
         Finder.matchAST(Context);
-
-        // we need a newline here because compiler directives must be on new lines.
-        prefixTranslationUnit(Context, Rewrite, "void fthread_yield(void);\n");
     }
 
     class FrontendAction : public ASTFrontendAction {

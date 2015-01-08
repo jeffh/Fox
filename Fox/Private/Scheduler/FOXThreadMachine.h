@@ -3,7 +3,7 @@
 #import <mach/mach.h>
 #import <libkern/OSAtomic.h>
 
-// code style: Matching POSIX style that what's it replaces
+// code style: snake case for this file to be more POSIX-styled
 
 // maintainers: Don't forget to update get_machine() implementation too.
 typedef volatile struct {
@@ -21,6 +21,7 @@ typedef volatile struct {
     int (*thread_equal)(pthread_t, pthread_t);
     int (*thread_key_create)(pthread_key_t *key, void (*destructor)(void *));
     int (*thread_key_delete)(pthread_key_t key);
+    int (*thread_once)(pthread_once_t *once, void (*fnptr)(void));
 
     int (*mutex_init)(pthread_mutex_t *mutex, const pthread_mutexattr_t *attrs);
     int (*mutex_trylock)(pthread_mutex_t *mutex);

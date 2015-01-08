@@ -4,6 +4,18 @@
 #import "mach_override.h"
 #import "FOXMemory.h"
 #import "FOXThreadMachine.h"
+#import "FOXRandom.h"
+
+// Implementation Note:
+// At the time of writing of this note, low-level implementations are as
+// follows:
+//
+//  - libdispatch uses either mach features and/or pthread features
+//  - pthreads uses mach features
+//
+// This makes libdispatch unsafe to use in this library. pthread APIs can be
+// used if they are not being overridden, but they should all be abstracted to
+// the fthread_machine interface
 
 // When defined, this macro will enable debug logging of the scheduler.
 // Note: Enabling this will DISABLE fox's hook into pthread mutex locks.
@@ -46,7 +58,7 @@ typedef struct __fthread {
 /// Represents the scheduler's data for managing thread execution
 /// The actual thread scheduling is done on the worker_thread for ease of
 /// implementation.
-typedef struct {
+typedef struct _fthread_scheduler_t {
     // rw-lock fields
     OSSpinLock lock;
     fthread_internal_t worker_thread;
@@ -54,6 +66,8 @@ typedef struct {
     unsigned int num_threads;
     unsigned int capacity;
     unsigned int next_thread_number;
+    void (*algorithm)(struct _fthread_scheduler_t *);
+    void *algorithm_data;
 } fthread_scheduler_t;
 
 // A boolean to indicate if we have mach_overridden lib functions
@@ -65,6 +79,7 @@ static volatile bool __use_fox_implementation;
 
 // pthread key to indicate the current fthread_internal_t
 pthread_key_t current_fthread_key;
+pthread_once_t current_fthread_once;
 
 // global scheduler. This is global to easily allow threads to yield control
 // and derive their names from the scheduler's known thread count.
@@ -88,7 +103,7 @@ static void fthread_free(fthread_internal_t fthread);
 
 #pragma mark - Helper Functions
 
-FOX_INLINE void must(int result, char *error_msg) {
+static void must(int result, char *error_msg) {
     if (result) {
         fprintf(stderr, "%s\n", error_msg);
         exit(2);
@@ -121,6 +136,10 @@ static void _semaphore_create(semaphore_t *s) {
 
 #pragma mark - Global State Management
 
+static void create_fthread_key(void) {
+    get_machine()->thread_key_create(&current_fthread_key, NULL);
+}
+
 /*! Returns the current fthread_internal_t for the given thread. Can be
  *  NULL if fox is not currently tracking the given thread.
  *
@@ -128,6 +147,9 @@ static void _semaphore_create(semaphore_t *s) {
  *        only its name field is valid.
  */
 static fthread_internal_t get_current_thread(void) {
+    if (current_fthread_key == 0) {
+        return NULL;
+    }
     return pthread_getspecific(current_fthread_key);
 }
 
@@ -161,9 +183,7 @@ void fthread_init(void) {
     __scheduler.num_threads        = 0;
     __scheduler.capacity           = 0;
     MUTEX_UNLOCK(&__scheduler.lock);
-    fox_machine_t *machine = get_machine();
-    machine->thread_key_delete(current_fthread_key);
-    machine->thread_key_create(&current_fthread_key, NULL);
+    get_machine()->thread_once(&current_fthread_once, create_fthread_key);
 }
 
 void fthread_override(bool replace) {
@@ -196,13 +216,9 @@ void fthread_override(bool replace) {
     }
 }
 
-#pragma mark - Scheduler
+#pragma mark - Scheduling Algorithms
 
-/*! Main function for the scheduler's worker thread.
- */
-static void *fthread_scheduler_main(fthread_scheduler_t *scheduler) {
-    fthread_yield_thread(scheduler->worker_thread);
-    // run until there is nothing left to run
+static void fthread_schedule_round_robin(fthread_scheduler_t *scheduler) {
     bool has_runnable_threads = true;
     while (has_runnable_threads) {
         has_runnable_threads = false;
@@ -223,26 +239,77 @@ static void *fthread_scheduler_main(fthread_scheduler_t *scheduler) {
             }
         }
     }
+}
+fthread_schedule_algorithm_t fthread_round_robin = fthread_schedule_round_robin;
+
+static void fthread_schedule_random(fthread_scheduler_t *scheduler) {
+    MUTEX_LOCK(&scheduler->lock);
+    id<FOXRandom> random = (__bridge id<FOXRandom>)(scheduler->algorithm_data);
+    if (!random) {
+        fprintf(stderr, "No FOXRandom instance in algorithm data\n");
+        abort();
+    }
+    size_t num_threads = scheduler->num_threads;
+    FTHREAD_DEBUG("Scheduler: %lu thread(s)\n", num_threads);
+    size_t mem_size = sizeof(fthread_internal_t) * num_threads;
+    fthread_internal_t *incomplete_threads = FOXCalloc(mem_size, 1);
+    memcpy(incomplete_threads, scheduler->threads, mem_size);
+    MUTEX_UNLOCK(&scheduler->lock);
+
+    size_t last_element = num_threads - 1;
+    while (num_threads > 0) {
+        size_t i = [random randomIntegerWithinMinimum:0
+                                           andMaximum:last_element];
+        fthread_internal_t fthread = incomplete_threads[i];
+        set_current_thread(fthread);
+        fthread_unyield(fthread);
+        fthread_waitfor(fthread);
+
+        if (fthread_is_complete(fthread)) {
+            if (last_element != i) {
+                memmove(incomplete_threads + i,
+                        incomplete_threads + i + 1,
+                        (num_threads - i - 1) * sizeof(fthread_internal_t));
+            }
+            --num_threads;
+            --last_element;
+        }
+    }
+
+    free(incomplete_threads);
+}
+fthread_schedule_algorithm_t fthread_random = fthread_schedule_random;
+
+#pragma mark - Scheduler
+
+/*! Main function for the scheduler's worker thread.
+ */
+static void *fthread_scheduler_main(fthread_scheduler_t *scheduler) {
+    fthread_yield_thread(scheduler->worker_thread);
+    scheduler->algorithm(scheduler);
+
     FTHREAD_DEBUG("Scheduler finished\n");
     semaphore_signal_without_aborting(scheduler->worker_thread->signal_to_yield);
     get_machine()->thread_exit(NULL);
     return NULL;
 }
 
-void fthread_run_and_wait(void) {
+void fthread_run_and_wait(fthread_schedule_algorithm_t algo, void *algo_data) {
     FTHREAD_DEBUG("Main Start\n");
 
-    fthread_scheduler_t *list = &__scheduler;
-    MUTEX_LOCK(&list->lock);
-    assert(list->worker_thread == NULL);
-    if (list->worker_thread == NULL) {
-        must(fthread_scheduler_create(&list->worker_thread,
+    fthread_scheduler_t *scheduler = &__scheduler;
+    MUTEX_LOCK(&scheduler->lock);
+    assert(scheduler->worker_thread == NULL);
+    if (scheduler->worker_thread == NULL) {
+        must(fthread_scheduler_create(&scheduler->worker_thread,
                                       THREAD_FN(&fthread_scheduler_main),
-                                      list),
+                                      scheduler),
              "Failed to create scheduler thread.");
     }
-    fthread_internal_t scheduler_thread = list->worker_thread;
-    MUTEX_UNLOCK(&list->lock);
+    scheduler->algorithm = algo;
+    scheduler->algorithm_data = algo_data;
+    fthread_internal_t scheduler_thread = scheduler->worker_thread;
+    MUTEX_UNLOCK(&scheduler->lock);
     // "fake" fthread for debugging purposes (to see which threads is yields)
     struct __fthread t = (struct __fthread){
         .name = "Main",
@@ -258,16 +325,16 @@ void fthread_run_and_wait(void) {
 /*! Adds a given fthread to the scheduler's internal list of threads.
  *  Threadsafe.
  */
-static void fthread_list_add(fthread_scheduler_t *list, fthread_internal_t thread) {
+static void fthread_list_add(fthread_scheduler_t *scheduler, fthread_internal_t thread) {
     FTHREAD_DEBUG("Adding thread %s\n", thread->name);
-    MUTEX_LOCK(&list->lock);
-    if (list->capacity == list->num_threads) {
-        unsigned int new_cap = MAX(list->capacity * 2, 10);
-        list->threads = FOXRealloc(list->threads, sizeof(fthread_internal_t *) * new_cap);
-        list->capacity = new_cap;
+    MUTEX_LOCK(&scheduler->lock);
+    if (scheduler->capacity == scheduler->num_threads) {
+        unsigned int new_cap = MAX(scheduler->capacity * 2, 10);
+        scheduler->threads = FOXRealloc(scheduler->threads, sizeof(fthread_internal_t *) * new_cap);
+        scheduler->capacity = new_cap;
     }
-    list->threads[list->num_threads++] = thread;
-    MUTEX_UNLOCK(&list->lock);
+    scheduler->threads[scheduler->num_threads++] = thread;
+    MUTEX_UNLOCK(&scheduler->lock);
 }
 
 /*! Gets the fthread for the given pthread_t type from the scheduler.
@@ -276,17 +343,17 @@ static void fthread_list_add(fthread_scheduler_t *list, fthread_internal_t threa
  *  Inefficient, but there usually isn't too many threads to keep track of, so
  *  it is OK.
  */
-static fthread_internal_t fthread_list_get(fthread_scheduler_t *list, pthread_t pthread) {
+static fthread_internal_t fthread_list_get(fthread_scheduler_t *scheduler, pthread_t pthread) {
     fox_machine_t *machine = get_machine();
     fthread_internal_t fthread = NULL;
-    MUTEX_LOCK(&list->lock);
-    for (unsigned int i = 0; i < list->num_threads; i++) {
-        if (machine->thread_equal(pthread, list->threads[i]->pthread)) {
-            fthread = list->threads[i];
+    MUTEX_LOCK(&scheduler->lock);
+    for (unsigned int i = 0; i < scheduler->num_threads; i++) {
+        if (machine->thread_equal(pthread, scheduler->threads[i]->pthread)) {
+            fthread = scheduler->threads[i];
             break;
         }
     }
-    MUTEX_UNLOCK(&list->lock);
+    MUTEX_UNLOCK(&scheduler->lock);
     return fthread;
 }
 

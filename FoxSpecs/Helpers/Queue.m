@@ -4,7 +4,6 @@
 @property (nonatomic) NSMutableArray *items;
 @end
 
-
 @implementation Queue
 
 - (instancetype)init

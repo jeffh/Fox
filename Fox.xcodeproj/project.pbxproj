@@ -383,6 +383,10 @@
 		1FF4AA721A3F97650000E69E /* FOXAlwaysSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4AA711A3F97650000E69E /* FOXAlwaysSpec.mm */; };
 		1FF4AA731A3F97650000E69E /* FOXAlwaysSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4AA711A3F97650000E69E /* FOXAlwaysSpec.mm */; };
 		1FF4AAB31A3FD7C10000E69E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4AAB21A3FD7C10000E69E /* main.m */; };
+		1FF679281A5E8EC6004F54DA /* FOXBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF679261A5E8EC6004F54DA /* FOXBlock.h */; };
+		1FF679291A5E8EC6004F54DA /* FOXBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF679261A5E8EC6004F54DA /* FOXBlock.h */; };
+		1FF6792A1A5E8EC6004F54DA /* FOXBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF679271A5E8EC6004F54DA /* FOXBlock.m */; };
+		1FF6792B1A5E8EC6004F54DA /* FOXBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF679271A5E8EC6004F54DA /* FOXBlock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -577,6 +581,8 @@
 		1FFCE5661A80B90700A427AA /* FOXLimits.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXLimits.mm; path = Fox/Private/FOXLimits.mm; sourceTree = SOURCE_ROOT; };
 		1FFCE56B1A81DF8300A427AA /* FOXStrictPositiveIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXStrictPositiveIntegerSpec.mm; path = FoxSpecs/Public/Generators/FOXStrictPositiveIntegerSpec.mm; sourceTree = SOURCE_ROOT; };
 		1FFCE56E1A81E13400A427AA /* FOXStrictNegativeIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXStrictNegativeIntegerSpec.mm; path = FoxSpecs/Public/Generators/FOXStrictNegativeIntegerSpec.mm; sourceTree = SOURCE_ROOT; };
+		1FF679261A5E8EC6004F54DA /* FOXBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FOXBlock.h; path = Fox/Private/Data/FOXBlock.h; sourceTree = SOURCE_ROOT; };
+		1FF679271A5E8EC6004F54DA /* FOXBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FOXBlock.m; path = Fox/Private/Data/FOXBlock.m; sourceTree = SOURCE_ROOT; };
 		31B730183A626AD19A2B366E /* FOXSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXSequence.h; sourceTree = "<group>"; };
 		31B73029745CB5B325095CB3 /* QueueAddTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueAddTransition.m; sourceTree = "<group>"; };
 		31B7303EEEA0827C94541FB4 /* FOXStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXStateMachine.h; sourceTree = "<group>"; };
@@ -1001,6 +1007,8 @@
 				1F7CF6AB1A3FF146005C86A5 /* FOXDictionary.h */,
 				1F7CF6AC1A3FF146005C86A5 /* FOXDictionary.m */,
 				1F18C08F1A403836000C7EA6 /* FOXRoseTree+Protected.h */,
+				1FF679261A5E8EC6004F54DA /* FOXBlock.h */,
+				1FF679271A5E8EC6004F54DA /* FOXBlock.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1061,6 +1069,7 @@
 				1F38B64F1A2ACCAE0078FF90 /* FOXSequenceEnumerator.h in Headers */,
 				1F17D5471A3BF17D00E1BB60 /* FOXInstrumentation.h in Headers */,
 				1F38B6AC1A2ACCC00078FF90 /* FOXFiniteStateMachine.h in Headers */,
+				1FF679281A5E8EC6004F54DA /* FOXBlock.h in Headers */,
 				1F4A56A71A3B4CE9009E1637 /* FOXStateMachineGenerator.h in Headers */,
 				1F38B6B31A2ACCC00078FF90 /* FOXSetGenerators.h in Headers */,
 				1F38B64D1A2ACCAE0078FF90 /* FOXLazySequence.h in Headers */,
@@ -1136,6 +1145,7 @@
 				1F38B65B1A2ACCAE0078FF90 /* FOXSequenceEnumerator.h in Headers */,
 				1F17D5481A3BF17D00E1BB60 /* FOXInstrumentation.h in Headers */,
 				1F38B6771A2ACCC00078FF90 /* FOXFiniteStateMachine.h in Headers */,
+				1FF679291A5E8EC6004F54DA /* FOXBlock.h in Headers */,
 				1F4A56A81A3B4CE9009E1637 /* FOXStateMachineGenerator.h in Headers */,
 				1F38B67E1A2ACCC00078FF90 /* FOXSetGenerators.h in Headers */,
 				1F38B6591A2ACCAE0078FF90 /* FOXLazySequence.h in Headers */,
@@ -1433,6 +1443,7 @@
 				1F38B62A1A2ACCA80078FF90 /* FOXSequenceGenerator.m in Sources */,
 				1F38B6A71A2ACCC00078FF90 /* FOXArrayGenerators.m in Sources */,
 				1F6DE1841A4F66F900C93B28 /* syn-intel.c in Sources */,
+				1FF6792A1A5E8EC6004F54DA /* FOXBlock.m in Sources */,
 				1F38B64E1A2ACCAE0078FF90 /* FOXLazySequence.m in Sources */,
 				1F38B69B1A2ACCC00078FF90 /* FOXExecutedCommand.m in Sources */,
 				1F7CF6AF1A3FF146005C86A5 /* FOXDictionary.m in Sources */,
@@ -1545,6 +1556,7 @@
 				1F38B6421A2ACCA90078FF90 /* FOXSequenceGenerator.m in Sources */,
 				1F38B6721A2ACCC00078FF90 /* FOXArrayGenerators.m in Sources */,
 				1F6DE1851A4F66F900C93B28 /* syn-intel.c in Sources */,
+				1FF6792B1A5E8EC6004F54DA /* FOXBlock.m in Sources */,
 				1F38B65A1A2ACCAE0078FF90 /* FOXLazySequence.m in Sources */,
 				1F38B6661A2ACCC00078FF90 /* FOXExecutedCommand.m in Sources */,
 				1F7CF6B01A3FF146005C86A5 /* FOXDictionary.m in Sources */,
@@ -2003,6 +2015,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"FOXSPECS_INSTRUMENTED=1",
 				);
 				GCC_VERSION = com.xenonium.compilers.llvm.clang.nightly;
 				HEADER_SEARCH_PATHS = (
@@ -2029,6 +2042,10 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Fox-dmobuslqyltucubgnxyazjnfmyjr/Build/Products/Debug",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_XOPEN_SOURCE=1",
+					"FOXSPECS_INSTRUMENTED=1",
 				);
 				GCC_VERSION = com.xenonium.compilers.llvm.clang.nightly;
 				HEADER_SEARCH_PATHS = (

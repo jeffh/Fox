@@ -159,9 +159,10 @@ describe(@"FOXSequence", ^{
                 evaluated = NO;
                 remainingSequence = nice_fake_for(@protocol(FOXSequence));
 
+                __weak id<FOXSequence> weakRemainingSequence = remainingSequence;
                 subject = [FOXSequence lazySequenceFromBlock:^id<FOXSequence> {
                     evaluated = YES;
-                    return [FOXSequence sequenceWithObject:@1 remainingSequence:remainingSequence];
+                    return [FOXSequence sequenceWithObject:@1 remainingSequence:weakRemainingSequence];
                 }];
 
                 remainingSequence stub_method(@selector(count)).and_return((NSUInteger)1);

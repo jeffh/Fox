@@ -30,7 +30,7 @@ namespace Foxling {
     ///
     /// Note that it does not conform to traditional C89 specifications that
     /// requires local variables to be declared before any other statements.
-    /// (But C99 removes that limitation).
+    /// (C99 removes that limitation).
     ///
     ///
     class CompoundStmtRewriter : public MatchFinder::MatchCallback {

@@ -11,6 +11,7 @@ static fox_machine_t __machine = {
     .thread_equal      = &pthread_equal,
     .thread_key_create = &pthread_key_create,
     .thread_key_delete = &pthread_key_delete,
+    .thread_once       = &pthread_once,
     .mutex_init        = &pthread_mutex_init,
     .mutex_trylock     = &pthread_mutex_trylock,
     .mutex_lock        = &pthread_mutex_lock,

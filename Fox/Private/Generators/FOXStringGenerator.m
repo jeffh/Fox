@@ -1,5 +1,6 @@
 #import "FOXStringGenerator.h"
 #import "FOXCoreGenerators.h"
+#import "FOXMemory.h"
 
 
 @interface FOXStringGenerator ()
@@ -44,12 +45,12 @@
 {
     if (!_stringGenerator) {
         _stringGenerator = FOXMap(self.generator, ^id(NSArray *characters) {
-            unichar *buffer = alloca(sizeof(unichar) * characters.count);
+            unichar *buffer = FOXMalloc(sizeof(unichar) * characters.count);
             NSUInteger i = 0;
             for (NSNumber *character in characters) {
                 buffer[i++] = [character unsignedShortValue];
             }
-            return [NSString stringWithCharacters:buffer length:characters.count];
+            return [[NSString alloc] initWithCharactersNoCopy:buffer length:characters.count freeWhenDone:YES];
         });
     }
     return _stringGenerator;

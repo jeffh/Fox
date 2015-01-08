@@ -11,24 +11,15 @@ namespace Foxling {
     using namespace clang::ast_matchers;
 
     /// Rewrites literal objc property accesses to add a yield.
-    /// obj.p1 => {
-    ///   id __receiver = obj;
+    /// obj.p1 = foo => obj.p1 = {
+    ///   id __receiver = foo;
     ///   fthread_yield();
     ///   __receiver;
     /// }.p1
     ///
-    /// obj.p1.p2 => {
-    ///   __typeof(..) __receiver = {
-    ///      fthread_yield();
-    ///      obj;
-    ///   }.p1
-    ///   fthread_yield();
-    ///   __receiver;
-    /// }.p2
+    /// obj.p1 = 2 => obj.p1 = 2; (unchanged)
     ///
-    /// obj.p1 = 2 => fthread_yield(); obj.p1 = 2;
-    ///
-    /// Does not yield in self calls: eg - self.foo
+    /// Does not yield for getters. Message send does this.
 
     class ObjCPropertyRewriter : public MatchFinder::MatchCallback {
     public:

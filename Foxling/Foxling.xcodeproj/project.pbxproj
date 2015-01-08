@@ -205,6 +205,7 @@
 		1FF6791E1A5CC7B6004F54DA /* FlexLexer.h in Copy C++ Headers */ = {isa = PBXBuildFile; fileRef = 1FF6791C1A5CC788004F54DA /* FlexLexer.h */; };
 		1FF679211A5CC7EC004F54DA /* sanitizer in Copy Clang Header */ = {isa = PBXBuildFile; fileRef = 1FF679201A5CC7E6004F54DA /* sanitizer */; };
 		1FF679221A5CC7F3004F54DA /* c++ in Copy C++ Headers */ = {isa = PBXBuildFile; fileRef = 1FF6791F1A5CC7D4004F54DA /* c++ */; };
+		1FF679251A5D6280004F54DA /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FF679231A5D6280004F54DA /* helpers.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -502,6 +503,8 @@
 		1FF6791C1A5CC788004F54DA /* FlexLexer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlexLexer.h; sourceTree = "<group>"; };
 		1FF6791F1A5CC7D4004F54DA /* c++ */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "c++"; sourceTree = "<group>"; };
 		1FF679201A5CC7E6004F54DA /* sanitizer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sanitizer; sourceTree = "<group>"; };
+		1FF679231A5D6280004F54DA /* helpers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
+		1FF679241A5D6280004F54DA /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -737,6 +740,8 @@
 				1F2611D31A58EE2800970A48 /* Rewriters */,
 				1F2611E31A5A035300970A48 /* source_rewriter.cpp */,
 				1F2611E41A5A035300970A48 /* source_rewriter.h */,
+				1FF679231A5D6280004F54DA /* helpers.cpp */,
+				1FF679241A5D6280004F54DA /* helpers.h */,
 			);
 			path = Foxling;
 			sourceTree = "<group>";
@@ -991,6 +996,7 @@
 				1F2611E21A58F2E500970A48 /* prefix_rewriter.cpp in Sources */,
 				1F2611D61A58EEF600970A48 /* objc_property_rewriter.cpp in Sources */,
 				1F97E2F11A55E75A00CE7EA4 /* main.cpp in Sources */,
+				1FF679251A5D6280004F54DA /* helpers.cpp in Sources */,
 				1F2611D91A58F0C700970A48 /* objc_message_rewriter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

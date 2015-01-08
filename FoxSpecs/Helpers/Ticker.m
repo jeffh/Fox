@@ -1,6 +1,7 @@
 #import "Ticker.h"
 #import <libkern/OSAtomic.h>
-#import "FOXThread.h"
+
+void fthread_yield(void);
 
 @interface Ticker ()
 @property (nonatomic) NSInteger count;
@@ -38,8 +39,13 @@
         [numbers addObject:@(self.count - i)];
     }
     [numbers insertObject:@([numbers[0] integerValue] + 1) atIndex:0];
-    return [numbers.lastObject integerValue];
+    return [[[[numbers objectEnumerator] allObjects] lastObject] integerValue];
 #undef NEW
+}
+
+- (void)resetMoreComplicatedThanNeeded
+{
+    [self setCount:[@(10 / 2 - (4 + 1)) integerValue]];
 }
 
 - (NSInteger)atomicIncrement

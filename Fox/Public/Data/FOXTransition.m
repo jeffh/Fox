@@ -21,12 +21,11 @@ static NSCache *cache;
                    nextModelState:(id (^)(id modelState, id generatedValue))nextState
 {
     FOXTransition *transition = [[FOXTransition alloc] initWithAction:^id(id subject, id generatedValue) {
-//        NSMethodSignature *signature = [cache objectForKey:[subject class]];
-//        if (!signature) {
-        NSMethodSignature *signature;
+        NSMethodSignature *signature = [cache objectForKey:[subject class]];
+        if (!signature) {
             signature = [subject methodSignatureForSelector:selector];
-//            [cache setObject:signature forKey:[subject class]];
-//        }
+            [cache setObject:signature forKey:[subject class]];
+        }
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
 
         NSArray *arguments = [NSArray arrayWithObject:generatedValue];
