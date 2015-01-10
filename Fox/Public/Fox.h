@@ -12,6 +12,8 @@
 #import "FOXExecutedCommand.h"
 #import "FOXTransition.h"
 #import "FOXPropertyResult.h"
+#import "FOXExecutedProgram.h"
+#import "FOXProgram.h"
 
 // generators
 #import "FOXCoreGenerators.h"
@@ -24,9 +26,10 @@
 #import "FOXStateMachineGenerators.h"
 #import "FOXGenericGenerators.h"
 
-// stateful testers
+// stateful testing tools
 #import "FOXFiniteStateMachine.h"
 #import "FOXParallelGenerators.h"
+#import "FOXScheduler.h"
 
 // randomizers
 #import "FOXConstantRandom.h"

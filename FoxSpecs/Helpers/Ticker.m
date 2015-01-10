@@ -51,12 +51,27 @@ void fthread_yield(void);
 - (NSInteger)atomicIncrement
 {
     OSSpinLockLock(&_lock);
-    NSInteger result = [self incrementWithManualInstrumentation];
+    NSInteger result = [self increment];
     OSSpinLockUnlock(&_lock);
     return result;
 }
 
 - (void)atomicReset
+{
+    OSSpinLockLock(&_lock);
+    [self reset];
+    OSSpinLockUnlock(&_lock);
+}
+
+- (NSInteger)atomicIncrementWithManualInstrumentation
+{
+    OSSpinLockLock(&_lock);
+    NSInteger result = [self incrementWithManualInstrumentation];
+    OSSpinLockUnlock(&_lock);
+    return result;
+}
+
+- (void)atomicResetWithManualInstrumentation
 {
     OSSpinLockLock(&_lock);
     [self resetWithManualInstrumentation];

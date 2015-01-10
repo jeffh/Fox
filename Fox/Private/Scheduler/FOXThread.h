@@ -52,6 +52,9 @@ FOX_EXPORT void fthread_init(void);
 FOX_EXPORT void fthread_run_and_wait(fthread_schedule_algorithm_t algo,
                                      void *algo_data);
 
+void fthread_run(fthread_schedule_algorithm_t algo, void *algo_data);
+void fthread_wait(void);
+
 /*! Replaces the normal functions with ones fox provides. See below to see the
  *  overridden functions. Implementation is currently in flux and can change at
  *  anytime.

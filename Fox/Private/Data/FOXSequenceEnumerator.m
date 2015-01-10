@@ -1,5 +1,5 @@
 #import "FOXSequenceEnumerator.h"
-
+#import "FOXSequence.h"
 
 @implementation FOXSequenceEnumerator
 

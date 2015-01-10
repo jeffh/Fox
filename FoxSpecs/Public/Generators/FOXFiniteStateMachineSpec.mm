@@ -29,11 +29,9 @@ describe(@"FOXFiniteStateMachine", ^{
     });
 
     it(@"should be able validate queue behavior", ^{
-        id<FOXGenerator> executedCommands = FOXExecuteCommands(stateMachine, ^id {
-            return [Queue new];
-        });
-        FOXAssert(FOXForAll(executedCommands, ^BOOL(NSArray *commands) {
-            return FOXExecutedSuccessfully(commands);
+        FOXAssert(FOXForAll(FOXSerialCommands(stateMachine), ^BOOL(FOXProgram *program) {
+            Queue *subject = [[Queue alloc] init];
+            return FOXRunSerialCommands(program, subject).succeeded;
         }));
     });
 });

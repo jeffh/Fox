@@ -8,7 +8,7 @@
 #import <float.h>
 #import "FOXDeterministicRandom.h"
 
-FOX_EXPORT id<FOXGenerator> _FOXNaturalInteger(void) {
+static id<FOXGenerator> _FOXNaturalInteger(void) {
     return FOXMap(FOXInteger(), ^id(NSNumber *number) {
         return @(ABS([number integerValue]));
     });

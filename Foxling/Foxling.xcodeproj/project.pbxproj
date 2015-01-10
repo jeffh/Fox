@@ -1277,7 +1277,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Fox-dmobuslqyltucubgnxyazjnfmyjr/Build/Products/Debug",
 					/Users/jeff/workspace/llvm/llvm_build/lib,
 				);
-				LLVM_HOME = "$(SRCROOT)/../LLVM";
+				LLVM_HOME = "$(SRCROOT)/LLVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1290,7 +1290,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Fox-dmobuslqyltucubgnxyazjnfmyjr/Build/Products/Debug",
 					/Users/jeff/workspace/llvm/llvm_build/lib,
 				);
-				LLVM_HOME = "$(SRCROOT)/../LLVM";
+				LLVM_HOME = "$(SRCROOT)/LLVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -1,9 +1,8 @@
 #import "FOXSequence.h"
-#import "FOXLazySequence.h"
-#import "FOXConcreteSequence.h"
 #import "FOXSequenceEnumerator.h"
 #import "FOXMath.h"
-
+#import "FOXLazySequence.h"
+#import "FOXConcreteSequence.h"
 
 @implementation FOXSequence
 
@@ -45,7 +44,7 @@
 
 - (id<FOXSequence>)sequenceByMappingWithIndex:(id(^)(NSUInteger index, id item))block startingIndex:(NSUInteger)index
 {
-    return [[FOXLazySequence alloc] initWithLazyBlock:^id<FOXSequence>{
+    return [[self class] lazySequenceFromBlock:^id<FOXSequence>{
         if (![self firstObject]) {
             return [[self class] sequence];
         }
@@ -59,7 +58,7 @@
 
 - (id<FOXSequence>)sequenceByMapping:(id(^)(id item))block
 {
-    return [[FOXLazySequence alloc] initWithLazyBlock:^id<FOXSequence>{
+    return [[self class] lazySequenceFromBlock:^id<FOXSequence>{
         if (![self firstObject]) {
             return [FOXSequence sequence];
         }
@@ -72,7 +71,7 @@
 
 - (id<FOXSequence>)sequenceByFiltering:(BOOL (^)(id item))predicate
 {
-    return [[FOXLazySequence alloc] initWithLazyBlock:^id<FOXSequence>{
+    return [[self class] lazySequenceFromBlock:^id<FOXSequence>{
         if (![self firstObject]) {
             return [[self class] sequence];
         }
@@ -89,7 +88,7 @@
 
 - (id<FOXSequence>)sequenceByAppending:(id<FOXSequence>)sequence
 {
-    return [[FOXLazySequence alloc] initWithLazyBlock:^id<FOXSequence>{
+    return [[self class] lazySequenceFromBlock:^id<FOXSequence>{
         if ([self firstObject]) {
             id<FOXSequence> remainingSequence = [[self remainingSequence] sequenceByAppending:sequence];
             if (!remainingSequence) {
@@ -105,7 +104,7 @@
 
 - (id<FOXSequence>)sequenceByDroppingIndex:(NSUInteger)index
 {
-    return [FOXSequence lazySequenceFromBlock:^id<FOXSequence> {
+    return [[self class] lazySequenceFromBlock:^id<FOXSequence> {
         if (index == 0) {
             return [self remainingSequence];
         } else {
@@ -246,6 +245,8 @@
 }
 
 @end
+
+
 
 @implementation FOXSequence (EagerConstructors)
 

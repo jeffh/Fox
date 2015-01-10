@@ -1,5 +1,6 @@
-#import "FOXSequence.h"
+#import <Foundation/Foundation.h>
 
+@protocol FOXSequence;
 
 @interface FOXSequenceEnumerator : NSEnumerator
 

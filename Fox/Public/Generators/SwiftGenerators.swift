@@ -151,16 +151,32 @@ public func set(elementGenerator: FOXGenerator) -> FOXGenerator {
 
 // MARK: State Machine Generators
 
-public func commands(stateMachine: FOXStateMachine) -> FOXGenerator {
-    return FOXCommands(stateMachine)
+public func serialCommands(stateMachine: FOXStateMachine) -> FOXGenerator {
+    return FOXSerialCommands(stateMachine)
 }
 
+@availability(*, message="Use serialCommands() instead")
+public func commands(stateMachine: FOXStateMachine) -> FOXGenerator {
+    return map(FOXSerialCommands(stateMachine)) { obj in
+        var program = obj as FOXProgram
+        return program.serialCommands;
+    }
+}
+
+@availability(*, message="Use runCommands() instead")
 public func executeCommands(stateMachine: FOXStateMachine, subjectFactory: () -> AnyObject!) -> FOXGenerator {
-    return FOXExecuteCommands(stateMachine, subjectFactory)
+    return FOXMap(commands(stateMachine), { cmds in
+        var commandsArray : NSArray = cmds as NSArray
+        return stateMachine.executeCommandSequence(commandsArray, subject: subjectFactory(), startingModelState: stateMachine.initialModelState())
+    })
 }
 
 public func executedSuccessfully(commands: NSArray) -> Bool {
     return FOXExecutedSuccessfully(commands)
+}
+
+public func runSerialCommands(program: FOXProgram, subject: AnyObject) -> FOXExecutedProgram {
+    return FOXRunSerialCommands(program, subject)
 }
 
 // MARK: String Generators

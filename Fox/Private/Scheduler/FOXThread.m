@@ -68,6 +68,9 @@ typedef struct _fthread_scheduler_t {
     unsigned int next_thread_number;
     void (*algorithm)(struct _fthread_scheduler_t *);
     void *algorithm_data;
+
+    // polling field
+    bool volatile stop_worker;
 } fthread_scheduler_t;
 
 // A boolean to indicate if we have mach_overridden lib functions
@@ -90,6 +93,7 @@ static fthread_scheduler_t __scheduler = {
     .num_threads        = 0,
     .capacity           = 0,
     .next_thread_number = 0,
+    .stop_worker        = false,
 };
 
 #pragma mark - Private Function Prototypes
@@ -242,41 +246,43 @@ static void fthread_schedule_round_robin(fthread_scheduler_t *scheduler) {
 }
 fthread_schedule_algorithm_t fthread_round_robin = fthread_schedule_round_robin;
 
-static void fthread_schedule_random(fthread_scheduler_t *scheduler) {
+static bool fthread_has_runnable_threads(fthread_scheduler_t *scheduler) {
     MUTEX_LOCK(&scheduler->lock);
+    bool has_runnable_threads = false;
+    for (size_t i = 0; i < scheduler->num_threads; i++) {
+        if (!fthread_is_complete(scheduler->threads[i])) {
+            has_runnable_threads = true;
+            break;
+        }
+    }
+    MUTEX_UNLOCK(&scheduler->lock);
+    return has_runnable_threads;
+}
+
+static void fthread_schedule_random(fthread_scheduler_t *scheduler) {
     id<FOXRandom> random = (__bridge id<FOXRandom>)(scheduler->algorithm_data);
     if (!random) {
         fprintf(stderr, "No FOXRandom instance in algorithm data\n");
         abort();
     }
-    size_t num_threads = scheduler->num_threads;
-    FTHREAD_DEBUG("Scheduler: %lu thread(s)\n", num_threads);
-    size_t mem_size = sizeof(fthread_internal_t) * num_threads;
-    fthread_internal_t *incomplete_threads = FOXCalloc(mem_size, 1);
-    memcpy(incomplete_threads, scheduler->threads, mem_size);
-    MUTEX_UNLOCK(&scheduler->lock);
 
-    size_t last_element = num_threads - 1;
-    while (num_threads > 0) {
+    while (fthread_has_runnable_threads(scheduler)) {
+        MUTEX_LOCK(&scheduler->lock);
+        size_t last_element = scheduler->num_threads - 1;
+        MUTEX_UNLOCK(&scheduler->lock);
+
         size_t i = [random randomIntegerWithinMinimum:0
                                            andMaximum:last_element];
-        fthread_internal_t fthread = incomplete_threads[i];
-        set_current_thread(fthread);
-        fthread_unyield(fthread);
-        fthread_waitfor(fthread);
 
-        if (fthread_is_complete(fthread)) {
-            if (last_element != i) {
-                memmove(incomplete_threads + i,
-                        incomplete_threads + i + 1,
-                        (num_threads - i - 1) * sizeof(fthread_internal_t));
-            }
-            --num_threads;
-            --last_element;
+        MUTEX_LOCK(&scheduler->lock);
+        fthread_internal_t fthread = scheduler->threads[i];
+        MUTEX_UNLOCK(&scheduler->lock);
+        if (!fthread_is_complete(fthread)) {
+            set_current_thread(fthread);
+            fthread_unyield(fthread);
+            fthread_waitfor(fthread);
         }
     }
-
-    free(incomplete_threads);
 }
 fthread_schedule_algorithm_t fthread_random = fthread_schedule_random;
 
@@ -294,7 +300,7 @@ static void *fthread_scheduler_main(fthread_scheduler_t *scheduler) {
     return NULL;
 }
 
-void fthread_run_and_wait(fthread_schedule_algorithm_t algo, void *algo_data) {
+void fthread_run(fthread_schedule_algorithm_t algo, void *algo_data) {
     FTHREAD_DEBUG("Main Start\n");
 
     fthread_scheduler_t *scheduler = &__scheduler;
@@ -310,16 +316,32 @@ void fthread_run_and_wait(fthread_schedule_algorithm_t algo, void *algo_data) {
     scheduler->algorithm_data = algo_data;
     fthread_internal_t scheduler_thread = scheduler->worker_thread;
     MUTEX_UNLOCK(&scheduler->lock);
-    // "fake" fthread for debugging purposes (to see which threads is yields)
-    struct __fthread t = (struct __fthread){
-        .name = "Main",
-    };
-
-    set_current_thread(&t);
+    // "fake" fthread for debugging purposes (to see which threads it yields)
+#ifdef FOX_LOG_THREADS
+    fthread_internal_t t = FOXCalloc(sizeof(struct __fthread), 1);
+    t->name = "Main";
+    set_current_thread(t);
+#endif
     fthread_unyield(scheduler_thread);
+}
+
+void fthread_wait(void) {
+    fthread_scheduler_t *scheduler = &__scheduler;
+    MUTEX_LOCK(&scheduler->lock);
+    fthread_internal_t scheduler_thread = scheduler->worker_thread;
+    MUTEX_UNLOCK(&scheduler->lock);
+    scheduler->stop_worker = true;
     fthread_waitfor(scheduler_thread);
+#ifdef FOX_LOG_THREADS
+    free(get_current_thread());
     set_current_thread(NULL);
+#endif
     FTHREAD_DEBUG("Main: Finished\n");
+}
+
+void fthread_run_and_wait(fthread_schedule_algorithm_t algo, void *algo_data) {
+    fthread_run(algo, algo_data);
+    fthread_wait();
 }
 
 /*! Adds a given fthread to the scheduler's internal list of threads.
@@ -416,7 +438,7 @@ void fthread_waitfor(fthread_t ft) {
  *  fthread_unyield(..);
  */
 void fthread_yield(void) {
-    fthread_yield_thread(get_current_thread());
+    fthread_yield_thread(fthread_current());
 }
 
 /* Returns the opaque type of the current thread.
@@ -425,7 +447,7 @@ void fthread_yield(void) {
  */
 fthread_t fthread_current(void) {
     fthread_internal_t fthread = get_current_thread();
-    if (fthread->user_main == NULL) {
+    if (fthread == NULL || strncmp(fthread->name, "Main", sizeof("Main")) == 0) {
         return NULL;
     }
     return fthread;
@@ -466,7 +488,7 @@ static int fthread_scheduler_create(fthread_internal_t *fthread_ptr, void *(*thr
     fox_machine_t *machine = get_machine();
 
     int result = 0;
-    fthread_internal_t fthread = FOXCalloc(sizeof(struct __fthread), 1);
+    fthread_internal_t fthread = (fthread_internal_t)FOXCalloc(sizeof(struct __fthread), 1);
     fthread->user_main         = thread_main;
     fthread->user_data         = thread_data;
     fthread->is_detached       = false;
@@ -539,11 +561,13 @@ int fthread_detach(pthread_t pthread) {
  */
 void fthread_exit(void *data) {
     fthread_internal_t fthread = get_current_thread();
-    MUTEX_LOCK(&fthread->state_lock);
-    fthread->is_finished = true;
-    MUTEX_UNLOCK(&fthread->state_lock);
-    semaphore_signal_without_aborting(fthread->signal_to_yield);
-    FTHREAD_DEBUG("[%s] exits via pthread_exit()\n", fthread->name);
+    if (fthread) {
+        MUTEX_LOCK(&fthread->state_lock);
+        fthread->is_finished = true;
+        MUTEX_UNLOCK(&fthread->state_lock);
+        semaphore_signal_without_aborting(fthread->signal_to_yield);
+        FTHREAD_DEBUG("[%s] exits via pthread_exit()\n", fthread->name);
+    }
     get_machine()->thread_exit(data);
 }
 

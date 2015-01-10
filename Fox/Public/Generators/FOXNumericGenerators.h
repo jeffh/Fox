@@ -218,4 +218,11 @@ FOX_EXPORT id<FOXGenerator> FOXFamousDouble(void);
  */
 FOX_EXPORT id<FOXGenerator> FOXFamousDecimalNumber(void);
 
+/*! Creates a generator that produces random number generators (FOXRandom
+ *  instances).
+ *
+ *  Shrinking is currently only dicated by the seed of the PRNG.
+ *
+ *  @returns a generator that produces id<FOXRandom> instances.
+ */
 FOX_EXPORT id<FOXGenerator> FOXSeed(void);

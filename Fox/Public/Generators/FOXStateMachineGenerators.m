@@ -14,62 +14,30 @@
 #import "FOXPrettyArray.h"
 #import "FOXNumericGenerators.h"
 #import "FOXRandom.h"
+#import "FOXExecutedProgram.h"
+#import "FOXProgram.h"
 
-
-FOX_EXPORT id<FOXGenerator> FOXNextGenCommand(id<FOXStateMachine> stateMachine, id modelState) {
-    NSArray *allTransitions = [stateMachine allTransitions];
-    NSMutableArray *filteredTransitions = [NSMutableArray arrayWithCapacity:allTransitions.count];
-
-    for (id<FOXStateTransition> transition in allTransitions) {
-        if ([transition satisfiesPreConditionForModelState:modelState]) {
-            [filteredTransitions addObject:transition];
-        }
-    }
-
-    id<FOXGenerator> transitionsGenerator = FOXElements(filteredTransitions);
-    return FOXGenBind(transitionsGenerator, ^id<FOXGenerator>(FOXRoseTree *generatorTree) {
-        id<FOXStateTransition> transition = generatorTree.value;
-        id<FOXGenerator> argGenerator = nil;
-
-        if ([transition respondsToSelector:@selector(generator)]) {
-            argGenerator = [transition generator];
-        } else {
-            argGenerator = FOXReturn(@[]);
-        }
-
-        return FOXMap(FOXTuple(@[FOXReturn(transition), argGenerator]), ^id(NSArray *commandTuple) {
-            return [[FOXCommand alloc] initWithTransition:commandTuple[0] generatedValue:commandTuple[1]];
-        });
+FOX_EXPORT id<FOXGenerator> FOXSerialCommands(id<FOXStateMachine> stateMachine) {
+    id<FOXGenerator> stateMachineGenerator = [[FOXStateMachineGenerator alloc] initWithStateMachine:stateMachine];
+    return FOXMap(stateMachineGenerator, ^id(NSArray *commands) {
+        FOXProgram *program = [[FOXProgram alloc] init];
+        program.stateMachine = stateMachine;
+        program.serialCommands = commands;
+        return program;
     });
 }
-
-
-FOX_EXPORT id<FOXGenerator> FOXGenCommand(id<FOXStateMachine> stateMachine) {
-    id<FOXGenerator> transitionsGenerator = FOXElements([stateMachine allTransitions]);
-    return FOXGenBind(transitionsGenerator, ^id<FOXGenerator>(FOXRoseTree *generatorTree) {
-        id<FOXStateTransition> transition = generatorTree.value;
-        id<FOXGenerator> argGenerator = nil;
-
-        if ([transition respondsToSelector:@selector(generator)]) {
-            argGenerator = [transition generator];
-        } else {
-            argGenerator = FOXReturn(@[]);
-        }
-
-        return FOXMap(FOXTuple(@[FOXReturn(transition), argGenerator]), ^id(NSArray *commandTuple) {
-            return [[FOXCommand alloc] initWithTransition:commandTuple[0] generatedValue:commandTuple[1]];
-        });
-    });
-}
-
 
 FOX_EXPORT id<FOXGenerator> FOXCommands(id<FOXStateMachine> stateMachine) {
-    return [[FOXStateMachineGenerator alloc] initWithStateMachine:stateMachine];
+    return FOXMap(FOXSerialCommands(stateMachine), ^id(FOXProgram *program) {
+        return program.serialCommands;
+    });
 }
 
 FOX_EXPORT id<FOXGenerator> FOXExecuteCommands(id<FOXStateMachine> stateMachine, id (^subject)(void)) {
     return FOXMap(FOXCommands(stateMachine), ^id(NSArray *commands) {
-        return [stateMachine executeCommandSequence:commands subject:subject()];
+        return [stateMachine executeCommandSequence:commands
+                                            subject:subject()
+                                 startingModelState:[stateMachine initialModelState]];
     });
 }
 
@@ -81,4 +49,17 @@ FOX_EXPORT BOOL FOXExecutedSuccessfully(NSArray *executedCommands) {
     }
 
     return YES;
+}
+
+FOX_EXPORT FOXExecutedProgram *FOXRunSerialCommands(FOXProgram *program, id subject) {
+    id<FOXStateMachine> stateMachine = program.stateMachine;
+    NSArray *commands = program.serialCommands;
+
+    FOXExecutedProgram *result = [[FOXExecutedProgram alloc] init];
+    result.program = program;
+    result.serialCommands = [stateMachine executeCommandSequence:commands
+                                                         subject:subject
+                                              startingModelState:[stateMachine initialModelState]];
+    result.succeeded = FOXExecutedSuccessfully(result.serialCommands);
+    return result;
 }

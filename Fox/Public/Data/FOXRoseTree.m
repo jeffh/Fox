@@ -1,5 +1,6 @@
 #import "FOXRoseTree.h"
 #import "FOXSequence.h"
+#import "FOXPrettyArray.h"
 
 @implementation FOXRoseTree
 
@@ -60,7 +61,8 @@
         return [self shrinkTreeFromRoseTrees:[[trees objectEnumerator] allObjects]];
     }];
 
-    return [[[self class] alloc] initWithValue:[roseTrees valueForKey:@"value"]
+    FOXPrettyArray *values = [FOXPrettyArray arrayWithArray:[roseTrees valueForKey:@"value"]];
+    return [[[self class] alloc] initWithValue:values
                                      children:children];
 }
 
@@ -70,7 +72,8 @@
         return [self zipTreeFromRoseTrees:subtrees];
     }];
 
-    return [[FOXRoseTree alloc] initWithValue:[roseTrees valueForKey:@"value"]
+    FOXPrettyArray *values = [FOXPrettyArray arrayWithArray:[roseTrees valueForKey:@"value"]];
+    return [[FOXRoseTree alloc] initWithValue:values
                                      children:children];
 }
 

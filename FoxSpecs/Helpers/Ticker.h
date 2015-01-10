@@ -8,6 +8,9 @@
 - (NSInteger)atomicIncrement;
 - (void)atomicReset;
 
+- (NSInteger)atomicIncrementWithManualInstrumentation;
+- (void)atomicResetWithManualInstrumentation;
+
 - (NSInteger)incrementWithManualInstrumentation;
 - (void)resetWithManualInstrumentation;
 

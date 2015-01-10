@@ -6,6 +6,7 @@
 #import "FOXCommand.h"
 #import "FOXRoseTree.h"
 #import "FOXSequenceGenerator.h"
+#import "FOXProgram.h"
 
 @interface FOXStateMachineGenerator ()
 @property (nonatomic) id<FOXStateMachine> stateMachine;
@@ -70,11 +71,13 @@
         NSUInteger maxSize = [self.maxSize unsignedIntegerValue];
         generator = FOXArrayOfSizeRange([self commandGenerator], minSize, maxSize);
     }
-    return FOXSuchThat(generator, ^BOOL(NSArray *commands) {
+    generator = FOXSuchThat(generator, ^BOOL(NSArray *commands) {
         id modelState = [self.stateMachine modelStateFromCommandSequence:commands
                                                       startingModelState:self.initialModelState];
         return modelState != nil;
     });
+
+    return generator;
 }
 
 - (id<FOXGenerator>)commandGenerator
