@@ -260,7 +260,9 @@ static bool fthread_has_runnable_threads(fthread_scheduler_t *scheduler) {
 }
 
 static void fthread_schedule_random(fthread_scheduler_t *scheduler) {
+    MUTEX_LOCK(&scheduler->lock);
     id<FOXRandom> random = (__bridge id<FOXRandom>)(scheduler->algorithm_data);
+    MUTEX_UNLOCK(&scheduler->lock);
     if (!random) {
         fprintf(stderr, "No FOXRandom instance in algorithm data\n");
         abort();

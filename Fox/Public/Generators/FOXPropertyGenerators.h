@@ -22,6 +22,15 @@ FOX_EXPORT id<FOXGenerator> FOXForAll(id<FOXGenerator> generator, BOOL (^then)(i
  */
 FOX_EXPORT id<FOXGenerator> FOXForSome(id<FOXGenerator> generator, FOXPropertyStatus (^then)(id generatedValue));
 
+/*! Creates a generator that retries the given property generator a number of
+ *  times. The failed property is returned if any one of the attempts fails.
+ *
+ *  This is generally useful for tests that are unreliably failing (eg -
+ *  parallel tests).
+ *
+ *  @param times The number of times to run the property.
+ *  @param property The property to retry multiple times.
+ */
 FOX_EXPORT id<FOXGenerator> FOXAlways(NSUInteger times, id<FOXGenerator> property);
 
 #if !defined(FOX_DISABLE_SHORTHAND)

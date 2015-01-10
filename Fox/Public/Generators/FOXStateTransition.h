@@ -110,6 +110,12 @@
                             generatedValue:(id)generatedValue
                    objectReturnedBySubject:(id)returnedObject;
 
+/*! The frequency that this state transition will be attempted to use.
+ *  The default is 1 if this method is not implemented.
+ *
+ *  The percentage to use is dependent on the total of all frequencies for all
+ *  state transitions.
+ */
 @optional
 - (NSUInteger)frequency;
 

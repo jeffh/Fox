@@ -66,7 +66,7 @@
 				DisplayName = "Path to FoxlingCompiler Executable";
 				Description = "Path to FoxlingCompiler Executable to run";
 				Type = Path;
-				DefaultValue = "$(USER_LIBRARY_DIR)/Application Support/Developer/Xcode/Plug-ins/FoxlingCompiler.xcplugin/Contents/bin/FoxlingCompiler";
+				DefaultValue = "$(USER_LIBRARY_DIR)/Application Support/Developer/Shared/Xcode/Plug-ins/Foxling Compiler.xcplugin/Contents/MacOS/Fling";
 				Category = Base;
 			},
 			{

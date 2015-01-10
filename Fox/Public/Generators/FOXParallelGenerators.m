@@ -57,12 +57,12 @@ FOX_EXPORT id<FOXGenerator> FOXParallelCommands(id<FOXStateMachine> stateMachine
     });
 }
 
-FOX_EXPORT FOXExecutedProgram *FOXRunParallelCommands(FOXProgram *plan,
+FOX_EXPORT FOXExecutedProgram *FOXRunParallelCommands(FOXProgram *program,
                                                       id (^subjectFactory)()) {
     @autoreleasepool {
-        id<FOXStateMachine> stateMachine = plan.stateMachine;
-        NSArray *prefixCommands = plan.serialCommands;
-        NSArray *processCommands = plan.parallelCommands;
+        id<FOXStateMachine> stateMachine = program.stateMachine;
+        NSArray *prefixCommands = program.serialCommands;
+        NSArray *processCommands = program.parallelCommands;
 
         id subject = subjectFactory();
         id prefixModelState = [stateMachine modelStateFromCommandSequence:prefixCommands
@@ -98,7 +98,7 @@ FOX_EXPORT FOXExecutedProgram *FOXRunParallelCommands(FOXProgram *plan,
         NSArray *executedCommands = [FOXPrettyArray arrayWithArray:results];
 
         FOXExecutedProgram *result = [[FOXExecutedProgram alloc] init];
-        result.program = plan;
+        result.program = program;
         result.serialCommands      = executedPrefix;
         result.parallelCommands    = executedCommands;
         result.succeeded           = FOXExecutedSuccessfullyInParallel(result, subjectFactory);
@@ -107,13 +107,13 @@ FOX_EXPORT FOXExecutedProgram *FOXRunParallelCommands(FOXProgram *plan,
 }
 
 // AKA - the linearizability checker
-static BOOL FOXExecutedSuccessfullyInParallel(FOXExecutedProgram *result, id(^subjectFactory)()) {
-    id<FOXStateMachine> stateMachine = result.program.stateMachine;
-    NSArray *executedPrefix = result.serialCommands;
+static BOOL FOXExecutedSuccessfullyInParallel(FOXExecutedProgram *program, id(^subjectFactory)()) {
+    id<FOXStateMachine> stateMachine = program.program.stateMachine;
+    NSArray *executedPrefix = program.serialCommands;
     if (!FOXExecutedSuccessfully(executedPrefix)) {
         return NO;
     }
-    NSArray *executedProcesses = result.parallelCommands;
+    NSArray *executedProcesses = program.parallelCommands;
     NSMutableArray *commands = [NSMutableArray array];
     for (NSArray *clientCmds in executedProcesses) {
         [commands addObjectsFromArray:clientCmds];

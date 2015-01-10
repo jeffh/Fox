@@ -13,7 +13,7 @@ using namespace Cedar::Doubles;
 
 SPEC_BEGIN(FOXParallelStateMachineSpec)
 
-fdescribe(@"FOXParallelStateMachine", ^{
+describe(@"FOXParallelStateMachine", ^{
 #ifdef FOXSPECS_INSTRUMENTED
     it(@"should fail if the ticker does not support atomic methods (instrumented yielding)", ^{
         FOXFiniteStateMachine *stateMachine = [[FOXFiniteStateMachine alloc] initWithInitialModelState:@0];

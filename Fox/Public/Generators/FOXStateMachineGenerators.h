@@ -43,9 +43,9 @@ FOX_DEPRECATED("Use FOXRunCommands() inside the FOXForAll(...) instead. Will be 
  */
 FOX_EXPORT BOOL FOXExecutedSuccessfully(NSArray *executedCommands);
 
-/*! A generator that produces an array of FOXCommands from the given state
- *  machine. The commands conform to the specification that the given
- *  state machine specifies.
+/*! A generator that produces FOXPrograms from the given state machine. The
+ *  commands conform to the specification that the given state machine
+ *  specifies.
  *
  *  The command shrinks identically to arrays - generated values are shrunk
  *  with commands that do not provoke the failure dropped from the array.

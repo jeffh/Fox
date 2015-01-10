@@ -1,7 +1,6 @@
 #import <Cedar.h>
 #import "FOX.h"
-#import "FOXRunner.h"
-#import "FOXArrayGenerators.h"
+#import "FOXSpecHelper.h"
 
 
 using namespace Cedar::Matchers;

@@ -2049,7 +2049,6 @@
 		1FF4AAB51A3FD7C10000E69E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG = "/Users/jeff/Library/Developer/Xcode/DerivedData/Fox-dmobuslqyltucubgnxyazjnfmyjr/Build/Products/Debug/FoxlingCompiler";
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2079,7 +2078,6 @@
 		1FF4AAB61A3FD7C10000E69E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG = "/Users/jeff/Library/Developer/Xcode/DerivedData/Fox-dmobuslqyltucubgnxyazjnfmyjr/Build/Products/Debug/FoxlingCompiler";
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
