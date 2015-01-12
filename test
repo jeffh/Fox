@@ -75,6 +75,9 @@ function podspec_lint() {
 }
 
 function build_foxling() {
+    pushd Foxling/LLVM
+    ./unpack.sh
+    popd
     run xcodebuild -workspace "$PROJECT_NAME"\
         -scheme "$FOXLING_COMPILER_SCHEME"\
         -configuration "Debug"\
