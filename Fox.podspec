@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/jeffh/Fox.git", :tag => "v1.0.1" }
 
-  s.source_files  = "Fox/**/*.{h,m,mm}"
+  s.source_files  = "Fox/**/*.{h,m,mm,swift}"
   s.public_header_files = "Fox/Public/**/*.h"
   s.requires_arc = true
 
