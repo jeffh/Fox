@@ -294,7 +294,10 @@ fthread_schedule_algorithm_t fthread_random = fthread_schedule_random;
  */
 static void *fthread_scheduler_main(fthread_scheduler_t *scheduler) {
     fthread_yield_thread(scheduler->worker_thread);
-    scheduler->algorithm(scheduler);
+    MUTEX_LOCK(&scheduler->lock);
+    void (*algorithm)(fthread_scheduler_t *) = scheduler->algorithm;
+    MUTEX_UNLOCK(&scheduler->lock);
+    algorithm(scheduler);
 
     FTHREAD_DEBUG("Scheduler finished\n");
     semaphore_signal_without_aborting(scheduler->worker_thread->signal_to_yield);

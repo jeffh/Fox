@@ -1,4 +1,5 @@
 #import "FOXPropertyGenerators.h"
+#import "FOXPrettyArray.h"
 
 
 @implementation FOXPropertyResult
@@ -51,6 +52,14 @@
 {
     return [NSString stringWithFormat:@"<%@: %@>",
             [self statusString], [self generatedValueOrException]];
+}
+
+- (id)generatedValueOrValues
+{
+    if ([self.generatedValues count] == 1) {
+        return self.generatedValue;
+    }
+    return self.generatedValues;
 }
 
 @end

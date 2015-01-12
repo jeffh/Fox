@@ -155,7 +155,7 @@ typedef struct _FOXShrinkReport {
     result.seed = seed;
     result.maxSize = maxSize;
     result.failingSize = failingSize;
-    result.failingValue = propertyResult.generatedValue;
+    result.failingValue = [propertyResult generatedValueOrValues];
     result.failingException = propertyResult.uncaughtException;
     result.shrinkDepth = report.depth;
     result.shrinkNodeWalkCount = report.numberOfNodesVisited;
@@ -205,7 +205,7 @@ typedef struct _FOXShrinkReport {
     return (FOXShrinkReport) {
         .depth=depth,
         .numberOfNodesVisited=numberOfNodesVisited,
-        .smallestArgument=CFBridgingRetain(currentSmallest.generatedValue),
+        .smallestArgument=CFBridgingRetain([currentSmallest generatedValueOrValues]),
         .smallestUncaughtException=CFBridgingRetain(currentSmallest.uncaughtException),
     };
 }

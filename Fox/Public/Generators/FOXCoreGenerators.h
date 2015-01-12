@@ -5,25 +5,23 @@
 @protocol FOXGenerator;
 @protocol FOXRandom;
 
-typedef struct {
-    NSInteger start;
-    NSInteger end;
-} FOXRange;
-
 /*! Creates a generator with a -[description] to help debugging.
  */
 FOX_EXPORT id<FOXGenerator> FOXWithName(NSString *name, id<FOXGenerator> generator);
 
 /*! Creates a generator that conforms to the FOXGenerator protocol.
+ *  Shrinking is based on the rose tree produced by generator block.
  */
 FOX_EXPORT id<FOXGenerator> FOXGenerate(FOXRoseTree *(^generator)(id<FOXRandom> random, NSUInteger size));
 
 /*! Creates a generator that always returns the given rose tree.
+ *  Shrinking is based on the rose tree.
  */
 FOX_EXPORT id<FOXGenerator> FOXGenPure(FOXRoseTree *tree);
 
 /*! Creates a generator that applies the given block to another generator.
- *  This effectively "chains" operations on existing generators.
+ *  This effectively "chains" operations on existing generators. Shrinking is
+ *  inherited from the original generator's.
  *
  *  @param generator The generator whose rose tree is modified post-generation.
  *  @param mapfn The block that transforms the rose tree of the given generator
@@ -37,6 +35,8 @@ FOX_EXPORT id<FOXGenerator> FOXGenMap(
     FOXRoseTree *(^mapfn)(FOXRoseTree *generatedTree));
 
 /*! Creates a generator that takes the rose tree of another generator as input.
+ *  Shrinking behavior is entirely dependent on the rose tree produced by
+ *  the generatorFactory.
  *
  *  @param generator The generator whose rose tree is used as input.
  *  @param generatorFactory The factory that produces a generator given the
@@ -57,7 +57,38 @@ FOX_EXPORT id<FOXGenerator> FOXGenBind(
 FOX_EXPORT id<FOXGenerator> FOXMap(id<FOXGenerator> generator, id(^fn)(id generatedValue));
 
 /*! Creates a generator that takes another generator's generated values as
- *  input. This is a higher abstraction than FOXGenBind
+ *  input. This is a higher abstraction than FOXGenBind. Shrinking is based
+ *  on the original generator's shrinking behavior.
+ *
+ *  @warning Improper use can produce non-optimal shrinking.
+ *
+ *  Unlike FOXGenBind, FOXBind honors the original generator's shrinking
+ *  behavior. But this can result in non-minimal shrinkings when multiple
+ *  source generators are used to produce a new generator. The resulting
+ *  generator won't guide Fox to fully minimal shrinkings immediately.
+ *  Consider this generator:
+ *
+ *      id<FOXGenerator> exampleGenerator = \
+ *      FOXBind(FOXPositiveInteger(), ^id<FOXGenerator>(NSNumber *value1){
+ *          FOXBind(FOXNegativeInteger(), ^id<FOXGenerator>(NSNumber *value2){
+ *              return FOXReturn(@[value1, value2]);
+ *          });
+ *      });
+ *
+ *  The resulting shrink tree won't be able to cover all permutations since
+ *  each bind generator cannot infer the relationship between each other.
+ *  The shrinking strategy cannot shrink both values simultaneously. In this
+ *  example, value1 will generally shrink before value2.
+ *
+ *      // Original value of @[@14, @-9] shrinks to: @[@13, @0]
+ *      FOXAssert(FOXForAll(exampleGenerator), ^BOOL(NSArray *tuple){
+ *          return [tuple[0] integerValue] + [tuple[1] integerValue] < 10;
+ *      });
+ *
+ *  For this specific example, use FOXTuple() instead. FOXTuple and FOXArray
+ *  properly generate all permutations of shrinkings. Both will produce
+ *  values that may be multiple steps as immediate children (eg - an array
+ *  with all values shrunken to zero immediately).
  *
  *  @param generator The generator whose values will be used as input.
  *  @param fn The factory block that produces a new generator given the other
@@ -150,7 +181,8 @@ FOX_EXPORT id<FOXGenerator> FOXOneOf(NSArray *generators);
 FOX_EXPORT id<FOXGenerator> FOXElements(NSArray *elements);
 
 /*! Creates a generator that radomly picks one of the given generators based on
- *  weighted frequencies.
+ *  weighted frequencies. Shrinking WILL NOT change generators, but only
+ *  shrink on the generated value.
  *
  *  The percent chance of selecting an element is based on the sum of all the
  *  weights.

@@ -33,6 +33,26 @@ describe(@"FOXRoseTree", ^{
         });
     });
 
+    describe(@"joining trees", ^{
+        it(@"should remove one level of nesting", ^{
+#define TREE(...) [FOXRoseTree treeFromArray:(__VA_ARGS__)]
+            FOXRoseTree *inputTree = TREE(@[TREE(@[@[@-1, @-3], @[]]),
+                                            @[@[TREE(@[@[@-1, @0], @[]]), @[]],
+                                              @[TREE(@[@[@-1, @-2], @[]]),
+                                                @[@[TREE(@[@[@-1, @0], @[]]), @[]],
+                                                  @[TREE(@[@[@-1, @-1], @[]]),
+                                                    @[@[TREE(@[@[@-1, @0], @[]]), @[]]]]]]]]);
+            FOXRoseTree *joinedTree = [FOXRoseTree joinedTreeFromNestedRoseTree:inputTree];
+            joinedTree should equal(TREE(@[@[@-1, @-3],
+                                           @[@[@[@-1, @0], @[]],
+                                             @[@[@-1, @-2],
+                                               @[@[@[@-1, @0], @[]],
+                                                 @[@[@-1, @-1], @[@[@[@-1, @0], @[]]]]]]]]
+                                         ));
+#undef TREE
+        });
+    });
+
     describe(@"zipping rose trees", ^{
         it(@"should combine trees without reducing their size", ^{
             FOXRoseTree *tree = [FOXRoseTree zipTreeFromRoseTrees:@[inputTree1, inputTree2]];

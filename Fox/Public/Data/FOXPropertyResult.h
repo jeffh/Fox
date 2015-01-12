@@ -27,6 +27,7 @@ FOUNDATION_STATIC_INLINE FOXPropertyStatus FOXRequire(BOOL assertion) {
 
 /*! The value used to test the property. */
 @property (nonatomic) id generatedValue;
+@property (nonatomic) NSArray *generatedValues;
 /*! The exception that was caught during execution of the test. This is nil if no exception was encountered. */
 @property (nonatomic) NSException *uncaughtException;
 /*! The status of the result. */
@@ -36,6 +37,8 @@ FOUNDATION_STATIC_INLINE FOXPropertyStatus FOXRequire(BOOL assertion) {
  *  an uncaught exception.
  */
 - (BOOL)hasFailedOrRaisedException;
+
+- (id)generatedValueOrValues;
 
 @end
 

@@ -104,4 +104,25 @@ describe(@"FOXForSome", ^{
     });
 });
 
+/*
+xdescribe(@"FOXFor", ^{
+    it(@"should allow nesting of properties that shrink minimally", ^{
+        id<FOXGenerator> property = FOXFor(FOXInteger(), ^id<FOXGenerator>(id a) {
+            return FOXFor(FOXInteger(), ^id<FOXGenerator>(id b) {
+                return FOXGenerateProperty(^FOXPropertyStatus{
+                    return FOXRequire([a integerValue] <= [b integerValue]
+                                      || [b integerValue] < 10);
+                });
+            });
+        });
+
+        FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
+        result.succeeded should be_falsy;
+        NSArray *tuple = result.smallestFailingValue;
+        NSInteger sum = [tuple[0] integerValue] + [tuple[1] integerValue];
+        sum should equal(10);
+    });
+});
+*/
+
 SPEC_END

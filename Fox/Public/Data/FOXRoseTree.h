@@ -66,6 +66,20 @@
 + (instancetype)treeFromArray:(NSArray *)roseTreeLiteral;
 
 /*! Flattens a two-dimensional rose tree into a one-dimensional rose tree.
+ *
+ *  Appends inner trees' children to the end of the children list:
+ *
+ *      // data structure: tree(root, children)
+ *      // before joining
+ *      tree(tree(1, [tree(2, [])]),
+ *           [tree(3, [])])
+ *      // after joining
+ *      tree(1,
+ *           [tree(3, []),
+ *            tree(2, [])])
+ *
+ *  Which can create undesireable and local-minimal shrinking results if not
+ *  used carefully.
  */
 + (instancetype)joinedTreeFromNestedRoseTree:(FOXRoseTree *)roseTree;
 

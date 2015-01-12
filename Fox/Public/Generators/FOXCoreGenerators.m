@@ -43,10 +43,6 @@ FOX_EXPORT id<FOXGenerator> FOXChoose(NSNumber *lower, NSNumber *upper) {
     return [[FOXChooseGenerator alloc] initWithLowerBound:lower upperBound:upper];
 }
 
-FOX_EXPORT id<FOXGenerator> FOXChooseRange(FOXRange range) {
-    return FOXChoose(@(range.start), @(range.end));
-}
-
 FOX_EXPORT id<FOXGenerator> FOXSized(id<FOXGenerator> (^fn)(NSUInteger size)) {
     return [[FOXSizedGenerator alloc] initWithFactory:fn];
 }
@@ -66,11 +62,9 @@ FOX_EXPORT id<FOXGenerator> FOXSuchThatWithMaxTries(id<FOXGenerator> generator, 
 FOX_EXPORT id<FOXGenerator> FOXBind(id<FOXGenerator> generator, id<FOXGenerator> (^fn)(id value)) {
     return FOXGenBind(generator, ^id<FOXGenerator>(FOXRoseTree *generatorTree) {
         id<FOXGenerator> innerGenerator = FOXGenerate(^FOXRoseTree *(id<FOXRandom> random, NSUInteger size) {
-            FOXRoseTree *mTree = [generatorTree treeByApplyingBlock:fn];
-            [mTree mutateTreeByApplyingBlock:^id(id<FOXGenerator> gen) {
-                return [gen lazyTreeWithRandom:random maximumSize:size];
+            return [generatorTree treeByApplyingBlock:^id(id element) {
+                return [fn(element) lazyTreeWithRandom:random maximumSize:size];
             }];
-            return mTree;
         });
         return FOXGenMap(innerGenerator, ^FOXRoseTree *(FOXRoseTree *innerTree) {
             return [FOXRoseTree joinedTreeFromNestedRoseTree:innerTree];

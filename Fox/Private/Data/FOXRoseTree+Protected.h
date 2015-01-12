@@ -11,13 +11,4 @@
  */
 - (void)freeInternals;
 
-/*! Mutates the rose tree with the given block.
- *
- *  This can be used to eliminate memory spikes at the expense of complexity to
- *  sure mutation is kept local (by convention).
- *
- *  @warning Mutates an "immutable" data structure.
- */
-- (void)mutateTreeByApplyingBlock:(id(^)(id element))block;
-
 @end

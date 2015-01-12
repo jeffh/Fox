@@ -47,7 +47,6 @@ describe(@"FOXParallelStateMachine", ^{
             }];
             return result;
         });
-        property = FOXAlways(10, property);
 
         FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
         result.succeeded should be_falsy;
@@ -163,7 +162,6 @@ describe(@"FOXParallelStateMachine", ^{
             }];
             return passed;
         });
-        property = FOXAlways(10, property);
 
         __block FOXRunnerResult *result;
         result = [FOXSpecHelper resultForProperty:property];

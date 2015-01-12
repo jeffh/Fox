@@ -47,12 +47,12 @@ FOX_EXPORT id<FOXGenerator> FOXParallelCommands(id<FOXStateMachine> stateMachine
                                                                                   minSize:minCommandsPerThread
                                                                                   maxSize:maxCommandsPerThread];
         id<FOXGenerator> processesGenerator = FOXArrayOfSizeRange(process, minNumOfThreads, maxNumOfThreads);
-        return FOXBind(processesGenerator, ^id<FOXGenerator>(NSArray *processCommands) {
+        return FOXMap(processesGenerator, ^id(NSArray *processCommands) {
             FOXProgram *plan = [[FOXProgram alloc] init];
             plan.serialCommands    = prefixCommands;
             plan.parallelCommands  = processCommands;
             plan.stateMachine      = stateMachine;
-            return FOXReturn(plan);
+            return plan;
         });
     });
 }

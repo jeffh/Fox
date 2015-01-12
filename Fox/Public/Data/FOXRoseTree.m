@@ -98,15 +98,6 @@
     _children = nil;
 }
 
-- (void)mutateTreeByApplyingBlock:(id(^)(id element))block
-{
-    self.value = block(self.value);
-    self.children = [self.children sequenceByMapping:^id(FOXRoseTree *subtree) {
-        [subtree mutateTreeByApplyingBlock:block];
-        return subtree;
-    }];
-}
-
 - (instancetype)treeByApplyingBlock:(id(^)(id element))block
 {
     return [[[self class] alloc] initWithValue:block(self.value)
