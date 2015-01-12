@@ -70,6 +70,10 @@ function test_osx {
         build test
 }
 
+function podspec_lint() {
+    pod spec lint Fox.podspec
+}
+
 function build_foxling() {
     run xcodebuild -workspace "$PROJECT_NAME"\
         -scheme "$FOXLING_COMPILER_SCHEME"\
@@ -125,8 +129,9 @@ function main {
             clean) clean ;;
             ios) test_ios ;;
             osx) test_osx ;;
-            foxling) test_foxling;;
-            build_foxling) build_foxling;;
+            foxling) test_foxling ;;
+            build_foxling) build_foxling ;;
+            podspec) podspec_lint ;;
             test) test ;;
             all) test ;;
             help) help ;;

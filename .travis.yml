@@ -4,6 +4,8 @@ env:
   matrix:
     - FOX_RUNTIME_IOS_SDK_VERSION=8.1 TYPE=ios
     - FOX_RUNTIME_OSX_SDK_VERSION=10.10 TYPE=osx
+    - FOX_RUNTIME_OSX_SDK_VERSION=10.10 TYPE=foxling
+    - TYPE=podspec
 
 install:
   - sudo gem install cocoapods --pre
