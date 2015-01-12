@@ -94,6 +94,7 @@ function test_foxling() {
 function test() {
     test_ios
     test_osx
+    test_foxling
 }
 
 function clean {

@@ -31,6 +31,9 @@ static cl::extrahelp CommonHelp(CommonOptionsParser::HelpMessage);
 static Foxling::Rewriter rewriter;
 
 namespace Foxling {
+    std::string injectCode = "FOXSchedulerYield();";
+    std::string cFunctionPrototype = "void FOXSchedulerYield(void);";
+    std::string cppFunctionPrototype = "extern \"C\" void FOXSchedulerYield(void);";
 
     class PrefixDeclRewriter : public MatchFinder::MatchCallback {
     public:
@@ -71,7 +74,6 @@ namespace Foxling {
     void FoxlingASTConsumer::HandleTranslationUnit(ASTContext &Context) {
         MatchFinder Finder;
 
-        std::string injectCode = "fthread_yield();";
         std::string bindKey = "element";
 
         SourceRewriter SourceRewrite(Rewrite);
@@ -93,9 +95,9 @@ namespace Foxling {
         // file, but this ensures we don't add a new line.
         //
         // Compiler directives (eg - #import, #include) must start on a line.
-        std::string functionPrototype = "void fthread_yield(void); ";
+        std::string functionPrototype = cFunctionPrototype;
         if (Context.getLangOpts().CPlusPlus) {
-            functionPrototype = "extern \"C\" void fthread_yield(void); ";
+            functionPrototype = cppFunctionPrototype;
         }
         FileID fileID = Rewrite.getSourceMgr().getMainFileID();
         PrefixDeclRewriter PrefixDecl(SourceRewrite,

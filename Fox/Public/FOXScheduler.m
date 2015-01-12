@@ -55,3 +55,7 @@
 }
 
 @end
+
+void FOXSchedulerYield(void) {
+    fthread_yield();
+}

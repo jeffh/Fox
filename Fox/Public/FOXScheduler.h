@@ -1,4 +1,4 @@
-#import <Foundation/Foundation.h>
+#import "FOXMacros.h"
 
 @protocol FOXRandom;
 
@@ -9,3 +9,5 @@
 - (void)runAndWait:(void(^)())block;
 
 @end
+
+FOX_EXPORT void FOXSchedulerYield(void);
