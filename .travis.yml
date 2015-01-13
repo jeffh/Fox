@@ -5,6 +5,8 @@ env:
     - FOX_RUNTIME_IOS_SDK_VERSION=8.1 TYPE=ios
     - FOX_RUNTIME_OSX_SDK_VERSION=10.10 TYPE=osx
 
+install:
+  - sudo gem install cocoapods --pre
 script:
   - ./test clean $TYPE
   - pod spec lint Fox.podspec
