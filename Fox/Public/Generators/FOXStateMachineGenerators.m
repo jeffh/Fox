@@ -67,6 +67,7 @@ FOX_EXPORT FOXExecutedProgram *FOXRunSerialCommands(FOXProgram *program, id subj
 }
 
 FOX_EXPORT BOOL FOXReturnPrettyPrintedProgram(FOXExecutedProgram *program) {
+    NSCAssert(program, @"Received argument was nil");
     FOXPropertyResult *result = [[FOXPropertyResult alloc] init];
     result.generatedValue = program;
     result.status = FOXRequire(program.succeeded);

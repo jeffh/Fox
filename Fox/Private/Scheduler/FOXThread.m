@@ -81,8 +81,8 @@ static volatile bool __has_overridden_functions;
 static volatile bool __use_fox_implementation;
 
 // pthread key to indicate the current fthread_internal_t
-pthread_key_t current_fthread_key;
-pthread_once_t current_fthread_once;
+static pthread_key_t current_fthread_key;
+static pthread_once_t current_fthread_once;
 
 // global scheduler. This is global to easily allow threads to yield control
 // and derive their names from the scheduler's known thread count.
@@ -280,7 +280,7 @@ static void fthread_schedule_random(fthread_scheduler_t *scheduler) {
         fthread_internal_t fthread = scheduler->threads[i];
         MUTEX_UNLOCK(&scheduler->lock);
         if (!fthread_is_complete(fthread)) {
-            set_current_thread(fthread);
+            set_current_thread(scheduler->worker_thread);
             fthread_unyield(fthread);
             fthread_waitfor(fthread);
         }
@@ -293,13 +293,16 @@ fthread_schedule_algorithm_t fthread_random = fthread_schedule_random;
 /*! Main function for the scheduler's worker thread.
  */
 static void *fthread_scheduler_main(fthread_scheduler_t *scheduler) {
+    set_current_thread(scheduler->worker_thread);
     fthread_yield_thread(scheduler->worker_thread);
+    FTHREAD_DEBUG("Scheduler started\n");
     MUTEX_LOCK(&scheduler->lock);
     void (*algorithm)(fthread_scheduler_t *) = scheduler->algorithm;
     MUTEX_UNLOCK(&scheduler->lock);
     algorithm(scheduler);
 
     FTHREAD_DEBUG("Scheduler finished\n");
+    scheduler->worker_thread->is_finished = true;
     semaphore_signal_without_aborting(scheduler->worker_thread->signal_to_yield);
     get_machine()->thread_exit(NULL);
     return NULL;
@@ -405,9 +408,13 @@ static void fthread_free(fthread_internal_t fthread) {
  */
 static void fthread_yield_thread(fthread_internal_t fthread) {
     if (fthread) {
-        FTHREAD_DEBUG("[%s] yields\n", fthread->name);
         MUTEX_LOCK(&fthread->state_lock);
+        if (fthread->is_finished) {
+            MUTEX_UNLOCK(&fthread->state_lock);
+            return;
+        }
         if (fthread->is_not_first_call) {
+            FTHREAD_DEBUG("[%s] yields\n", fthread->name);
             MUTEX_UNLOCK(&fthread->state_lock);
             semaphore_signal_without_aborting(fthread->signal_to_yield);
         } else {

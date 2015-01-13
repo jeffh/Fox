@@ -39,7 +39,7 @@
         NSThread *thread = [[NSThread alloc] initWithTarget:self
                                                    selector:@selector(runBlock)
                                                      object:nil];
-        thread.name = @"Fox Bootstrap Thread";
+        thread.name = @"-[FOXScheduler runAndWait:] Block Thread";
         self.block = block;
         [thread start];
         fthread_run_and_wait(fthread_random, (__bridge void *)(self.random));
