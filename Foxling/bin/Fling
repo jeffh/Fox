@@ -113,11 +113,13 @@ def preprocess_and_compile(source_file, clang_args):
         with open(source_file, 'r') as handle:
             original_contents = handle.read()
 
+        args_without_modules = [arg for arg in clang_args if 'module' not in arg]
+
         foxling_compiler_dir = os.path.dirname(__file__)
         foxling_executable = os.path.abspath(os.path.join(foxling_compiler_dir,
                                                           './Foxling'))
         out, err = run([foxling_executable, source_file, '--']
-                       + CLANG + clang_args)
+                       + CLANG + args_without_modules)
 
         if DEBUG:
             print >>sys.stderr, '====== Preprocessed Source ======'
