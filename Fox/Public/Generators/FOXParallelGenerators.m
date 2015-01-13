@@ -1,5 +1,4 @@
 #import "FOXParallelGenerators.h"
-#import "FOXGenerator.h"
 #import "FOXRandom.h"
 #import "FOXCoreGenerators.h"
 #import "FOXNumericGenerators.h"

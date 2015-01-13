@@ -1,13 +1,11 @@
-//
-//  FOXAssertionException.h
-//  Fox
-//
-//  Created by Jeff Hui on 1/12/15.
-//  Copyright (c) 2015 Jeff Hui. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
+@class FOXPropertyResult;
+
 @interface FOXAssertionException : NSException
+
+@property (nonatomic, readonly) FOXPropertyResult *result;
+
+- (instancetype)initWithPropertyResult:(FOXPropertyResult *)result;
 
 @end

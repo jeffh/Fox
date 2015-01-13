@@ -66,3 +66,5 @@ FOX_EXPORT id<FOXGenerator> FOXSerialCommands(id<FOXStateMachine> stateMachine);
  *           are no commands executed in parallel.
  */
 FOX_EXPORT FOXExecutedProgram *FOXRunSerialCommands(FOXProgram *program, id subject);
+
+FOX_EXPORT BOOL FOXReturnPrettyPrintedProgram(FOXExecutedProgram *program);

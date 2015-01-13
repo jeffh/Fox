@@ -4,6 +4,8 @@
 
 @protocol FOXGenerator;
 
+FOX_EXPORT void FOXRaiseResult(FOXPropertyResult *result);
+
 /*! Creates a generator that maps an assertion block against input from a
  *  generator.
  *

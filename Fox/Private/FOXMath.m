@@ -66,7 +66,7 @@ FOX_EXPORT void foreverRandom(NSArray *items, id<FOXRandom> random, BOOL(^proces
     BOOL continueProcessing = YES;
     NSUInteger maxCount = items.count - 1;
     while (continueProcessing) {
-        NSUInteger index = [random randomIntegerWithinMinimum:0 andMaximum:maxCount];
+        NSUInteger index = (NSUInteger)[random randomIntegerWithinMinimum:0 andMaximum:maxCount];
         id item = items[index];
         continueProcessing = processor(item);
     }

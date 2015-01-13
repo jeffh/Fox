@@ -310,6 +310,10 @@
 		1F7B0AA51A4CC797003BDF21 /* FOXMemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7B0AA21A4CC797003BDF21 /* FOXMemory.h */; };
 		1F7B0AA61A4CC797003BDF21 /* FOXMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B0AA31A4CC797003BDF21 /* FOXMemory.m */; };
 		1F7B0AA71A4CC797003BDF21 /* FOXMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B0AA31A4CC797003BDF21 /* FOXMemory.m */; };
+		1F7B796F1A646BB000BA47A4 /* FOXAssertionException.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7B796D1A646BB000BA47A4 /* FOXAssertionException.h */; };
+		1F7B79701A646BB000BA47A4 /* FOXAssertionException.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7B796D1A646BB000BA47A4 /* FOXAssertionException.h */; };
+		1F7B79711A646BB000BA47A4 /* FOXAssertionException.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B796E1A646BB000BA47A4 /* FOXAssertionException.m */; };
+		1F7B79721A646BB000BA47A4 /* FOXAssertionException.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B796E1A646BB000BA47A4 /* FOXAssertionException.m */; };
 		1F7CF6641A3FD7FF005C86A5 /* NSArray+FastEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59A81C196E900B00957FAA /* NSArray+FastEnumerator.m */; };
 		1F7CF6661A3FD7FF005C86A5 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5018891991D37A001AB3A9 /* Queue.m */; };
 		1F7CF6681A3FD7FF005C86A5 /* QueueAddTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B73029745CB5B325095CB3 /* QueueAddTransition.m */; };
@@ -545,6 +549,8 @@
 		1F7B0A9D1A4C9160003BDF21 /* FOXThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXThread.m; sourceTree = "<group>"; };
 		1F7B0AA21A4CC797003BDF21 /* FOXMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FOXMemory.h; path = Fox/Private/FOXMemory.h; sourceTree = SOURCE_ROOT; };
 		1F7B0AA31A4CC797003BDF21 /* FOXMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FOXMemory.m; path = Fox/Private/FOXMemory.m; sourceTree = SOURCE_ROOT; };
+		1F7B796D1A646BB000BA47A4 /* FOXAssertionException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FOXAssertionException.h; path = Fox/Private/Data/FOXAssertionException.h; sourceTree = SOURCE_ROOT; };
+		1F7B796E1A646BB000BA47A4 /* FOXAssertionException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FOXAssertionException.m; path = Fox/Private/Data/FOXAssertionException.m; sourceTree = SOURCE_ROOT; };
 		1F7CF6AB1A3FF146005C86A5 /* FOXDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FOXDictionary.h; path = Fox/Private/Data/FOXDictionary.h; sourceTree = SOURCE_ROOT; };
 		1F7CF6AC1A3FF146005C86A5 /* FOXDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FOXDictionary.m; path = Fox/Private/Data/FOXDictionary.m; sourceTree = SOURCE_ROOT; };
 		1F7CF6B11A3FF513005C86A5 /* FOXStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FOXStringUtil.h; path = Fox/Private/FOXStringUtil.h; sourceTree = SOURCE_ROOT; };
@@ -1032,6 +1038,8 @@
 				1F18C08F1A403836000C7EA6 /* FOXRoseTree+Protected.h */,
 				1FF679261A5E8EC6004F54DA /* FOXBlock.h */,
 				1FF679271A5E8EC6004F54DA /* FOXBlock.m */,
+				1F7B796D1A646BB000BA47A4 /* FOXAssertionException.h */,
+				1F7B796E1A646BB000BA47A4 /* FOXAssertionException.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1114,6 +1122,7 @@
 				1F38B6CA1A2ACCC00078FF90 /* FOXReporter.h in Headers */,
 				1F6DE1881A4F66F900C93B28 /* syn.h in Headers */,
 				1F38B6AF1A2ACCC00078FF90 /* FOXNumericGenerators.h in Headers */,
+				1F7B796F1A646BB000BA47A4 /* FOXAssertionException.h in Headers */,
 				1FCE1B251A4570D500902226 /* FOXLogging.h in Headers */,
 				1FF0A7281A5F43C200FA1B49 /* FOXExecutedProgram.h in Headers */,
 				1F7CF6AD1A3FF146005C86A5 /* FOXDictionary.h in Headers */,
@@ -1193,6 +1202,7 @@
 				1F38B6951A2ACCC00078FF90 /* FOXReporter.h in Headers */,
 				1F6DE1891A4F66F900C93B28 /* syn.h in Headers */,
 				1F38B67A1A2ACCC00078FF90 /* FOXNumericGenerators.h in Headers */,
+				1F7B79701A646BB000BA47A4 /* FOXAssertionException.h in Headers */,
 				1FCE1B261A4570D500902226 /* FOXLogging.h in Headers */,
 				1FF0A7291A5F43C200FA1B49 /* FOXExecutedProgram.h in Headers */,
 				1F7CF6AE1A3FF146005C86A5 /* FOXDictionary.h in Headers */,
@@ -1455,6 +1465,7 @@
 				1F71D4EB1A3105050017E81A /* FOXEnvironment.m in Sources */,
 				1F38B61C1A2ACCA80078FF90 /* FOXBlockGenerator.m in Sources */,
 				1F6DE17E1A4F66F900C93B28 /* itab.c in Sources */,
+				1F7B79711A646BB000BA47A4 /* FOXAssertionException.m in Sources */,
 				1F38B6281A2ACCA80078FF90 /* FOXPureGenerator.m in Sources */,
 				1F6DE1741A4F66F900C93B28 /* decode.c in Sources */,
 				1F38B6BA1A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */,
@@ -1572,6 +1583,7 @@
 				1F71D4EC1A3105050017E81A /* FOXEnvironment.m in Sources */,
 				1F38B6341A2ACCA90078FF90 /* FOXBlockGenerator.m in Sources */,
 				1F6DE17F1A4F66F900C93B28 /* itab.c in Sources */,
+				1F7B79721A646BB000BA47A4 /* FOXAssertionException.m in Sources */,
 				1F38B6401A2ACCA90078FF90 /* FOXPureGenerator.m in Sources */,
 				1F6DE1751A4F66F900C93B28 /* decode.c in Sources */,
 				1F38B6851A2ACCC00078FF90 /* FOXStringGenerators.m in Sources */,
@@ -2049,7 +2061,6 @@
 		1FF4AAB51A3FD7C10000E69E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2078,7 +2089,6 @@
 		1FF4AAB61A3FD7C10000E69E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

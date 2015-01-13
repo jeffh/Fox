@@ -61,7 +61,12 @@
          <EnvironmentVariable
             key = "FOX_SEED"
             value = "1418723808"
-            isEnabled = "YES">
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "CEDAR_RANDOM_SEED"
+            value = "95766"
+            isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>
       <AdditionalOptions>

@@ -1,6 +1,5 @@
 #import "FOXStringGenerators.h"
 #import "FOXCoreGenerators.h"
-#import "FOXGenerator.h"
 #import "FOXStringGenerator.h"
 #import "FOXArrayGenerators.h"
 

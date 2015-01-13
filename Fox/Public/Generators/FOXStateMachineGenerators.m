@@ -16,6 +16,8 @@
 #import "FOXRandom.h"
 #import "FOXExecutedProgram.h"
 #import "FOXProgram.h"
+#import "FOXPropertyGenerators.h"
+
 
 FOX_EXPORT id<FOXGenerator> FOXSerialCommands(id<FOXStateMachine> stateMachine) {
     id<FOXGenerator> stateMachineGenerator = [[FOXStateMachineGenerator alloc] initWithStateMachine:stateMachine];
@@ -56,10 +58,18 @@ FOX_EXPORT FOXExecutedProgram *FOXRunSerialCommands(FOXProgram *program, id subj
     NSArray *commands = program.serialCommands;
 
     FOXExecutedProgram *result = [[FOXExecutedProgram alloc] init];
-    result.program = program;
-    result.serialCommands = [stateMachine executeCommandSequence:commands
+    result.program             = program;
+    result.serialCommands      = [stateMachine executeCommandSequence:commands
                                                          subject:subject
                                               startingModelState:[stateMachine initialModelState]];
-    result.succeeded = FOXExecutedSuccessfully(result.serialCommands);
+    result.succeeded           = FOXExecutedSuccessfully(result.serialCommands);
     return result;
+}
+
+FOX_EXPORT BOOL FOXReturnPrettyPrintedProgram(FOXExecutedProgram *program) {
+    FOXPropertyResult *result = [[FOXPropertyResult alloc] init];
+    result.generatedValue = program;
+    result.status = FOXRequire(program.succeeded);
+    FOXRaiseResult(result);
+    return ![result hasFailedOrRaisedException];
 }

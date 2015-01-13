@@ -8,9 +8,12 @@
 {
     FOXPrettyArray *serial = [FOXPrettyArray arrayWithArray:self.serialCommands];
     FOXPrettyArray *parallel = [FOXPrettyArray arrayWithArray:self.parallelCommands];
+    NSString *succeededString = (self.succeeded ? @"PASSED" : @"FAILED");
     FOXDictionary *result = [FOXDictionary dictionaryWithDictionary:@{@"serial": serial,
                                                                       @"parallel": parallel}];
-    return [NSString stringWithFormat:@"<FOXExecutedProgram: %@>", result];
+    return [NSString stringWithFormat:@"<FOXExecutedProgram: %@ %@>",
+            succeededString,
+            result];
 }
 
 @end

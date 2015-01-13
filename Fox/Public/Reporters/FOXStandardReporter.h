@@ -1,4 +1,3 @@
-#import "FOXRunner.h"
 #import "FOXReporter.h"
 
 

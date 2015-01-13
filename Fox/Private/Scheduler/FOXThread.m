@@ -273,8 +273,8 @@ static void fthread_schedule_random(fthread_scheduler_t *scheduler) {
         size_t last_element = scheduler->num_threads - 1;
         MUTEX_UNLOCK(&scheduler->lock);
 
-        size_t i = [random randomIntegerWithinMinimum:0
-                                           andMaximum:last_element];
+        long long i = [random randomIntegerWithinMinimum:0
+                                              andMaximum:last_element];
 
         MUTEX_LOCK(&scheduler->lock);
         fthread_internal_t fthread = scheduler->threads[i];

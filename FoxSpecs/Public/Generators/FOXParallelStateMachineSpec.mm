@@ -14,6 +14,7 @@ using namespace Cedar::Doubles;
 SPEC_BEGIN(FOXParallelStateMachineSpec)
 
 describe(@"FOXParallelStateMachine", ^{
+
 #ifdef FOXSPECS_INSTRUMENTED
     it(@"should fail if the ticker does not support atomic methods (instrumented yielding)", ^{
         FOXFiniteStateMachine *stateMachine = [[FOXFiniteStateMachine alloc] initWithInitialModelState:@0];
@@ -39,18 +40,18 @@ describe(@"FOXParallelStateMachine", ^{
             FOXProgram *program = tuple[0];
             id<FOXRandom> random = tuple[1];
             FOXScheduler *scheduler = [[FOXScheduler alloc] initWithRandom:random];
-            __block BOOL result = NO;
+            __block FOXExecutedProgram *executedProgram = nil;
             [scheduler runAndWait:^{
-                result = FOXRunParallelCommands(program, ^id{
+                executedProgram = FOXRunParallelCommands(program, ^id{
                     return [Ticker new];
-                }).succeeded;
+                });
             }];
-            return result;
+            return FOXReturnPrettyPrintedProgram(executedProgram);
         });
 
         FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
         result.succeeded should be_falsy;
-        FOXExecutedProgram *execution = result.smallestFailingValue[0];
+        FOXExecutedProgram *execution = result.smallestFailingValue;
         execution.serialCommands should be_empty;
     });
 
@@ -78,13 +79,13 @@ describe(@"FOXParallelStateMachine", ^{
             id<FOXRandom> random = tuple[1];
 
             FOXScheduler *scheduler = [[FOXScheduler alloc] initWithRandom:random];
-            __block BOOL passed = NO;
+            __block FOXExecutedProgram *executedProgram = nil;
             [scheduler runAndWait:^{
-                passed = FOXRunParallelCommands(program, ^id{
+                executedProgram = FOXRunParallelCommands(program, ^id{
                     return [Ticker new];
-                }).succeeded;
+                });
             }];
-            return passed;
+            return FOXReturnPrettyPrintedProgram(executedProgram);
         });
 
         FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
@@ -116,13 +117,13 @@ describe(@"FOXParallelStateMachine", ^{
             id<FOXRandom> random = tuple[1];
 
             FOXScheduler *scheduler = [[FOXScheduler alloc] initWithRandom:random];
-            __block BOOL passed = NO;
+            __block FOXExecutedProgram *executedProgram = nil;
             [scheduler runAndWait:^{
-                passed = FOXRunParallelCommands(plan, ^id{
+                executedProgram = FOXRunParallelCommands(plan, ^id{
                     return [Ticker new];
-                }).succeeded;
+                });
             }];
-            return passed;
+            return FOXReturnPrettyPrintedProgram(executedProgram);
         });
 
         FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
@@ -154,19 +155,19 @@ describe(@"FOXParallelStateMachine", ^{
 
             FOXScheduler *scheduler = [[FOXScheduler alloc] initWithRandom:random];
 
-            __block BOOL passed = NO;
+            __block FOXExecutedProgram *executedProgram = nil;
             [scheduler runAndWait:^{
-                passed = FOXRunParallelCommands(pcommands, ^id{
+                executedProgram = FOXRunParallelCommands(pcommands, ^id{
                     return [Ticker new];
-                }).succeeded;
+                });
             }];
-            return passed;
+            return FOXReturnPrettyPrintedProgram(executedProgram);
         });
 
-        __block FOXRunnerResult *result;
-        result = [FOXSpecHelper resultForProperty:property];
+        FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
         result.succeeded should be_falsy;
-        // shrinking not reliable due to OS-level concurrency
+        FOXExecutedProgram *execution = result.smallestFailingValue;
+        execution.serialCommands should be_empty;
     });
 });
 

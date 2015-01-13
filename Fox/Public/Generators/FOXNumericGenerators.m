@@ -1,6 +1,5 @@
 #import "FOXNumericGenerators.h"
 #import "FOXCoreGenerators.h"
-#import "FOXGenerator.h"
 #import "FOXArrayGenerators.h"
 #import "FOXRoseTree.h"
 #import "FOXChooseGenerator.h"

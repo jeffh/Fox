@@ -5,7 +5,12 @@
 #import "FOXRoseTree.h"
 #import "FOXSequence.h"
 #import "FOXArrayGenerators.h"
+#import "FOXAssertionException.h"
 
+FOX_EXPORT void FOXRaiseResult(FOXPropertyResult *result) {
+    FOXAssertionException *exception = [[FOXAssertionException alloc] initWithPropertyResult:result];
+    [exception raise];
+}
 
 FOX_EXPORT id<FOXGenerator> FOXForAll(id<FOXGenerator> generator, BOOL (^then)(id generatedValue)) {
     return FOXWithName(@"FOXForAll", FOXForSome(generator, ^FOXPropertyStatus(id generatedValue) {
@@ -17,9 +22,11 @@ FOX_EXPORT id<FOXGenerator> FOXForSome(id<FOXGenerator> generator, FOXPropertySt
     return FOXWithName(@"FOXForSome", FOXMap(generator, ^id(id value) {
         FOXPropertyResult *result = [[FOXPropertyResult alloc] init];
         result.generatedValue = value;
-        result.generatedValues = @[value ?: [NSNull null]];
         @try {
             result.status = verifier(value);
+        }
+        @catch (FOXAssertionException *exception) {
+            return exception.result;
         }
         @catch (NSException *exception) {
             result.uncaughtException = exception;
