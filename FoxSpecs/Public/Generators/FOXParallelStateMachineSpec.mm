@@ -33,7 +33,7 @@ describe(@"FOXParallelStateMachine", ^{
         [stateMachine addTransition:incrTransition];
         [stateMachine addTransition:resetTransition];
 
-        id<FOXGenerator> commandsWithRandom = FOXTuple(@[FOXParallelCommands(stateMachine),
+        id<FOXGenerator> commandsWithRandom = FOXTuple(@[FOXParallelProgram(stateMachine),
                                                          FOXSeed()]);
 
         id<FOXGenerator> property = FOXForAll(commandsWithRandom, ^BOOL(NSArray *tuple) {
@@ -42,11 +42,11 @@ describe(@"FOXParallelStateMachine", ^{
             FOXScheduler *scheduler = [[FOXScheduler alloc] initWithRandom:random];
             __block FOXExecutedProgram *executedProgram = nil;
             [scheduler runAndWait:^{
-                executedProgram = FOXRunParallelCommands(program, ^id{
+                executedProgram = FOXRunParallelProgram(program, ^id{
                     return [Ticker new];
                 });
             }];
-            return FOXReturnPrettyPrintedProgram(executedProgram);
+            return FOXReturnOrRaisePrettyProgram(executedProgram);
         });
 
         FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
@@ -72,7 +72,7 @@ describe(@"FOXParallelStateMachine", ^{
         [stateMachine addTransition:incrTransition];
         [stateMachine addTransition:resetTransition];
 
-        id<FOXGenerator> parallelCommands = FOXTuple(@[FOXParallelCommands(stateMachine),
+        id<FOXGenerator> parallelCommands = FOXTuple(@[FOXParallelProgram(stateMachine),
                                                        FOXSeed()]);
         id<FOXGenerator> property = FOXForAll(parallelCommands, ^BOOL(NSArray *tuple) {
             FOXProgram *program = tuple[0];
@@ -81,11 +81,11 @@ describe(@"FOXParallelStateMachine", ^{
             FOXScheduler *scheduler = [[FOXScheduler alloc] initWithRandom:random];
             __block FOXExecutedProgram *executedProgram = nil;
             [scheduler runAndWait:^{
-                executedProgram = FOXRunParallelCommands(program, ^id{
+                executedProgram = FOXRunParallelProgram(program, ^id{
                     return [Ticker new];
                 });
             }];
-            return FOXReturnPrettyPrintedProgram(executedProgram);
+            return FOXReturnOrRaisePrettyProgram(executedProgram);
         });
 
         FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
@@ -110,7 +110,7 @@ describe(@"FOXParallelStateMachine", ^{
         [stateMachine addTransition:incrTransition];
         [stateMachine addTransition:resetTransition];
 
-        id<FOXGenerator> parallelCommands = FOXTuple(@[FOXParallelCommands(stateMachine),
+        id<FOXGenerator> parallelCommands = FOXTuple(@[FOXParallelProgram(stateMachine),
                                                        FOXSeed()]);
         id<FOXGenerator> property = FOXForAll(parallelCommands, ^BOOL(NSArray *tuple) {
             FOXProgram *plan = tuple[0];
@@ -119,11 +119,11 @@ describe(@"FOXParallelStateMachine", ^{
             FOXScheduler *scheduler = [[FOXScheduler alloc] initWithRandom:random];
             __block FOXExecutedProgram *executedProgram = nil;
             [scheduler runAndWait:^{
-                executedProgram = FOXRunParallelCommands(plan, ^id{
+                executedProgram = FOXRunParallelProgram(plan, ^id {
                     return [Ticker new];
                 });
             }];
-            return FOXReturnPrettyPrintedProgram(executedProgram);
+            return FOXReturnOrRaisePrettyProgram(executedProgram);
         });
 
         FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
@@ -147,7 +147,7 @@ describe(@"FOXParallelStateMachine", ^{
         [stateMachine addTransition:incrTransition];
         [stateMachine addTransition:resetTransition];
 
-        id<FOXGenerator> parallelCommands = FOXTuple(@[FOXParallelCommands(stateMachine),
+        id<FOXGenerator> parallelCommands = FOXTuple(@[FOXParallelProgram(stateMachine),
                                                        FOXSeed()]);
         id<FOXGenerator> property = FOXForAll(parallelCommands, ^BOOL(NSArray *tuple) {
             FOXProgram *pcommands = tuple[0];
@@ -157,11 +157,11 @@ describe(@"FOXParallelStateMachine", ^{
 
             __block FOXExecutedProgram *executedProgram = nil;
             [scheduler runAndWait:^{
-                executedProgram = FOXRunParallelCommands(pcommands, ^id{
+                executedProgram = FOXRunParallelProgram(pcommands, ^id {
                     return [Ticker new];
                 });
             }];
-            return FOXReturnPrettyPrintedProgram(executedProgram);
+            return FOXReturnOrRaisePrettyProgram(executedProgram);
         });
 
         FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];

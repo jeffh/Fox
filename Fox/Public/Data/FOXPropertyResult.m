@@ -1,5 +1,4 @@
 #import "FOXPropertyGenerators.h"
-#import "FOXPrettyArray.h"
 
 
 @implementation FOXPropertyResult

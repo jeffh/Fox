@@ -5,11 +5,8 @@
 #import "FOXSequence.h"
 #import "FOXRunnerResult.h"
 #import "FOXStandardReporter.h"
-#import "FOXReporter.h"
 #import "FOXPropertyResult.h"
-#import "FOXPropertyGenerators.h"
 #import "FOXEnvironment.h"
-#import <dispatch/dispatch.h>
 
 typedef struct _FOXShrinkReport {
     NSUInteger depth;

@@ -21,7 +21,7 @@
  *  @param stateMachine The state machine to source commands to create.
  *  @returns a generator that produces a FOXProgram.
  */
-FOX_EXPORT id<FOXGenerator> FOXParallelCommands(id<FOXStateMachine> stateMachine);
+FOX_EXPORT id<FOXGenerator> FOXParallelProgram(id<FOXStateMachine> stateMachine);
 
 /*! Executes a given program on multiple threads for the given subject. It then
  *  checks for linearizability of the subject which is return in executed
@@ -32,5 +32,7 @@ FOX_EXPORT id<FOXGenerator> FOXParallelCommands(id<FOXStateMachine> stateMachine
  *                        under test.
  *  @returns A program that stores the results of running the program.
  */
-FOX_EXPORT FOXExecutedProgram *FOXRunParallelCommands(FOXProgram *program,
-                                                      id (^subjectFactory)());
+FOX_EXPORT FOXExecutedProgram *FOXRunParallelProgram(FOXProgram *program,
+                                                     id (^subjectFactory)());
+
+// use FOXReturnOrRaisePrettyProgram() from FOXStateMachine.h

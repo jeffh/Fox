@@ -5,8 +5,6 @@
 #import "FOXArrayGenerators.h"
 #import "FOXCommand.h"
 #import "FOXRoseTree.h"
-#import "FOXSequenceGenerator.h"
-#import "FOXProgram.h"
 
 @interface FOXStateMachineGenerator ()
 @property (nonatomic) id<FOXStateMachine> stateMachine;
@@ -25,7 +23,7 @@
 }
 
 - (instancetype)initWithStateMachine:(id<FOXStateMachine>)stateMachine
-{         
+{
     return [self initWithStateMachine:stateMachine
                     initialModelState:[stateMachine initialModelState]
                               minSize:nil

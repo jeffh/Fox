@@ -1,5 +1,4 @@
 #import "FOXLazySequence.h"
-#import "FOXConcreteSequence.h"
 #import <libkern/OSAtomic.h>
 
 

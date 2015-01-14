@@ -1134,6 +1134,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F97E2F21A55E75A00CE7EA4 /* Build configuration list for PBXNativeTarget "Foxling" */;
 			buildPhases = (
+				1F05976A1A66555E002E1816 /* Download LLVM & Clang If Needed */,
 				1F97E2EA1A55E75A00CE7EA4 /* Sources */,
 				1F97E2EB1A55E75A00CE7EA4 /* Frameworks */,
 				1FF6791D1A5CC79A004F54DA /* Copy C++ Headers */,
@@ -1196,6 +1197,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F05976A1A66555E002E1816 /* Download LLVM & Clang If Needed */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Download LLVM & Clang If Needed";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "if [ ! -d \"$SRCROOT/LLVM/llvm\" -a ! -d \"$SRCROOT/LLVM/llvm_build\" ]\nthen\n    echo \"Downloading precompiled LLVM\"\n    pushd $SRCROOT/LLVM\n    $SRCROOT/LLVM/package.sh\n    popd\nelse\n    echo \"LLVM already exists.\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F97E2EA1A55E75A00CE7EA4 /* Sources */ = {

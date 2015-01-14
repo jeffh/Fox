@@ -1,6 +1,4 @@
 #import "FOXThread.h"
-#import <stdio.h>
-#import <time.h>
 #import "mach_override.h"
 #import "FOXMemory.h"
 #import "FOXThreadMachine.h"

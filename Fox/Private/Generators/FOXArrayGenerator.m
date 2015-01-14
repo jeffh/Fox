@@ -2,7 +2,6 @@
 #import "FOXSequenceGenerator.h"
 #import "FOXRoseTree.h"
 #import "FOXCoreGenerators.h"
-#import "FOXSequence.h"
 
 
 @interface FOXArrayGenerator ()

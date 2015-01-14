@@ -9,8 +9,6 @@
 #import "FOXSuchThatGenerator.h"
 #import "FOXBlockGenerator.h"
 
-#import "FOXSequence.h"
-
 
 FOX_EXPORT id<FOXGenerator> FOXWithName(NSString *name, id<FOXGenerator> generator) {
     return [[FOXNamedGenerator alloc] initWithName:name forGenerator:generator];

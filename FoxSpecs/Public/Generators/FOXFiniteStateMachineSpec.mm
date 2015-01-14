@@ -29,9 +29,9 @@ describe(@"FOXFiniteStateMachine", ^{
     });
 
     it(@"should be able validate queue behavior", ^{
-        FOXAssert(FOXForAll(FOXSerialCommands(stateMachine), ^BOOL(FOXProgram *program) {
+        FOXAssert(FOXForAll(FOXSerialProgram(stateMachine), ^BOOL(FOXProgram *program) {
             Queue *subject = [[Queue alloc] init];
-            return FOXRunSerialCommands(program, subject).succeeded;
+            return FOXRunSerialProgram(program, subject).succeeded;
         }));
     });
 });

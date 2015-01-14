@@ -1,23 +1,18 @@
 #import "FOXParallelGenerators.h"
-#import "FOXRandom.h"
 #import "FOXCoreGenerators.h"
-#import "FOXNumericGenerators.h"
 #import "FOXStateMachine.h"
 #import "FOXStateMachineGenerators.h"
-#import "FOXDictionary.h"
 #import "FOXPrettyArray.h"
-#import "FOXScheduler.h"
 #import "FOXStateMachineGenerator.h"
 #import "FOXArrayGenerators.h"
 #import "FOXBlock.h"
 #import "FOXMath.h"
 #import "FOXExecutedProgram.h"
-#import "FOXExecutedCommand.h"
 #import "FOXProgram.h"
 
 static BOOL FOXExecutedSuccessfullyInParallel(FOXExecutedProgram *parallelExecution, id(^subjectFactory)());
 
-FOX_EXPORT id<FOXGenerator> FOXParallelCommands(id<FOXStateMachine> stateMachine) {
+FOX_EXPORT id<FOXGenerator> FOXParallelProgram(id<FOXStateMachine> stateMachine) {
     id<FOXGenerator> prefixGen = [[FOXStateMachineGenerator alloc] initWithStateMachine:stateMachine];
     return FOXBind(prefixGen, ^id<FOXGenerator>(NSArray *prefixCommands) {
         // "Private" parameters for parallel test generation.
@@ -47,17 +42,16 @@ FOX_EXPORT id<FOXGenerator> FOXParallelCommands(id<FOXStateMachine> stateMachine
                                                                                   maxSize:maxCommandsPerThread];
         id<FOXGenerator> processesGenerator = FOXArrayOfSizeRange(process, minNumOfThreads, maxNumOfThreads);
         return FOXMap(processesGenerator, ^id(NSArray *processCommands) {
-            FOXProgram *plan = [[FOXProgram alloc] init];
-            plan.serialCommands    = prefixCommands;
-            plan.parallelCommands  = processCommands;
-            plan.stateMachine      = stateMachine;
-            return plan;
+            FOXProgram *program = [[FOXProgram alloc] init];
+            program.serialCommands    = prefixCommands;
+            program.parallelCommands  = processCommands;
+            program.stateMachine      = stateMachine;
+            return program;
         });
     });
 }
 
-FOX_EXPORT FOXExecutedProgram *FOXRunParallelCommands(FOXProgram *program,
-                                                      id (^subjectFactory)()) {
+FOX_EXPORT FOXExecutedProgram *FOXRunParallelProgram(FOXProgram *program, id (^subjectFactory)()) {
     @autoreleasepool {
         id<FOXStateMachine> stateMachine = program.stateMachine;
         NSArray *prefixCommands = program.serialCommands;
@@ -91,7 +85,7 @@ FOX_EXPORT FOXExecutedProgram *FOXRunParallelCommands(FOXProgram *program,
         }
         [threads makeObjectsPerformSelector:@selector(start)];
         dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-        threads = nil;
+        [threads removeAllObjects];
 
         NSMutableArray *results = [blocks valueForKey:NSStringFromSelector(@selector(result))];
         NSArray *executedCommands = [FOXPrettyArray arrayWithArray:results];

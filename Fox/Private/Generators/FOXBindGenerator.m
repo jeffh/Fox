@@ -1,5 +1,4 @@
 #import "FOXBindGenerator.h"
-#import "FOXCoreGenerators.h"
 
 
 @interface FOXBindGenerator ()

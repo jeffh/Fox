@@ -3,14 +3,8 @@
 #import "FOXGenerator.h"
 #import "FOXRandom.h"
 #import "FOXRoseTree.h"
-#import "FOXSequence.h"
-#import "FOXArrayGenerators.h"
 #import "FOXAssertionException.h"
 
-FOX_EXPORT void FOXRaiseResult(FOXPropertyResult *result) {
-    FOXAssertionException *exception = [[FOXAssertionException alloc] initWithPropertyResult:result];
-    [exception raise];
-}
 
 FOX_EXPORT id<FOXGenerator> FOXForAll(id<FOXGenerator> generator, BOOL (^then)(id generatedValue)) {
     return FOXWithName(@"FOXForAll", FOXForSome(generator, ^FOXPropertyStatus(id generatedValue) {

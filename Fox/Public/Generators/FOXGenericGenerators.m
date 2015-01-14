@@ -4,7 +4,6 @@
 #import "FOXNumericGenerators.h"
 #import "FOXArrayGenerators.h"
 #import "FOXSetGenerators.h"
-#import "FOXDictionaryGenerators.h"
 
 
 FOX_EXPORT id<FOXGenerator> FOXOptional(id<FOXGenerator> generator) {

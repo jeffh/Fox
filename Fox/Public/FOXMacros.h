@@ -4,4 +4,7 @@
 #define FOX_EXPORT FOUNDATION_EXPORT
 #define FOX_INLINE NS_INLINE
 #define FOX_EXTERN FOUNDATION_EXTERN
-#define FOX_DEPRECATED(s) DEPRECATED_MSG_ATTRIBUTE(s)
+
+// currently, we don't specify any deprecation warnings
+#define FOX_DEPRECATED(s)
+//#define FOX_DEPRECATED(s) DEPRECATED_MSG_ATTRIBUTE(s)
