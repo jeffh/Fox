@@ -54,6 +54,7 @@ function test_ios {
         -sdk "iphonesimulator$BUILD_IOS_SDK_VERSION"\
         -destination "name=iPhone 5s,OS=$RUNTIME_IOS_SDK_VERSION" \
         build test \
+        CODE_SIGNING_REQUIRED=NO \
         FOX_NUM_TESTS=$FOX_NUM_TEST \
         FOX_SEED=$FOX_SEED \
         FOX_MAX_SIZE=$FOX_MAX_SIZE
