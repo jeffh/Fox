@@ -71,6 +71,8 @@ FOX_EXPORT BOOL FOXReturnPrettyPrintedProgram(FOXExecutedProgram *program) {
     FOXPropertyResult *result = [[FOXPropertyResult alloc] init];
     result.generatedValue = program;
     result.status = FOXRequire(program.succeeded);
-    FOXRaiseResult(result);
-    return ![result hasFailedOrRaisedException];
+    if ([result hasFailedOrRaisedException]) {
+        FOXRaiseResult(result);
+    }
+    return YES;
 }

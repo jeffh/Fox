@@ -34,8 +34,8 @@ FOX_EXPORT id<FOXGenerator> FOXParallelCommands(id<FOXStateMachine> stateMachine
         //          So each failing parallel test will spawn 720 more
         //          serialized tests to run. Remember that every shrink attempt
         //          counts as a failing test too.
-        NSNumber *minCommandsPerThread = @1;
-        NSNumber *maxCommandsPerThread = @2;
+        NSNumber *minCommandsPerThread   = @1;
+        NSNumber *maxCommandsPerThread   = @2;
         const NSUInteger minNumOfThreads = 2;
         const NSUInteger maxNumOfThreads = 3;
 
@@ -97,7 +97,7 @@ FOX_EXPORT FOXExecutedProgram *FOXRunParallelCommands(FOXProgram *program,
         NSArray *executedCommands = [FOXPrettyArray arrayWithArray:results];
 
         FOXExecutedProgram *result = [[FOXExecutedProgram alloc] init];
-        result.program = program;
+        result.program             = program;
         result.serialCommands      = executedPrefix;
         result.parallelCommands    = executedCommands;
         result.succeeded           = FOXExecutedSuccessfullyInParallel(result, subjectFactory);
