@@ -16,6 +16,17 @@ New to Fox? Or just wanting to have a taste of it? Start here.
 - :doc:`Installation </installation>` - How to get set up.
 - :doc:`Tutorial </tutorial>` - Get a feel for using Fox.
 
+Parallel Testing
+----------------
+
+**ALPHA** Fox's infrastructure to test stateful code in parallel (across
+multiple threads).
+
+- :doc:`Overview </parallel/overview>` - What and how to test parallel code.
+- :doc:`Install the Foxling Compiler </parallel/installation>` - How to set up for advanced parallel testing. This is beyond the :doc:`standard installation </installation>`.
+- :doc:`Tutorial </parallel/tutorial>` - Getting a feel for parallel testing.
+- :doc:`Foxling </parallel/foxling>` - Technical details of Fox's cooperative threads compiler.
+
 Generators
 ----------
 

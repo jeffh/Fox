@@ -63,7 +63,7 @@ generators shrink to zero:
         FOXNonZeroInteger()
         // example generations: -1, 2, -3
 
-.. c:function:: id<FOXGenerator> FOXChoose(NSNumber *miniumNumber, NSNumber *maximumNumber) // NSNumber
+.. c:function:: id<FOXGenerator> FOXChoose(NSNumber *miniumNumber, NSNumber *maximumNumber)
 
     Generates random integers boxed as a NSNumber within the given range
     (inclusive). Shrinks to miniumNumber. The miniumNumber can never be greater
@@ -72,7 +72,7 @@ generators shrink to zero:
         FOXChoose(@5, @10)
         // example generations: 5, 6, 7
 
-.. c:function:: id<FOXGenerator> FOXFloat(void) // NSNumber
+.. c:function:: id<FOXGenerator> FOXFloat(void)
 
     Generates random floating point numbers that conform to the IEEE 754
     standard in a boxed NSNumber. Shrinks towards zero by shrinking the float's
@@ -85,7 +85,7 @@ generators shrink to zero:
     It is possible to generate positive infinity and NaNs, but is highly
     unlikely.
 
-.. c:function:: id<FOXGenerator> FOXDouble(void) // NSNumber
+.. c:function:: id<FOXGenerator> FOXDouble(void)
 
     Generates random doubles that conform to the IEEE 754 standard in a boxed
     NSNumber. Shrinks towards zero by shrinking the double's exponent and
@@ -98,7 +98,7 @@ generators shrink to zero:
     It is possible to generate positive infinity and NaNs, but is highly
     unlikely.
 
-.. c:function:: id<FOXGenerator> FOXDecimalNumber(void) // NSDecimalNumber
+.. c:function:: id<FOXGenerator> FOXDecimalNumber(void)
 
     Generates random decimal numbers. Shrinks towards zero by shrinking the
     mantissa and exponent.
@@ -214,14 +214,14 @@ generators shrink to zero:
         FOXDecimalNumber()
         // example generations: 0, -192000000000000000000000000000000000000000000, 790000000000000000000000000000000000000000000000000000000000000000000000000000
 
-.. c:function:: id<FOXGenerator> FOXReturn(id value) // id
+.. c:function:: id<FOXGenerator> FOXReturn(id value)
 
     Generates only the value provided. Does not shrink::
 
         FOXReturn(@2)
         // example generations: 2
 
-.. c:function:: id<FOXGenerator> FOXTuple(NSArray *generators) // NSArray
+.. c:function:: id<FOXGenerator> FOXTuple(NSArray *generators)
 
     Generates a fixed-size arrays where each element corresponds to each of the
     generators provided::
@@ -232,7 +232,7 @@ generators shrink to zero:
     Shrinking is the smallest value for each of the generators provided. The
     array does not change size.
 
-.. c:function:: id<FOXGenerator> FOXTupleOfGenerators(id<FOXSequence> *generators) // NSArray
+.. c:function:: id<FOXGenerator> FOXTupleOfGenerators(id<FOXSequence> *generators)
 
     Identical to ``FOXTuple``, but accepts a FOXSequence of generators instead of
     an array::
@@ -241,7 +241,7 @@ generators shrink to zero:
         FOXTupleOfGenerators(@[FOXInteger(), FOXDecimalNumber()]);
         // example generations: @[@0, @0], @[@2, @-129]
 
-.. c:function:: id<FOXGenerator> FOXArray(id<FOXGenerator> itemGenerator) // NSArray
+.. c:function:: id<FOXGenerator> FOXArray(id<FOXGenerator> itemGenerator)
 
     Generates a variable-sized array where each element is created via the
     itemGenerator. Shrinking reduces the size of the array as well as each
@@ -250,7 +250,7 @@ generators shrink to zero:
         FOXArrayOfSize(FOXInteger(), 3)
         // example generations: @[@0, @0, @0], @[@2, @-129, @21]
 
-.. c:function:: id<FOXGenerator> FOXArrayOfSize(id<FOXGenerator> itemGenerator, NSUInteger size) // NSArray
+.. c:function:: id<FOXGenerator> FOXArrayOfSize(id<FOXGenerator> itemGenerator, NSUInteger size)
 
     Generates a fixed-size array where each element is created via the
     itemGenerator. Shrinking only reduces the size of each element generated::
@@ -259,7 +259,7 @@ generators shrink to zero:
         FOXArrayOfSize(FOXInteger(), 3)
         // example generations: @[@0, @0, @0], @[@2, @-129, @21]
 
-.. c:function:: id<FOXGenerator> FOXArrayOfSizeRange(id<FOXGenerator> itemGenerator, NSUInteger minSize, NSUInteger maxSize) // NSArray
+.. c:function:: id<FOXGenerator> FOXArrayOfSizeRange(id<FOXGenerator> itemGenerator, NSUInteger minSize, NSUInteger maxSize)
 
     Generates a variable-sized array where each element is created via the
     itemGenerator. The size of the array is within the specified range
@@ -270,7 +270,7 @@ generators shrink to zero:
         FOXArrayOfSizeRange(FOXInteger(), 1, 2)
         // example generations: @[@0], @[@2, @-129]
 
-.. c:function:: id<FOXGenerator> FOXDictionary(NSDictionary *template) // NSDictionary
+.. c:function:: id<FOXGenerator> FOXDictionary(NSDictionary *template)
 
     Generates random dictionaries of generated values. Keys are known values
     ahead of time. Specified in `@{<key>: <generator>}` form::
@@ -282,7 +282,7 @@ generators shrink to zero:
     Only values shrink. The number of pairs the dictionary holds does not
     shrink.
 
-.. c:function:: id<FOXGenerator> FOXSet(id<FOXGenerator> generator) // NSSet
+.. c:function:: id<FOXGenerator> FOXSet(id<FOXGenerator> generator)
 
     Generates random sets of generated values. The size of the set is not
     deterministic. Values generated should support the methods required to be
@@ -292,7 +292,7 @@ generators shrink to zero:
         FOXSet(FOXInteger())
         // example generations: [NSSet setWithObject:@1], [NSSet setWithObjects:@3, @2, nil]
 
-.. c:function:: id<FOXGenerator> FOXCharacter(void) // NSString
+.. c:function:: id<FOXGenerator> FOXCharacter(void)
 
     Generates random 1-length sized character string. It may be an unprintable
     character. Shrinks to smaller ascii numeric values::
@@ -300,7 +300,7 @@ generators shrink to zero:
         FOXCharacter()
         // example generations: @"\0", @"f", @"k"
 
-.. c:function:: id<FOXGenerator> FOXAlphabeticalCharacter(void) // NSString
+.. c:function:: id<FOXGenerator> FOXAlphabeticalCharacter(void)
 
     Generates random 1-length sized alphabetical string. Includes both upper
     and lower case. Shrinks to smaller ascii numeric values::
@@ -308,7 +308,7 @@ generators shrink to zero:
         FOXAlphabeticalCharacter()
         // example generations: @"A", @"a", @"k"
 
-.. c:function:: id<FOXGenerator> FOXNumericCharacter(void) // NSString
+.. c:function:: id<FOXGenerator> FOXNumericCharacter(void)
 
     Generates random 1-length sized numeric string (0-9). Shrinks to smaller
     ascii numeric values::
@@ -316,7 +316,7 @@ generators shrink to zero:
         FOXNumericCharacter()
         // example generations: @"0", @"1", @"9"
 
-.. c:function:: id<FOXGenerator> FOXAlphanumericCharacter(void) // NSString
+.. c:function:: id<FOXGenerator> FOXAlphanumericCharacter(void)
 
     Generates random 1-length sized numeric string (A-Z,a-z,0-9). Shrinks to
     smaller ascii numeric values::
@@ -324,7 +324,7 @@ generators shrink to zero:
         FOXAlphanumericCharacter()
         // example generations: @"A", @"d", @"7"
 
-.. c:function:: id<FOXGenerator> FOXAsciiCharacter(void) // NSString
+.. c:function:: id<FOXGenerator> FOXAsciiCharacter(void)
 
     Generates random 1-length sized character string. It is ensured to be
     printable. Shrinks to smaller ascii numeric values::
@@ -332,7 +332,7 @@ generators shrink to zero:
         FOXAsciiCharacter()
         // example generations: @"A", @"d", @"7", @"%"
 
-.. c:function:: id<FOXGenerator> FOXString(void) // NSString
+.. c:function:: id<FOXGenerator> FOXString(void)
 
     Generates random variable length strings. It may be an unprintable string.
     Shrinks to smaller ascii numeric values and smaller length strings::
@@ -340,7 +340,7 @@ generators shrink to zero:
         FOXString()
         // example generations: @"", @"fo$#@52\n\0", @"sfa453"
 
-.. c:function:: id<FOXGenerator> FOXStringOfLength(NSUInteger length) // NSString
+.. c:function:: id<FOXGenerator> FOXStringOfLength(NSUInteger length)
 
     Generates random fixed-length strings. It may be an unprintable string.
     Shrinks to smaller ascii numeric values and smaller length strings::
@@ -348,7 +348,7 @@ generators shrink to zero:
         FOXStringOfLength(5)
         // example generations: @"fdg j", @"f#%2\0", @"23zzf"
 
-.. c:function:: id<FOXGenerator> FOXStringOfLengthRange(NSUInteger minLength, NSUInteger maxLength) // NSString
+.. c:function:: id<FOXGenerator> FOXStringOfLengthRange(NSUInteger minLength, NSUInteger maxLength)
 
     Generates random variable length strings within the given range
     (inclusive). It may be an unprintable string. Shrinks to smaller ascii
@@ -357,7 +357,7 @@ generators shrink to zero:
         FOXStringOfLengthRange(3, 5)
         // example generations: @"fgsj", @"b 2", @"65a\n\0"
 
-.. c:function:: id<FOXGenerator> FOXAsciiString(void) // NSString
+.. c:function:: id<FOXGenerator> FOXAsciiString(void)
 
     Generates random variable length ascii-only strings.
     Shrinks to smaller ascii numeric values and smaller length strings::
@@ -365,7 +365,7 @@ generators shrink to zero:
         FOXAsciiString()
         // example generations: @"fgsj", @"b 2", @"65a"
 
-.. c:function:: id<FOXGenerator> FOXAsciiStringOfLength(NSUInteger length) // NSString
+.. c:function:: id<FOXGenerator> FOXAsciiStringOfLength(NSUInteger length)
 
     Generates random fixed-length ascii-only strings.  Shrinks to smaller ascii
     numeric values and smaller length strings::
@@ -373,7 +373,7 @@ generators shrink to zero:
         FOXAsciiStringOfLength(5)
         // example generations: @"fgsj1", @"b 122", @"65abb"
 
-.. c:function:: id<FOXGenerator> FOXAsciiStringOfLengthRange(NSUInteger minLength, NSUInteger maxLength) // NSString
+.. c:function:: id<FOXGenerator> FOXAsciiStringOfLengthRange(NSUInteger minLength, NSUInteger maxLength)
 
     Generates random variable length ascii-only strings within the given range
     (inclusive). Shrinks to smaller ascii numeric values and smaller length
@@ -382,7 +382,7 @@ generators shrink to zero:
         FOXAsciiStringOfLengthRange(2, 5)
         // example generations: @"fg", @" 122", @"abb"
 
-.. c:function:: id<FOXGenerator> FOXAlphabeticalString(void) // NSString
+.. c:function:: id<FOXGenerator> FOXAlphabeticalString(void)
 
     Generates random variable length alphabetical strings. Includes upper and
     lower cased strings.  Shrinks to smaller ascii numeric values and smaller
@@ -391,7 +391,7 @@ generators shrink to zero:
         FOXAlphabeticalString()
         // example generations: @"fg", @"admm", @"oiuteoer"
 
-.. c:function:: id<FOXGenerator> FOXAlphabeticalStringOfLength(NSUInteger length) // NSString
+.. c:function:: id<FOXGenerator> FOXAlphabeticalStringOfLength(NSUInteger length)
 
     Generates random fixed-length alphabetical strings. Includes upper and
     lower cased letters.  Shrinks to smaller ascii numeric values and smaller
@@ -400,7 +400,7 @@ generators shrink to zero:
         FOXAlphabeticalStringOfLength(4)
         // example generations: @"fguu", @"admm", @"ueer"
 
-.. c:function:: id<FOXGenerator> FOXAlphabeticalStringOfLengthRange(NSUInteger minLength, NSUInteger maxLength) // NSString
+.. c:function:: id<FOXGenerator> FOXAlphabeticalStringOfLengthRange(NSUInteger minLength, NSUInteger maxLength)
 
     Generates random variable length alphabetical strings within the given
     range (inclusive). Includes upper and lower cased strings. Shrinks to
@@ -409,7 +409,7 @@ generators shrink to zero:
         FOXAlphabeticalStringOfLengthRange(2, 4)
         // example generations: @"fguu", @"adm", @"ee"
 
-.. c:function:: id<FOXGenerator> FOXAlphanumericalString(void) // NSString
+.. c:function:: id<FOXGenerator> FOXAlphanumericalString(void)
 
     Generates random variable length alphanumeric strings. Includes upper and
     lower cased strings.  Shrinks to smaller ascii numeric values and smaller
@@ -418,7 +418,7 @@ generators shrink to zero:
         FOXAlphanumericalString()
         // example generations: @"fg9u", @"a3M", @"fkljlkbd3241ee"
 
-.. c:function:: id<FOXGenerator> FOXAlphanumericalStringOfLength(NSUInteger length) // NSString
+.. c:function:: id<FOXGenerator> FOXAlphanumericalStringOfLength(NSUInteger length)
 
     Generates random fixed-length alphanumeric strings. Includes upper and
     lower cased letters.  Shrinks to smaller ascii numeric values and smaller
@@ -427,7 +427,7 @@ generators shrink to zero:
         FOXAlphanumericalStringOfLength(3)
         // example generations: @"fg9", @"a3M", @"1ee"
 
-.. c:function:: id<FOXGenerator> FOXAlphanumericalStringOfLengthRange(NSUInteger minLength, NSUInteger maxLength) // NSString
+.. c:function:: id<FOXGenerator> FOXAlphanumericalStringOfLengthRange(NSUInteger minLength, NSUInteger maxLength)
 
     Generates random variable length alphanumeric strings within the given
     range (inclusive). Includes upper and lower cased strings. Shrinks to
@@ -436,7 +436,7 @@ generators shrink to zero:
         FOXAlphanumericalStringOfLengthRange(2, 3)
         // example generations: @"fg9", @"aM", @"1e"
 
-.. c:function:: id<FOXGenerator> FOXNumericalString(void) // NSString
+.. c:function:: id<FOXGenerator> FOXNumericalString(void)
 
     Generates random variable length numeric strings (0-9). Includes upper and
     lower cased strings.  Shrinks to smaller ascii numeric values and smaller
@@ -445,7 +445,7 @@ generators shrink to zero:
         FOXNumericalString()
         // example generations: @"", @"62", @"0913024"
 
-.. c:function:: id<FOXGenerator> FOXNumericalStringOfLength(NSUInteger length) // NSString
+.. c:function:: id<FOXGenerator> FOXNumericalStringOfLength(NSUInteger length)
 
     Generates random fixed-length numeric strings (0-9). Includes upper and
     lower cased letters.  Shrinks to smaller ascii numeric values and smaller
@@ -454,7 +454,7 @@ generators shrink to zero:
         FOXNumericalStringOfLength(3)
         // example generations: @"521", @"620", @"091"
 
-.. c:function:: id<FOXGenerator> FOXNumericalStringOfLengthRange(NSUInteger minLength, NSUInteger maxLength) // NSString
+.. c:function:: id<FOXGenerator> FOXNumericalStringOfLengthRange(NSUInteger minLength, NSUInteger maxLength)
 
     Generates random variable length numeric strings (0-9) within the given
     range (inclusive). Includes upper and lower cased strings. Shrinks to
@@ -470,7 +470,7 @@ generators shrink to zero:
         FOXElements(@[@1, @5, @9]);
         // example generations: @1, @5, @9
 
-.. c:function:: id<FOXGenerator> FOXSimpleType(void) // id
+.. c:function:: id<FOXGenerator> FOXSimpleType(void)
 
     Generates random simple types. A simple type is a data type that is not
     made of other types. The value generated may not be safe to print to
@@ -485,7 +485,7 @@ generators shrink to zero:
 
     But this generator may change to cover more data types at any time.
 
-.. c:function:: id<FOXGenerator> FOXPrintableSimpleType(void) // id
+.. c:function:: id<FOXGenerator> FOXPrintableSimpleType(void)
 
     Generates random simple types. A simple type is a data type that is not
     made of other types. The value generated is ensured to be printable to
@@ -500,7 +500,7 @@ generators shrink to zero:
 
     But this generator may change to cover more data types at any time.
 
-.. c:function:: id<FOXGenerator> FOXCompositeType(id<FOXGenerator> itemGenerator) // id
+.. c:function:: id<FOXGenerator> FOXCompositeType(id<FOXGenerator> itemGenerator)
 
     Generates random composite types. A composite type contains other data types.
     Elements of the composite type are from the provided itemGenerator..
@@ -513,7 +513,7 @@ generators shrink to zero:
 
     But this generator may change to cover more data types at any time.
 
-.. c:function:: id<FOXGenerator> FOXAnyObject(void) // id
+.. c:function:: id<FOXGenerator> FOXAnyObject(void)
 
     Generates random simple or composite types. Shrinking is dependent on the
     type generated.
@@ -525,7 +525,7 @@ generators shrink to zero:
 
     But this generator may change to cover more data types at any time.
 
-.. c:function:: id<FOXGenerator> FOXAnyPrintableObject(void) // id
+.. c:function:: id<FOXGenerator> FOXAnyPrintableObject(void)
 
     Generates random printable simple or composite types. Shrinking is
     dependent on the type generated.
@@ -537,11 +537,11 @@ generators shrink to zero:
 
     But this generator may change to cover more data types at any time.
 
-Computation Generators
-----------------------
+Combinators
+-----------
 
 Also, you can compose some computation work on top of data generators. The resulting
-generator adopts the same shrinking properties as the original generator.
+generator usually adopts the same shrinking properties as the original generator.
 
 .. c:function:: id<FOXGenerator> FOXMap(id<FOXGenerator> generator, id(^fn)(id generatedValue))
 
@@ -557,21 +557,19 @@ generator adopts the same shrinking properties as the original generator.
 
     Applies a block to the value that the original generator generates. The
     block is expected to return a new generator. Shrinking is dependent on the
-    returned generator.  This is a way to create a new generator from the input
+    original generator.  This is a way to create a new generator from the input
     of another generator's value::
 
         // create a generator that produces arrays of random capacities
-        // does not shrink because of FOXReturn's generator behavior.
+        // Shinks as value does (towards zero).
         FOXBind(FOXPositiveInteger(), ^id<FOXGenerator>(NSNumber *value) {
             return FOXReturn([NSArray arrayWithCapacity:[value integerValue]]);
         });
 
 .. c:function:: id<FOXGenerator> FOXResize(id<FOXGenerator> generator, NSUInteger newSize)
 
-    Overrides the given generator's size parameter with the specified size.
-    Prevents shrinking::
+    Overrides the given generator's size parameter with the specified size::
 
-        // Similar to FOXArrayOfSizeRange(FOXInteger(), @0, @10)
         FOXResize(FOXArray(FOXInteger()), 10);
 
 .. c:function:: id<FOXGenerator> FOXOptional(id<FOXGenerator> generator)
@@ -619,11 +617,11 @@ generator adopts the same shrinking properties as the original generator.
             return [value integerValue] % 2 == 0;
         });
 
-.. warning:: Using ``FOXSuchThat`` and ``FOXSuchThatWithMaxTries`` are "filter"
-             generators and can lead to significant waste in test generation by
-             Fox. While it gives you the most flexibility the kind of generated
-             data, it is the most computationally expensive. Use other
-             generators when possible.
+    .. warning:: Using ``FOXSuchThat`` and ``FOXSuchThatWithMaxTries`` are "filter"
+                generators and can lead to significant waste in test generation by
+                Fox. While it gives you the most flexibility the kind of generated
+                data, it is the most computationally expensive. Use other
+                generators when possible.
 
 .. c:function:: id<FOXGenerator> FOXSuchThatWithMaxTries(id<FOXGenerator> generator, BOOL(^predicate)(id generatedValue), NSUInteger maxTries)
 
@@ -636,11 +634,11 @@ generator adopts the same shrinking properties as the original generator.
             return [value integerValue] % 10 == 0;
         });
 
-.. warning:: Using ``FOXSuchThat`` and ``FOXSuchThatWithMaxTries`` are "filter"
-             generators and can lead to significant waste in test generation by
-             Fox. While it gives you the most flexibility the kind of generated
-             data, it is the most computationally expensive. Use other
-             generators when possible.
+    .. warning:: Using ``FOXSuchThat`` and ``FOXSuchThatWithMaxTries`` are "filter"
+                generators and can lead to significant waste in test generation by
+                Fox. While it gives you the most flexibility the kind of generated
+                data, it is the most computationally expensive. Use other
+                generators when possible.
 
 .. c:function:: id<FOXGenerator> FOXOneOf(NSArray *generators)
 
@@ -679,9 +677,14 @@ generator adopts the same shrinking properties as the original generator.
         });
         // example generations: <FOXPropertyResult: pass>, <FOXPropertyResult: fail>, <FOXPropertyResult: skipped> 
 
-.. c:function:: id<FOXGenerator> FOXCommands(id<FFOXStateMachine> stateMachine)
+.. c:function:: id<FOXGenerator> FOXCommands(id<FOXStateMachine> stateMachine)
 
-    Generates arrays of FOXCommands that satisfies a given state machine.
+    Generates arrays of FOXExecuteCommands that satisfies a given state
+    machine. Can be passed to FOXExecutedSuccessfully to verify if the subject
+    conforms to the state machine.
+
+    .. note:: It's recommended to use FOXSerialProgram instead. FOXCommands
+            may be deprecated and removed at a later date.
 
 .. c:function:: id<FOXGenerator> FOXExecuteCommands(id<FOXStateMachine> stateMachine)
 
@@ -690,6 +693,116 @@ generator adopts the same shrinking properties as the original generator.
     FOXExecutedSuccessfully to verify if the subject conforms to the state
     machine.
 
+    .. note:: It's recommended to use FOXRunSerialProgram instead.
+            FOXExecuteCommands may be deprecated and removed at a later date.
+
+.. c:function:: id<FOXGenerator> FOXSerialProgram(id<FOXStateMachine> stateMachine)
+
+    **Currently ALPHA - subject to change at any point**
+
+    Generates a FOXProgram that conforms to a given state machine. A program is
+    an abstract representation of a series of API calls (FOXCommands) to invoke.
+
+    Use :c:func:`FOXRunSerialProgram` to executed a FOXProgram and
+    :c:func:`FOXReturnOrRaisePrettyProgram` to verify the executed program::
+
+        FORForAll(FOXSerialProgram(stateMachine), ^BOOL(FOXProgram *program) {
+            Queue *subject = [Queue new];
+            FOXExecutedProgram *executedProgram = FOXRunSerialProgram(program, subject);
+            return FOXReturnOrRaisePrettyProgram(executedProgram);
+        });
+
+    Shrinking removes irrelevant commands to provoke the failure. Do not
+    intermix serial commands with parallel commands.
+
+.. c:function:: id<FOXGenerator> FOXParallelProgram(id<FOXStateMachine> stateMachine)
+
+    **Currently ALPHA - subject to change at any point**
+
+    Generates a FOXProgram that conforms to a given state machine. A program is
+    an abstract representation of a series of parallel API calls (FOXCommands)
+    to invoke. Each state transition for the state machine should be atomic.
+
+    This verifies `linearizability`_ of the subject under test.
+
+    Use :c:func:`FOXRunParallelProgram` to executed the FOXProgram on multiple threads
+    and :c:func:`FOXReturnOrRaisePrettyProgram` to verify the executed program::
+
+        // Warning: Shrinking is non-deterministic due to its parallel nature.
+        FORForAll(FOXParallelProgram(stateMachine), ^BOOL(FOXProgram *program) {
+            FOXExecutedProgram *executedProgram = FOXRunParallelProgram(program, ^id {
+                return [Queue new];
+            });
+            return FOXReturnOrRaisePrettyProgram(executedProgram);
+        });
+
+    Shrinking removes irrelevant commands to provoke the failure. Do not
+    intermix serial commands with parallel commands.
+
+    .. warning:: Due to the non-deterministic nature of parallel code, Fox cannot
+                reliably shrink a failing example to the smallest counter example
+                when only using FOXParallelProgram().
+
+    FOXScheduler and Foxling can help serialize thread execution to be more
+    deterministic::
+
+        // Warning: this code should be compiled with the Foxling compiler
+        id<FOXGenerator> programs = FOXTuple(@[FOXParallelProgram(stateMachine),
+                                               FOXSeed()]);
+        FORForAll(programs, ^BOOL(NSArray *tuple) {
+            FOXProgram *program = tuple[0];
+            id<FOXRandom> prng = tuple[1];
+
+            FOXScheduler *scheduler = [[FOXScheduler alloc] initWithRandom:prng];
+            __block FOXExecutedProgram *executedProgram = nil;
+            [executedProgram runAndWait:^{
+                executedProgram = FOXRunParallelProgram(program, ^id {
+                    return [Queue new];
+                });
+            }];
+            return FOXReturnOrRaisePrettyProgram(executedProgram);
+        });
+
+    Read more about :doc:`parallel testing <parallel_testing>` for limitations and quirks.
+
+.. _linearizability: http://en.wikipedia.org/wiki/Linearizability
+
+Helper Functions
+----------------
+
+Helper functions used in conjunction with existing generators.
+
+.. c:function:: FOXExecutedProgram *FOXRunSerialProgram(FOXProgram *program, id subject)
+
+    **Currently ALPHA - subject to change at any point**
+
+    Executes a given serial program and records its results in the returned
+    FOXExecutedProgram.
+
+    Use `FOXReturnOrRaisePrettyProgram`:c:func: to verify the executed program.
+
+.. c:function:: FOXExecutedProgram *FOXRunParallelProgram(FOXProgram *program, id(^subjectFactory)())
+
+    **Currently ALPHA - subject to change at any point**
+
+    Executes a given parallel program and records its results in the returned
+    FOXExecutedProgram. The block argument produces a new instance of the
+    subject under test.
+
+    Use `FOXReturnOrRaisePrettyProgram`:c:func: to verify the executed program.
+
+.. c:function:: BOOL FOXReturnOrRaisePrettyProgram(FOXExecutedProgram *program)
+
+    **Currently ALPHA - subject to change at any point**
+
+    Verifies the executed program and returns ``YES`` if the program executed
+    in line with the state machine. Raises a control-flow exception to pass
+    executed program results to assist in printing return values when executing
+    commands.
+
+    .. info:: While raising exceptions are not ideal for an API, this may change when a major
+            API refactor occurs (2.x.x).
+
 .. _Debugging Functions:
 
 Debugging Functions
@@ -697,19 +810,19 @@ Debugging Functions
 
 Fox comes with a handful of functions that can help you diagnose generator problems.
 
-.. c:function:: id<FOXGenerator> FOXSample(id<FOXGenerator> generator)
+.. c:function:: NSArray *FOXSample(id<FOXGenerator> generator)
 
     Samples 10 values that generator produces.
 
-.. c:function:: id<FOXGenerator> FOXSampleWithCount(id<FOXGenerator> generator, NSUInteger numberOfSamples)
+.. c:function:: NSArray *FOXSampleWithCount(id<FOXGenerator> generator, NSUInteger numberOfSamples)
 
     Samples a number of values that a generator produces.
 
-.. c:function:: id<FOXGenerator> FOXSampleShrinking(id<FOXGenerator> generator)
+.. c:function:: NSArray *FOXSampleShrinking(id<FOXGenerator> generator)
 
     Samples 10 steps of shrinking from a value that a generator produces.
 
-.. c:function:: id<FOXGenerator> FOXSampleShrinkingWithCount(id<FOXGenerator> generator, NSUInteger numberOfSamples)
+.. c:function:: NSArray *FOXSampleShrinkingWithCount(id<FOXGenerator> generator, NSUInteger numberOfSamples)
 
     Samples a number of steps of shrinking from a value that a generator
     produces.

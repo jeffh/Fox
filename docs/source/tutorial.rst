@@ -207,6 +207,8 @@ happens to be significant.
              elements for the sort example. See :ref:`Configuring Test
              Generation` for more information.
 
+.. _Testing Stateful APIs:
+
 Testing Stateful APIs
 ---------------------
 
@@ -288,13 +290,13 @@ We can translate the diagram into code by configuring a
         };
         [stateMachine addTransition:removeTransition];
 
-        // generate and execute an arbitrary sequence of API calls
-        id<FOXGenerator> executedCommands = FOXExecuteCommands(stateMachine, ^id{
-            return [[Queue alloc] init];
-        });
+        // generate an arbitrary sequence of API calls
+        id<FOXGenerator> programs = FOXSerialProgram(stateMachine);
         // verify that all the executed commands properly conformed to the state machine.
-        FOXAssert(FOXForAll(executedCommands, ^BOOL(NSArray *commands) {
-            return FOXExecutedSuccessfully(commands);
+        FOXAssert(FOXForAll(programs, ^BOOL(FOXProgram *program) {
+            Queue *subject = [Queue new];
+            FOXExecutedProgram *executedProgram = FOXRunSerialProgram(program, subject);
+            return FOXReturnOrRaisePrettyProgram(executedProgram);
         }));
     }
 

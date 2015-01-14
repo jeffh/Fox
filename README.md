@@ -75,17 +75,13 @@ FOXFiniteStateMachine *stateMachine = [[FOXFiniteStateMachine alloc] initWithIni
 Now, you can generate tests that exercise an API:
 
 ```objc
-// Generate a sequence of commands executed on the given subject. Since
-// this will generate multiple tests, you also give a block of a subject.
-id<FOXGenerator> executedCommands = FOXExecuteCommands(stateMachine, ^id {
-    return [FOXQueue new];
-});
-
-// Verify if the executed commands validated the API conformed to the state machine.
-FOXRunnerResult *result = [FOXSpecHelper resultForAll:executedCommands
-                                                 then:^BOOL(NSArray *commands) {
-    return FOXExecutedSuccessfully(commands);
-}];
+// Verify if the series of API calls generated from a state machine
+// conformed to the subject (Queue).
+FOXAssert(FOXForAll(FOXSerialProgram(stateMachine), ^BOOL(FOXProgram *program) {
+    Queue *subject = [Queue new];
+    FOXExecutedProgram *executedProgram = FOXRunSerialProgram(program, subject);
+    return FOXReturnOrRaisePrettyProgram(executedProgram);
+}));
 // result will shrinking to the small sequence of API calls to trigger the
 // failure if there is one
 ```
@@ -215,6 +211,8 @@ FOXSuchThatWithMaxTries   | Returns each generated value iff it satisfies the gi
 FOXOneOf                  | Returns generated values by randomly picking from an array of generators. Shrinking is dependent on the generator chosen.
 FOXForAll                 | Asserts using the block and a generator and produces test assertion results (FOXPropertyResult). Shrinking tests against smaller values of the given generator.
 FOXForSome                | Like FOXForAll, but allows the assertion block to "skip" potentially invalid test cases.
-FOXCommands               | Generates arrays of FOXCommands that satisfies a given state machine.
-FOXExecuteCommands        | Generates arrays of FOXExecutedCommands that satisfies a given state machine and executed against a subject. Can be passed to FOXExecutedSuccessfully to verify if the subject conforms to the state machine.
+FOXSerialProgram          | Generates FOXProgram (which represents a series of FOXCommands to execute) that satisfies a given state machine specification.
+FOXRunSerialProgram       | Generates FOXExecutedProgram that satisfies a given state machine and executed against a subject. Can be passed to FOXReturnOrRaisePrettyProgram to verify if the subject conforms to the state machine.
+FOXParallelProgram        | Generates FOXProgram (which represents a series of parallel FOXCommands to execute) that satisfies a given state machine specification.
+FOXRunParallelProgram     | Generates FOXExecutedProgram that satisfies a given state machine and executed against a subject. Can be passed to FOXReturnOrRaisePrettyProgram to verify if the subject conforms to the state machine.
 
