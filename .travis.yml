@@ -9,4 +9,4 @@ install:
   - sudo gem install cocoapods --pre
 script:
   - ./test clean $TYPE
-  - pod spec lint Fox.podspec
+  # - pod spec lint Fox.podspec
