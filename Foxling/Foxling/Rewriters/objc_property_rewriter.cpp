@@ -17,13 +17,13 @@ void Foxling::ObjCPropertyRewriter::run(const MatchFinder::MatchResult &Result) 
             if (!isConstantExpression(*start)) {
                 auto exprType = propertyExpr->getSetterArgType().getAsString();
                 char *str;
-                allocate_sprintf(&str, "({ %s __prop_receiver__%lu = ",
+                allocate_sprintf(&str, "({ %s __prop_expr__%lu = ",
                                  exprType.c_str(),
                                  (uintptr_t)propertyExpr);
                 Rewrite.InsertText(start->getLocStart(), str);
                 free(str);
                 
-                allocate_sprintf(&str, "; %s __prop_receiver__%lu; })",
+                allocate_sprintf(&str, "; %s __prop_expr__%lu; })",
                                  InjectCode.c_str(),
                                  (uintptr_t)propertyExpr);
                 Rewrite.InsertTextAfterToken(start->getLocEnd(), str);

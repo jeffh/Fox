@@ -763,7 +763,8 @@ generator usually adopts the same shrinking properties as the original generator
             return FOXReturnOrRaisePrettyProgram(executedProgram);
         });
 
-    Read more about :doc:`parallel testing <parallel_testing>` for limitations and quirks.
+    Read more about :doc:`parallel testing <parallel/tutorial>` for limitations
+    and quirks.
 
 .. _linearizability: http://en.wikipedia.org/wiki/Linearizability
 
@@ -800,8 +801,8 @@ Helper functions used in conjunction with existing generators.
     executed program results to assist in printing return values when executing
     commands.
 
-    .. info:: While raising exceptions are not ideal for an API, this may change when a major
-            API refactor occurs (2.x.x).
+    .. note:: While raising exceptions are not ideal for an API, this may change when a major
+              API refactor occurs (2.x.x).
 
 .. _Debugging Functions:
 

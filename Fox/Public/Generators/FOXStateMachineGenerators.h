@@ -17,7 +17,7 @@
  *  @returns a generator that produces arrays of commands to execute.
  */
 FOX_EXPORT id<FOXGenerator> FOXCommands(id<FOXStateMachine> stateMachine)
-FOX_DEPRECATED("Use FOXSerialProgram() instead. Will be removed in Fox 2.x.x");
+FOX_WEAK_DEPRECATED("Use FOXSerialProgram() instead. Will be removed in Fox 2.x.x");
 
 /*! A generator that produce an array of FOXExecutedCommands by executing
  *  against a subject.
@@ -31,7 +31,7 @@ FOX_DEPRECATED("Use FOXSerialProgram() instead. Will be removed in Fox 2.x.x");
  *           executed against the subject.
  */
 FOX_EXPORT id<FOXGenerator> FOXExecuteCommands(id<FOXStateMachine> stateMachine, id (^subject)(void))
-FOX_DEPRECATED("Use FOXRunSerialProgram() inside the FOXForAll(...) instead. Will be removed in Fox 2.x.x");
+FOX_WEAK_DEPRECATED("Use FOXRunSerialProgram() inside the FOXForAll(...) instead. Will be removed in Fox 2.x.x");
 
 /*! A helper function that can be used to check if the given array of executed
  *  commands match the expected behavior of the state machine that was used
@@ -41,6 +41,7 @@ FOX_DEPRECATED("Use FOXRunSerialProgram() inside the FOXForAll(...) instead. Wil
  *  @returns YES if the executed commands match the original state machine
  *           that produces them. Returns NO otherwise.
  */
+FOX_ALPHA_API
 FOX_EXPORT BOOL FOXExecutedSuccessfully(NSArray *executedCommands);
 
 /*! A generator that produces FOXPrograms from the given state machine. The
@@ -53,6 +54,7 @@ FOX_EXPORT BOOL FOXExecutedSuccessfully(NSArray *executedCommands);
  *  @param stateMachine The state machine to source commands to create.
  *  @returns a generator that produces a FOXProgram.
  */
+FOX_ALPHA_API
 FOX_EXPORT id<FOXGenerator> FOXSerialProgram(id<FOXStateMachine> stateMachine);
 
 /*! A helper function that runs the list of commands against a given subject,
@@ -65,6 +67,7 @@ FOX_EXPORT id<FOXGenerator> FOXSerialProgram(id<FOXStateMachine> stateMachine);
  *           a BOOL indicating if the commands successfully executed. There
  *           are no commands executed in parallel.
  */
+FOX_ALPHA_API
 FOX_EXPORT FOXExecutedProgram *FOXRunSerialProgram(FOXProgram *program, id subject);
 
 /*! A helper function that either returns or raises an control-flow exception to
@@ -74,4 +77,5 @@ FOX_EXPORT FOXExecutedProgram *FOXRunSerialProgram(FOXProgram *program, id subje
  *  @param program The program to verify and pretty-print on failure.
  *  @returns A bool indicating if the program succeeded.
  */
+FOX_ALPHA_API
 FOX_EXPORT BOOL FOXReturnOrRaisePrettyProgram(FOXExecutedProgram *program);

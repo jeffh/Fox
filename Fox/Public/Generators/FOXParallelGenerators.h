@@ -21,6 +21,7 @@
  *  @param stateMachine The state machine to source commands to create.
  *  @returns a generator that produces a FOXProgram.
  */
+FOX_ALPHA_API
 FOX_EXPORT id<FOXGenerator> FOXParallelProgram(id<FOXStateMachine> stateMachine);
 
 /*! Executes a given program on multiple threads for the given subject. It then
@@ -32,6 +33,7 @@ FOX_EXPORT id<FOXGenerator> FOXParallelProgram(id<FOXStateMachine> stateMachine)
  *                        under test.
  *  @returns A program that stores the results of running the program.
  */
+FOX_ALPHA_API
 FOX_EXPORT FOXExecutedProgram *FOXRunParallelProgram(FOXProgram *program,
                                                      id (^subjectFactory)());
 

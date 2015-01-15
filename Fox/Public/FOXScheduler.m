@@ -17,11 +17,11 @@
 
 - (instancetype)initWithRandom:(id<FOXRandom>)random
 {
-    return [self initWithRandom:random replaceThreads:YES];
+    return [self initWithRandom:random replaceSystemFunctions:YES];
 }
 
 - (instancetype)initWithRandom:(id<FOXRandom>)random
-                replaceThreads:(BOOL)replaceThreads
+        replaceSystemFunctions:(BOOL)replaceThreads
 {
     self = [super init];
     if (self) {

@@ -4,7 +4,9 @@ Installing the Foxling Compiler
 ===============================
 
 Foxling is a custom compiler built on top of `LLVM`_ and `Clang`_ to provide
-implicit cooperative scheduling.
+implicit cooperative scheduling. It is used in conjunction with :doc:`Fox's
+Cooperative Thread Scheduler <scheduler>` to make parallel code more
+deterministic.
 
 .. _LLVM: http://llvm.org
 .. _Clang: http://clang.llvm.org
@@ -12,9 +14,17 @@ implicit cooperative scheduling.
 Alcatraz
 --------
 
-If you have `Alcatraz`_, you can install Foxling (Not really, it's a TODO).
+.. If you have `Alcatraz`_, you can install Foxling (Not really, it's a TODO).
+
+Currently, Foxling must be compiled from source or downloaded as a pre-built
+binary. See issue.
 
 .. _Alcatraz: http://alcatraz.io
+
+Installing a Prebuilt Binary
+----------------------------
+
+TODO
 
 Compiling from Source
 ---------------------
