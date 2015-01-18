@@ -27,6 +27,8 @@
 
 import sys
 import os
+import shutil
+import tempfile
 from distutils.util import strtobool
 from subprocess import Popen, PIPE
 from argparse import ArgumentParser
@@ -109,9 +111,16 @@ def preprocess_and_compile(source_file, clang_args):
     if it fails.
     """
     assert source_file
+    backup = None
     try:
         with open(source_file, 'r') as handle:
             original_contents = handle.read()
+
+        backup = tempfile.NamedTemporaryFile(dir=os.path.dirname(source_file),
+                                             prefix=os.path.basename(source_file))
+        backup.write(original_contents)
+
+        shutil.copyfile(source_file, backup)
 
         args_without_modules = [arg for arg in clang_args if 'module' not in arg]
 
@@ -130,6 +139,8 @@ def preprocess_and_compile(source_file, clang_args):
             handle.write(out)
         compile(clang_args)
     finally:
+        if backup:
+            backup.close()
         if CLEANUP:
             with open(source_file, 'w') as handle:
                 handle.write(original_contents)

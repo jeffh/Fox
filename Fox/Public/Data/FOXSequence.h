@@ -37,6 +37,9 @@
 }
 
 - (id)firstObject;
+
+// object returned should be retained by sequence or objc foreach will
+// crash.
 - (id<FOXSequence>)remainingSequence;
 
 @end

@@ -3,6 +3,8 @@
 #import "FOXMath.h"
 #import "FOXLazySequence.h"
 #import "FOXConcreteSequence.h"
+#import "FOXArraySequence.h"
+#import "FOXRepeatedSequence.h"
 
 @implementation FOXSequence
 
@@ -272,20 +274,12 @@
 
 + (instancetype)sequenceFromArray:(NSArray *)array
 {
-    id<FOXSequence> seq = nil;
-    for (id item in [array reverseObjectEnumerator]) {
-        seq = [[FOXConcreteSequence alloc] initWithObject:item remainingSequence:seq];
-    }
-    return seq ?: [[FOXConcreteSequence alloc] init];
+    return [[FOXArraySequence alloc] initWithArray:array];
 }
 
 + (instancetype)sequenceByRepeatingObject:(id)object times:(NSUInteger)times
 {
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:times];
-    for (NSUInteger i = 0; i<times; i++) {
-        [array addObject:object];
-    }
-    return [FOXConcreteSequence sequenceFromArray:array];
+    return [[FOXRepeatedSequence alloc] initWithObject:object times:times];
 }
 
 @end
