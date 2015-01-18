@@ -43,10 +43,6 @@ implementation. Along with :doc:`Foxling <compiler>`, Fox can greatly increase
 the likelihood of finding hard-to-find race conditions that may be hard to
 detect with traditional unit testing.
 
-Foxling is :doc:`installed as an Xcode plugin <installation>`. If you
-have already gotten it installed, continue with the :doc:`parallel testing
-tutorial <tutorial>`.
-
 .. _memory barrier: http://en.wikipedia.org/wiki/Memory_barrier
 .. _pthreads: http://en.wikipedia.org/wiki/POSIX_Threads
 
@@ -67,11 +63,12 @@ replace all the ``Serial`` API calls with ``Parallel``::
 Limited Parallel Execution
 --------------------------
 
-Program generation are limited form of parallel testing. Fox creates parallel
-programs by creating a serial command prefix and then running:
+Program generation for parallel testing is greatly limited in execution
+permutation. Fox creates parallel programs by creating a serial command prefix
+to enter a random state before executing the parallel test:
 
-- **1** to **3** threads
-- **1** to **2** commands per thread
+- In **1** to **3** threads
+- with **1** to **2** commands per thread
 
 While seemingly small, `a study seems to indicate`_ that parallel tests can be
 relatively small to exhibit common failures:
@@ -79,19 +76,18 @@ relatively small to exhibit common failures:
 - A partial ordering of 2 threads caused a failure (96% of 105 real-world programs)
 - A particular ordering of four memory accesses (92% of 105 real-world programs)
 
-Fox, and QuickCheck, takes this assumption with its testing strategy. So keep
-in mind that **Fox cannot ensure thread-safety**, but can detect many common
-errors.
+Fox and QuickCheck take this assumption with its testing strategy. **Fox
+cannot gaurantee thread-safety**, but can detect many common errors.
 
 .. _a study seems to indicate: http://www.cs.columbia.edu/~junfeng/09fa-e6998/papers/concurrency-bugs.pdf
 
 Deterministic Non-Determinism
 -----------------------------
 
-Running the above code will reveal one inherit problem with parallel tests,
-they're non-deterministic! This makes it difficult for Fox to reliably shrink a
-failing test case because it cannot reliably tell if a smaller example will
-also fail when running in parallel.
+Running the above code will reveal a problem inherit with parallel tests,
+they're non-deterministic! This makes it difficult for Fox to shrink a failing
+test case because it cannot reliably tell if a smaller example will also fail
+when running in parallel.
 
 A naive solution is to simply rerun test cases. :c:func:`FOXAlways` can help
 that, but that's an ugly hack to try and get around that problem.
@@ -109,10 +105,11 @@ runtime, Fox can hijack other systems that use pthreads internally - such as
 
 .. _pthreads: http://en.wikipedia.org/wiki/POSIX_Threads
 
-**There's one caveat.** Since it's cooperatively threading. Threads **must
+There's one caveat. Since it's cooperatively threading, **threads must
 explicitly yield execution control to the scheduler** in order to switch
-between threads.  While it seems to be a deal-breaker, we'll come back around
-and address this issue.
+between threads. That is, :c:func:`FOXSchedulerYield` must be inserted into all
+the code under test to allow the scheduler to control permutations of thread
+execution. Don't worry, we'll come back around and address this issue.
 
 The scheduler can be accessed via :ref:`FOXScheduler <FOXScheduler>`::
 
@@ -151,7 +148,7 @@ random number generator::
     }));
 
 :c:func:`FOXRunParallelProgram` does some cooperatively yielding by calling
-``FOXSchedulerYield``. Not yielding makes the scheduler view blocks of code
+:c:func:`FOXSchedulerYield`. Not yielding makes the scheduler view blocks of code
 as atomic. That's not what we want our Queue's code that we're testing.
 However, manually adding yield statements is time-consuming and error-prone.
 The better solution is to have a program do this for us...
@@ -163,18 +160,18 @@ Fox comes with its own compiler, call :doc:`Foxling <compiler>`. It's based off
 of Clang and its only job is to automatically insert ``FOXSchedulerYield();``
 statements at compile time.
 
-If you haven't done so, now would be great to :doc:`install the Foxling Xcode
-Plugin <installation>`.
+Psst, now would be a great time to :doc:`install the Foxling Xcode Plugin
+<installation>` if you haven't by now.
 
 It's recommended to create a new targets for your application and parallel
 tests to utilize the Foxling compiler. It should be idential to your original
 targets except for setting:
 
-.. image:: images/xcode-compiler-setting.png
+.. image:: /images/xcode-compiler-setting.png
 
-Which is available after the plugin is installed. One more thing is to make
+Which is available after the plugin is installed. THe last thing is to make
 sure Fox is linked to both your application and tests to ensure the compiler
-can correctly lookup ``FOXSchedulerYield``.
+can correctly link to ``FOXSchedulerYield()``.
 
 Now compiling will automatically insert yields into our source!
 
@@ -185,8 +182,9 @@ It's worth noting that **Foxling can only insert yields for code it compiles**.
 This means that libraries that aren't compiled with Foxling behave atomically
 unless otherwise noted by Fox's threading library.
 
-Since Foxling calls through to Apple's Clang (which has different behavior to
-the open-sourced Clang), compiling with Foxling can be significantly slower.
+Since Foxling calls through to Apple's Clang (which has proprietary extensions
+to the open-sourced Clang), compiling with Foxling can be significantly slower
+since it's parsing source twice.
 
 Finding parallel bugs in your program can be greatly affected by when yields
 are inserted into your program. Foxling currently only inserts yields:
@@ -200,4 +198,10 @@ are inserted into your program. Foxling currently only inserts yields:
 
 Also, Foxling currently cannot parse Swift code and is untested on C++ code.
 
+While the scheduler can significantly shrink the number of commands execute, it
+currently cannot fully minimize its shrinking.
+
+If you're more interested in the technical details of parallel testing inside
+Fox, read about the :doc:`Fox's thread scheduler <scheduler>` or :doc:`Foxling
+Compiler <compiler>`.
 

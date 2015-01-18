@@ -619,9 +619,9 @@ generator usually adopts the same shrinking properties as the original generator
 
     .. warning:: Using ``FOXSuchThat`` and ``FOXSuchThatWithMaxTries`` are "filter"
                 generators and can lead to significant waste in test generation by
-                Fox. While it gives you the most flexibility the kind of generated
-                data, it is the most computationally expensive. Use other
-                generators when possible.
+                Fox. While this gives you the most flexibility the kind of
+                generated data, it is the most computationally expensive.
+                Instead, use other combinators when possible.
 
 .. c:function:: id<FOXGenerator> FOXSuchThatWithMaxTries(id<FOXGenerator> generator, BOOL(^predicate)(id generatedValue), NSUInteger maxTries)
 
@@ -636,9 +636,9 @@ generator usually adopts the same shrinking properties as the original generator
 
     .. warning:: Using ``FOXSuchThat`` and ``FOXSuchThatWithMaxTries`` are "filter"
                 generators and can lead to significant waste in test generation by
-                Fox. While it gives you the most flexibility the kind of generated
-                data, it is the most computationally expensive. Use other
-                generators when possible.
+                Fox. While this gives you the most flexibility the kind of
+                generated data, it is the most computationally expensive.
+                Instead, use other combinators when possible.
 
 .. c:function:: id<FOXGenerator> FOXOneOf(NSArray *generators)
 
@@ -698,7 +698,7 @@ generator usually adopts the same shrinking properties as the original generator
 
 .. c:function:: id<FOXGenerator> FOXSerialProgram(id<FOXStateMachine> stateMachine)
 
-    **Currently ALPHA - subject to change at any point**
+    .. warning:: Currently ALPHA - subject to change at any point
 
     Generates a FOXProgram that conforms to a given state machine. A program is
     an abstract representation of a series of API calls (FOXCommands) to invoke.
@@ -717,7 +717,7 @@ generator usually adopts the same shrinking properties as the original generator
 
 .. c:function:: id<FOXGenerator> FOXParallelProgram(id<FOXStateMachine> stateMachine)
 
-    **Currently ALPHA - subject to change at any point**
+    .. warning:: Currently ALPHA - subject to change at any point
 
     Generates a FOXProgram that conforms to a given state machine. A program is
     an abstract representation of a series of parallel API calls (FOXCommands)
@@ -744,7 +744,7 @@ generator usually adopts the same shrinking properties as the original generator
                 when only using FOXParallelProgram().
 
     FOXScheduler and Foxling can help serialize thread execution to be more
-    deterministic::
+    deterministic, **but may still not reach optimal shrinking**::
 
         // Warning: this code should be compiled with the Foxling compiler
         id<FOXGenerator> programs = FOXTuple(@[FOXParallelProgram(stateMachine),
@@ -775,7 +775,7 @@ Helper functions used in conjunction with existing generators.
 
 .. c:function:: FOXExecutedProgram *FOXRunSerialProgram(FOXProgram *program, id subject)
 
-    **Currently ALPHA - subject to change at any point**
+    .. warning:: Currently ALPHA - subject to change at any point
 
     Executes a given serial program and records its results in the returned
     FOXExecutedProgram.
@@ -784,7 +784,7 @@ Helper functions used in conjunction with existing generators.
 
 .. c:function:: FOXExecutedProgram *FOXRunParallelProgram(FOXProgram *program, id(^subjectFactory)())
 
-    **Currently ALPHA - subject to change at any point**
+    .. warning:: Currently ALPHA - subject to change at any point
 
     Executes a given parallel program and records its results in the returned
     FOXExecutedProgram. The block argument produces a new instance of the
@@ -794,7 +794,7 @@ Helper functions used in conjunction with existing generators.
 
 .. c:function:: BOOL FOXReturnOrRaisePrettyProgram(FOXExecutedProgram *program)
 
-    **Currently ALPHA - subject to change at any point**
+    .. warning:: Currently ALPHA - subject to change at any point
 
     Verifies the executed program and returns ``YES`` if the program executed
     in line with the state machine. Raises a control-flow exception to pass
@@ -813,18 +813,31 @@ Fox comes with a handful of functions that can help you diagnose generator probl
 
 .. c:function:: NSArray *FOXSample(id<FOXGenerator> generator)
 
-    Samples 10 values that generator produces.
+    Samples 10 values that a generator produces. Useful to see kind of values
+    the given generator produces::
+
+        FOXSample(FOXInteger()); // @[@1, @93, @54, @32, @17, @23, @55, @5, @9, @33]
 
 .. c:function:: NSArray *FOXSampleWithCount(id<FOXGenerator> generator, NSUInteger numberOfSamples)
 
-    Samples a number of values that a generator produces.
+    Samples a number of values that a generator produces. Useful to see kind of
+    values the given generator produces::
+
+        FOXSampleWithCount(FOXInteger(), 2); // @[@42, @12];
 
 .. c:function:: NSArray *FOXSampleShrinking(id<FOXGenerator> generator)
 
     Samples 10 steps of shrinking from a value that a generator produces.
+    Useful to see how a generator will shrink a given value. The first value is
+    always the originally generated value::
+
+        FOXSampleShrinking(FOXInteger()); // @[@4, @0, @2, @3, @0, @1, @0, @1, @2, @0];
 
 .. c:function:: NSArray *FOXSampleShrinkingWithCount(id<FOXGenerator> generator, NSUInteger numberOfSamples)
 
     Samples a number of steps of shrinking from a value that a generator
-    produces.
+    produces.  Useful to see how a generator will shrink a given value. The
+    first value is always the originally generated value::
+
+        FOXSampleShrinkingWithCount(FOXInteger(), 4); // @[@4, @0, @2, @3];
 

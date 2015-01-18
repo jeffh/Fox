@@ -84,10 +84,11 @@ threads). This *does not encompass async testing*.
    Installing Fox </installation>
    Installing Foxling </parallel/installation>
    Basic Tutorial </tutorial>
-   Parallel Testing Tutorial (Alpha) </parallel/tutorial>
 
    Generators </generators>
    The Runner & Test Generation </runner>
+
+   Parallel Testing Tutorial (Alpha) </parallel/tutorial>
    Fox's Thread Scheduler (Alpha) </parallel/scheduler>
    The Foxling Compiler (Alpha) </parallel/compiler>
 

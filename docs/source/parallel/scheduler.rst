@@ -32,7 +32,7 @@ following functions can be assumed to be overridden (although, it may not always
 - OSSpinLock
 
 These overrides are global for the entire process. That means libraries will
-also trigger Fox's custom code when hooks take place. If you think more locks
+also trigger Fox's custom code when hooks take place. If you find apis that
 should be supported `file an issue`_.
 
 Currently, **Fox's function replacement is permanent**. A flag is set
