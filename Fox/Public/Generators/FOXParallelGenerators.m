@@ -9,6 +9,7 @@
 #import "FOXMath.h"
 #import "FOXExecutedProgram.h"
 #import "FOXProgram.h"
+#import "FOXRoseTree.h"
 
 static BOOL FOXExecutedSuccessfullyInParallel(FOXExecutedProgram *parallelExecution, id(^subjectFactory)());
 
@@ -28,7 +29,8 @@ FOX_EXPORT id<FOXGenerator> FOXParallelProgram(id<FOXStateMachine> stateMachine)
         //          Current worse case: (2*3)! = 720 possible linearizations.
         //          So each failing parallel test will spawn 720 more
         //          serialized tests to run. Remember that every shrink attempt
-        //          counts as a failing test too.
+        //          counts as a failing test too (although with smaller
+        //          linearization space).
         NSNumber *minCommandsPerThread   = @1;
         NSNumber *maxCommandsPerThread   = @2;
         const NSUInteger minNumOfThreads = 2;

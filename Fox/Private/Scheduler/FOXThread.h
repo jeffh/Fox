@@ -36,6 +36,9 @@ fthread_schedule_algorithm_t fthread_round_robin;
  */
 fthread_schedule_algorithm_t fthread_random;
 
+
+fthread_schedule_algorithm_t fthread_random_unblocked;
+
 /*! Yields the current thread so another thread can execute.
  */
 FOX_EXPORT void fthread_yield(void);

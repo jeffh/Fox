@@ -4,6 +4,16 @@
 #import "FOXThreadMachine.h"
 #import "FOXRandom.h"
 
+// Code Style:
+// For this file please conform to some coding styles to help avoid some
+// potential concurrency issues:
+//
+// - Only one return statement per function.
+// - Either return or abort on errors. Never implicitly ignore errors.
+// - Shared resources must by locked
+// - Avoid printing. Printing uses locks that can cause infinite recursion.
+// - Try to avoid allocating memory.
+//
 // Implementation Note:
 // At the time of writing of this note, low-level implementations are as
 // follows:
@@ -44,7 +54,7 @@ typedef struct __fthread {
 
     // rw-lock fields
     OSSpinLock state_lock;
-    bool is_detached;
+    bool is_blocked;
     bool is_finished;
     bool is_not_first_call;
 
@@ -66,9 +76,6 @@ typedef struct _fthread_scheduler_t {
     unsigned int next_thread_number;
     void (*algorithm)(struct _fthread_scheduler_t *);
     void *algorithm_data;
-
-    // polling field
-    bool volatile stop_worker;
 } fthread_scheduler_t;
 
 // A boolean to indicate if we have mach_overridden lib functions
@@ -91,7 +98,6 @@ static fthread_scheduler_t __scheduler = {
     .num_threads        = 0,
     .capacity           = 0,
     .next_thread_number = 0,
-    .stop_worker        = false,
 };
 
 #pragma mark - Private Function Prototypes
@@ -99,6 +105,9 @@ static fthread_scheduler_t __scheduler = {
 static int fthread_scheduler_create(fthread_internal_t *fthread_ptr,
                                     void *(*thread_main)(void *),
                                     void *thread_data);
+static bool fthread_is_blocked(fthread_internal_t fthread);
+static bool fthread_set_block_state(fthread_internal_t fthread, bool state);
+static void fthread_blocking_yield();
 static bool fthread_is_complete(fthread_internal_t fthread);
 static void fthread_yield_thread(fthread_internal_t fthread);
 static void fthread_free(fthread_internal_t fthread);
@@ -221,6 +230,7 @@ void fthread_override(bool replace) {
 #pragma mark - Scheduling Algorithms
 
 static void fthread_schedule_round_robin(fthread_scheduler_t *scheduler) {
+    // does not use the is_blocked state on threads
     bool has_runnable_threads = true;
     while (has_runnable_threads) {
         has_runnable_threads = false;
@@ -258,6 +268,7 @@ static bool fthread_has_runnable_threads(fthread_scheduler_t *scheduler) {
 }
 
 static void fthread_schedule_random(fthread_scheduler_t *scheduler) {
+    // does not use the is_blocked state on threads
     MUTEX_LOCK(&scheduler->lock);
     id<FOXRandom> random = (__bridge id<FOXRandom>)(scheduler->algorithm_data);
     MUTEX_UNLOCK(&scheduler->lock);
@@ -271,8 +282,12 @@ static void fthread_schedule_random(fthread_scheduler_t *scheduler) {
         size_t last_element = scheduler->num_threads - 1;
         MUTEX_UNLOCK(&scheduler->lock);
 
-        long long i = [random randomIntegerWithinMinimum:0
-                                              andMaximum:last_element];
+        long long i = 0;
+        @autoreleasepool {
+            i = [random randomIntegerWithinMinimum:0
+                                        andMaximum:last_element];
+        }
+        assert(0 <= i && i <= last_element);
 
         MUTEX_LOCK(&scheduler->lock);
         fthread_internal_t fthread = scheduler->threads[i];
@@ -285,6 +300,61 @@ static void fthread_schedule_random(fthread_scheduler_t *scheduler) {
     }
 }
 fthread_schedule_algorithm_t fthread_random = fthread_schedule_random;
+
+static void fthread_schedule_random_unblocked(fthread_scheduler_t *scheduler) {
+    MUTEX_LOCK(&scheduler->lock);
+    id<FOXRandom> random = (__bridge id<FOXRandom>)(scheduler->algorithm_data);
+    MUTEX_UNLOCK(&scheduler->lock);
+    if (!random) {
+        fprintf(stderr, "No FOXRandom instance in algorithm data\n");
+        abort();
+    }
+
+    while (fthread_has_runnable_threads(scheduler)) {
+        MUTEX_LOCK(&scheduler->lock);
+        size_t thread_count = 0;
+        fthread_internal_t *threads = FOXCalloc(sizeof(fthread_internal_t), scheduler->num_threads);
+        for (size_t i = 0; i < scheduler->num_threads; i++) {
+            fthread_internal_t fthread = scheduler->threads[i];
+            if (!fthread_is_complete(fthread) && !fthread_is_blocked(fthread)) {
+                threads[thread_count++] = fthread;
+            }
+        }
+        if (thread_count == 0) {
+            for (size_t i = 0; i < scheduler->num_threads; i++) {
+                fthread_internal_t fthread = scheduler->threads[i];
+                if (!fthread_is_complete(fthread)) {
+                    threads[thread_count++] = fthread;
+                }
+            }
+        }
+        MUTEX_UNLOCK(&scheduler->lock);
+
+        long long i = 0;
+        @autoreleasepool {
+            i = [random randomIntegerWithinMinimum:0
+                                        andMaximum:thread_count - 1];
+        }
+        assert(0 <= i && i <= thread_count - 1);
+
+        MUTEX_LOCK(&scheduler->lock);
+        fthread_internal_t fthread = threads[i];
+        MUTEX_UNLOCK(&scheduler->lock);
+        set_current_thread(scheduler->worker_thread);
+        fthread_unyield(fthread);
+        fthread_waitfor(fthread);
+
+        for (size_t j = 0; j < thread_count; j++) {
+            if (i == j) {
+                continue;
+            }
+            fthread_set_block_state(threads[j], false);
+        }
+
+        free(threads);
+    }
+}
+fthread_schedule_algorithm_t fthread_random_unblocked = fthread_schedule_random_unblocked;
 
 #pragma mark - Scheduler
 
@@ -336,7 +406,6 @@ void fthread_wait(void) {
     MUTEX_LOCK(&scheduler->lock);
     fthread_internal_t scheduler_thread = scheduler->worker_thread;
     MUTEX_UNLOCK(&scheduler->lock);
-    scheduler->stop_worker = true;
     fthread_waitfor(scheduler_thread);
 #ifdef FOX_LOG_THREADS
     free(get_current_thread());
@@ -397,6 +466,18 @@ static void fthread_free(fthread_internal_t fthread) {
     }
 }
 
+static bool fthread_set_block_state(fthread_internal_t fthread, bool state) {
+    if (fthread) {
+        MUTEX_LOCK(&fthread->state_lock);
+        bool original_value = fthread->is_blocked;
+        fthread->is_blocked = state;
+        MUTEX_UNLOCK(&fthread->state_lock);
+        return original_value;
+    }
+    return false;
+}
+
+
 /*! Cooperatively yields the current thread represented as fthread_t.
  *
  *  Blocks the current thread until it is unyielded by another thread.
@@ -421,6 +502,21 @@ static void fthread_yield_thread(fthread_internal_t fthread) {
         }
         semaphore_wait_without_aborting(fthread->signal_to_unyield);
         FTHREAD_DEBUG("[%s] resumes\n", fthread->name);
+    }
+}
+
+
+/*! Yields the current thread. Forces the scheduler to continue execution on
+ *  another thread. This should be called when inside a code that is waiting
+ *  for a resource that another thread holds (eg - locks).
+ */
+static void fthread_blocking_yield(void) {
+    fthread_internal_t current_thread = (fthread_internal_t)fthread_current();
+
+    if (current_thread) {
+        fthread_set_block_state(current_thread, true);
+        fthread_yield_thread(current_thread);
+        fthread_set_block_state(current_thread, false);
     }
 }
 
@@ -480,6 +576,20 @@ static bool fthread_is_complete(fthread_internal_t fthread) {
     return is_complete;
 }
 
+/*! Returns true if the current thread has finished executed or not blocked.
+ *  Threadsafe.
+ */
+static bool fthread_is_blocked(fthread_internal_t fthread) {
+    if (fthread) {
+        MUTEX_LOCK(&fthread->state_lock);
+        bool is_blocked = fthread->is_blocked;
+        MUTEX_UNLOCK(&fthread->state_lock);
+        return is_blocked;
+    }
+    return true;
+}
+
+
 /*! Main function for the threads fox manages.
  */
 static void *fthread_main(fthread_internal_t fthread) {
@@ -501,7 +611,7 @@ static int fthread_scheduler_create(fthread_internal_t *fthread_ptr, void *(*thr
     fthread_internal_t fthread = (fthread_internal_t)FOXCalloc(sizeof(struct __fthread), 1);
     fthread->user_main         = thread_main;
     fthread->user_data         = thread_data;
-    fthread->is_detached       = false;
+    fthread->is_blocked        = false;
     fthread->is_finished       = false;
     fthread->name              = FOXCStringOnHeap("fox.scheduler.%p", fthread);
     fthread->state_lock        = 0;
@@ -529,7 +639,7 @@ int fthread_create(pthread_t *pthread, pthread_attr_t *attr, void *(*thread_main
         fthread_internal_t fthread = FOXCalloc(sizeof(struct __fthread), 1);
         fthread->user_main         = thread_main;
         fthread->user_data         = thread_data;
-        fthread->is_detached       = false;
+        fthread->is_blocked        = false;
         fthread->is_finished       = false;
         fthread->state_lock        = 0;
         fthread->name              = FOXCStringOnHeap("fox.thread.%u", next_thread_number());
@@ -553,17 +663,6 @@ int fthread_create(pthread_t *pthread, pthread_attr_t *attr, void *(*thread_main
 /*! Equivalent to pthread_detach(...)
  */
 int fthread_detach(pthread_t pthread) {
-    if (__use_fox_implementation) {
-        fthread_internal_t fthread = fthread_list_get(&__scheduler, pthread);
-        if (fthread) {
-            MUTEX_LOCK(&fthread->state_lock);
-            if (fthread->is_finished) {
-                fthread_free(fthread);
-            }
-            fthread->is_detached = true;
-            MUTEX_UNLOCK(&fthread->state_lock);
-        }
-    }
     return get_machine()->thread_detach(pthread);
 }
 
@@ -586,9 +685,8 @@ void fthread_exit(void *data) {
 int fthread_join(pthread_t pthread, void **value_ptr) {
     int result = 0;
     if (__use_fox_implementation) {
-        fthread_internal_t fthread = fthread_list_get(&__scheduler, pthread);
+        // TODO: record blocking yield for a particular thread.
         result = get_machine()->thread_join(pthread, value_ptr);
-        fthread_free(fthread);
     } else {
         result = get_machine()->thread_join(pthread, value_ptr);
     }
@@ -612,7 +710,7 @@ int fthread_mutex_lock(pthread_mutex_t *mutex) {
             if (result != EBUSY) {
                 break;
             }
-            fthread_yield();
+            fthread_blocking_yield();
         }
     } else {
         result = machine->mutex_lock(mutex);
@@ -642,7 +740,7 @@ static int timespec_subtract(struct timespec *result, struct timespec x, struct 
 }
 
 /*! Equivalent to pthread_cond_timedwait, but constantly yields instead of just
- *  blocking.
+ *  blocking until the timeout is reached.
  */
 int fthread_cond_timedwait(pthread_cond_t *cond, pthread_mutex_t *mutex, const struct timespec *timespec) {
     fox_machine_t *machine = get_machine();
@@ -682,7 +780,7 @@ int fthread_cond_wait(pthread_cond_t *cond, pthread_mutex_t *mutex) {
             if (result != ETIMEDOUT) {
                 break;
             }
-            fthread_yield();
+            fthread_blocking_yield();
         }
     } else {
         result = machine->cond_wait(cond, mutex);
@@ -703,7 +801,7 @@ int fox_sem_wait(sem_t *sem) {
             if (result != EAGAIN) {
                 break;
             }
-            fthread_yield();
+            fthread_blocking_yield();
         }
     } else {
         result = machine->sem_wait(sem);
@@ -766,7 +864,8 @@ kern_return_t fox_semaphore_timedwait(semaphore_t semaphore, mach_timespec_t wai
 
 /*! Equivalent to semaphore_wait, but constantly yields instead of just
  *  blocking.
- */kern_return_t fox_semaphore_wait(semaphore_t semaphore) {
+ */
+kern_return_t fox_semaphore_wait(semaphore_t semaphore) {
     fox_machine_t *machine = get_machine();
     kern_return_t result = 0;
     if (__use_fox_implementation) {
@@ -778,7 +877,7 @@ kern_return_t fox_semaphore_timedwait(semaphore_t semaphore, mach_timespec_t wai
             if (result != KERN_OPERATION_TIMED_OUT) {
                 break;
             }
-            fthread_yield();
+            fthread_blocking_yield();
         }
     } else {
         result = machine->semaphore_wait(semaphore);
@@ -795,7 +894,7 @@ void fox_spinlock_lock(volatile OSSpinLock *lock) {
     fox_machine_t *machine = get_machine();
     if (__use_fox_implementation) {
         while (!machine->spinlock_try(lock)) {
-            fthread_yield();
+            fthread_blocking_yield();
         }
     } else {
         machine->spinlock_lock(lock);

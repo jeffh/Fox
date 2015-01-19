@@ -124,6 +124,9 @@ generator indirectly dictates thread execution order. The block for
 ``runAndWait:`` should create and run threads. The scheduler will automatically
 wait until no threads can be executed before returning.
 
+.. warning:: Because GCD creates threads ahead of time, ``FOXScheduler`` cannot
+             currently control GCD queues.
+
 :c:func:`FOXRunParallelProgram` internally uses NSThreads, which uses pthreads in
 turn. So we'll put that in the block and use :c:func:`FOXSeed` to generate a
 random number generator::

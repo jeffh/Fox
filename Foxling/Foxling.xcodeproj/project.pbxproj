@@ -1257,7 +1257,7 @@
 				INSTALL_PATH = "/Application Support/Developer/Shared/Xcode/Plug-ins/";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/jeff/workspace/llvm/llvm_build/lib,
+					"$(LLVM_DIR)/llvm_build/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
@@ -1275,7 +1275,7 @@
 				INSTALL_PATH = "/Application Support/Developer/Shared/Xcode/Plug-ins/";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/jeff/workspace/llvm/llvm_build/lib,
+					"$(LLVM_DIR)/llvm_build/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
@@ -1293,7 +1293,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(LLVM_HOME)/llvm_build/lib/**",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Fox-dmobuslqyltucubgnxyazjnfmyjr/Build/Products/Debug",
-					/Users/jeff/workspace/llvm/llvm_build/lib,
+					"$(LLVM_DIR)/llvm_build/lib",
 				);
 				LLVM_HOME = "$(SRCROOT)/LLVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1306,7 +1306,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(LLVM_HOME)/llvm_build/lib/**",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Fox-dmobuslqyltucubgnxyazjnfmyjr/Build/Products/Debug",
-					/Users/jeff/workspace/llvm/llvm_build/lib,
+					"$(LLVM_DIR)/llvm_build/lib",
 				);
 				LLVM_HOME = "$(SRCROOT)/LLVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
