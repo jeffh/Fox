@@ -13,11 +13,14 @@ void _combination(NSUInteger maxNumber,
     }
 
     if (combinationSize == 0) {
-        NSUInteger *combination = (NSUInteger *)alloca(sizeof(NSUInteger) * originalCombinationSize);
+        NSUInteger *combination = NULL;
         NSUInteger i = 0;
-        for (power = 0; power < maxNumber; power++) {
-            if (selectedDigits & (1 << power)) {
-                combination[i++] = power;
+        if (originalCombinationSize > 0) {
+            combination = (NSUInteger *)alloca(sizeof(NSUInteger) * originalCombinationSize);
+            for (power = 0; power < maxNumber; power++) {
+                if (selectedDigits & (1 << power)) {
+                    combination[i++] = power;
+                }
             }
         }
         processor(combination, i);

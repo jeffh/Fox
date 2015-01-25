@@ -8,12 +8,15 @@
 #import "FOXPropertyResult.h"
 #import "FOXEnvironment.h"
 
-typedef struct _FOXShrinkReport {
-    NSUInteger depth;
-    NSUInteger numberOfNodesVisited;
-    CFTypeRef smallestArgument;
-    CFTypeRef smallestUncaughtException;
-} FOXShrinkReport;
+@interface FOXShrinkReport : NSObject
+@property (nonatomic) NSUInteger depth;
+@property (nonatomic) NSUInteger numberOfNodesVisited;
+@property (nonatomic) id smallestArgument;
+@property (nonatomic) NSException *smallestUncaughtException;
+@end
+
+@implementation FOXShrinkReport
+@end
 
 
 @implementation FOXRunner
@@ -145,8 +148,8 @@ typedef struct _FOXShrinkReport {
     [self.reporter runnerWillShrinkFailingTestNumber:numberOfTests
                             failedWithPropertyResult:failureRoseTree.value];
     FOXPropertyResult *propertyResult = failureRoseTree.value;
-    FOXShrinkReport report = [self shrinkReportForRoseTree:failureRoseTree
-                                             numberOfTests:numberOfTests];
+    FOXShrinkReport *report = [self shrinkReportForRoseTree:failureRoseTree
+                                              numberOfTests:numberOfTests];
     FOXRunnerResult *result = [[FOXRunnerResult alloc] init];
     result.numberOfTests = numberOfTests;
     result.seed = seed;
@@ -156,8 +159,8 @@ typedef struct _FOXShrinkReport {
     result.failingException = propertyResult.uncaughtException;
     result.shrinkDepth = report.depth;
     result.shrinkNodeWalkCount = report.numberOfNodesVisited;
-    result.smallestFailingValue = CFBridgingRelease(report.smallestArgument);
-    result.smallestFailingException = CFBridgingRelease(report.smallestUncaughtException);
+    result.smallestFailingValue = report.smallestArgument;
+    result.smallestFailingException = report.smallestUncaughtException;
 
     [self.reporter runnerDidFailTestNumber:numberOfTests
                                 withResult:result];
@@ -166,8 +169,8 @@ typedef struct _FOXShrinkReport {
     return result;
 }
 
-- (FOXShrinkReport)shrinkReportForRoseTree:(FOXRoseTree *)failureRoseTree
-                             numberOfTests:(NSUInteger)numberOfTests
+- (FOXShrinkReport *)shrinkReportForRoseTree:(FOXRoseTree *)failureRoseTree
+                               numberOfTests:(NSUInteger)numberOfTests
 {
     NSUInteger numberOfNodesVisited = 0;
     NSUInteger depth = 0;
@@ -199,12 +202,14 @@ typedef struct _FOXShrinkReport {
         [firstTree freeInternals];
     }
 
-    return (FOXShrinkReport) {
-        .depth=depth,
-        .numberOfNodesVisited=numberOfNodesVisited,
-        .smallestArgument=CFBridgingRetain(currentSmallest.generatedValue),
-        .smallestUncaughtException=CFBridgingRetain(currentSmallest.uncaughtException),
-    };
+    return ({
+        FOXShrinkReport *report = [[FOXShrinkReport alloc] init];
+        report.depth = depth;
+        report.numberOfNodesVisited = numberOfNodesVisited;
+        report.smallestArgument = currentSmallest.generatedValue;
+        report.smallestUncaughtException = currentSmallest.uncaughtException;
+        report;
+    });
 }
 
 @end

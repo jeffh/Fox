@@ -28,6 +28,7 @@
 #include "extern.h"
 #include "decode.h"
 #include <string.h>
+#include <assert.h>
 
 /* =============================================================================
  * ud_init() - Initializes ud_t object.
@@ -262,6 +263,7 @@ ud_get_user_opaque_data(const struct ud *u)
 void
 ud_set_asm_buffer(struct ud *u, char *buf, size_t size)
 {
+  assert(u != NULL);
   if (buf == NULL) {
     ud_set_asm_buffer(u, u->asm_buf_int, sizeof(u->asm_buf_int));
   } else {
