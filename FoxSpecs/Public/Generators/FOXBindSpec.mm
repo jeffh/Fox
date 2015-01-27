@@ -13,7 +13,6 @@ describe(@"FOXBind", ^{
                                                                           @[@2, @[@[@0, @[]],
                                                                                   @[@1, @[@[@0, @[]]]]]]]]];
 
-
         it(@"should not change the original binded tree", ^{
             id<FOXGenerator> generator = FOXBind(FOXGenPure(threeShrinkTree), ^id<FOXGenerator>(id generatedValue) {
                 return FOXReturn(generatedValue);
@@ -34,6 +33,20 @@ describe(@"FOXBind", ^{
         FOXRoseTree *tree = [bindedGenerator lazyTreeWithRandom:random maximumSize:50];
         FOXRoseTree *expectedTree = [originalGenerator lazyTreeWithRandom:random maximumSize:50];
         tree should equal(expectedTree);
+    });
+
+    xit(@"should shrink both values in order, without backtracking", ^{
+        id<FOXGenerator> generator = FOXBind(FOXPositiveInteger(), ^id<FOXGenerator>(id value1) {
+            return FOXBind(FOXPositiveInteger(), ^id<FOXGenerator>(id value2) {
+                return FOXReturn(@[value1, value2]);
+            });
+        });
+        id<FOXGenerator> property = FOXForAll(generator, ^BOOL(id values) {
+            return [values[0] integerValue] + [values[1] integerValue] < 13;
+        });
+        FOXRunnerResult *result = [FOXSpecHelper resultForProperty:property];
+        result.succeeded should be_falsy;
+//        result.smallestFailingValue should equal(@[@0, @10]);
     });
 
     it(@"should shrink both values, but may not be fully minimal", ^{

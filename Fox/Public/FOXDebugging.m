@@ -5,6 +5,8 @@
 #import "FOXDeterministicRandom.h"
 #import "FOXEnvironment.h"
 #import "FOXGenerator.h"
+#import "FOXPrettyArray.h"
+
 
 FOX_EXPORT NSArray *FOXSample(id<FOXGenerator> generator) {
     return FOXSampleWithCount(generator, 10);
@@ -17,7 +19,7 @@ FOX_EXPORT NSArray *FOXSampleWithCount(id<FOXGenerator> generator, NSUInteger nu
         FOXRoseTree *tree = [generator lazyTreeWithRandom:random maximumSize:FOXGetMaximumSize()];
         [samples addObject:tree.value ?: [NSNull null]];
     }
-    return samples;
+    return [FOXPrettyArray arrayWithArray:samples];
 }
 
 
@@ -37,5 +39,5 @@ FOX_EXPORT NSArray *FOXSampleShrinkingWithCount(id<FOXGenerator> generator, NSUI
         [stack addObjectsFromArray:[[tree.children objectEnumerator] allObjects]];
     }
 
-    return samples;
+    return [FOXPrettyArray arrayWithArray:samples];
 }

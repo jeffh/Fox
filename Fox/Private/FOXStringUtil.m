@@ -8,7 +8,7 @@ FOX_EXPORT NSString *FOXIndentStringWithWhitespace(NSString *string, NSString *w
 }
 
 FOX_EXPORT NSString *FOXWhitespace(NSUInteger indent) {
-    NSMutableString *whitespace = [NSMutableString string];
+    NSMutableString *whitespace = [NSMutableString stringWithCapacity:indent];
     for (NSUInteger i = 0; i < indent; i++) {
         [whitespace appendString:@"  "];
     }

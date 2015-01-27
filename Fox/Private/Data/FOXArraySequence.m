@@ -8,6 +8,8 @@
 
 @implementation FOXArraySequence
 
+#pragma mark - Public
+
 - (instancetype)initWithArray:(NSArray *)array
 {
     return [self initWithArray:array offset:0];

@@ -15,6 +15,8 @@
     OSSpinLock _lock;
 }
 
+#pragma mark - Public
+
 - (instancetype)init
 {
     return self = [super init];

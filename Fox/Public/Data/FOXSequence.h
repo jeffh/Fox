@@ -2,7 +2,7 @@
 
 @protocol FOXSequence;
 
-@protocol FOXSequence<NSObject, NSFastEnumeration>
+@protocol FOXSequence <NSObject, NSFastEnumeration, NSCoding, NSCopying>
 
 - (id)firstObject;
 - (id<FOXSequence>)remainingSequence;
@@ -31,6 +31,12 @@
  *
  *  Whenever possible, this abstract class will produce lazy sequences when conforming to
  *  the FOXSequence protocol.
+ *
+ *  @warning - If your sequence implementation is significantly different internally, you should
+ *             also override NSCoding methods.
+ *
+ *  Subclasses are assumed to be immutable. For example, the NSCopying implementation,
+ *  simply returns self.
  */
 @interface FOXSequence : NSObject <FOXSequence> {
     NSUInteger _count;
@@ -62,10 +68,10 @@
  */
 @interface FOXSequence (LazyConstructors)
 
-+ (instancetype)lazySequenceFromBlock:(id<FOXSequence>(^)())block;
-+ (instancetype)lazyUniqueSequence:(id<FOXSequence>)sequence;
-+ (instancetype)lazyRangeStartingAt:(NSInteger)startIndex endingBefore:(NSUInteger)endIndex;
-+ (instancetype)subsetsOfSequence:(id<FOXSequence>)sequence;
-+ (instancetype)combinationsOfSequence:(id<FOXSequence>)sequence size:(NSUInteger)size;
++ (id<FOXSequence>)lazySequenceFromBlock:(id<FOXSequence>(^)())block;
++ (id<FOXSequence>)lazyUniqueSequence:(id<FOXSequence>)sequence;
++ (id<FOXSequence>)lazyRangeStartingAt:(NSInteger)startIndex endingBefore:(NSUInteger)endIndex;
++ (id<FOXSequence>)subsetsOfSequence:(id<FOXSequence>)sequence;
++ (id<FOXSequence>)combinationsOfSequence:(id<FOXSequence>)sequence size:(NSUInteger)size;
 
 @end

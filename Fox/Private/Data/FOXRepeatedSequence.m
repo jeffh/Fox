@@ -1,4 +1,5 @@
 #import "FOXRepeatedSequence.h"
+#import "FOXObjectiveCRepresentation.h"
 
 @interface FOXRepeatedSequence ()
 @property (nonatomic) id firstObject;
@@ -6,6 +7,23 @@
 @end
 
 @implementation FOXRepeatedSequence
+
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    id firstObject = [aDecoder decodeObjectForKey:@"firstObject"];
+    NSUInteger times = [aDecoder decodeIntegerForKey:@"times"];
+    return [self initWithObject:firstObject times:times];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.firstObject forKey:@"firstObject"];
+    [aCoder encodeInteger:_count forKey:@"times"];
+}
+
+#pragma mark - Public
 
 - (instancetype)initWithObject:(id)object times:(NSUInteger)times
 {
@@ -23,34 +41,13 @@
     return self;
 }
 
-//#pragma mark - NSFastEnumeration
-//
-//- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
-//                                  objects:(id __unsafe_unretained[])buffer
-//                                    count:(NSUInteger)batchSize
-//{
-//    const unsigned long firstTimeState = 0;
-//    const unsigned long processingState = 1;
-//    if (state->state == firstTimeState) {
-//        state->mutationsPtr = (__bridge void *)self;
-//        state->extra[0] = (unsigned long)self;
-//        state->state = processingState;
-//    }
-//    NSUInteger objectsCaptured = 0;
-//    FOXRepeatedSequence *seq = (__bridge id)(void *)(state->extra[0]);
-//    id object = seq.firstObject;
-//
-//    if (!object) {
-//        return 0;
-//    }
-//
-//    state->itemsPtr = buffer;
-//
-//    while (objectsCaptured < batchSize) {
-//        *buffer++ = object;
-//        objectsCaptured++;
-//    }
-//    return objectsCaptured;
-//}
+#pragma mark - FOXObjectiveCRepresentation
+
+- (NSString *)objectiveCStringRepresentation
+{
+    return [NSString stringWithFormat:@"[FOXSequence sequenceWithObject:%@ times:%lu]",
+            FOXRepr(self.firstObject),
+            _count];
+}
 
 @end

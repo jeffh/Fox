@@ -5,6 +5,10 @@
 #import "FOXConcreteSequence.h"
 #import "FOXArraySequence.h"
 #import "FOXRepeatedSequence.h"
+#import "FOXObjectiveCRepresentation.h"
+
+@interface FOXSequence () <FOXObjectiveCRepresentation>
+@end
 
 @implementation FOXSequence
 
@@ -16,6 +20,21 @@
         _count = NSNotFound;
     }
     return self;
+}
+
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    id firstObject = [aDecoder decodeObjectForKey:@"firstObject"];
+    id remainingSequence = [aDecoder decodeObjectForKey:@"remainingSequence"];
+    return [FOXSequence sequenceWithObject:firstObject remainingSequence:remainingSequence];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.firstObject forKey:@"firstObject"];
+    [aCoder encodeObject:self.remainingSequence forKey:@"remainingSequence"];
 }
 
 #pragma mark - FOXSequence
@@ -228,6 +247,21 @@
     }];
 }
 
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+#pragma mark - FOXObjectiveCRepresentation
+
+- (NSString *)objectiveCStringRepresentation
+{
+    return [NSString stringWithFormat:@"[FOXSequence sequenceFromArray:%@]",
+            FOXRepr([[self objectEnumerator] allObjects])];
+}
+
 #pragma mark - Abstract FOXSequence
 
 - (id<FOXSequence>)remainingSequence
@@ -287,12 +321,12 @@
 
 @implementation FOXSequence (LazyConstructors)
 
-+ (instancetype)lazySequenceFromBlock:(id<FOXSequence>(^)())block
++ (id<FOXSequence>)lazySequenceFromBlock:(id<FOXSequence>(^)())block
 {
     return [[FOXLazySequence alloc] initWithLazyBlock:block];
 }
 
-+ (instancetype)lazyUniqueSequence:(id<FOXSequence>)sequence
++ (id<FOXSequence>)lazyUniqueSequence:(id<FOXSequence>)sequence
 {
     NSMutableSet *set = [NSMutableSet set];
     return [sequence sequenceByFiltering:^BOOL(id item) {
@@ -305,7 +339,7 @@
     }];
 }
 
-+ (instancetype)lazyRangeStartingAt:(NSInteger)startIndex endingBefore:(NSUInteger)endIndex
++ (id<FOXSequence>)lazyRangeStartingAt:(NSInteger)startIndex endingBefore:(NSUInteger)endIndex
 {
     if (startIndex == endIndex) {
         return nil;
@@ -318,7 +352,7 @@
     }];
 }
 
-+ (instancetype)subsetsOfSequence:(id<FOXSequence>)sequence
++ (id<FOXSequence>)subsetsOfSequence:(id<FOXSequence>)sequence
 {
     id<FOXSequence> s = [self lazyRangeStartingAt:0 endingBefore:[sequence count] + 1];
     return [s sequenceByMapcatting:^id<FOXSequence>(id item) {
@@ -326,7 +360,7 @@
     }];
 }
 
-+ (instancetype)combinationsOfSequence:(id<FOXSequence>)sequence size:(NSUInteger)size
++ (id<FOXSequence>)combinationsOfSequence:(id<FOXSequence>)sequence size:(NSUInteger)size
 {
     if (size == 0) {
         return [self sequenceWithObject:[self sequence]];
@@ -348,7 +382,7 @@
     }];
 }
 
-+ (instancetype)indexCombinationsOfSize:(NSUInteger)size collectionSize:(NSUInteger)collectionSize
++ (id<FOXSequence>)indexCombinationsOfSize:(NSUInteger)size collectionSize:(NSUInteger)collectionSize
 {
     NSAssert(size <= collectionSize, @"combinations size (%lu) is greater than collection size (%lu)",
              size, collectionSize);

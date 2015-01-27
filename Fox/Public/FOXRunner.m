@@ -3,10 +3,25 @@
 #import "FOXRoseTree+Protected.h"
 #import "FOXDeterministicRandom.h"
 #import "FOXSequence.h"
-#import "FOXRunnerResult.h"
+#import "FOXRunnerResult+Protected.h"
 #import "FOXStandardReporter.h"
 #import "FOXPropertyResult.h"
 #import "FOXEnvironment.h"
+
+// Uncomment this preprocessor definition to make the reporter keep the rose
+// tree. Please note that this will balloon the running memory significantly.
+//
+// Leave this commented before commiting.
+#define FOX_DEBUG
+
+#ifdef FOX_DEBUG
+#define FOX_IF_NOT_DEBUG(...)
+#define FOX_IF_DEBUG(...) __VA_ARGS__
+#else
+#define FOX_IF_NOT_DEBUG(...) __VA_ARGS__
+#define FOX_IF_DEBUG(...)
+#endif
+
 
 @interface FOXShrinkReport : NSObject
 @property (nonatomic) NSUInteger depth;
@@ -161,6 +176,7 @@
     result.shrinkNodeWalkCount = report.numberOfNodesVisited;
     result.smallestFailingValue = report.smallestArgument;
     result.smallestFailingException = report.smallestUncaughtException;
+    FOX_IF_DEBUG(result.failingRoseTree = failureRoseTree);
 
     [self.reporter runnerDidFailTestNumber:numberOfTests
                                 withResult:result];
@@ -176,7 +192,8 @@
     NSUInteger depth = 0;
     id<FOXSequence> shrinkChoicesAtDepth = failureRoseTree.children;
     FOXPropertyResult *currentSmallest = failureRoseTree.value;
-    [failureRoseTree freeInternals];
+
+    FOX_IF_NOT_DEBUG([failureRoseTree freeInternals]);
 
     while ([shrinkChoicesAtDepth firstObject]) {
         FOXRoseTree *firstTree = [shrinkChoicesAtDepth firstObject];
@@ -199,17 +216,15 @@
         ++numberOfNodesVisited;
         [self.reporter runnerDidShrinkFailingTestNumber:numberOfTests
                                      withPropertyResult:smallestCandidate];
-        [firstTree freeInternals];
+        FOX_IF_NOT_DEBUG([firstTree freeInternals]);
     }
 
-    return ({
-        FOXShrinkReport *report = [[FOXShrinkReport alloc] init];
-        report.depth = depth;
-        report.numberOfNodesVisited = numberOfNodesVisited;
-        report.smallestArgument = currentSmallest.generatedValue;
-        report.smallestUncaughtException = currentSmallest.uncaughtException;
-        report;
-    });
+    FOXShrinkReport *report = [[FOXShrinkReport alloc] init];
+    report.depth = depth;
+    report.numberOfNodesVisited = numberOfNodesVisited;
+    report.smallestArgument = currentSmallest.generatedValue;
+    report.smallestUncaughtException = currentSmallest.uncaughtException;
+    return report;
 }
 
 @end

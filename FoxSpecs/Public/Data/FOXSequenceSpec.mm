@@ -11,6 +11,43 @@ SPEC_BEGIN(FOXSequenceSpec)
 describe(@"FOXSequence", ^{
     __block FOXSequence *subject;
 
+    describe(@"as a value object", ^{
+        beforeEach(^{
+            subject = [FOXSequence sequenceWithObject:@1 remainingSequence:[FOXSequence sequenceFromArray:@[@2, @3]]];
+        });
+
+        it(@"should be copyable", ^{
+            subject should equal([subject copy]);
+        });
+
+        it(@"should be equal to sequences with the same values", ^{
+            [FOXSequence sequence] should equal([FOXSequence sequenceWithObject:nil]);
+            subject should equal(subject);
+            subject should equal([FOXSequence sequenceWithObject:@1 remainingSequence:[FOXSequence sequenceFromArray:@[@2, @3]]]);
+        });
+
+        it(@"should not equal to sequences with different values", ^{
+            subject should_not equal([FOXSequence sequence]);
+            subject should_not equal([FOXSequence sequenceWithObject:@2 remainingSequence:[FOXSequence sequenceFromArray:@[@2, @3]]]);
+        });
+
+        id (^encodeAndDecode)(id) = ^id(id obj) {
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:obj];
+            return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        };
+
+        it(@"should be encodable", ^{
+            encodeAndDecode(subject) should equal(subject);
+
+            id<FOXSequence> arraySequence = [FOXSequence sequenceByRepeatingObject:@1 times:5];
+            encodeAndDecode(arraySequence) should equal(arraySequence);
+
+            id<FOXSequence> rangeSequence = [FOXSequence lazyRangeStartingAt:0 endingBefore:10];
+            encodeAndDecode(rangeSequence) should equal(rangeSequence);
+        });
+    });
+
+
     describe(@"concrete sequences", ^{
         describe(@"zero-element sequence", ^{
             beforeEach(^{

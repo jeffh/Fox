@@ -8,9 +8,12 @@
 /*! A rose tree data structure. Generators return these lazy trees which allows "shrinking" of
  *  a given value by walking its children.
  *
+ *  The Fox's shrinking algorithm is a greedy, depth-first search. So the smallest possible values
+ *  should be first, as immediate children.
+ *
  *  Like sequences, rose trees support operations to derive new lazy rose trees from existing ones.
  */
-@interface FOXRoseTree : NSObject
+@interface FOXRoseTree : NSObject <NSCoding, NSCopying>
 
 /*! The value that this tree holds. Smaller variants of this value are in this tree's children.
  */

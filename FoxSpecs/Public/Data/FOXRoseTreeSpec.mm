@@ -16,6 +16,28 @@ describe(@"FOXRoseTree", ^{
         inputTree2 = [[FOXRoseTree alloc] initWithValue:@3 children:[FOXSequence sequenceWithObject:[[FOXRoseTree alloc] initWithValue:@4]]];
     });
 
+    describe(@"value object", ^{
+        it(@"should be copyable", ^{
+            inputTree1 should equal([inputTree1 copy]);
+        });
+
+        it(@"should be equal to trees with the same value and children", ^{
+            inputTree1 should equal(inputTree1);
+            inputTree1 should equal([[FOXRoseTree alloc] initWithValue:@1 children:[FOXSequence sequenceWithObject:[[FOXRoseTree alloc] initWithValue:@2]]]);
+        });
+
+        it(@"should not equal to trees with different values and children", ^{
+            inputTree1 should_not equal(inputTree2);
+            inputTree1 should_not equal([[FOXRoseTree alloc] initWithValue:@1]);
+        });
+
+        it(@"should be encodable", ^{
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:inputTree1];
+            FOXRoseTree *tree = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            tree should equal(inputTree1);
+        });
+    });
+
     describe(@"permutations", ^{
         it(@"should generate permutations by replacing children as given tree, for each tree in the array", ^{
             id<FOXSequence> trees = [FOXRoseTree permutationsOfRoseTrees:@[inputTree1, inputTree2]];

@@ -8,6 +8,7 @@
 #import "FOXSizedGenerator.h"
 #import "FOXSuchThatGenerator.h"
 #import "FOXBlockGenerator.h"
+#import "FOXObjectiveCRepresentation.h"
 
 
 FOX_EXPORT id<FOXGenerator> FOXWithName(NSString *name, id<FOXGenerator> generator) {
@@ -59,12 +60,22 @@ FOX_EXPORT id<FOXGenerator> FOXSuchThatWithMaxTries(id<FOXGenerator> generator, 
 
 FOX_EXPORT id<FOXGenerator> FOXBind(id<FOXGenerator> generator, id<FOXGenerator> (^fn)(id value)) {
     return FOXGenBind(generator, ^id<FOXGenerator>(FOXRoseTree *generatorTree) {
+        __block FOXRoseTree *secondaryTree = nil;
         id<FOXGenerator> innerGenerator = FOXGenerate(^FOXRoseTree *(id<FOXRandom> random, NSUInteger size) {
             return [generatorTree treeByApplyingBlock:^id(id element) {
-                return [fn(element) lazyTreeWithRandom:random maximumSize:size];
+                secondaryTree = [fn(element) lazyTreeWithRandom:random maximumSize:size];
+                return secondaryTree;
             }];
         });
         return FOXGenMap(innerGenerator, ^FOXRoseTree *(FOXRoseTree *innerTree) {
+//            NSArray *values = [(FOXRoseTree *)innerTree.value value];
+//            if ([values isKindOfClass:[NSArray class]] && ([values[0] integerValue] + [values[1] integerValue]) >= 10) {
+//                NSLog(@"OriginalTree %@", generatorTree);
+//                NSLog(@"SecondaryTree %@", secondaryTree);
+//                NSLog(@"DerivedTree %@", innerTree);
+//                [NSKeyedArchiver archiveRootObject:innerTree toFile:@"Tree.archive"];
+//                NSLog(@"JoinedTree %@", [FOXRoseTree joinedTreeFromNestedRoseTree:innerTree]);
+//            }
             return [FOXRoseTree joinedTreeFromNestedRoseTree:innerTree];
         });
     });

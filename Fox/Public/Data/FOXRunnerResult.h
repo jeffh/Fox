@@ -8,7 +8,6 @@
 @property (nonatomic) NSUInteger numberOfTests;
 @property (nonatomic) NSUInteger seed;
 
-
 // properties below are only filled when failures occur (succeeded = NO)
 @property (nonatomic) NSUInteger failingSize;
 @property (nonatomic) id failingValue;

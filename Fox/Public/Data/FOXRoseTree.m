@@ -1,6 +1,11 @@
 #import "FOXRoseTree.h"
 #import "FOXSequence.h"
 #import "FOXPrettyArray.h"
+#import "FOXStringUtil.h"
+#import "FOXObjectiveCRepresentation.h"
+
+@interface FOXRoseTree () <FOXObjectiveCRepresentation>
+@end
 
 @implementation FOXRoseTree
 
@@ -22,7 +27,11 @@
     for (id subtree in roseTreeLiteral[1]) {
         [subtrees addObject:[self treeFromArray:subtree]];
     }
-    return [[[self class] alloc] initWithValue:[roseTreeLiteral firstObject]
+    id value = [roseTreeLiteral firstObject];
+    if ([value isEqual:[NSNull null]]) {
+        value = nil;
+    }
+    return [[[self class] alloc] initWithValue:value
                                       children:[FOXSequence sequenceFromArray:subtrees]];
 }
 
@@ -92,11 +101,33 @@
     return self;
 }
 
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        _value = [aDecoder decodeObjectForKey:@"value"];
+        _children = [aDecoder decodeObjectForKey:@"children"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.value forKey:@"value"];
+    [aCoder encodeObject:self.children forKey:@"children"];
+}
+
+#pragma mark - Protected
+
 - (void)freeInternals
 {
     _value = nil;
     _children = nil;
 }
+
+#pragma mark - Public
 
 - (instancetype)treeByApplyingBlock:(id(^)(id element))block
 {
@@ -114,6 +145,13 @@
     }] sequenceByMapping:^id(FOXRoseTree *subtree) {
         return [subtree treeFilterChildrenByBlock:block];
     }]];
+}
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
 }
 
 #pragma mark - NSObject
@@ -135,23 +173,38 @@
     return 31 * [self.value hash] + 31 * [self.children hash];
 }
 
+- (NSString *)objectiveCStringRepresentation
+{
+    NSMutableString *string = [NSMutableString stringWithFormat:@"[%@ treeFromArray:@[",
+                               NSStringFromClass([self class])];
+    NSString *valueDesc = FOXRepr(self.value);
+    if ([self.value isKindOfClass:[NSArray class]]) {
+        valueDesc = [valueDesc stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    }
+    [string appendString:FOXIndentString(valueDesc, 2)];
+    [string appendString:@",\n"];
+
+    [string appendString:FOXRepr(self.children)];
+
+    [string appendString:@"]"];
+    return string;
+}
+
 - (NSString *)description
 {
-    NSMutableString *string = [NSMutableString stringWithFormat:@"<%@: %p\n  value=",
-                               NSStringFromClass([self class]),
-                               self];
+    NSMutableString *string = [NSMutableString stringWithFormat:@"<("];
     NSString *valueDesc = self.value ? [self.value description] : @"nil";
-
-    NSString *(^indent)(NSString *) = ^NSString *(NSString *s) {
-        return [s stringByReplacingOccurrencesOfString:@"\n" withString:@"\n    "];
-    };
-    [string appendString:indent(indent(valueDesc))];
+    if ([self.value isKindOfClass:[NSArray class]]) {
+        valueDesc = [valueDesc stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    }
+    [string appendString:FOXIndentString(valueDesc, 2)];
+    [string appendString:@")"];
 
     if ([self.children firstObject]) {
-        [string appendString:@",\n  children={\n"];
+        [string appendString:@" {\n"];
         for (FOXRoseTree *tree in self.children) {
             [string appendString:@"    "];
-            [string appendString:indent(indent([tree description]))];
+            [string appendString:FOXIndentString([tree description], 2)];
             [string appendString:@"\n"];
         }
         [string appendString:@"}"];
@@ -163,7 +216,9 @@
 
 #pragma mark - Private
 
-+ (id<FOXSequence>)_permutationsOfRoseTrees:(NSArray *)roseTrees currentIndex:(NSUInteger)index remainingChildren:(id<FOXSequence>)children
++ (id<FOXSequence>)_permutationsOfRoseTrees:(NSArray *)roseTrees
+                               currentIndex:(NSUInteger)index
+                          remainingChildren:(id<FOXSequence>)children
 {
     return [FOXSequence lazySequenceFromBlock:^id<FOXSequence> {
         if ([children firstObject]) {

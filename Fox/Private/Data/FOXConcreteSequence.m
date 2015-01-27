@@ -11,6 +11,8 @@
 
 @implementation FOXConcreteSequence
 
+#pragma mark - Public
+
 - (instancetype)init
 {
     if (self = [super init]) {
