@@ -74,4 +74,23 @@ describe(@"FOXDecimalNumber", ^{
     });
 });
 
+describe(@"FOXFamousDecimalNumber", ^{
+    it(@"should generate min, max, and NaN regularly", ^{
+        __block BOOL hasSeenNaN = NO;
+        __block BOOL hasSeenMin = NO;
+        __block BOOL hasSeenMax = NO;
+        FOXRunnerResult *result = [FOXSpecHelper resultForAll:FOXFamousDecimalNumber() then:^BOOL(NSDecimalNumber *value) {
+            hasSeenNaN = hasSeenNaN || [value isEqual:[NSDecimalNumber notANumber]];
+            hasSeenMax = hasSeenMax || [value isEqual:[NSDecimalNumber maximumDecimalNumber]];
+            hasSeenMin = hasSeenMax || [value isEqual:[NSDecimalNumber minimumDecimalNumber]];
+            return YES;
+        }];
+
+        hasSeenNaN should be_truthy;
+        hasSeenMax should be_truthy;
+        hasSeenMin should be_truthy;
+        result should be_truthy;
+    });
+});
+
 SPEC_END

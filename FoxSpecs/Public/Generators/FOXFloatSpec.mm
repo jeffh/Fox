@@ -57,4 +57,36 @@ describe(@"FOXFloat", ^{
     });
 });
 
+describe(@"FOXFamousFloat", ^{
+    it(@"should generate min, max, and exceptional values regularly", ^{
+        __block BOOL hasSeenNaN = NO;
+        __block BOOL hasSeenNegZero = NO;
+        __block BOOL hasSeenPosInf = NO;
+        __block BOOL hasSeenNegInf = NO;
+        __block BOOL hasSeenMin = NO;
+        __block BOOL hasSeenMax = NO;
+        FOXRunnerResult *result = [FOXSpecHelper resultForAll:FOXFamousFloat() then:^BOOL(NSNumber *value) {
+            float val = [value floatValue];
+            if (isnan(val)) {
+                hasSeenNaN = YES;
+                return YES;
+            }
+            hasSeenNegZero = hasSeenNegZero || [value isEqual:@(-0.f)];
+            hasSeenMax = hasSeenMax || [value isEqual:@(FLT_MAX)];
+            hasSeenMin = hasSeenMax || [value isEqual:@(-FLT_MAX)];
+            hasSeenPosInf = hasSeenPosInf || [value isEqual:@(INFINITY)];
+            hasSeenNegInf = hasSeenNegInf || [value isEqual:@(-INFINITY)];
+            return YES;
+        }];
+
+        hasSeenNaN should be_truthy;
+        hasSeenNegZero should be_truthy;
+        hasSeenMax should be_truthy;
+        hasSeenMin should be_truthy;
+        hasSeenPosInf should be_truthy;
+        hasSeenNegInf should be_truthy;
+        result should be_truthy;
+    });
+});
+
 SPEC_END

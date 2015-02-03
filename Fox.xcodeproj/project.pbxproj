@@ -256,6 +256,10 @@
 		1FAE3B6F1A2F10080011838A /* FOXFloatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B6D1A2F10080011838A /* FOXFloatSpec.mm */; };
 		1FC42D481A34E8E8006455F2 /* FOXBindSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FC42D471A34E8E8006455F2 /* FOXBindSpec.mm */; };
 		1FC42D491A34E8E8006455F2 /* FOXBindSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FC42D471A34E8E8006455F2 /* FOXBindSpec.mm */; };
+		1FFCE5671A80B90700A427AA /* FOXLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FFCE5651A80B90700A427AA /* FOXLimits.h */; };
+		1FFCE5681A80B90700A427AA /* FOXLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FFCE5651A80B90700A427AA /* FOXLimits.h */; };
+		1FFCE5691A80B90700A427AA /* FOXLimits.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCE5661A80B90700A427AA /* FOXLimits.mm */; };
+		1FFCE56A1A80B90700A427AA /* FOXLimits.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCE5661A80B90700A427AA /* FOXLimits.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -377,6 +381,8 @@
 		1FF5B93C1973BD9000416383 /* FOXRoseTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXRoseTree.h; sourceTree = "<group>"; };
 		1FF5B93D1973BD9000416383 /* FOXRoseTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXRoseTree.m; sourceTree = "<group>"; };
 		1FF6737D1A2AC7E200F98D20 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1FFCE5651A80B90700A427AA /* FOXLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FOXLimits.h; path = Fox/Private/FOXLimits.h; sourceTree = SOURCE_ROOT; };
+		1FFCE5661A80B90700A427AA /* FOXLimits.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXLimits.mm; path = Fox/Private/FOXLimits.mm; sourceTree = SOURCE_ROOT; };
 		31B730183A626AD19A2B366E /* FOXSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXSequence.h; sourceTree = "<group>"; };
 		31B73029745CB5B325095CB3 /* QueueAddTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueAddTransition.m; sourceTree = "<group>"; };
 		31B7303EEEA0827C94541FB4 /* FOXStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXStateMachine.h; sourceTree = "<group>"; };
@@ -693,6 +699,8 @@
 		1F8FDBE6198776FA0059D31A /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				1FFCE5651A80B90700A427AA /* FOXLimits.h */,
+				1FFCE5661A80B90700A427AA /* FOXLimits.mm */,
 				1F46E505198CAE6400F87028 /* Generators */,
 				1F8FDBE7198777080059D31A /* Data */,
 			);
@@ -800,6 +808,7 @@
 				1F38B6551A2ACCAE0078FF90 /* FOXArray.h in Headers */,
 				1F38B6211A2ACCA80078FF90 /* FOXChooseGenerator.h in Headers */,
 				1F38B6C31A2ACCC00078FF90 /* FOXDeterministicRandom.h in Headers */,
+				1FFCE5671A80B90700A427AA /* FOXLimits.h in Headers */,
 				1F38B6A01A2ACCC00078FF90 /* FOXRunnerResult.h in Headers */,
 				1F38B6B91A2ACCC00078FF90 /* FOXStringGenerators.h in Headers */,
 			);
@@ -855,6 +864,7 @@
 				1F38B6611A2ACCAE0078FF90 /* FOXArray.h in Headers */,
 				1F38B6391A2ACCA90078FF90 /* FOXChooseGenerator.h in Headers */,
 				1F38B68E1A2ACCC00078FF90 /* FOXDeterministicRandom.h in Headers */,
+				1FFCE5681A80B90700A427AA /* FOXLimits.h in Headers */,
 				1F38B66B1A2ACCC00078FF90 /* FOXRunnerResult.h in Headers */,
 				1F38B6841A2ACCC00078FF90 /* FOXStringGenerators.h in Headers */,
 			);
@@ -1049,6 +1059,7 @@
 				1F38B6241A2ACCA80078FF90 /* FOXMapGenerator.m in Sources */,
 				1F38B62E1A2ACCA80078FF90 /* FOXStringGenerator.m in Sources */,
 				1F38B6B71A2ACCC00078FF90 /* FOXStateMachineGenerators.m in Sources */,
+				1FFCE5691A80B90700A427AA /* FOXLimits.mm in Sources */,
 				1F38B6BC1A2ACCC00078FF90 /* FOXGenericGenerators.m in Sources */,
 				1FAE3B681A2EC5E60011838A /* SwiftGenerators.swift in Sources */,
 				1F38B6201A2ACCA80078FF90 /* FOXBindGenerator.m in Sources */,
@@ -1137,6 +1148,7 @@
 				1F38B63C1A2ACCA90078FF90 /* FOXMapGenerator.m in Sources */,
 				1F38B6461A2ACCA90078FF90 /* FOXStringGenerator.m in Sources */,
 				1F38B6821A2ACCC00078FF90 /* FOXStateMachineGenerators.m in Sources */,
+				1FFCE56A1A80B90700A427AA /* FOXLimits.mm in Sources */,
 				1F38B6871A2ACCC00078FF90 /* FOXGenericGenerators.m in Sources */,
 				1FAE3B691A2EC5E60011838A /* SwiftGenerators.swift in Sources */,
 				1F38B6381A2ACCA90078FF90 /* FOXBindGenerator.m in Sources */,
