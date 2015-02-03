@@ -185,14 +185,36 @@ FOX_EXPORT id<FOXGenerator> FOXFamousStrictPositiveInteger(void);
 FOX_EXPORT id<FOXGenerator> FOXFamousNonZeroInteger(void);
 
 /*! Creates a generator that produces random floats (boxed as NSNumbers) with
- *  an increased probability of choosing extreme values (NAN, INFINITY,
- *  -INFINITY, -0). Shrinks towards zero. Floats generated conform to
+ *  an increased probability of choosing extreme values (NaN, INFINITY,
+ *  -INFINITY, -0, MAX, MIN). Shrinks towards zero. Doubles generated conform to
  *  IEEE standard.
  *
- *  The size hint dictates the min & max values that can be generated.
+ *  The size hint dictates the min & max values that can be generated with the
+ *  exception of extreme values.
  *
  *  @returns a generator that produces floats (boxed in NSNumbers).
  */
 FOX_EXPORT id<FOXGenerator> FOXFamousFloat(void);
+
+/*! Creates a generator that produces random doubles (boxed as NSNumbers) with
+ *  an increased probability of choosing extreme values (NaN, INFINITY,
+ *  -INFINITY, -0, MIN, MAX). Shrinks towards zero. Doubles generated conform to
+ *  IEEE standard.
+ *
+ *  The size hint dictates the min & max values that can be generated with the
+ *  exception of extreme values.
+ *
+ *  @returns a generator that produces doubles (boxed in NSNumbers).
+ */
 FOX_EXPORT id<FOXGenerator> FOXFamousDouble(void);
+
+/*! Creates a generator that produces random decimal numbers with an increased
+ *  probability of choosing extreme values (NaN, MIN, MAX).
+ *  Shrinks towards [NSDecimalNumber zero].
+ *
+ *  The size hint dictates the min & max values that can be generated with the
+ *  exception of extreme values.
+ *
+ *  @returns a generator that produces NSDecimalNumbers.
+ */
 FOX_EXPORT id<FOXGenerator> FOXFamousDecimalNumber(void);
