@@ -4,6 +4,8 @@
 #import "FOXArrayGenerators.h"
 #import "FOXRoseTree.h"
 #import "FOXChooseGenerator.h"
+#import "FOXLimits.h"
+#import <float.h>
 
 FOX_EXPORT id<FOXGenerator> _FOXNaturalInteger(void) {
     return FOXMap(FOXInteger(), ^id(NSNumber *number) {
@@ -149,4 +151,75 @@ FOX_EXPORT id<FOXGenerator> FOXDecimalNumber(void) {
     });
 
     return FOXWithName(@"DecimalNumber", gen);
+}
+
+
+#pragma mark - Famous Generators
+
+FOX_EXPORT id<FOXGenerator> FOXFamousInteger(void) {
+    return FOXWithName(@"FamousInteger",
+                       FOXFrequency(@[@[@48, FOXInteger()],
+                                      @[@1, FOXReturn(@(INT_MAX))],
+                                      @[@1, FOXReturn(@(INT_MIN))]]));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXFamousPositiveInteger(void) {
+    return FOXWithName(@"FamousPositiveInteger",
+                       FOXFrequency(@[@[@48, FOXPositiveInteger()],
+                                      @[@2, FOXReturn(@(INT_MAX))]]));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXFamousNegativeInteger(void) {
+    return FOXWithName(@"FamousNegativeInteger",
+                       FOXFrequency(@[@[@48, FOXNegativeInteger()],
+                                      @[@2, FOXReturn(@(INT_MIN))]]));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXFamousStrictNegativeInteger(void) {
+    return FOXWithName(@"FamousStrictNegativeInteger",
+                       FOXFrequency(@[@[@48, FOXStrictNegativeInteger()],
+                                      @[@2, FOXReturn(@(INT_MIN))]]));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXFamousStrictPositiveInteger(void) {
+    return FOXWithName(@"FamousStrictPositiveInteger",
+                       FOXFrequency(@[@[@48, FOXStrictPositiveInteger()],
+                                      @[@2, FOXReturn(@(INT_MAX))]]));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXFamousNonZeroInteger(void) {
+    return FOXWithName(@"FamousNonZeroInteger",
+                       FOXFrequency(@[@[@48, FOXNonZeroInteger()],
+                                      @[@1, FOXReturn(@(INT_MIN))],
+                                      @[@1, FOXReturn(@(INT_MAX))]]));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXFamousFloat(void) {
+    return FOXWithName(@"FamousFloat",
+                       FOXFrequency(@[@[@44, FOXFloat()],
+                                      @[@1, FOXReturn(@(-0.f))],
+                                      @[@1, FOXReturn(@(FOXFloatMax()))],
+                                      @[@1, FOXReturn(@(-FOXFloatMax()))],
+                                      @[@1, FOXReturn(@(FOXFloatInfinity()))],
+                                      @[@1, FOXReturn(@(-FOXFloatInfinity()))],
+                                      @[@1, FOXReturn(@(FOXFloatQNaN()))]]));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXFamousDouble(void) {
+    return FOXWithName(@"FamousDouble",
+                       FOXFrequency(@[@[@44, FOXDouble()],
+                                      @[@1, FOXReturn(@(-0.0))],
+                                      @[@1, FOXReturn(@(FOXDoubleMax()))],
+                                      @[@1, FOXReturn(@(-FOXDoubleMax()))],
+                                      @[@1, FOXReturn(@(FOXDoubleInfinity()))],
+                                      @[@1, FOXReturn(@(-FOXDoubleInfinity()))],
+                                      @[@1, FOXReturn(@(FOXDoubleQNaN()))]]));
+}
+
+FOX_EXPORT id<FOXGenerator> FOXFamousDecimalNumber(void) {
+    return FOXWithName(@"FamousDecimalNumber",
+                       FOXFrequency(@[@[@48, FOXDecimalNumber()],
+                                      @[@1, FOXReturn([NSDecimalNumber minimumDecimalNumber])],
+                                      @[@1, FOXReturn([NSDecimalNumber maximumDecimalNumber])],
+                                      @[@1, FOXReturn([NSDecimalNumber notANumber])]]));
 }

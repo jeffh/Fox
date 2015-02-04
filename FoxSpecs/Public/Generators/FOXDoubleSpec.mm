@@ -1,6 +1,7 @@
 #import <Cedar.h>
 #import "Fox.h"
 #import "FOXSpecHelper.h"
+#import <limits.h>
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
@@ -47,6 +48,39 @@ describe(@"FOXDouble", ^{
 
         result.succeeded should be_falsy;
         result.smallestFailingValue should be_greater_than_or_equal_to(@(-0.00000001));
+    });
+});
+
+
+describe(@"FOXFamousDouble", ^{
+    it(@"should generate min, max, and exceptional values regularly", ^{
+        __block BOOL hasSeenNaN = NO;
+        __block BOOL hasSeenNegZero = NO;
+        __block BOOL hasSeenPosInf = NO;
+        __block BOOL hasSeenNegInf = NO;
+        __block BOOL hasSeenMin = NO;
+        __block BOOL hasSeenMax = NO;
+        FOXRunnerResult *result = [FOXSpecHelper resultForAll:FOXFamousDouble() then:^BOOL(NSNumber *value) {
+            double val = [value doubleValue];
+            if (isnan(val)) {
+                hasSeenNaN = YES;
+                return YES;
+            }
+            hasSeenNegZero = hasSeenNegZero || [value isEqual:@(-0.f)];
+            hasSeenMax = hasSeenMax || [value isEqual:@(std::numeric_limits<double>::max())];
+            hasSeenMin = hasSeenMax || [value isEqual:@(-std::numeric_limits<double>::max())];
+            hasSeenPosInf = hasSeenPosInf || [value isEqual:@(std::numeric_limits<double>::infinity())];
+            hasSeenNegInf = hasSeenNegInf || [value isEqual:@(-std::numeric_limits<double>::infinity())];
+            return YES;
+        }];
+
+        hasSeenNaN should be_truthy;
+        hasSeenNegZero should be_truthy;
+        hasSeenMax should be_truthy;
+        hasSeenMin should be_truthy;
+        hasSeenPosInf should be_truthy;
+        hasSeenNegInf should be_truthy;
+        result should be_truthy;
     });
 });
 

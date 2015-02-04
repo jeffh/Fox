@@ -57,4 +57,17 @@ describe(@"FOXNegativeInteger", ^{
     });
 });
 
+describe(@"FOXFamousNegativeInteger", ^{
+    it(@"should generate minimum negative signed integer", ^{
+        __block BOOL hasSeenIntMin = NO;
+        FOXRunnerResult *result = [FOXSpecHelper resultForAll:FOXFamousNegativeInteger() then:^BOOL(NSNumber *value) {
+            hasSeenIntMin = hasSeenIntMin || [value isEqual:@(INT_MIN)];
+            return YES;
+        }];
+
+        hasSeenIntMin should be_truthy;
+        result should be_truthy;
+    });
+});
+
 SPEC_END

@@ -20,40 +20,48 @@ generators shrink to zero:
  - Numerically zero (or as close as possible)
  - Empty collection (or at least shrunk items)
 
-.. c:function:: id<FOXGenerator> FOXInteger(void) // NSNumber
+.. c:function:: id<FOXGenerator> FOXInteger(void)
 
     Generates random integers boxed as a NSNumber. Shrinks to 0::
 
         FOXInteger()
         // example generations: 0, -1, 1
 
-.. c:function:: id<FOXGenerator> FOXPositiveInteger(void) // NSNumber
+.. c:function:: id<FOXGenerator> FOXPositiveInteger(void)
 
     Generates random positive integers boxed as a NSNumber. Shrinks to 0::
 
         FOXPositiveInteger()
         // example generations: 0, 1, 2
 
-.. c:function:: id<FOXGenerator> FOXNegativeInteger(void) // NSNumber
+.. c:function:: id<FOXGenerator> FOXNegativeInteger(void)
 
     Generates random negative integers boxed as a NSNumber. Shrinks to 0::
 
         FOXNegativeInteger()
         // example generations: 0, -1, -2
 
-.. c:function:: id<FOXGenerator> FOXStrictPositiveInteger(void) // NSNumber
+.. c:function:: id<FOXGenerator> FOXStrictPositiveInteger(void)
 
     Generates random positive integers boxed as a NSNumber. Shrinks to 1::
 
         FOXStrictPositiveInteger()
         // example generations: 1, 2, 3
 
-.. c:function:: id<FOXGenerator> FOXStrictNegativeInteger(void) // NSNumber
+.. c:function:: id<FOXGenerator> FOXStrictNegativeInteger(void)
 
     Generates random negative integers boxed as a NSNumber. Shrinks to -1::
 
         FOXStrictNegativeInteger()
         // example generations: -1, -2, -3
+
+.. c:function:: id<FOXGenerator> FOXNonZeroInteger(void)
+
+    Generates random negative integers boxed as a NSNumber. Shrinks to 1. Does
+    not emit 0::
+
+        FOXNonZeroInteger()
+        // example generations: -1, 2, -3
 
 .. c:function:: id<FOXGenerator> FOXChoose(NSNumber *miniumNumber, NSNumber *maximumNumber) // NSNumber
 
@@ -91,6 +99,112 @@ generators shrink to zero:
     unlikely.
 
 .. c:function:: id<FOXGenerator> FOXDecimalNumber(void) // NSDecimalNumber
+
+    Generates random decimal numbers. Shrinks towards zero by shrinking the
+    mantissa and exponent.
+
+    The generator **does not** generate NaNs::
+
+        FOXDecimalNumber()
+        // example generations: 0, -192000000000000000000000000000000000000000000, 790000000000000000000000000000000000000000000000000000000000000000000000000000
+
+.. c:function:: id<FOXGenerator> FOXFamousInteger(void)
+
+    Generates random integers boxed as a NSNumber. Shrinks to 0. Unlike
+    :c:func:`FOXInteger`, this generator increases the likelihood of generating
+    extreme values (INT_MAX, INT_MIN)::
+
+        FOXFamousInteger()
+        // example generations: 0, -1, 32767, -32767
+
+    It is not recommended to use this generator to produce collections.
+
+.. c:function:: id<FOXGenerator> FOXFamousPositiveInteger(void)
+
+    Generates random positive integers boxed as a NSNumber. Shrinks to 0.
+    Unlike :c:func:`FOXPositiveInteger`, this generator increases the likelihood
+    of generating extreme values (INT_MAX)::
+
+        FOXFamousPositiveInteger()
+        // example generations: 0, -1, 32767
+
+    It is not recommended to use this generator to produce collections.
+
+.. c:function:: id<FOXGenerator> FOXFamousNegativeInteger(void)
+
+    Generates random negative integers boxed as a NSNumber. Shrinks to 0.
+    Unlike :c:func:`FOXNegativeInteger`, this generator increases the likelihood
+    of generating extreme values (INT_MIN)::
+
+        FOXNegativeInteger()
+        // example generations: 0, -1, -2, -32767 
+
+    It is not recommended to use this generator to produce collections.
+
+.. c:function:: id<FOXGenerator> FOXFamousStrictPositiveInteger(void)
+
+    Generates random positive integers boxed as a NSNumber. Shrinks to 1.
+    Unlike :c:func:`FOXStrictPositiveInteger`, this generator increases the
+    likelihood of generating extreme values (INT_MAX)::
+
+        FOXFamousStrictPositiveInteger()
+        // example generations: 1, 5, 32767
+
+    It is not recommended to use this generator to produce collections.
+
+.. c:function:: id<FOXGenerator> FOXFamousStrictNegativeInteger(void)
+
+    Generates random negative integers boxed as a NSNumber. Shrinks to -1.
+    Unlike :c:func:`FOXStrictPositiveInteger`, this generator increases the
+    likelihood of generating extreme values (INT_MIN)::
+
+        FOXFamousStrictNegativeInteger()
+        // example generations: -1, -2, -32767
+
+    It is not recommended to use this generator to produce collections.
+
+.. c:function:: id<FOXGenerator> FOXFamousNonZeroInteger(void)
+
+    Generates random negative integers boxed as a NSNumber. Shrinks to 1. Does
+    not emit 0. Unlike :c:func:`FOXNonZeroInteger`, this generator increases the
+    likelihood of generating extreme values (INT_MAX, INT_MIN)::
+
+        FOXFamousNonZeroInteger()
+        // example generations: -4, 32767, -32767
+
+    It is not recommended to use this generator to produce collections.
+
+.. c:function:: id<FOXGenerator> FOXFamousFloat(void)
+
+    Generates random floating point numbers that conform to the IEEE 754
+    standard in a boxed NSNumber. Shrinks towards zero by shrinking the float's
+    exponent and mantissa. Unlike :c:func:`FOXFloat`, this generator increases
+    the likelihood of generating extreme values (FLT_MAX, -FLT_MAX, INFINITY,
+    -INFINITY, -0, NaN)::
+
+        FOXFamousFloat()
+        // example generations: 0, 3.436027e+10, -9.860766e-32, INFINITY
+
+    The generator **does not** generate negative zeros or negative infinities.
+    It is possible to generate positive infinity and NaNs, but is highly
+    unlikely.
+
+.. c:function:: id<FOXGenerator> FOXFamousDouble(void)
+
+    Generates random doubles that conform to the IEEE 754 standard in a boxed
+    NSNumber. Shrinks towards zero by shrinking the double's exponent and
+    mantissa. Unlike :c:func:`FOXDouble`, this generator increases the
+    likelihood of generating extreme values (max of double, -(max of double),
+    INFINITY, -INFINITY, -0, NaN)::  
+
+        FOXFamousDouble()
+        // example generations: 0, 6.983507489299851e-251, -INFINITY
+
+    The generator **does not** generate negative zeros or negative infinities.
+    It is possible to generate positive infinity and NaNs, but is highly
+    unlikely.
+
+.. c:function:: id<FOXGenerator> FOXDecimalNumber(void)
 
     Generates random decimal numbers. Shrinks towards zero by shrinking the
     mantissa and exponent.
@@ -473,7 +587,7 @@ generator adopts the same shrinking properties as the original generator.
 
     Dispatches to one of many generators by probability. Takes an array of
     tuples (2-sized array) - ``@[@[@probability_uint, generator]]``. Shrinking
-    follows whatever generator is returned.
+    follows whatever generator is returned::
 
         // equivalent to FOXOptional(FOXInteger())
         FOXFrequency(@[@[@1, FOXReturn(nil)],

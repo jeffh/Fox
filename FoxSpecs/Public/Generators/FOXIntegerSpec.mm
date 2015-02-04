@@ -54,4 +54,20 @@ describe(@"FOXInteger", ^{
     });
 });
 
+describe(@"FOXFamousIntegers", ^{
+    it(@"should generate min and max integers", ^{
+        __block BOOL hasSeenIntMax = NO;
+        __block BOOL hasSeenIntMin = NO;
+        FOXRunnerResult *result = [FOXSpecHelper resultForAll:FOXFamousInteger() then:^BOOL(NSNumber *value) {
+            hasSeenIntMax = hasSeenIntMax || [value isEqual:@(INT_MAX)];
+            hasSeenIntMin = hasSeenIntMin || [value isEqual:@(INT_MIN)];
+            return YES;
+        }];
+
+        hasSeenIntMax should be_truthy;
+        hasSeenIntMin should be_truthy;
+        result should be_truthy;
+    });
+});
+
 SPEC_END

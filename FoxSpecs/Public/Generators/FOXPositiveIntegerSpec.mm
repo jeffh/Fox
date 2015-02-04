@@ -58,4 +58,17 @@ describe(@"FOXPositiveInteger", ^{
     });
 });
 
+describe(@"FOXFamousPositiveInteger", ^{
+    it(@"should generate maximum positive unsigned integer", ^{
+        __block BOOL hasSeenUIntMax = NO;
+        FOXRunnerResult *result = [FOXSpecHelper resultForAll:FOXFamousPositiveInteger() then:^BOOL(NSNumber *value) {
+            hasSeenUIntMax = hasSeenUIntMax || [value isEqual:@(INT_MAX)];
+            return YES;
+        }];
+
+        hasSeenUIntMax should be_truthy;
+        result should be_truthy;
+    });
+});
+
 SPEC_END
