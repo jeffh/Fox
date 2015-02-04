@@ -38,13 +38,6 @@ describe(@"FOXFamousStrictNegativeInteger", ^{
             return [value integerValue] < 0;
         }));
     });
-
-    it(@"should shrink to -1", ^{
-        FOXRunnerResult *result = [FOXSpecHelper shrunkResultForAll:FOXFamousStrictNegativeInteger()];
-
-        result.succeeded should be_falsy;
-        result.smallestFailingValue should equal(@(-1));
-    });
 });
 
 SPEC_END
