@@ -12,7 +12,7 @@
 // tree. Please note that this will balloon the running memory significantly.
 //
 // Leave this commented before commiting.
-#define FOX_DEBUG
+//#define FOX_DEBUG
 
 #ifdef FOX_DEBUG
 #define FOX_IF_NOT_DEBUG(...)

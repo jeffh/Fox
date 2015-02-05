@@ -2,5 +2,5 @@
 #import "FOXRoseTree.h"
 
 @interface FOXRunnerResult (Protected)
-@property (nonatomic) FOXRunnerResult *failingRoseTree;
+@property (nonatomic) FOXRoseTree *failingRoseTree;
 @end
