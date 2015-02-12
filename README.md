@@ -1,7 +1,7 @@
 Fox
 ===
 
-[![Build Status](https://travis-ci.org/jeffh/Fox.svg?branch=master)](https://travis-ci.org/jeffh/Fox)
+[![Build Status](https://travis-ci.org/jeffh/Fox.svg?branch=swift-1.1)](https://travis-ci.org/jeffh/Fox)
 [![Latest Documentation Status](https://readthedocs.org/projects/fox-testing/badge/?version=latest)](http://fox-testing.readthedocs.org/en/latest/)
 [![v1.0.1 Documentation Status](https://readthedocs.org/projects/fox-testing/badge/?version=v1.0.1)](http://fox-testing.readthedocs.org/en/v1.0.1/)
 
