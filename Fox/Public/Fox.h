@@ -44,3 +44,4 @@
 #import "FOXMacros.h"
 #import "FOXDSL.h"
 
+#import "Fox-Swift.h"
