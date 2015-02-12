@@ -108,7 +108,7 @@ code that will fail the property we just wrote::
         return sortedNumbers;
     }
 
-Some nefarious little code we added there! We run again we get to see Fox work::
+Some nefarious code we added there! We run Fox again to see the magic::
 
     Property failed with: ( 0, 0, 0, 0, "-1" )
     Location:   // /Users/jeff/workspace/FoxExample/FoxExampleTests/FoxExampleTests.m:41
@@ -186,7 +186,7 @@ So what happened? Fox generates random data until a failure occurs. Once a
 failure occurs, Fox starts the shrinking process. The shrinking behavior is
 generator-dependent, but generally alters the data towards the "zero" value:
 
-- For integers, that means moving towards 0 value.
+- For integers, that means moving towards zero.
 - For arrays, each element shrinks as well as the number of elements
   moves towards zero.
 
@@ -206,6 +206,9 @@ happens to be significant.
              Observe when you change the failure case to require more than 200
              elements for the sort example. See :ref:`Configuring Test
              Generation` for more information.
+
+             If you want a more thorough exercise of the full data range, use
+             the famous value generator variants - ``FOXFamousInteger``.
 
 Testing Stateful APIs
 ---------------------
