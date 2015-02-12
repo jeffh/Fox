@@ -74,9 +74,9 @@ public func elements(elements: [AnyObject!]) -> FOXGenerator {
 }
 
 public func frequency(pairs: (UInt, FOXGenerator)...) -> FOXGenerator {
-    var objcPairs = NSMutableArray()
+    var objcPairs: [AnyObject] = []
     for (freq, gen) in pairs {
-        objcPairs.addObject([freq, gen] as NSArray)
+        objcPairs.append([freq, gen])
     }
     return FOXFrequency(objcPairs)
 }
@@ -92,7 +92,7 @@ public func resize(generator: FOXGenerator, minimumSize: UInt, maximumSize: UInt
 // MARK: Dictionary Generators
 
 public func dictionary(template: NSDictionary) -> FOXGenerator {
-    return FOXDictionary(template)
+    return FOXDictionary(template as! [NSObject : AnyObject])
 }
 
 // MARK: Numeric Generators
@@ -160,7 +160,7 @@ public func executeCommands(stateMachine: FOXStateMachine, subjectFactory: () ->
 }
 
 public func executedSuccessfully(commands: NSArray) -> Bool {
-    return FOXExecutedSuccessfully(commands)
+    return FOXExecutedSuccessfully(commands as! [AnyObject])
 }
 
 // MARK: String Generators
