@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
 
 
   s.author             = { "Jeff Hui" => "jeff@jeffhui.net" }
-  s.ios.deployment_target = "8.0"
-  s.osx.deployment_target = "10.10"
+  s.ios.deployment_target = "7.0"
+  s.osx.deployment_target = "10.9"
 
   s.source       = { :git => "https://github.com/jeffh/Fox.git", :tag => "v1.0.1" }
 
