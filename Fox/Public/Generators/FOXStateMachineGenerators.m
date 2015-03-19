@@ -31,7 +31,7 @@ FOX_EXPORT id<FOXGenerator> FOXGenCommands(id<FOXStateMachine> stateMachine) {
 
 
 FOX_EXPORT id<FOXGenerator> FOXCommands(id<FOXStateMachine> stateMachine) {
-    return FOXSuchThat(FOXArray(FOXGenCommands(stateMachine)), ^BOOL(NSArray *commands) {
+    return FOXSuchThat(FOXNonEmptyArray(FOXGenCommands(stateMachine)), ^BOOL(NSArray *commands) {
         return [stateMachine isValidCommandSequence:commands];
     });
 }

@@ -86,11 +86,13 @@ static id FOXBoxReturnFromInvocation(NSInvocation *invocation);
 
 - (id)nextModelStateFromModelState:(id)previousModelState generatedValue:(id)generatedValue
 {
+    NSAssert(self.nextState, @"The nextState property is required.");
     return self.nextState(previousModelState, generatedValue);
 }
 
 - (id)objectReturnedByInvokingSubject:(id)subject generatedValue:(id)generatedValue
 {
+    NSAssert(self.action, @"The action property is required.");
     return self.action(subject, generatedValue);
 }
 

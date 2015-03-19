@@ -32,6 +32,17 @@ FOX_EXPORT id<FOXGenerator> FOXTuple(NSArray *generators);
  */
 FOX_EXPORT id<FOXGenerator> FOXArray(id<FOXGenerator> elementGenerator);
 
+/*! Generates a variable-size non-empty array with each element generated from
+ *  the given generator.
+ *
+ *  @warning Alpha API.
+ *
+ *  @param elementGenerator The generator used to produce each element in the
+ *                          generated array.
+ *  @returns a generator that produces a variable-size array that is not empty.
+ */
+FOX_EXPORT id<FOXGenerator> FOXNonEmptyArray(id<FOXGenerator> elementGenerator);
+
 /*! Generates a fixed-size array with each element generated from the given
  *  generator.
  *

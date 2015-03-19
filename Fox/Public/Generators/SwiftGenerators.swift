@@ -61,7 +61,7 @@ public func returns(value: AnyObject!) -> FOXGenerator {
     return FOXReturn(value)
 }
 
-public func suchThat(generator: FOXGenerator, predicate: (AnyObject!) -> Bool, maxTries: UInt = 3) -> FOXGenerator {
+public func suchThat(generator: FOXGenerator, maxTries: UInt = 3, predicate: (AnyObject!) -> Bool) -> FOXGenerator {
     return FOXSuchThatWithMaxTries(generator, predicate, maxTries)
 }
 

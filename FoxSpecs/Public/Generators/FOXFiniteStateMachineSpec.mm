@@ -24,6 +24,8 @@ describe(@"FOXFiniteStateMachine", ^{
         [stateMachine addTransition:[[QueueRemoveTransition alloc] init]];
     });
 
+    xit(@"should allow preconditions to be optionally specified", PENDING);
+
     it(@"should provide the initial state", ^{
         [stateMachine initialModelState] should equal(@[]);
     });

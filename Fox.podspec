@@ -26,6 +26,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = "Fox/**/*.{h,m,mm,swift}"
   s.public_header_files = "Fox/Public/**/*.h"
+  s.framework = 'XCTest'
   s.requires_arc = true
 
   s.libraries = 'c++'

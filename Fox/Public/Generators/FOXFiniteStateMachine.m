@@ -40,7 +40,8 @@
     for (FOXCommand *command in commands) {
         id<FOXStateTransition> transition = command.transition;
         id generatedValue = command.generatedValue;
-        if (![transition satisfiesPreConditionForModelState:modelState]) {
+        if ([transition respondsToSelector:@selector(satisfiesPreConditionForModelState:)] &&
+            ![transition satisfiesPreConditionForModelState:modelState]) {
             return NO;
         }
         modelState = [transition nextModelStateFromModelState:modelState generatedValue:generatedValue];
