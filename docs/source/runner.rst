@@ -50,9 +50,9 @@ By default, Fox generates **500 tests per assertion** with a **maximum size of
 we can provide optional configuration by using the ``FOXOptions``::
 
     FOXAssertWithOptions(FOXForAll(...), (FOXOptions){
-        seed=5,              // default: time(NULL)
-        numberOfTests=1000,  // default: 500
-        maximumSize=100,     // default: 200
+        .seed=5,              // default: time(NULL)
+        .numberOfTests=1000,  // default: 500
+        .maximumSize=100,     // default: 200
     });
 
 Global Configuration
