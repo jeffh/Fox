@@ -346,8 +346,8 @@ passes the property we just wrote::
 
 .. note:: Testing a queue with this technique has obvious testing problems
           (being the test is like the implementation). But for larger
-          integration tests, this can be useful. They just happen to be less to
-          be concise examples.
+          integration tests this can be useful. They just happen to be less
+          concise examples.
 
 To break this, let's modify the queue implementation::
 
