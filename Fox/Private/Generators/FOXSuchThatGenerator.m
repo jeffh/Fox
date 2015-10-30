@@ -24,14 +24,14 @@
 
 - (FOXRoseTree *)lazyTreeWithRandom:(id<FOXRandom>)random maximumSize:(NSUInteger)maximumSize
 {
-    NSUInteger attempts = 0;
 
-    while (attempts < self.maxTries) {
+    for(NSUInteger attempts = 0; attempts < self.maxTries; attempts++) {
         FOXRoseTree *tree = [self.generator lazyTreeWithRandom:random maximumSize:maximumSize + attempts];
         if (self.predicate(tree.value)) {
             return [tree treeFilterChildrenByBlock:self.predicate];
         }
     }
+
 
     [NSException raise:@"FOXGenerationFailed"
                 format:@"FOXSuchThat generator could failed to satisfy predicate after %lu times",
