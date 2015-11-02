@@ -35,7 +35,7 @@ them for use if you can define specifications -- known properties of the
 subject under test:
 
 ```objc
-FOXAssert(FOXForAll(FOXTuple(FOXInteger(), FOXInteger()), ^BOOL(NSArray *values){
+FOXAssert(FOXForAll(FOXTuple(@[FOXInteger(), FOXInteger()]), ^BOOL(NSArray *values){
     NSInteger x = [tuple[0] integerValue];
     NSInteger y = [tuple[1] integerValue];
     return x + y > x;
