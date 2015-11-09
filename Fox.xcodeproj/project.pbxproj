@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F210D491BF05B850068FEE5 /* Cedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F210D481BF05B850068FEE5 /* Cedar.framework */; };
+		1F210D4B1BF05B980068FEE5 /* Cedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F210D4A1BF05B980068FEE5 /* Cedar.framework */; };
 		1F2C101C1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */; };
 		1F2C101D1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */; };
 		1F38B61B1A2ACCA80078FF90 /* FOXBlockGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC39198F7C9A00BEA6E1 /* FOXBlockGenerator.h */; };
@@ -228,8 +230,6 @@
 		1F38B6FB1A2ACF910078FF90 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF6737D1A2AC7E200F98D20 /* UIKit.framework */; };
 		1F41BE9B1A2ACB9C00F25A65 /* Fox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41BE901A2ACB9C00F25A65 /* Fox.framework */; };
 		1F41BEB91A2ACBA300F25A65 /* Fox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F41BEAE1A2ACBA300F25A65 /* Fox.framework */; };
-		1F4CA2CD1A2D747300989740 /* Cedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4CA2CC1A2D747300989740 /* Cedar.framework */; };
-		1F4CA2CF1A2D747700989740 /* libCedar-StaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F4CA2CE1A2D747700989740 /* libCedar-StaticLib.a */; };
 		1F6A7DDA1A35241700EA3482 /* FOXDoubleSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A7DD91A35241700EA3482 /* FOXDoubleSpec.mm */; };
 		1F6A7DDB1A35241700EA3482 /* FOXDoubleSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A7DD91A35241700EA3482 /* FOXDoubleSpec.mm */; };
 		1F71D4E91A3105050017E81A /* FOXEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F71D4E71A3105050017E81A /* FOXEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -284,6 +284,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F210D481BF05B850068FEE5 /* Cedar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cedar.framework; path = Externals/cedar/build/Debug/Cedar.framework; sourceTree = "<group>"; };
+		1F210D4A1BF05B980068FEE5 /* Cedar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cedar.framework; path = "Externals/cedar/build/Debug-appletvos/Cedar.framework"; sourceTree = "<group>"; };
 		1F2A94F41997383300471B24 /* FOXTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXTransition.h; sourceTree = "<group>"; };
 		1F2A94F51997383300471B24 /* FOXTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXTransition.m; sourceTree = "<group>"; };
 		1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXDecimalNumberSpec.mm; path = FoxSpecs/Public/Generators/FOXDecimalNumberSpec.mm; sourceTree = SOURCE_ROOT; };
@@ -442,7 +444,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F4CA2CD1A2D747300989740 /* Cedar.framework in Frameworks */,
+				1F210D491BF05B850068FEE5 /* Cedar.framework in Frameworks */,
 				1F41BE9B1A2ACB9C00F25A65 /* Fox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,7 +460,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F4CA2CF1A2D747700989740 /* libCedar-StaticLib.a in Frameworks */,
+				1F210D4B1BF05B980068FEE5 /* Cedar.framework in Frameworks */,
 				1F38B6FB1A2ACF910078FF90 /* UIKit.framework in Frameworks */,
 				1F41BEB91A2ACBA300F25A65 /* Fox.framework in Frameworks */,
 			);
@@ -566,6 +568,8 @@
 		1F60160E1919DCE0003D8484 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F210D4A1BF05B980068FEE5 /* Cedar.framework */,
+				1F210D481BF05B850068FEE5 /* Cedar.framework */,
 				1F4CA2CE1A2D747700989740 /* libCedar-StaticLib.a */,
 				1F4CA2CC1A2D747300989740 /* Cedar.framework */,
 				1FF6737D1A2AC7E200F98D20 /* UIKit.framework */,
@@ -960,6 +964,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FOX;
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
 				LastTestingUpgradeCheck = 0600;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jeff Hui";
@@ -1305,6 +1311,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/cedar/build/Debug",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1334,6 +1341,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/cedar/build/Debug",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1373,7 +1381,7 @@
 				);
 				INFOPLIST_FILE = Fox/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = Fox;
@@ -1405,7 +1413,7 @@
 				);
 				INFOPLIST_FILE = Fox/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = Fox;
@@ -1425,6 +1433,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/cedar/build/Debug-appletvos",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1457,6 +1466,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/cedar/build/Debug-appletvos",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

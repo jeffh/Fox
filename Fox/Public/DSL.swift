@@ -13,8 +13,8 @@ public func Assert(
         let numTests = (numberOfTests != nil) ? numberOfTests! : FOXGetNumberOfTests()
         let maxSize = (maximumSize != nil) ? maximumSize! : FOXGetMaximumSize()
 
-        var runner = FOXRunner.assertInstance()
-        var result = runner.resultForNumberOfTests(numTests,
+        let runner = FOXRunner.assertInstance()
+        let result = runner.resultForNumberOfTests(numTests,
             property: property,
             seed: theSeed,
             maxSize: maxSize)

@@ -92,7 +92,7 @@ public func resize(generator: FOXGenerator, minimumSize: UInt, maximumSize: UInt
 // MARK: Dictionary Generators
 
 public func dictionary(template: NSDictionary) -> FOXGenerator {
-    return FOXDictionary(template as! [NSObject : AnyObject])
+    return FOXDictionary(template as [NSObject : AnyObject])
 }
 
 // MARK: Numeric Generators
@@ -160,7 +160,7 @@ public func executeCommands(stateMachine: FOXStateMachine, subjectFactory: () ->
 }
 
 public func executedSuccessfully(commands: NSArray) -> Bool {
-    return FOXExecutedSuccessfully(commands as! [AnyObject])
+    return FOXExecutedSuccessfully(commands as [AnyObject])
 }
 
 // MARK: String Generators

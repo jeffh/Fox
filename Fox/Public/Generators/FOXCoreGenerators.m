@@ -57,7 +57,7 @@ FOX_EXPORT id<FOXGenerator> FOXReturn(id value) {
 }
 
 FOX_EXPORT id<FOXGenerator> FOXSuchThat(id<FOXGenerator> generator, BOOL(^predicate)(id)) {
-    return FOXSuchThatWithMaxTries(generator, predicate, 10);
+    return FOXSuchThatWithMaxTries(generator, predicate, 100);
 }
 
 FOX_EXPORT id<FOXGenerator> FOXSuchThatWithMaxTries(id<FOXGenerator> generator, BOOL(^predicate)(id), NSUInteger maxTries) {
