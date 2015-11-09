@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4D8045885AF8CE75E2C66268CAB796EB63C645AB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9C17E6AC4A93E78FE05F88AE0011DD4EAD50139D" : 0,
+    "4D8045885AF8CE75E2C66268CAB796EB63C645AB" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3FD8FD1F-1AD4-44FE-8A30-73794475681A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9C17E6AC4A93E78FE05F88AE0011DD4EAD50139D" : "Fox\/Externals\/cedar",
+    "4D8045885AF8CE75E2C66268CAB796EB63C645AB" : "Fox"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Fox",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Fox.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:jeffh\/Fox.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4D8045885AF8CE75E2C66268CAB796EB63C645AB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/pivotal\/cedar.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9C17E6AC4A93E78FE05F88AE0011DD4EAD50139D"
+    }
+  ]
+}
