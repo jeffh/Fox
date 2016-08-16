@@ -6,8 +6,8 @@ public func Assert(
     seed: UInt? = nil,
     numberOfTests: UInt? = nil,
     maximumSize: UInt? = nil,
-    file: String = __FILE__,
-    line: UInt = __LINE__) {
+    file: StaticString = #file,
+    line: UInt = #line) {
 
         let theSeed = (seed != nil) ? seed! : FOXGetSeed()
         let numTests = (numberOfTests != nil) ? numberOfTests! : FOXGetNumberOfTests()
