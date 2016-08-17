@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F210D491BF05B850068FEE5 /* Cedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F210D481BF05B850068FEE5 /* Cedar.framework */; };
-		1F210D4B1BF05B980068FEE5 /* Cedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F210D4A1BF05B980068FEE5 /* Cedar.framework */; };
 		1F2C101C1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */; };
 		1F2C101D1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C101B1A3784B900BF6AEC /* FOXDecimalNumberSpec.mm */; };
 		1F38B61B1A2ACCA80078FF90 /* FOXBlockGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35BC39198F7C9A00BEA6E1 /* FOXBlockGenerator.h */; };
@@ -256,6 +254,8 @@
 		1FAE3B6F1A2F10080011838A /* FOXFloatSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE3B6D1A2F10080011838A /* FOXFloatSpec.mm */; };
 		1FC42D481A34E8E8006455F2 /* FOXBindSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FC42D471A34E8E8006455F2 /* FOXBindSpec.mm */; };
 		1FC42D491A34E8E8006455F2 /* FOXBindSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FC42D471A34E8E8006455F2 /* FOXBindSpec.mm */; };
+		1FCE21901D6400CD00A6F5B8 /* Cedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCE218F1D6400CD00A6F5B8 /* Cedar.framework */; };
+		1FCE21921D6400D300A6F5B8 /* Cedar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCE21911D6400D300A6F5B8 /* Cedar.framework */; };
 		1FFCE5671A80B90700A427AA /* FOXLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FFCE5651A80B90700A427AA /* FOXLimits.h */; };
 		1FFCE5681A80B90700A427AA /* FOXLimits.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FFCE5651A80B90700A427AA /* FOXLimits.h */; };
 		1FFCE5691A80B90700A427AA /* FOXLimits.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCE5661A80B90700A427AA /* FOXLimits.mm */; };
@@ -383,6 +383,8 @@
 		1FAE3B671A2EC5E60011838A /* SwiftGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftGenerators.swift; path = Fox/Public/Generators/SwiftGenerators.swift; sourceTree = SOURCE_ROOT; };
 		1FAE3B6D1A2F10080011838A /* FOXFloatSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXFloatSpec.mm; path = FoxSpecs/Public/Generators/FOXFloatSpec.mm; sourceTree = SOURCE_ROOT; };
 		1FC42D471A34E8E8006455F2 /* FOXBindSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FOXBindSpec.mm; path = FoxSpecs/Public/Generators/FOXBindSpec.mm; sourceTree = SOURCE_ROOT; };
+		1FCE218F1D6400CD00A6F5B8 /* Cedar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cedar.framework; path = "../../Library/Developer/Xcode/DerivedData/Fox-dmobuslqyltucubgnxyazjnfmyjr/Build/Products/Debug/Cedar.framework"; sourceTree = "<group>"; };
+		1FCE21911D6400D300A6F5B8 /* Cedar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cedar.framework; path = "../../Library/Developer/Xcode/DerivedData/Fox-dmobuslqyltucubgnxyazjnfmyjr/Build/Products/Debug-iphonesimulator/Cedar.framework"; sourceTree = "<group>"; };
 		1FF5B93519737D4600416383 /* FOXIntegerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = FOXIntegerSpec.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1FF5B93C1973BD9000416383 /* FOXRoseTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXRoseTree.h; sourceTree = "<group>"; };
 		1FF5B93D1973BD9000416383 /* FOXRoseTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXRoseTree.m; sourceTree = "<group>"; };
@@ -444,7 +446,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F210D491BF05B850068FEE5 /* Cedar.framework in Frameworks */,
+				1FCE21901D6400CD00A6F5B8 /* Cedar.framework in Frameworks */,
 				1F41BE9B1A2ACB9C00F25A65 /* Fox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,7 +462,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F210D4B1BF05B980068FEE5 /* Cedar.framework in Frameworks */,
+				1FCE21921D6400D300A6F5B8 /* Cedar.framework in Frameworks */,
 				1F38B6FB1A2ACF910078FF90 /* UIKit.framework in Frameworks */,
 				1F41BEB91A2ACBA300F25A65 /* Fox.framework in Frameworks */,
 			);
@@ -568,6 +570,8 @@
 		1F60160E1919DCE0003D8484 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FCE21911D6400D300A6F5B8 /* Cedar.framework */,
+				1FCE218F1D6400CD00A6F5B8 /* Cedar.framework */,
 				1F210D4A1BF05B980068FEE5 /* Cedar.framework */,
 				1F210D481BF05B850068FEE5 /* Cedar.framework */,
 				1F4CA2CE1A2D747700989740 /* libCedar-StaticLib.a */,
